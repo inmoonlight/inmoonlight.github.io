@@ -5,15 +5,15 @@
     <description>사람을 위한 모델링을 하고 싶은 데이터 사이언티스트이자&lt;br&gt;모든 사람이 각자의 색으로 빛나는 세상을 꿈꾸는 이상주의자</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Dec 2018 13:26:17 +0900</pubDate>
-    <lastBuildDate>Sun, 23 Dec 2018 13:26:17 +0900</lastBuildDate>
+    <pubDate>Sun, 23 Dec 2018 13:28:49 +0900</pubDate>
+    <lastBuildDate>Sun, 23 Dec 2018 13:28:49 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
         <title>스카이캐슬을 통해 본 서울대학교 학생들의 우울증</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/assets/images/snu_blues.jpeg&quot; alt=&quot;snu_blues&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;a href=&quot;https://news.v.daum.net/v/20181130174505442&quot;&gt;기사&lt;/a&gt;에 따르면, 서울대학교 학생들의 47%가 우울증을 앓고 있다고 한다. 그 원인으로 사상 최악의 취업난과 과열된 학점 경쟁을 꼽고 있는데, 실상을 전혀 모르고 하는 소리다. 만약 그 이유로 우울했더라면, 진로문제나 학업문제로 상담소를 찾는 학생들이 제일 많아야 한다. 그러나, 기사에도 적혀있듯이 심리상담소를 찾는 대부분의 학생은 “정서문제”로 어려움을 겪고 있다.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://news.v.daum.net/v/20181130174505442&quot;&gt;기사&lt;/a&gt;에 따르면, 서울대학교 학생들의 47%가 우울증을 앓고 있다고 한다. 그 원인으로 사상 최악의 취업난과 과열된 학점 경쟁을 꼽고 있는데, 실상을 전혀 모르고 하는 소리다. 만약 그 이유로 우울했더라면, 진로문제나 학업문제로 상담소를 찾는 학생들이 제일 많아야 한다. 그러나, 기사에도 적혀있듯이 심리상담소를 찾는 대부분의 학생은 “정서문제”로 어려움을 겪고 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/snu_blues.jpeg&quot; alt=&quot;snu_blues&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;서울대 학생들은 확실히 타교 학생들에 비해 취업 걱정이 덜하다. 주변에서 “취업을 하지 못할 것”으로 염려하는 학생들은 보지 못했다. 대신, “내가 무엇을 좋아하는지, 무엇을 잘할 수 있는지, 내가 선택한 모든 것들이 괜찮은 것인지, 이래도 되는 것인지, 평생에 걸쳐 이뤄내고 싶은 내 삶의 목적은 무엇인지, 나는 어떤 사람인지”를 몰라 방황하는 학생들은 많았다.&lt;/p&gt;
 
