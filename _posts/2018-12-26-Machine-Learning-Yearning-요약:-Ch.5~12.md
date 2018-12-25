@@ -39,9 +39,9 @@ Machine Learning / Deep Learning 모델을 전략적으로 향상시키기 위�
 ### Dev/Test set
 먼저, training set, dev set, test set에 대해 정의해보자.
 
-> Training set: 우리가 알고리즘을 학습할 때 사용하는 데이터
-> Dev set: 알고리즘의 parameter를 튜닝하고, feature를 선택하는 등의 결정을 내리기 위한 데이터
-> Test set: 알고리즘의 성능을 평가하기 위한 데이터
+> Training set: 우리가 알고리즘을 학습할 때 사용하는 데이터 <br>
+> Dev set: 알고리즘의 parameter를 튜닝하고, feature를 선택하는 등의 결정을 내리기 위한 데이터 <br>
+> Test set: 알고리즘의 성능을 평가하기 위한 데이터 <br>
 
 즉, 모델이 잘하고 있는지 아닌지의 여부는 test set에 달려있다. 그리고 “잘한다”라는 기준은 서비스에 대해서는 당연히 “사용자의 만족도”이다. 그러므로 test set은 “사용자의 만족도를 향상시키기 위해 세운 팀의 목적”과 부합해야 하며, “서비스가 잘 하고 싶은 영역”과 “서비스 사용자를 통해 들어올 법한 데이터”를 반영해야 한다.
 
