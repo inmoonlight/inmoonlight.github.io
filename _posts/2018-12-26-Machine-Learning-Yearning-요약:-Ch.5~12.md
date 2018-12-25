@@ -56,7 +56,7 @@ Test set의 경우에는 모델의 성능에 대해 높은 confidence를 줄 수
 
 그러나 A와 B와 같은 metric을 적절히 섞기 어려운 경우가 있을 수 있다. 아래 그림의 정확도와 running time처럼 (`Accuracy - 0.5*RunningTime`와 같은 단일 metric이 부자연스럽다).
 
-![figure1]({{ site.baseurl }}/assets/images/mlyearning-ch5-12-figure2.png)
+![figure2]({{ site.baseurl }}/assets/images/mlyearning-ch5-12-figure2.png)
 
 이럴 땐, satisficing metric과 optimizing metric을 나누어서 생각하면 된다. 총 N개의 metric이 존재할 때, N-1 개의 satisficing metric과 1개의 optimizing metric으로 나눈다. 위의 예제의 경우, Running time은 satisficing metric으로, Accuracy는 optimizing metric으로 두었을 때, Running time은 특정 기준을 넘기기만 하면 되고, Accuracy는 그 안에서 최대인 모델이 가장 좋은 모델이라고 평가할 수 있다. 
 
