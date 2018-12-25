@@ -49,7 +49,21 @@ layout: default2
 		  {{content}}
 		</section>
 		<footer class="post-footer">
-		  <section class="share">
+			<!-- <div class="col-md-8 p-5 align-self-center text-center"> -->
+			<ul class="tag-box inline">
+					{% assign tags_list = page.categories %}  
+					{% if tags_list.first[0] == null %}
+						{% for tag in tags_list %} 
+							<a href="{{ site.baseurl }}/category/{{ tag }}">{{ tag | capitalize }} {{ site.tags[tag].size }}</a>
+						{% endfor %}
+					{% else %}
+						{% for tag in tags_list %} 
+							<a href="{{ site.baseurl }}/category/{{ tag[0] }}">{{ tag[0] | capitalize }} ({{ tag[1].size }})</a>
+						{% endfor %}
+					{% endif %}
+					{% assign tags_list = nil %}
+			</ul>
+		  <!-- <section class="share">
 			{% for social in site.social %}
 			  {% if social.share_url != null %}
 				<a class="icon-{{ social.icon }}" href="{{ social.share_url }}{% if social.share_title %}{{ social.share_title }}{{page.title | cgi_escape}}{% endif %}{{ social.share_link }}{{site.url}}{{site.baseurl}}{{page.id}}"
@@ -58,7 +72,7 @@ layout: default2
 				</a>
 			  {% endif %}
 			{% endfor %}
-		  </section>
+		  </section> -->
 		</footer>
 	  </article>
 	</main>
