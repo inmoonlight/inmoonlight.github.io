@@ -12,7 +12,6 @@ Deep learning으로 예전에는 풀지 못했던 문제들을 풀게 되면서 
 
 우리 팀도 NMT를 서비스에 반영하면서 다양한 고민에 부딪혀왔다. 그래서 Andrew Ng이 쓴 <<Machine Learning Yearning>>을 같이 읽고 있는데, 책 구석구석 고민해왔던 문제들에 대한 Andrew Ng 만의 해결책이 적혀있어 속이 뻥 뚫리는 기분을 맛보고 있다. (아무래도 Andrew Ng 은 Geoffrey Hinton, Yann Lecun, Joshua Bengio와 다르게 산업적인 측면에서의 Deep Learning에 더 관심이 많은 분인 듯하다.) 책 자체가 쉽게 쓰여져 있고, 각 챕터가 1~2장 정도밖에 되지 않아 부담은 적지만 큰 주제 별로 요약하면 더 많은 사람들이 쉽게 내용을 이해하고, 각자의 분야에 접목시킬 수 있을 것 같아서 이 글을 쓰게 되었다. 
 
-*주의: 모든 요약이 그렇듯이 요약자의 주관이 개입되어 있습니다.*
 
 <div class="breaker"></div>
 
