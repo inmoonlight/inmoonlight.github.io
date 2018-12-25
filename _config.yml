@@ -1,6 +1,6 @@
 # Site
-name: "In Moonlight"
-description: "사람을 위한 모델링을 하고 싶은 데이터 사이언티스트이자<br>모든 사람이 각자의 색으로 빛나는 세상을 꿈꾸는 이상주의자"
+name: "Space Moon"
+description: "개인적이지만 사소하지 않은 이야기를 담고 싶습니다"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ""
