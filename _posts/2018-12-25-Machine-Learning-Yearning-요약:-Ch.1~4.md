@@ -41,3 +41,17 @@ Chapter 1과 4를 종합하면 아래의 내용이다.
 * …
 
 이 중 무엇을 우선적으로 시도해 보아야할까? 그 답은 현재 내가 학습시킨 model에 있다. 그리고 이 책은 model이 남긴 단서들을 어떻게 활용해서 답을 찾을 수 있는지에 대한 내용을 담고 있다. 
+
+Andrew Ng은 바쁜 직장인들도 쉽게 내용을 이해할 수 있도록 책에 다양한 배려를 심어두었는데, 그 중 하나가 Chapter 들을 소주제로 묶어둔 것이다. 
+
+* Setting up development and test sets
+* Basic Error Analysis
+* Bias and Variance
+* Learning curves
+* Comparing to human-level performance
+* Training and Testing on different distributions
+* Debugging inference algorithms
+* End-to-end deep learning
+* Error analysis by parts
+
+이 주제를 보면 책의 큰 흐름을 알 수 있을 것이다. 다음 글은 Setting up development and test sets에 대한 내용이다.
