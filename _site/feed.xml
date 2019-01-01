@@ -5,14 +5,93 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Dec 2018 01:42:27 +0900</pubDate>
-    <lastBuildDate>Wed, 26 Dec 2018 01:42:27 +0900</lastBuildDate>
+    <pubDate>Tue, 01 Jan 2019 15:53:25 +0900</pubDate>
+    <lastBuildDate>Tue, 01 Jan 2019 15:53:25 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
+        <title>Machine Learning Yearning 요약: Ch.13~19</title>
+        <description>&lt;p&gt;지난 글 » &lt;br /&gt; &lt;a href=&quot;https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html&quot;&gt;Machine Learning Yearning 요약: Ch.1~4&lt;/a&gt; &lt;br /&gt; 
+&lt;a href=&quot;https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/26/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.5~12.html&quot;&gt;Machine Learning Yearning 요약: Ch.5~12&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;목적에 맞는 Dev와 Test set을 구축했다면, 이제 모델이 얼마나 잘하고 있는지, 못한다면 그 이유는 무엇인지에 대한 분석을 할 수 있다. 그래서 이번에 다룰 주제는 &lt;strong&gt;Basic Error Analysis&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ch.13: Build your first system quickly, then iterate &lt;br /&gt;
+Ch.14: Error analysis: Look at dev set examples to evaluate ideas &lt;br /&gt;
+Ch.15: Evaluating multiple ideas in parallel during error analysis &lt;br /&gt;
+Ch.16: Cleaning up mislabeled dev and test set examples &lt;br /&gt;
+Ch.17: If you have a large dev set, split it into two subsets, only one of which you look at &lt;br /&gt;
+Ch.18: How big should the Eyeball and Blackbox dev sets be? &lt;br /&gt;
+Ch.19: Takeaways: Basic error analysis&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;이해의 용이성을 위해, 내가 속한 팀이 사용자들이 올린 이미지를 classification하는 모델을 서비스한다고 가정해보자. 팀원들은 모델의 classification accuracy를 향상시키고 싶을 것이고, 이를 위해 적절한 training, dev, test set을 구축하였다. 학습시킨 모델의 정확도는 90%이다. 하지만 이 정도로는 서비스에 반영하기 어렵다. 자, 이제 우리는 어떻게 해야할까?&lt;/p&gt;
+
+&lt;p&gt;일단, 10%의 에러가 어떤 데이터에 대해서 발생하는지 분석(=error analysis)해야 한다. 좋은 분석은 적절한 가정들을 바탕으로 이루어진다. 우리 팀이 생각한 모델의 문제는 “개(dog) 이미지를 잘못 분류한다”이다.&lt;/p&gt;
+
+&lt;p&gt;지난 Chapter에서 dev set이 error analysis를 위한 data set임을 설명했다. 이 중 모델이 &lt;strong&gt;misclassify한 데이터에서 100개를 sampling&lt;/strong&gt;한다. 그리고 우리의 가설-개 이미지를 잘못 분류-과 일치하는 case를 센다. 만약 5개였다면, 에러율 10%의 5%가 해당 케이스인 것이므로 모델이 앞으로 “개 이미지를 제대로 분류”한다고 하더라도 &lt;code class=&quot;highlighter-rouge&quot;&gt;10% * 0.05 = .5%&lt;/code&gt; 정도의 향상을 기대할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;좀 더 효율을 높여보자. 우리는 지금 가설 1개에 대해서 100개의 sampling된 데이터를 살펴보았는데, 이 작업은 가설 여러개에 대해서 동시에 진행할 수 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;가설1: 개 이미지를 잘못 분류 &lt;br /&gt;
+가설2: 고양이과(사자, 표범 등) 이미지를 잘못 분류 &lt;br /&gt;
+가설3: 흐린 이미지를 잘못 분류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Andrew Ng은 헷갈리지 않도록 아래 그림처럼 spreadsheet을 만들어서 작업을 진행한다고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/mlyearning-ch13-19-figure1.png&quot; alt=&quot;figure1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;% of total&lt;/code&gt;을 통헤 현재 모델이 가장 critical하게 개선해야 하는 점이 무엇인지를 바로 파악할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;모델의 성능이 좋지 않을 때 항상 염두에 두어야 하는 가설이 있다. 바로, “mislabeled data의 비율이 얼마나 되는가?”이다. 데이터의 양이 많을수록 수집과정에서 예상치 못한 에러가 발생한다. mislabeled data가 발견된다면 training data의 mislabel은 어쩔 수 없으니 내버려두고, dev set과 test set은 수정하는 것을 권장한다. (dev와 test set의 distribution은 같아야 하므로)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/mlyearning-ch13-19-figure2.png&quot; alt=&quot;figure2&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;지금까지 소개한 error analysis 방법은 misclassify된 data 중에서 100개에 적용되었다. 이 말은 모델의 성능이 95%의 accuracy라고 가정했을 때, dev set의 크기가 &lt;code class=&quot;highlighter-rouge&quot;&gt;100/0.05 = 2,000&lt;/code&gt; 정도라는 뜻을 함유하고 있다. 만약 나의 dev set이 이 정도의 규모보다 작다면, 혹은 크다면 어떻게 해야할까?&lt;/p&gt;
+
+&lt;p&gt;Andrew Ng이 제안한 100개의 error data 개수는 이 정도가 모델의 major error source로서 매우 좋은 인사이트를 발견할 수 있다고 생각했기 때문이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;~100개: 매우 좋은 인사이트 발견 &lt;br /&gt;
+~50개: 좋은 인사이트 발견 &lt;br /&gt;
+~20개: 개략적인 인사이트 발견 &lt;br /&gt;
+~10개: 불충분. 하지만 적은 dev set을 가지고 있다면 없는 것보다는 나은 정도&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;그래서 dev set이 작다면 모든 데이터를 error analysis를 위해 사용하는 것이 좋다. 만약 dev set이 크다면, &lt;strong&gt;eyeball dev set&lt;/strong&gt;과 &lt;strong&gt;blackbox dev set&lt;/strong&gt;으로 나누어 사용한다. eyeball dev set은 error analysis를 하면서 계속 모델이 잘하거나 못하는 것을 살펴볼 용도로 사용하는 dev set이고, blackbox dev set은 모델의 파라미터를 튜닝하기 위한 용도로만 사용하는 dev set이다. 만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;eyeball error rate &amp;lt;&amp;lt; blackbox error rate&lt;/code&gt; 이라면 모델이 eyeball dev set에 overfitting하고 있으므로 새로운 eyeball dev set을 구축하는 것으로 그 위험을 방지한다.&lt;/p&gt;
+
+&lt;p&gt;여기에도 예외가 있는데, 사람조차 풀기 어려운 과제를 위한 모델을 만들고 있다면 eyeball dev set은 전혀 도움이 되지 않을 것이므로 eyeball dev set을 만들지 않아도 좋다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;그리고 여기까지 소개된 일련의 과정-데이터 수집 -&amp;gt; 모델 구성 -&amp;gt; 학습 -&amp;gt; 결과 분석 pipeline-이 최대한 빨리 iterate하는 것이 중요하다. 처음부터 완벽한 것은 없다. 일단 시작하자!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 Jan 2019 15:47:00 +0900</pubDate>
+        <link>http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2019/01/01/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.13~19.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2019/01/01/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.13~19.html</guid>
+        
+        
+        <category>머신러닝</category>
+        
+        <category>스터디</category>
+        
+        <category>책</category>
+        
+        <category>요약</category>
+        
+      </item>
+    
+      <item>
         <title>Machine Learning Yearning 요약: Ch.5~12</title>
-        <description>&lt;p&gt;지난 글 »
-&lt;a href=&quot;https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html&quot;&gt;Machine Learning Yearning 요약: Ch.1~4&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;지난 글 » &lt;br /&gt; &lt;a href=&quot;https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html&quot;&gt;Machine Learning Yearning 요약: Ch.1~4&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -45,9 +124,9 @@ Ch.12: Takeaways: Setting up development and test sets&lt;/p&gt;
 &lt;p&gt;먼저, training set, dev set, test set에 대해 정의해보자.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Training set: 우리가 알고리즘을 학습할 때 사용하는 데이터
-Dev set: 알고리즘의 parameter를 튜닝하고, feature를 선택하는 등의 결정을 내리기 위한 데이터
-Test set: 알고리즘의 성능을 평가하기 위한 데이터&lt;/p&gt;
+  &lt;p&gt;Training set: 우리가 알고리즘을 학습할 때 사용하는 데이터 &lt;br /&gt;
+Dev set: 알고리즘의 parameter를 튜닝하고, feature를 선택하는 등의 결정을 내리기 위한 데이터 &lt;br /&gt;
+Test set: 알고리즘의 성능을 평가하기 위한 데이터 &lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;즉, 모델이 잘하고 있는지 아닌지의 여부는 test set에 달려있다. 그리고 “잘한다”라는 기준은 서비스에 대해서는 당연히 “사용자의 만족도”이다. 그러므로 test set은 “사용자의 만족도를 향상시키기 위해 세운 팀의 목적”과 부합해야 하며, “서비스가 잘 하고 싶은 영역”과 “서비스 사용자를 통해 들어올 법한 데이터”를 반영해야 한다.&lt;/p&gt;
@@ -63,7 +142,7 @@ Test set: 알고리즘의 성능을 평가하기 위한 데이터&lt;/p&gt;
 
 &lt;p&gt;그러나 A와 B와 같은 metric을 적절히 섞기 어려운 경우가 있을 수 있다. 아래 그림의 정확도와 running time처럼 (&lt;code class=&quot;highlighter-rouge&quot;&gt;Accuracy - 0.5*RunningTime&lt;/code&gt;와 같은 단일 metric이 부자연스럽다).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/mlyearning-ch5-12-figure2.png&quot; alt=&quot;figure1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/mlyearning-ch5-12-figure2.png&quot; alt=&quot;figure2&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이럴 땐, satisficing metric과 optimizing metric을 나누어서 생각하면 된다. 총 N개의 metric이 존재할 때, N-1 개의 satisficing metric과 1개의 optimizing metric으로 나눈다. 위의 예제의 경우, Running time은 satisficing metric으로, Accuracy는 optimizing metric으로 두었을 때, Running time은 특정 기준을 넘기기만 하면 되고, Accuracy는 그 안에서 최대인 모델이 가장 좋은 모델이라고 평가할 수 있다.&lt;/p&gt;
 

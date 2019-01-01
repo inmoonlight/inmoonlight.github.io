@@ -4,8 +4,7 @@ layout: post
 date: 2018-12-25 17:17
 image: /assets/images/mlyearning.jpg
 categories: [ 머신러닝, 스터디, 책, 요약 ]
-featured: true
-hidden: true
+featured: false
 ---
 
 Deep learning으로 예전에는 풀지 못했던 문제들을 풀게 되면서 다양한 기업에서 자신들의 서비스에 Deep learning을 활용하려는 시도가 많아졌다. 그러나 생각보다 Deep learning을 서비스에 적용하는 과정은 간단하지 않다. 연구 목적으로 사용되는 것보다 데이터가 훨씬 크고, 이 때문에 한번 모델을 학습시키는데 소요되는 시간이 더 길다. 더욱이 서비스로 배포되기 위해서는 매우 정확해야 하므로 (서비스의 특징에 따른 차이는 있겠지만 대체적으로) 모델의 검증과 재학습의 iteration이 더 많이 이루어진다. 그러므로 연구실에서보다 회사에서 더 전략적인 판단의 과정이 필요하다. 
