@@ -12,10 +12,6 @@ hidden: true
 
 <div class="breaker"></div>
 
-책을 읽으면서 Andrew Ng이 쉽게 읽힐 수 있는 책을 만들기 위해 노력한 점이 보였다. Chapter를 소제목으로 묶어 두었고, 소제목으로 묶인 마지막 Chapter는 앞서 기술한 내용을 요약한 Takeaways가 담겨 있었다. 
-
-<div class="breaker"></div>
-
 이번에 요약할 Chapter 5~12 의 소제목은 **Setting up development and test sets** 이고, 아래와 같은 제목으로 구성되어 있다. 
 
 > Ch.5: Your development and test sets <br>
@@ -50,7 +46,7 @@ Machine Learning / Deep Learning 모델을 전략적으로 향상시키기 위�
 
 Test set의 경우에는 모델의 성능에 대해 높은 confidence를 줄 수 있을 정도의 사이즈가 적당하다. 교과서에서는 전체 데이터의 30%를 쓰라고 하지만, 빅데이터 시대에는 그보다 비율이 작아도 된다. 
 
-### Evluation metric
+### Evaluation metric
 2개 이상의 metric을 쓰는 것보다 단일 metric을 쓰는 것이 좋다. A와 B의 측면에서 평가해야하는데 A를 버리라는 뜻이 아니다. A와 B를 적절히 섞은 (평균, 가중 평균 등) 단일 수치를 만들라는 것이다. 단일 metric이어야 빠르게 모델의 성능을 비교하고 결정할 수 있다. 
 
 그러나 A와 B와 같은 metric을 적절히 섞기 어려운 경우가 있을 수 있다. 아래 그림의 정확도와 running time처럼 (`Accuracy - 0.5*RunningTime`와 같은 단일 metric이 부자연스럽다).
