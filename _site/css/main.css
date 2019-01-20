@@ -370,6 +370,7 @@ body {
 @media(min-width: 700px) {
   .post .article-image .post-image-image {
     background-size: cover;
+    background-position: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -385,6 +386,7 @@ body {
     display: none; }
   .post .article-image .post-image-image2 {
     background-size: cover;
+    background-position: center;
     position: absolute;
     top: 0;
     left: 0;
