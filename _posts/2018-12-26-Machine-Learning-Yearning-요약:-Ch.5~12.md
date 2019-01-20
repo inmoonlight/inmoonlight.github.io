@@ -4,8 +4,7 @@ layout: post
 date: 2018-12-26 01:24
 image: /assets/images/mlyearning.jpg
 categories: [ 머신러닝, 스터디, 책, 요약 ]
-featured: true
-hidden: true
+featured: false
 ---
 
 지난 글 >> <br> [Machine Learning Yearning 요약: Ch.1~4](https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html)
