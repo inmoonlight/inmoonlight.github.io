@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Jan 2019 23:46:22 +0900</pubDate>
-    <lastBuildDate>Sun, 20 Jan 2019 23:46:22 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Jan 2019 00:10:25 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Jan 2019 00:10:25 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
