@@ -8,7 +8,7 @@ comments: false
 
 무채색이라고 느끼는 사람들에게 색을 찾아주는 과정에서 행복을 느끼고, 사람이 남긴 데이터가 사람을 향해 쓰일 때 의미를 느낍니다.
 
-지금은 [날리다: 나를 알리다](http://www.nalida.info/)에서 자기이해 워크샵을 기획하고 있고, [NAVER](https://www.navercorp.com/ko/index.nhn) [Papago 서비스](https://papago.naver.com/)의 MT Engine을 담당하는 Data Scientist로 일하고 있습니다.
+지금은 [날리다: 나를 알리다](http://www.nalida.info/)에서 [연울림 프로젝트](https://www.instagram.com/yeonullim/)를 진행하고 있고, [NAVER](https://www.navercorp.com/ko/index.nhn) [Papago 서비스](https://papago.naver.com/)의 MT Engine을 담당하는 Data Scientist로 일하고 있습니다.
 
 <hr>
 
@@ -23,8 +23,10 @@ comments: false
 
 #### Projects
 
+- [MAR 2019 ~ PRESENT] **연울림** [[instagram]](https://www.instagram.com/yeonullim/)
 - [NOV 2018 ~ PRESENT] **날리다 (Nalida) : 나를 알리다** [[homepage]](http://www.nalida.info/) [[brunch]](https://brunch.co.kr/@nalida) [[facebook]](https://www.facebook.com/nalida2/) [[instagram]](https://www.instagram.com/nalida_official/) 
 - [NOV 2018 ~ PRESENT] **PyTorchTutorial for Beginners** [[github]](https://github.com/inmoonlight/PyTorchTutorial)
+- [OCT 2018 ~ PRESENT] **잇다 명예 멘토** [[page]](https://www.itdaa.net/mentors/29123)
 - [JUL 2017] **Tensorflow Implementation of Relation Network (RN)** [[github]](https://github.com/inmoonlight/Relation-Network)
 - [JAN 2017 ~ FEB 2017] **구글 여성 소프트웨어 캠프 (Develop with Google) 1기** 
 
