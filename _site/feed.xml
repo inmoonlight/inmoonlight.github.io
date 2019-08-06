@@ -5,37 +5,1703 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Apr 2019 01:03:39 +0900</pubDate>
-    <lastBuildDate>Tue, 02 Apr 2019 01:03:39 +0900</lastBuildDate>
+    <pubDate>Tue, 06 Aug 2019 18:59:17 +0200</pubDate>
+    <lastBuildDate>Tue, 06 Aug 2019 18:59:17 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>뉴스 댓글 분석 (2)</title>
+        <description>&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;NOTICE: 앞으로 소개될 내용은 NAVER와 무관하며, 오히려 NAVER 뉴스가 정치적인 편향성을 가지고 있지 않은 중립적인 플랫폼이라고 생각하기 때문에 분석을 하게 되었음을 알립니다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 글은 &lt;strong&gt;뉴스 댓글 분석&lt;/strong&gt; 2편이다. 지난 글에서와 마찬가지로 궁금한 점이나 추가 분석 요청은 댓글로 남겨주면 좋을 것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
+
+&lt;p&gt;2015년 12월부터 2018년 5월까지의 데이터로 소위 말하는 어뷰저의 존재를 확인해보았다.
+여기서 말하는 어뷰저의 criteria는 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;타인의 생각에 영향을 미칠 수 있도록 작성한 댓글이 top 10 내에 한 번 이상 들었어야 한다. 실제 어뷰저였어도 top 댓글이 아니어서 타인에게 영향을 미치지 못했다면 어뷰저라고 불릴 자격(?)이 없다.&lt;/li&gt;
+  &lt;li&gt;발생하기 어려운 패턴을 보여야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 기준에 따라 분석한 결과, 총 386번 댓글을 남겼고 그 중에서 369번(95.6%) top 10 내에 들었던 유저와 총 289번 댓글을 남기고 269번(93.1%) top 10 내에 들었던 유저를 의심해보게 되었다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;###0.-Previous-Work&quot;&gt;0. Previous Work&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;###1.-Abuser,-who-are-you?&quot;&gt;1. Abuser, who are you?&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;####1.1-Introduction&quot;&gt;1.1 Introduction&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;&quot;&gt;2. &lt;/a&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;0-previous-work&quot;&gt;0. Previous Work&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;뉴스 댓글 분석 (1)&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-abuser-who-are-you&quot;&gt;1. Abuser, who are you?&lt;/h2&gt;
+
+&lt;h3 id=&quot;11-introduction&quot;&gt;1.1 Introduction&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;“정말 2016년 4분기부터 정말 댓글 조작을 했던 사용자들이 있었을까?”&lt;/strong&gt; 라는 단순한 의문과 궁금증에서 분석을 시작하게 되었다. 다만, 데이터에 &lt;공감&gt; &lt;비공감&gt; 을 눌렀던 interaction 정보가 누락되어 있기에 (이 데이터는 네이버 뉴스 측에서 제공해주지 않는 이상 얻을 수 없다) 적어도 댓글을 한 번이라도 남겼던 사용자에 대해서만 어뷰저로 의심해 볼 수 있었다.&lt;/비공감&gt;&lt;/공감&gt;&lt;/p&gt;
+
+&lt;p&gt;label이 없는 상황에서 어뷰저를 특정짓는 것과 그 사용자가 어뷰저임을 다른 사람에게 설득하는 것은 어려운 일이다. 또한 무죄추정의 원칙에 의거해 댓글 작성자를 함부로 어뷰저라고 단정지을 수도 없었다. 그래서 이번 분석에서는, “모든 작성자는 어뷰저가 아니다.” 라는 가정을 기반으로 특정 패턴이 등장할 확률을 계산해서 &lt;strong&gt;어뷰저였을 가능성&lt;/strong&gt;을 간접적으로 추측하는 방식을 취했다.&lt;/p&gt;
+
+&lt;p&gt;이 과정에서 누군가는 그 정도 확률로는 어뷰저라고 단정짓기 어렵다고 판단할 수도 있고, 아닐 수도 있다. 또 추가적인 분석 결과가 있다면 어뷰저 가능성이 더 높아질 수도 있다. 후자라면 언제든 댓글로 추가 분석할 내용을 요청했으면 하는 바람이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;12-criteria&quot;&gt;1.2 Criteria&lt;/h3&gt;
+
+&lt;p&gt;어뷰저는 어떤 존재일까? 이에 답하기 앞서, 어뷰징의 목적과 어뷰징이 문제가 되는 상황에 대해 먼저 정리해보았다.&lt;/p&gt;
+
+&lt;h4 id=&quot;어뷰징의-목적&quot;&gt;어뷰징의 목적&lt;/h4&gt;
+&lt;p&gt;어뷰저들의 목표는 네이버의 댓글 정렬 기준에 맞추어 10위권 내에 드는 것이다. 네이버 뉴스의 UI 상, top 10 내에 들면 그 기사를 읽는 누구나 쉽게 그 댓글의 내용에 접하게 되기 때문이다. 그리고 그 내용이 대중을 대표한다고 생각하기 때문에 쉽게 타인의 생각에 영향을 미칠 수 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;어뷰징이-문제가-되는-상황&quot;&gt;어뷰징이 문제가 되는 상황&lt;/h4&gt;
+&lt;p&gt;어뷰징이 문제가 되었던 이유는 공정하고 자연스러운 방식으로 집계되었다고 믿었던 top 10 댓글이 실제로는 어떤 세력에 의해 의도를 가지고 조작되었기 때문이었다. top 댓글이 특정 집단에 의해 조작되었다면, 그것들이 과연 네이버 뉴스 플랫폼에 참여하는 사용자들의 생각을 대표하는 댓글이라고 볼 수 있을까?&lt;/p&gt;
+
+&lt;p&gt;그래서, 이 글에서 이야기 할 어뷰저의 criteria는 다음과 같다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;어뷰징의 목적을 달성해야 한다. 즉, 타인의 생각에 영향을 미칠 수 있도록 &lt;strong&gt;작성한 댓글이 top 10 내에 한 번 이상 들었어야 한다&lt;/strong&gt;. 실제 어뷰저였어도 top 댓글이 아니어서 타인에게 영향을 미치지 못했다면 어뷰저라고 불릴 자격(?)이 없다. &lt;del&gt;&lt;em&gt;(안습)&lt;/em&gt;&lt;/del&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;자연적으로 발생하기 어려운, &lt;strong&gt;확률이 낮은 패턴이 등장&lt;/strong&gt;해야 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;13-data-preprocessing&quot;&gt;1.3 Data preprocessing&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;Previsous work에서 사용했던 데이터&lt;/a&gt;에서 추가로 필터링이 필요했다. 크롤링한 댓글 데이터에 hashing 된 아이디가 포함된 것이 2015년 12월 이후였기 때문이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용한 댓글 데이터 기간: 2015.12.08 ~ 2018.05.25&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;14-analysis&quot;&gt;1.4 Analysis&lt;/h3&gt;
+
+&lt;p&gt;먼저, &lt;strong&gt;정치&lt;/strong&gt; 분야에서 댓글이 top 10 내에 들었던 횟수를 작성자 별로 집계한 후, 횟수가 높은 순서대로 정렬하였을 때의 추이를 살펴보았다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/abuser_politics.png&quot; width=&quot;70%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;mean&lt;/th&gt;
+      &lt;th&gt;stdev&lt;/th&gt;
+      &lt;th&gt;max&lt;/th&gt;
+      &lt;th&gt;75%&lt;/th&gt;
+      &lt;th&gt;med&lt;/th&gt;
+      &lt;th&gt;min&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2.240442&lt;/td&gt;
+      &lt;td&gt;4.607621&lt;/td&gt;
+      &lt;td&gt;369&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+대부분의 작성자는 1~2번 정도 댓글이 top 10 내에 드는 반면, 일부 사용자들은 100번 이상 순위권 내에 든다. 이 그래프만 본다면 자주 top 10에 드는 사용자들 모두가 의심스러울 수 있지만 이런 skewed graph는 대부분의 사회과학 데이터에서 발견되므로 이들을 어뷰저로 속단하긴 이르다. 검증을 위해 다른 섹션(사회, 경제, 문화, IT, 세계)에 대해서도 마찬가지 방법으로 그래프를 그려보았다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/paretto.png&quot; width=&quot;100%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;갓 파레토...&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자주 순위권 내에 드는 댓글을 작성한 사용자를 &lt;strong&gt;&lt;em&gt;top user&lt;/em&gt;&lt;/strong&gt; 라고 했을 때, 다른 분야에서도 top user는 쉽게 찾아볼 수 있었다. 어쩌면 이들은 (어뷰저가 아닌 이상) 네이버 뉴스 플랫폼에서 높은 “공감수-비공감수”를 받을 수 있는 전략이 학습된 것은 아닐까? 기사가 나오고 얼마 지나지 않아 댓글을 남기거나, 그 당시 분위기에 맞는 댓글의 내용을 남기거나, 사실로 보여지는 데이터와 함께 댓글을 작성하거나 하는 등 자신만의 전략이 있을 것이다.&lt;/p&gt;
+
+&lt;p&gt;그러나 이 전략들이 100%의 확률로(=항상) 통하지는 않았을 것이다. 때로는 일찍 댓글을 작성했음에도 뒤늦게 작성한 댓글이 폭발적인 공감을 이끌어내서 top 10에 들지 못했을 수도 있고, 당시의 전반적인 분위기에 탑승하는 댓글을 남겼음에도 다른 댓글 중에 두드러지지 못해 공감을 받지 못했을 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;top user 간에 일반적인 top 10 성공률이 존재할 것이고 이는 normal distribution을 따른다는 가설을 바탕으로 “top user가 작성한 전체 댓글 수 대비 top 10에 들었던 댓글 수(=ratio)”를 계산해보았다.&lt;/p&gt;
+
+&lt;h4 id=&quot;정치-top-users&quot;&gt;정치 top users&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;top comment #&lt;/th&gt;
+      &lt;th&gt;total comment #&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+      &lt;th&gt;note&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;1njDA&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;369&lt;/td&gt;
+      &lt;td&gt;386&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;95.60&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a06BV&lt;/td&gt;
+      &lt;td&gt;339&lt;/td&gt;
+      &lt;td&gt;380&lt;/td&gt;
+      &lt;td&gt;89.21&lt;/td&gt;
+      &lt;td&gt;정치, 사회 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;KPjq&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;269&lt;/td&gt;
+      &lt;td&gt;289&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;93.08&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6t8wY&lt;/td&gt;
+      &lt;td&gt;178&lt;/td&gt;
+      &lt;td&gt;610&lt;/td&gt;
+      &lt;td&gt;29.18&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3PblE&lt;/td&gt;
+      &lt;td&gt;178&lt;/td&gt;
+      &lt;td&gt;1090&lt;/td&gt;
+      &lt;td&gt;16.33&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2Yg9w&lt;/td&gt;
+      &lt;td&gt;175&lt;/td&gt;
+      &lt;td&gt;424&lt;/td&gt;
+      &lt;td&gt;41.27&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;vsPY&lt;/td&gt;
+      &lt;td&gt;174&lt;/td&gt;
+      &lt;td&gt;818&lt;/td&gt;
+      &lt;td&gt;21.27&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4IEsT&lt;/td&gt;
+      &lt;td&gt;155&lt;/td&gt;
+      &lt;td&gt;316&lt;/td&gt;
+      &lt;td&gt;49.05&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3P9mY&lt;/td&gt;
+      &lt;td&gt;143&lt;/td&gt;
+      &lt;td&gt;950&lt;/td&gt;
+      &lt;td&gt;15.05&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3LV90&lt;/td&gt;
+      &lt;td&gt;141&lt;/td&gt;
+      &lt;td&gt;583&lt;/td&gt;
+      &lt;td&gt;24.19&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;경제-top-users&quot;&gt;경제 top users&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;top comment #&lt;/th&gt;
+      &lt;th&gt;total comment #&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+      &lt;th&gt;note&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1ljwq&lt;/td&gt;
+      &lt;td&gt;289&lt;/td&gt;
+      &lt;td&gt;1185&lt;/td&gt;
+      &lt;td&gt;24.39&lt;/td&gt;
+      &lt;td&gt;경제, IT top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;abec3210-9d3c-11e5-9da8-00000000613a&lt;/td&gt;
+      &lt;td&gt;226&lt;/td&gt;
+      &lt;td&gt;2935&lt;/td&gt;
+      &lt;td&gt;7.70&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2NX3n&lt;/td&gt;
+      &lt;td&gt;219&lt;/td&gt;
+      &lt;td&gt;1656&lt;/td&gt;
+      &lt;td&gt;13.22&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;183&lt;/td&gt;
+      &lt;td&gt;1636&lt;/td&gt;
+      &lt;td&gt;11.19&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;KwbM&lt;/td&gt;
+      &lt;td&gt;173&lt;/td&gt;
+      &lt;td&gt;1378&lt;/td&gt;
+      &lt;td&gt;12.55&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3IQFB&lt;/td&gt;
+      &lt;td&gt;161&lt;/td&gt;
+      &lt;td&gt;989&lt;/td&gt;
+      &lt;td&gt;16.28&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2ZheW&lt;/td&gt;
+      &lt;td&gt;160&lt;/td&gt;
+      &lt;td&gt;654&lt;/td&gt;
+      &lt;td&gt;24.46&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;18Tqx&lt;/td&gt;
+      &lt;td&gt;157&lt;/td&gt;
+      &lt;td&gt;2589&lt;/td&gt;
+      &lt;td&gt;6.06&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2MvTH&lt;/td&gt;
+      &lt;td&gt;139&lt;/td&gt;
+      &lt;td&gt;1514&lt;/td&gt;
+      &lt;td&gt;9.18&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5CNxc&lt;/td&gt;
+      &lt;td&gt;127&lt;/td&gt;
+      &lt;td&gt;742&lt;/td&gt;
+      &lt;td&gt;17.12&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;사회-top-users&quot;&gt;사회 top users&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;top comment #&lt;/th&gt;
+      &lt;th&gt;total comment #&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+      &lt;th&gt;note&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hatn&lt;/td&gt;
+      &lt;td&gt;366&lt;/td&gt;
+      &lt;td&gt;953&lt;/td&gt;
+      &lt;td&gt;38.41&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;308&lt;/td&gt;
+      &lt;td&gt;1636&lt;/td&gt;
+      &lt;td&gt;18.83&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6krGo&lt;/td&gt;
+      &lt;td&gt;271&lt;/td&gt;
+      &lt;td&gt;935&lt;/td&gt;
+      &lt;td&gt;28.98&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5tHY4&lt;/td&gt;
+      &lt;td&gt;241&lt;/td&gt;
+      &lt;td&gt;1254&lt;/td&gt;
+      &lt;td&gt;19.22&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2NX3n&lt;/td&gt;
+      &lt;td&gt;233&lt;/td&gt;
+      &lt;td&gt;1656&lt;/td&gt;
+      &lt;td&gt;14.07&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6I3uB&lt;/td&gt;
+      &lt;td&gt;204&lt;/td&gt;
+      &lt;td&gt;328&lt;/td&gt;
+      &lt;td&gt;62.20&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;69i2t&lt;/td&gt;
+      &lt;td&gt;191&lt;/td&gt;
+      &lt;td&gt;719&lt;/td&gt;
+      &lt;td&gt;26.56&lt;/td&gt;
+      &lt;td&gt;사회, 문화 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a06BV&lt;/td&gt;
+      &lt;td&gt;168&lt;/td&gt;
+      &lt;td&gt;625&lt;/td&gt;
+      &lt;td&gt;26.88&lt;/td&gt;
+      &lt;td&gt;정치, 사회 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1cVAJ&lt;/td&gt;
+      &lt;td&gt;149&lt;/td&gt;
+      &lt;td&gt;1190&lt;/td&gt;
+      &lt;td&gt;12.52&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2JatM&lt;/td&gt;
+      &lt;td&gt;148&lt;/td&gt;
+      &lt;td&gt;1489&lt;/td&gt;
+      &lt;td&gt;9.94&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;문화-top-users&quot;&gt;문화 top users&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;top comment #&lt;/th&gt;
+      &lt;th&gt;total comment #&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+      &lt;th&gt;note&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;373&lt;/td&gt;
+      &lt;td&gt;1636&lt;/td&gt;
+      &lt;td&gt;22.80&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6krGo&lt;/td&gt;
+      &lt;td&gt;367&lt;/td&gt;
+      &lt;td&gt;935&lt;/td&gt;
+      &lt;td&gt;39.25&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4jQzS&lt;/td&gt;
+      &lt;td&gt;301&lt;/td&gt;
+      &lt;td&gt;1417&lt;/td&gt;
+      &lt;td&gt;21.24&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3drEW&lt;/td&gt;
+      &lt;td&gt;243&lt;/td&gt;
+      &lt;td&gt;890&lt;/td&gt;
+      &lt;td&gt;27.30&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2NX3n&lt;/td&gt;
+      &lt;td&gt;220&lt;/td&gt;
+      &lt;td&gt;1656&lt;/td&gt;
+      &lt;td&gt;13.29&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;75pdL&lt;/td&gt;
+      &lt;td&gt;188&lt;/td&gt;
+      &lt;td&gt;1943&lt;/td&gt;
+      &lt;td&gt;9.68&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FxgQ&lt;/td&gt;
+      &lt;td&gt;178&lt;/td&gt;
+      &lt;td&gt;3245&lt;/td&gt;
+      &lt;td&gt;5.49&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;79KN&lt;/td&gt;
+      &lt;td&gt;172&lt;/td&gt;
+      &lt;td&gt;2738&lt;/td&gt;
+      &lt;td&gt;6.28&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ejrT&lt;/td&gt;
+      &lt;td&gt;164&lt;/td&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;82.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;69i2t&lt;/td&gt;
+      &lt;td&gt;151&lt;/td&gt;
+      &lt;td&gt;719&lt;/td&gt;
+      &lt;td&gt;21.00&lt;/td&gt;
+      &lt;td&gt;사회, 문화 top user&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;it-top-users&quot;&gt;IT top users&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;top comment #&lt;/th&gt;
+      &lt;th&gt;total comment #&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+      &lt;th&gt;note&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;22l8g&lt;/td&gt;
+      &lt;td&gt;714&lt;/td&gt;
+      &lt;td&gt;3123&lt;/td&gt;
+      &lt;td&gt;22.86&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;sdoY&lt;/td&gt;
+      &lt;td&gt;572&lt;/td&gt;
+      &lt;td&gt;3886&lt;/td&gt;
+      &lt;td&gt;14.72&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2gLns&lt;/td&gt;
+      &lt;td&gt;442&lt;/td&gt;
+      &lt;td&gt;2287&lt;/td&gt;
+      &lt;td&gt;19.33&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;d43fdb70-f2a1-11e6-b1a5-000000006cbf&lt;/td&gt;
+      &lt;td&gt;399&lt;/td&gt;
+      &lt;td&gt;1468&lt;/td&gt;
+      &lt;td&gt;27.18&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1XfOt&lt;/td&gt;
+      &lt;td&gt;231&lt;/td&gt;
+      &lt;td&gt;810&lt;/td&gt;
+      &lt;td&gt;28.52&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2wZIa&lt;/td&gt;
+      &lt;td&gt;234&lt;/td&gt;
+      &lt;td&gt;3010&lt;/td&gt;
+      &lt;td&gt;7.77&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2rms7&lt;/td&gt;
+      &lt;td&gt;275&lt;/td&gt;
+      &lt;td&gt;1622&lt;/td&gt;
+      &lt;td&gt;16.95&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;q9aB&lt;/td&gt;
+      &lt;td&gt;317&lt;/td&gt;
+      &lt;td&gt;1493&lt;/td&gt;
+      &lt;td&gt;21.23&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5GXYo&lt;/td&gt;
+      &lt;td&gt;346&lt;/td&gt;
+      &lt;td&gt;2349&lt;/td&gt;
+      &lt;td&gt;14.73&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1ljwq&lt;/td&gt;
+      &lt;td&gt;364&lt;/td&gt;
+      &lt;td&gt;1185&lt;/td&gt;
+      &lt;td&gt;30.72&lt;/td&gt;
+      &lt;td&gt;경제, IT top user&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;세계-top-users&quot;&gt;세계 top users&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;top comment #&lt;/th&gt;
+      &lt;th&gt;total comment #&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+      &lt;th&gt;note&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;237&lt;/td&gt;
+      &lt;td&gt;1636&lt;/td&gt;
+      &lt;td&gt;14.49&lt;/td&gt;
+      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2Ezzr&lt;/td&gt;
+      &lt;td&gt;214&lt;/td&gt;
+      &lt;td&gt;1432&lt;/td&gt;
+      &lt;td&gt;14.94&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;32VUM&lt;/td&gt;
+      &lt;td&gt;145&lt;/td&gt;
+      &lt;td&gt;615&lt;/td&gt;
+      &lt;td&gt;23.58&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1CPrf&lt;/td&gt;
+      &lt;td&gt;148&lt;/td&gt;
+      &lt;td&gt;1709&lt;/td&gt;
+      &lt;td&gt;8.66&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6n0SW&lt;/td&gt;
+      &lt;td&gt;155&lt;/td&gt;
+      &lt;td&gt;611&lt;/td&gt;
+      &lt;td&gt;25.37&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3INjw&lt;/td&gt;
+      &lt;td&gt;156&lt;/td&gt;
+      &lt;td&gt;1076&lt;/td&gt;
+      &lt;td&gt;14.50&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7ewFK&lt;/td&gt;
+      &lt;td&gt;162&lt;/td&gt;
+      &lt;td&gt;864&lt;/td&gt;
+      &lt;td&gt;18.75&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MFLJ&lt;/td&gt;
+      &lt;td&gt;165&lt;/td&gt;
+      &lt;td&gt;2778&lt;/td&gt;
+      &lt;td&gt;5.94&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5tHY4&lt;/td&gt;
+      &lt;td&gt;165&lt;/td&gt;
+      &lt;td&gt;1254&lt;/td&gt;
+      &lt;td&gt;13.16&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HQDr&lt;/td&gt;
+      &lt;td&gt;175&lt;/td&gt;
+      &lt;td&gt;575&lt;/td&gt;
+      &lt;td&gt;30.43&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;t5XZ&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;2NX3n&lt;/code&gt; 등 일부 top user는 여러 섹션에 걸쳐 top user로 등장한다. 하지만 중복 top user를 개별적인 user로 간주하고 분석을 진행하였다. (Gaussian Mixture Model로 distribution fitting한 결과는 &lt;a href=&quot;###Appendix-A:-Gaussian-Mixture-Model-Fitting&quot;&gt;Appendix A&lt;/a&gt; 참고)&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/abuser-gaussian.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;mean: 25.0, std: 20.5&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;정치 섹션에서만 유일하게 &lt;code class=&quot;highlighter-rouge&quot;&gt;ratio &amp;gt; 90%&lt;/code&gt; 인 top user(&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt;)가 존재했으며 이들의 top 10 전략 성공률은 다른 top user 대비 발생하기 어려울 정도로 (0.0053%, 0.0079%) 높다고 해석할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;숫자 이면의 패턴을 보기 위해 전체 정치면 기사들의 댓글 수와 &lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt;의 전체 댓글 수, top 10 내에 든 댓글 수를 그래프로 시각화 해보았다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;c.f. 2016.3 ~ 2018.5 까지 굵직한 이슈들 &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;이세돌 vs. 알파고 (2016.3)&lt;/li&gt;
+      &lt;li&gt;옥시 (2016.4)&lt;/li&gt;
+      &lt;li&gt;최순실 태블릿 pc (2016.10)&lt;/li&gt;
+      &lt;li&gt;박근혜 탄핵 소추안 (2016.12)&lt;/li&gt;
+      &lt;li&gt;사드배치 / 박근혜 수감 / 세월호 인양(2017.3)&lt;/li&gt;
+      &lt;li&gt;19대 대통령 선거 (문재인 당선) (2017.5)&lt;/li&gt;
+      &lt;li&gt;이대목동 신생아 사망 (2017.12)&lt;/li&gt;
+      &lt;li&gt;평창 동계 올림픽 (2018.2)&lt;/li&gt;
+      &lt;li&gt;이명박 수감 (2018.3)&lt;/li&gt;
+      &lt;li&gt;드루킹 (2018.4)&lt;/li&gt;
+      &lt;li&gt;남북1차정상회담 @판문점 (2018.4)&lt;/li&gt;
+      &lt;li&gt;남북2차정상회담 (2018.5)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;141-1njda-ratio-96&quot;&gt;1.4.1 &lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt; (ratio: 96%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/1njDA.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:darkgray&quot;&gt;회색 line&lt;/span&gt;이 정치면 기사 댓글, &lt;span style=&quot;color:blue&quot;&gt;파란색 line&lt;/span&gt;이 작성자가 쓴 전체 댓글 수, &lt;span style=&quot;color:green&quot;&gt;초록색 line&lt;/span&gt;이 작성자가 쓴 댓글 중 top 10 내에 들었던 댓글 수를 나타낸다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;가 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;title&lt;/th&gt;
+      &lt;th&gt;article date&lt;/th&gt;
+      &lt;th&gt;user top comments&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;朴대통령, ‘29일까지 대면조사’ 檢 요청에 사흘째 묵묵부답&lt;/td&gt;
+      &lt;td&gt;2016-11-25 15:12:00&lt;/td&gt;
+      &lt;td&gt;대통령인 자가 자신의 관할하에 있는 검찰을 부정한다면 곧 국가도 부정하겠다는 의미다. 이런 대통령은 더이상 대한민국 대통령이 아니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;차은택 변호인 “차씨, 최순실 지시로 김기춘 실장 공관서 면담”&lt;/td&gt;
+      &lt;td&gt;2016-11-27 16:04:00&lt;/td&gt;
+      &lt;td&gt;김기춘의 진두지휘하에 박근혜 정권의 모든 불법들이 자행되었다. 정말 악마같은 인간이다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;변호인 “차은택, 崔 지시로 김기춘 만나…우병우 장모와 골프도”(종합)&lt;/td&gt;
+      &lt;td&gt;2016-11-27 16:46:00&lt;/td&gt;
+      &lt;td&gt;김기춘의 진두지휘하에 박근혜 정권의 불법들이 자행되었다. 구속수사해서 감옥에서 못나오게 만들어야 한다. 공작정치부터 공안탄압 정경유착의 죄를 물어야 한다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;청문회장도 지배한 ‘촛불민심’…與野 ‘재벌 봐주기’ 없었다&lt;/td&gt;
+      &lt;td&gt;2016-12-06 12:34:00&lt;/td&gt;
+      &lt;td&gt;뇌물이었다는 진술을 이끌어내기에는 힘들것 같다. 지들이 감옥갈 일이니까… 강요죄는 확실할듯…&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;재벌 총수들 “청와대 거절 어려워”…하나같이 대가성 부인&lt;/td&gt;
+      &lt;td&gt;2016-12-06 12:45:00&lt;/td&gt;
+      &lt;td&gt;뇌물이었다는 진술을 이끌어내기에는 힘들것 같다. 지들이 감옥갈 일이니까… 강요죄는 확실할듯…&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;박한철 前소장 한표, ‘캐스팅보트’ 될뻔한 아슬아슬 상황 나올까&lt;/td&gt;
+      &lt;td&gt;2017-03-04 08:00:00&lt;/td&gt;
+      &lt;td&gt;탄핵 기각에 표 던지면 그게 판사냐? 재판정에서 궤변을 늘어놓은 박측 대리인들의 안하무인에 손을 들어준다면 판사이기를 포기하고 박근혜 부역에 동참하겠다는 선언일 뿐이다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;85시간 재판, 속기록 3000쪽…탄핵심판 이번주 결론날까&lt;/td&gt;
+      &lt;td&gt;2017-03-05 09:00:00&lt;/td&gt;
+      &lt;td&gt;탄핵 기각에 표 던지면 그게 판사냐? 재판정에서 궤변을 늘어놓은 박측 대리인들의 안하무인에 손을 들어준다면 판사이기를 포기하고 박근혜 부역에 동참하겠다는 선언일 뿐이다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[리얼미터] 다자 文 42.6% vs 安 37.2%…양자 文 47.6% vs 安 43.3%&lt;/td&gt;
+      &lt;td&gt;2017-04-10 09:15:00&lt;/td&gt;
+      &lt;td&gt;여론몰이에 흔들릴 국면이 아니다. 무쏘의 뿔처럼 나아가면 야합은 흩어지고 굳건함이 승리할 것이다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文 “김부겸 동지 미안하다…꼭 국민통합 해내겠다”&lt;/td&gt;
+      &lt;td&gt;2017-04-22 08:01:00&lt;/td&gt;
+      &lt;td&gt;김부겸의 진심이 느껴지고 그를 위로하고 뜻을 같이 하는 문재인의 진심도 느껴진다. 남자들에게 이런 동지애는 죽음도 불사하게 만드는 마력과도 깉다. 조~오타!!!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文 대통령 “내게 반대하라” 파격적 수석회의 시동(상보)&lt;/td&gt;
+      &lt;td&gt;2017-05-25 12:56:00&lt;/td&gt;
+      &lt;td&gt;요새 대통령의 행동과 지시사항을 보면 정말 준비된 겸손한 사람이란게 진솔하게 느껴진다. 대한민국 국민인게 자랑스럽고 행복해진다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文대통령 “사드 임시배치, 현재 정부가 취할 수 있는 최선의 조치”(종합)&lt;/td&gt;
+      &lt;td&gt;2017-09-08 21:13:00&lt;/td&gt;
+      &lt;td&gt;국가의 지도자는 자신의 굳은 신념까지도 국가와 국민을 위해 잠시 접어야할 용기가 필요할 때가있다. 그 지도자라고 왜 자신의 신념을 꺾음에 자괴감과 고민이 없겠는가? 그는 자신을 지지하는 사람들만의 지도자가 아니라 대한민국의 지도자이기 때문이다. 그의 고뇌찬 결단을 위로하며 지켜보고 힘을 실어주고 싶다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;與 “안철수, 나라다운 나라 만드는 일 폄훼 말라”&lt;/td&gt;
+      &lt;td&gt;2017-11-04 16:10:00&lt;/td&gt;
+      &lt;td&gt;명버기 구하기에 혈안이 된 명바기 아바타!!!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;김정은 위원장 “이른 시일내 만날 용의”…문 대통령에 방북 요청(종합)&lt;/td&gt;
+      &lt;td&gt;2018-02-10 15:56:00&lt;/td&gt;
+      &lt;td&gt;남북 정상회담애서 허심탄회하게 모든 할 말 다해서 기필코 한반도 비핵화와 평화를 이루어야 한다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[현장영상] 방미 특사단, 트럼프 대통령 면담 결과 발표&lt;/td&gt;
+      &lt;td&gt;2018-03-09 09:11:00&lt;/td&gt;
+      &lt;td&gt;한반도 평화가 세계 평화다. 이런 평화 모드가 얼마만인가…&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;전반적으로 친문 성향을 보였다.&lt;/li&gt;
+  &lt;li&gt;같은 내용의 댓글이 top 에 오른 것도 확인할 수 있었다.
+    &lt;ul&gt;
+      &lt;li&gt;다른 섹션에 같은 댓글을 남기고도 top에 오른 적도 있다. (아래 표 참고)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;title&lt;/th&gt;
+          &lt;th&gt;section&lt;/th&gt;
+          &lt;th&gt;article date&lt;/th&gt;
+          &lt;th&gt;top user comments&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[현장영상] 박근혜 前 대통령 법원으로 출발&lt;/td&gt;
+          &lt;td&gt;society&lt;/td&gt;
+          &lt;td&gt;2017-03-30 10:18:00&lt;/td&gt;
+          &lt;td&gt;최고의 보안과 경호를 철저히 받을 수 있는 구치소를 거쳐 교도소로 직행하면 나라도 안정되고 국민들도 평안하고 박근혜 자신도 언론의 감시로부터 벗어날수 있다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;구속 갈림길에 선 박근혜 ‘웅변 대신 침묵’ 선택&lt;/td&gt;
+          &lt;td&gt;politics&lt;/td&gt;
+          &lt;td&gt;2017-03-30 10:22:00&lt;/td&gt;
+          &lt;td&gt;최고의 보안과 경호를 철저히 받을 수 있는 구치소를 거쳐 교도소로 직행하면 나라도 안정되고 국민들도 평안하고 박근혜 자신도 언론의 감시로부터 벗어날수 있다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;142-kpjq-ratio-93&quot;&gt;1.4.2 &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; (ratio: 93%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/KPjq.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 의 주 활동 시기는 사드배치, 평창 동계올림픽 및 북미회담과 맞물려있었다. 댓글을 자세히 보면 아래와 같다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;title&lt;/th&gt;
+      &lt;th&gt;article date&lt;/th&gt;
+      &lt;th&gt;user top comments&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;정상회담 돌발 변수는 ‘사드’…청 “모든 가능성 준비”&lt;/td&gt;
+      &lt;td&gt;2017-06-25 20:20:00&lt;/td&gt;
+      &lt;td&gt;국익과국가안보가최우선입니다~~~~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;송영무 “사드, 비준 아닌 국회 검증…고액연봉·음주운전 송구”(종합)&lt;/td&gt;
+      &lt;td&gt;2017-06-28 12:18:00&lt;/td&gt;
+      &lt;td&gt;이유미녹취록에맛짱구치고놀아난언론은×&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;이유미-이준서 중 한 명은 거짓말…윗선 수사 불가피&lt;/td&gt;
+      &lt;td&gt;2017-06-28 20:52:00&lt;/td&gt;
+      &lt;td&gt;이유미녹취록에맛장구치고놀아난언론은~~~~????&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;軍, 송영무 인사청문회서 공개된 ‘군사기밀 유출’ 조사 착수&lt;/td&gt;
+      &lt;td&gt;2017-06-29 12:24:00&lt;/td&gt;
+      &lt;td&gt;자유당놈들답다도둑놈들&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文대통령, 내일 트럼프와 만난다…취임 후 첫 韓美정상회담&lt;/td&gt;
+      &lt;td&gt;2017-06-29 13:54:00&lt;/td&gt;
+      &lt;td&gt;국익과국가안보가최우선입니다부디좋은결과있으시길~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[단독] ‘제보 조작’ 수사망 좁혀오자 安 독대한 이준서…왜?&lt;/td&gt;
+      &lt;td&gt;2017-06-29 20:19:00&lt;/td&gt;
+      &lt;td&gt;철수야~깜빵갈시간이다가오네~~~~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;트럼프, 文대통령 부부에 백악관 사적공간 ‘트리티 룸’ 깜짝공개(종합)&lt;/td&gt;
+      &lt;td&gt;2017-06-30 13:23:00&lt;/td&gt;
+      &lt;td&gt;문재인대통령님~멋저부러요~♡♡♡&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;한반도 이슈서 ‘주도권’ 확보 성과…한미FTA 재협상 ‘숙제’(종합)&lt;/td&gt;
+      &lt;td&gt;2017-07-01 10:05:00&lt;/td&gt;
+      &lt;td&gt;국익과국가안보가최우선입니다부디좋은결과있으시길~~~~~~~~♡♡&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;남북 “4월말 정상회담 판문점서 개최”…특사단 발표(종합)&lt;/td&gt;
+      &lt;td&gt;2018-03-06 20:24:00&lt;/td&gt;
+      &lt;td&gt;이게 실화나ㅡ ㅡㅡㅡㅡ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;문 대통령 “서울·평양·판문점 중 北이 판문점 정상회담 선택”&lt;/td&gt;
+      &lt;td&gt;2018-03-07 15:28:00&lt;/td&gt;
+      &lt;td&gt;문통 지지 합니다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;문 대통령 “국외 대북 비밀접촉 없어…저쪽에 놀아나는 것 아냐”&lt;/td&gt;
+      &lt;td&gt;2018-03-07 16:53:00&lt;/td&gt;
+      &lt;td&gt;문 대통 령님 지지 합니다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文대통령 “북핵목표는 비핵화…제재완화, 지금은 불가능”(종합)&lt;/td&gt;
+      &lt;td&gt;2018-03-07 17:16:00&lt;/td&gt;
+      &lt;td&gt;문대통령님 지지합니다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[현장영상] 방미 특사단, 트럼프 대통령 면담 결과 발표&lt;/td&gt;
+      &lt;td&gt;2018-03-09 09:11:00&lt;/td&gt;
+      &lt;td&gt;이게 실화냐ㅡㅡㅡㅡ&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;국익과 국가안보에 대한 내용을 보면 보수같지만, 다른 댓글을 보면 친문파에 가까워 보인다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-conclusions&quot;&gt;2. Conclusions&lt;/h2&gt;
+
+&lt;p&gt;어뷰저를 &lt;strong&gt;타인의 생각에 영향을 미치고 비정상적인 행태를 보이는 사용자&lt;/strong&gt;로 정의하였고, 이 기준에 따라 어뷰저로 의심되는 사용자를 찾아내고자 하였다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;순공감 기준, 댓글이 10위권 내에 들었던 횟수가 많았던 작성자 중에서&lt;/li&gt;
+  &lt;li&gt;작성한 댓글 수 대비 top 10 댓글 수의 비율이 일반적이지 않은 작성자&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;개인적으로, &lt;strong&gt;1.&lt;/strong&gt;과 &lt;strong&gt;2.&lt;/strong&gt;의 기준에 드는 사용자는 &lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 라는 생각이다. 작성한 전체 댓글 수는 다른 사용자들에 비해 적은 편이었지만 top 댓글에 들었던 비율은 가장 높았고, 그 수치가 일반적이지는 않았다.&lt;/p&gt;
+
+&lt;p&gt;어뷰저를 찾고자 시작한 분석이었지만 데이터를 살펴보면서 네이버 뉴스 댓글이 가지는 단일하고 공개된 ranking system이 얼마나 위험한지를 오히려 인식하게 되었다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분석한 기간에서 중복 제거한 기사의 수는 총 100,780개 였고, 만약 top 10 댓글의 작성자가 모두 다른 사용자였다면 1,007,800명이 각자의 의견을 개시했을 것이다. 하지만 실제 그 기간에 집계된 unique한 작성자는 총 308,731 명에 불과했다. 게다가 중복 댓글까지 포함하면, 그 다양성은 조금 더 떨어진다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 두 명만 어뷰저라고 가정하고, 나머지 8명이 아니었다고 했을 때 &lt;a href=&quot;###Appendix-B:-기타-정치면-top-user-ratio-graph&quot;&gt;다른 유저들의 실제 댓글 내용&lt;/a&gt;까지 보면 큰 차이가 느껴지진 않았다. 박근혜-최순실 게이트나 이명박의 다스 이슈는 “비리” 사건이었기 때문에 호의적인 반응을 보이긴 쉽지 않았겠지만 충분히 반대의 의견이 개시될 수 있을 법한 사건 (남미, 남북, 한일 관계 등) 등에서도 너무 일관된 내용의 댓글이 top 10에 보였다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;위와 같은 면에서 &lt;strong&gt;네이버 뉴스 댓글은 다양성을 충분히 수용하고 있지 못하다는 생각이 들었다.&lt;/strong&gt; “플랫폼이기 때문에 그럴 수 있지 않을까?” 싶지만 페이스북이나 유튜브, 레딧같은 다른 플랫폼에서의 댓글을 보면 무작정 호감순으로 정렬하지는 않는다. 이 플랫폼들의 기준이 문제가 없다는 것은 아니다. 하지만 네이버 뉴스 보다 다양한 기준으로 댓글을 정렬시키고 있으며 (최신순, 오래된 순, 공감을 많이 받은 순, relevance 순, 호감 + vote의 크기 등) 이를 통해 다양한 의견이 쉽게 노출될 수 있는 환경을 조성하였다는 점에서는 좀 더 높은 점수를 주고 싶다.&lt;/p&gt;
+
+&lt;p&gt;그래서 세 번째 글은, 간단하지만 다른 정렬 기준을 적용했을 때 발견되는 새로운 댓글에 대해서 다뤄 볼 예정이다. 프로젝트 초창기에, 같이 작업을 진행했던 재명님이 돌려본 결과가 있는데 이 것도 조금 다듬어서 올리면 재밌을 것 같다! 3탄은… 휴가(@Norway) 다녀오고 나서 작업해볼까 싶다. To be continued…&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;appendix-a-gaussian-mixture-model-fitting&quot;&gt;Appendix A: Gaussian Mixture Model Fitting&lt;/h2&gt;
+
+&lt;p&gt;GMM의 &lt;code class=&quot;highlighter-rouge&quot;&gt;n_components&lt;/code&gt; 최적 개수를 구하기 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;silhouette score&lt;/code&gt;를 계산하였다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/silhouette_score.png&quot; width=&quot;70%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;score&lt;/code&gt;가 가장 높은 &lt;code class=&quot;highlighter-rouge&quot;&gt;n_components=2&lt;/code&gt; 이므로 2개의 gaussian을 가정하여 fitting 해보면 아래 그림과 같다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/gmm.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;cluster 1: blue / cluster 2: orange&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;userId&lt;/th&gt;
+      &lt;th&gt;cluster 1 prob&lt;/th&gt;
+      &lt;th&gt;cluster 2 prob&lt;/th&gt;
+      &lt;th&gt;ratio (%)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1njDA&lt;/td&gt;
+      &lt;td&gt;2.27E-16&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;95.60&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;KPjq&lt;/td&gt;
+      &lt;td&gt;2.56E-15&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;93.08&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a06BV&lt;/td&gt;
+      &lt;td&gt;9.31E-14&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;89.21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ejrT&lt;/td&gt;
+      &lt;td&gt;4.96E-11&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;82.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2Yg9w&lt;/td&gt;
+      &lt;td&gt;8.11E-01&lt;/td&gt;
+      &lt;td&gt;0.188898&lt;/td&gt;
+      &lt;td&gt;41.27&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3P9mY&lt;/td&gt;
+      &lt;td&gt;1.00E+00&lt;/td&gt;
+      &lt;td&gt;0.000219&lt;/td&gt;
+      &lt;td&gt;15.05&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;appendix-b-기타-정치면-top-user-ratio-graph&quot;&gt;Appendix B: 기타 정치면 top user ratio graph&lt;/h2&gt;
+
+&lt;h4 id=&quot;a06bv-ratio-8900&quot;&gt;a06BV (ratio: 89.00%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/a06BV.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a06BV&lt;/code&gt;는 주로 평창 동계 올림픽과 MB 다스 사건 시기에 가장 활발히 활동했다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;title&lt;/th&gt;
+      &lt;th&gt;article date&lt;/th&gt;
+      &lt;th&gt;user top comments&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;법정 흔든 ‘정유라 깜짝 증언’…이재용 유죄 결정적 근거&lt;/td&gt;
+      &lt;td&gt;2017-08-26 21:26:00&lt;/td&gt;
+      &lt;td&gt;그똥이그똥이지요~개가웃것다~~~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;홍준표 “탄핵은 박근혜 잘못…물에 빠져 같이 죽을 수 없다”&lt;/td&gt;
+      &lt;td&gt;2017-08-26 22:35:00&lt;/td&gt;
+      &lt;td&gt;홍준표/너부터약속지켜야지~강물에빠진다고했잔유~~~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;軍, 핵잠수함 건조연구 본격 시동…국제규범 등 해소방안 연구&lt;/td&gt;
+      &lt;td&gt;2017-08-27 06:00:00&lt;/td&gt;
+      &lt;td&gt;젠즉에했어야지~지금이라도늣지않았다~대찬성이요~~~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;檢, ‘국정원 외곽팀 의혹’ MB 지지단체·예비역 장교단체 조사&lt;/td&gt;
+      &lt;td&gt;2017-08-27 07:01:00&lt;/td&gt;
+      &lt;td&gt;쥐새끼가와이리안잡히노~잡히야끝날낀데~MB쥐어디간노~~~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[취재파일] 김관진의 ‘적반하장’ 식 입장표명과 MB의 ‘정치적 의무’&lt;/td&gt;
+      &lt;td&gt;2017-11-11 09:52:00&lt;/td&gt;
+      &lt;td&gt;큰쥐를잡아야끝난다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;韓中정상, 사드 마침표 찍고 관계복원 공식화…”새 출발” 다짐(종합)&lt;/td&gt;
+      &lt;td&gt;2017-11-12 00:28:00&lt;/td&gt;
+      &lt;td&gt;이제야나라다운나라가되는것같습니다~&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;이명박, 12일 중동출국 전 ‘적폐청산’우려 메시지 발표&lt;/td&gt;
+      &lt;td&gt;2017-11-12 06:23:00&lt;/td&gt;
+      &lt;td&gt;쥐박이출국금지하고ㆍ구속해야된다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;귀순 북한군, 군용 지프로 MDL까지 접근…北추격조 40여발 총격(종합)&lt;/td&gt;
+      &lt;td&gt;2017-11-14 11:55:00&lt;/td&gt;
+      &lt;td&gt;힘들게넘어왔는데ㆍ빠른쾌유바랍니다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;‘JSA 북한군 귀순’ 한반도 정세 미칠 파장…北대응 촉각&lt;/td&gt;
+      &lt;td&gt;2017-11-14 15:14:00&lt;/td&gt;
+      &lt;td&gt;목숨걸고넘어왔는데ㅠ빠른쾌유바랍니다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;대응사격 안 한 우리군, 왜?…정전협정·교전수칙 보니&lt;/td&gt;
+      &lt;td&gt;2017-11-14 20:50:00&lt;/td&gt;
+      &lt;td&gt;목숨걸고넘어왔는데ㆍ빠른쾌유바랍니다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[단독] “이상은, 다스 ‘바지 회장’…월 500 이상 못 써”&lt;/td&gt;
+      &lt;td&gt;2018-01-03 20:52:00&lt;/td&gt;
+      &lt;td&gt;큰쥐 작은쥐 새끼쥐 전부잡자ㅡ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;박근혜 특활비 전액 ‘현금’ 받아써…사용처 어떻게 밝혔나?&lt;/td&gt;
+      &lt;td&gt;2018-01-04 17:30:00&lt;/td&gt;
+      &lt;td&gt;적폐 암덩어리ㅡAI닭 살처분&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“최순실에 속았다” 주장했지만…’한 지갑’ 사용 정황&lt;/td&gt;
+      &lt;td&gt;2018-01-04 22:00:00&lt;/td&gt;
+      &lt;td&gt;두뇬다ㅡ무기징역 때려죽일&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;문 대통령 “유약하게 대화만 추구않겠다…국방력으로 평화 추구”(종합)&lt;/td&gt;
+      &lt;td&gt;2018-01-05 15:56:00&lt;/td&gt;
+      &lt;td&gt;기레기들 오바금지ㅡ대통령님홧팅하세요&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;우리 대표단 명단 北에 통보…남북 현안은 ‘단계적 접근’&lt;/td&gt;
+      &lt;td&gt;2018-01-06 20:09:00&lt;/td&gt;
+      &lt;td&gt;성공적인 평창 동계 올림픽을 기원합니다&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;6t8wy-ratio-2918&quot;&gt;6t8wY (ratio: 29.18%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/6t8wY.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;title&lt;/th&gt;
+      &lt;th&gt;article date&lt;/th&gt;
+      &lt;th&gt;user top comments&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[단독] K스포츠 설립 전 회사 창설…개인 돈벌이 정황&lt;/td&gt;
+      &lt;td&gt;2016-10-18 20:22:00&lt;/td&gt;
+      &lt;td&gt;박그네 멍청하면 깨끗하던지.무능하면 청렴하던지.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;‘미르재단’ 중심에 선 안종범, 권력 개입 의혹 적극 반박&lt;/td&gt;
+      &lt;td&gt;2016-10-21 16:44:00&lt;/td&gt;
+      &lt;td&gt;얘는 그냥 정치깡패네!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“北에 굴욕” vs “비선실세”…여야, 靑국감서 맞불 공세(종합)&lt;/td&gt;
+      &lt;td&gt;2016-10-21 23:23:00&lt;/td&gt;
+      &lt;td&gt;그나마 무능한건 이해하고 역대정권보다 친인척 멀리해 깨끗하다고 나름 다르구나!생각 했으나 이젠 현실로 비선이 나라를 좌지우지 하는거 보니 진짜 넌 아니구나! 무능하면 깨끗하던지.멍청하면 가만있던지.휘둘린건지 이용당한건지.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;문 대통령, 직원들과 똑같이!&lt;/td&gt;
+      &lt;td&gt;2017-05-12 13:04:00&lt;/td&gt;
+      &lt;td&gt;혼자 밥쳐묵던 503이 생각나네!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文대통령, 이영렬-안태근 ‘돈봉투 만찬’ 감찰 지시…파장(종합)&lt;/td&gt;
+      &lt;td&gt;2017-05-17 15:02:00&lt;/td&gt;
+      &lt;td&gt;당연한건데 왠 파장!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;소통·혼밥·국밥… 역대 대통령들의 ‘식사 정치’&lt;/td&gt;
+      &lt;td&gt;2017-05-20 06:27:00&lt;/td&gt;
+      &lt;td&gt;저중에 압권은 국밥 쳐묵더니 4대강이랑 경제 시원하게 말어 먹었지.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3pble-ratio-1633&quot;&gt;3PblE (ratio: 16.33%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/3PblE.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;title&lt;/th&gt;
+      &lt;th&gt;article date&lt;/th&gt;
+      &lt;th&gt;user top comments&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;정부, 오전 9시 임시 국무회의…국회법 거부권 행사 방침(종합)&lt;/td&gt;
+      &lt;td&gt;2016-10-18 20:22:00&lt;/td&gt;
+      &lt;td&gt;박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하고…서민을 약자를 죽이는 법을 만들기 위해 서명 하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;거부권 행사된 ‘상임위 청문회법’ 앞으로 어떻게 되나&lt;/td&gt;
+      &lt;td&gt;2016-10-21 16:44:00&lt;/td&gt;
+      &lt;td&gt;박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하고…서민을 약자를 죽이는 법을 만들기 위해 서명하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;작년 국가부채 1천285조…감사원 검사로 4천억원 증가(종합)&lt;/td&gt;
+      &lt;td&gt;2016-10-21 23:23:00&lt;/td&gt;
+      &lt;td&gt;박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고…서민을 약자를 죽이는 법을 만들기 위해 서명 하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;전경련 “청와대 개입 의혹 K스포츠재단 이사장 거취 일주일 안에 결정”&lt;/td&gt;
+      &lt;td&gt;2016-09-25 08:58:00&lt;/td&gt;
+      &lt;td&gt;대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고…. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고…..계속 노동개혁 하자고 하는 이유가 있었네요.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;丁 “하나는 내놔야” 논란‥與 “野와 작당한 증거” 野 “정치적 중재”(종합)&lt;/td&gt;
+      &lt;td&gt;2016-09-26 10:06:00&lt;/td&gt;
+      &lt;td&gt;대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고.. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고…전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 법인세 인상 반대하는 새누리당 아웃!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;이틀째 국감파행…與 ‘보이콧’ 균열조짐·野 사회권 요구(종합)&lt;/td&gt;
+      &lt;td&gt;2016-09-27 18:31:00&lt;/td&gt;
+      &lt;td&gt;대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고….. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고……전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2yg9w-ratio-4127&quot;&gt;2Yg9w (ratio: 41.27%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/2Yg9w.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;vspy-ratio-2127&quot;&gt;vsPY (ratio: 21.27%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/vsPY.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;4lest-ratio-4905&quot;&gt;4lEsT (ratio: 49.05%)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/4lEsT.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;https://ko.wikipedia.org/wiki/2016년_대한민국 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;https://ko.wikipedia.org/wiki/2017년_대한민국 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;https://ko.wikipedia.org/wiki/2018년_대한민국 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 03 Aug 2019 17:59:00 +0200</pubDate>
+        <link>http://localhost:4000/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D/data%20analysis/%EC%82%AC%ED%9A%8C/society/2019/08/03/%EB%89%B4%EC%8A%A4-%EB%8C%93%EA%B8%80-%EB%B6%84%EC%84%9D-(2).html</link>
+        <guid isPermaLink="true">http://localhost:4000/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D/data%20analysis/%EC%82%AC%ED%9A%8C/society/2019/08/03/%EB%89%B4%EC%8A%A4-%EB%8C%93%EA%B8%80-%EB%B6%84%EC%84%9D-(2).html</guid>
+        
+        
+        <category>데이터 분석</category>
+        
+        <category>Data Analysis</category>
+        
+        <category>사회</category>
+        
+        <category>Society</category>
+        
+      </item>
+    
+      <item>
+        <title>뉴스 댓글 분석 (1)</title>
+        <description>&lt;p&gt;올초(3월)부터 &lt;a href=&quot;https://www.facebook.com/zaemyung?__tn__=%2CdK-R-R&amp;amp;eid=ARD489RY8VCrqBTRnzKR0LmKEIU1b6PmeDG85URewUV0YZzKsyl6Wl-DKN8TSMKUTI_-6XSwjZQ19-v7&amp;amp;fref=mentions&quot;&gt;재명님&lt;/a&gt;과 &lt;strong&gt;네이버 뉴스 댓글&lt;/strong&gt; 데이터로 사이드 프로젝트를 시작했다. 직접 크롤링하신 데이터였는데, 그 양이 방대해서 “이 정도 데이터가 있으면, 뭔갈 해볼 수 있겠지!” 라는 가벼운 마음으로 사이드 프로젝트 제안을 덥석 받아물었다. 그리고 여느 사이드 프로젝트가 그렇듯 그 과정은 결코 생각만큼 가볍지는 않았더랬다…&lt;/p&gt;
+
+&lt;p&gt;마침 작년 사내 Hackday에서 Abuser Detection 분석으로 좋은 성과를 얻었던터라 어뷰저 분석을 해보고 싶었고, 그 결과로 나름 재밌는 것들이 발견되었다.
+하지만 좋은 발표 자리(이를테면 파이콘이라든지,,,)에 등록할 시기를 놓쳐서 논문을 arXiv에 올려두듯이 블로그에 댓글 분석한 내용을 공유하고자 한다.&lt;/p&gt;
+
+&lt;p&gt;내용은 크게 &lt;strong&gt;뉴스 댓글 수집&lt;/strong&gt;과 &lt;strong&gt;뉴스 댓글 분석&lt;/strong&gt; 파트로 나뉘며, 전자는 재명님이 후자는 내가 주로 담당해서 정리하였다. 
+이번 글은 &lt;strong&gt;뉴스 댓글 분석&lt;/strong&gt; 1편이다. 궁금한 점이나 추가 분석 요청은 댓글로 남겨주면 좋을 것 같다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;##1.-Data&quot;&gt;1. Data&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;##2.-Basic-Statistics&quot;&gt;2. Basic Statistics&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;##3.-News-Sentiment-Analysis&quot;&gt;3. News Sentiment Analysis&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;##References&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-data&quot;&gt;1. Data&lt;/h2&gt;
+
+&lt;h4 id=&quot;수집-기간&quot;&gt;수집 기간&lt;/h4&gt;
+&lt;p&gt;2006.04.26 ~ 2018.05.25 (수집 시점: 2018.10)&lt;/p&gt;
+
+&lt;h4 id=&quot;수집-내용&quot;&gt;수집 내용&lt;/h4&gt;
+&lt;p&gt;네이버 뉴스의 6개 분야별(정치, 경제, 사회, 생활/문화, 세계, IT/과학) &lt;strong&gt;가장 많이 본 뉴스&lt;/strong&gt; 30건&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/naver_news_ranking.png&quot; width=&quot;75%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;네이버 뉴스 &amp;gt; 랭킹뉴스 화면 예시&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;같은 기사이지만 2-3일 동안 랭킹뉴스에 오를 수 있으므로 중복 기사를 제거해주었다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;중복 제거 전 기사 #: 751,751 (약 75만)&lt;/li&gt;
+  &lt;li&gt;중복 제거 후 기사 #: 643,226 (약 64만)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;분석에-사용한-필드&quot;&gt;분석에 사용한 필드&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;기사: 기사 id, 기사 제목, 기사 입력 시각, 기사 내용, 언론사, 기사 감정&lt;/li&gt;
+  &lt;li&gt;댓글: 댓글 작성 기사id, 작성자 hashed id,  댓글 작성 시각, 댓글 내용, 공감수, 비공감수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-basic-statistics&quot;&gt;2. Basic Statistics&lt;/h2&gt;
+
+&lt;p&gt;중복 제거된 기사에 대해, 기사 작성 시점을 기준으로 한 달 단위로 기사에 달린 코멘트를 집계해서 그래프를 그리면 다음과 같다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_cmnt_all_year.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+네이버 뉴스 개편 history &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; 와 엮어서 이 그래프를 해석하면 재밌어진다.&lt;/p&gt;
+
+&lt;h4 id=&quot;2009년&quot;&gt;2009년&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;2009년 개편 때는 메인 페이지 뉴스 박스 편집권을 신문사에 넘겼고, 기사를 클릭하면 바로 신문사 링크로 연결되게 바뀌었다. 이로 인해 네이버 뉴스의 트래픽이 감소하게 되었고 예전과 비교해서 리플 개수나 조회수가 &lt;strong&gt;상당히 줄어들었다&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2010년&quot;&gt;2010년&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;2010년대 초반에 뉴스 스탠드가 도입되면서 메인화면 뉴스 편집권을 포기하게 된다. 기사를 클릭하면 기본적으로 네이버 페이지가 아닌 언론사 사이트로 연결된다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;모바일로 댓글을 달 수 없었다&lt;/strong&gt;. 또한 댓글 형태가 댓글 제목을 클릭해야만 내용을 볼 수 있는 형태라서 결과적으로는 당시 뉴스 댓글 란은 지금보다 훨씬 폐쇄적인 모양새였다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2012년&quot;&gt;2012년&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;검색과 지식인의 인기를 바탕으로 &lt;strong&gt;네이버가 2012년 1일 방문자 1800만 명을 기록할 정도로 성장&lt;/strong&gt;하는 동안, 네티즌의 뉴스 읽기 방식도 달라졌다. 종이신문을 읽거나 신문방송의 홈페이지를 찾아가는 대신, 네이버나 다음 등 포털의 뉴스캐스트를 통해 여러 언론사 기사를 한꺼번에 읽는 사람들이 크게 늘어난 것이다. 이 때문에 뉴스 편집 기능을 수행하는 포털을 언론사로 봐야 할 것이냐 아니냐 하는 논쟁이 언론관련 심의기구 등에서 벌어지고 있기도 하다. &lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+  &lt;li&gt;2012년 중반부터 &lt;strong&gt;모바일로도 댓글을 달 수 있&lt;/strong&gt;게 되었다.&lt;/li&gt;
+  &lt;li&gt;네이버 아이디로 로그인하지 않아도 트위터나 페이스북 등의 &lt;strong&gt;SNS 계정으로 댓글을 달 수 있&lt;/strong&gt;게 되었다. 이 때문에 네이버 영화 평점 조작처럼 추천수 조작하기도 쉬워졌다. 네이버, 미투데이, 트위터, 페이스북, 다음으로 한 번씩만 로그인해도 공감 및 비공감 5개를 줄 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2016년&quot;&gt;2016년&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;10월, JTBC에서 최순실의 태블릿 pc를 발견하였고 최순실 게이트 사건의 포문이 열리기 시작했다.&lt;/strong&gt; (&lt;del&gt;&lt;em&gt;트래픽 측면에서 네이버 뉴스는 최순실에게 감사하는 마음이 없지 않아 있을 것이다…&lt;/em&gt;&lt;/del&gt;)&lt;/li&gt;
+  &lt;li&gt;그리고 동시에, &lt;strong&gt;드루킹의 댓글 조작 사건&lt;/strong&gt;도 시작 &lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; 되었다.
+    &lt;ul&gt;
+      &lt;li&gt;2018년 5월 말, 특검법이 통과된 이후에 댓글이 줄었다는 기사 &lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt; 가 보도되었다. 2018년 6월 이후의 댓글이 있었다면 그간 댓글부대의 위력이 어느 정도였는지 가늠해볼 수 있었을 것이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;결론적으로 2016년 후반부 이후 폭발적인 댓글 수의 증가는 정치 및 사회 영역의 엄청난 트래픽 덕분이었을 것이다. 가설 검증 차원에서 섹션 별로 나누어 같은 방식으로 댓글을 집계해 보았다.&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_cmnt_sections_year.png&quot; width=&quot;90%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;섹션 별 기사 댓글 (누적 그래프)&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_cmnt_politics_year.png&quot; width=&quot;90%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;타 섹션과 비교한 정치 기사 댓글 그래프&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_cmnt_society_year.png&quot; width=&quot;90%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;타 섹션과 비교한 사회 기사 댓글 그래프&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-news-sentiment-analysis&quot;&gt;3. News Sentiment Analysis&lt;/h2&gt;
+
+&lt;p&gt;네이버 뉴스는 기사에 &lt;strong&gt;“좋아요”&lt;/strong&gt; 를 시작으로 &lt;strong&gt;“훈훈해요”&lt;/strong&gt;, &lt;strong&gt;“슬퍼요”&lt;/strong&gt;, &lt;strong&gt;“화나요”&lt;/strong&gt;, &lt;strong&gt;“후속기사 원해요”&lt;/strong&gt; 의 label을 달 수 있게 만들었다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;“좋아요”:  2014년 초 시작&lt;/li&gt;
+  &lt;li&gt;“훈훈해요”, “슬퍼요”, “화나요”, “후속기사 원해요”:  2017년 초 시작&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_only_like.png&quot; width=&quot;75%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;2016.10.20 기사. &quot;좋아요&quot;만 굉장히 많다.&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_all.png&quot; width=&quot;75%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;2017.10.20 기사. 다섯 가지 감정 모두 표를 받(긴)했다.&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;“좋아요” 만 있을 때와 다섯 가지의 감정이 있을 때의 추이가 또 재밌다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_all_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;“좋아요” 외의 다른 감정이 허가된 순간 이후로 “화나요” 가 급격히 증가한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;정치&quot;&gt;정치&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_politics_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;참고: 사드배치 (2017.03), 문재인 당선 (2017.05) &lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;, 평창 동계 올림픽 (2018.02), 이명박 수감 (2018.03) &lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;경제&quot;&gt;경제&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_economy_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;사회&quot;&gt;사회&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_society_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;문화&quot;&gt;문화&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_life_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;2018년 2월에는 무슨 일이.. (추운 날씨, 성추행 등의 사건 때문으로 추측됨)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;it&quot;&gt;IT&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_it_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;세계&quot;&gt;세계&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/news_emoji_world_year.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-conclusions&quot;&gt;3. Conclusions&lt;/h2&gt;
+
+&lt;p&gt;여기까지는 기초적인 데이터 탐색 작업이었다. 간단히 시간 순으로 댓글 수를 집계하기만 해도 재미있는 분석 결과를 얻을 수 있었다. (가령, 박근혜-최순실 게이트가 얼마나 큰 이슈였는지, 뉴스는 대부분 우리를 열받게 하는 내용이라든지 등)&lt;/p&gt;
+
+&lt;p&gt;이 다음 분석은, &lt;em&gt;의심&lt;/em&gt;하기만 했던 댓글 어뷰저 집단이 실제로 존재하는지에 대해 다룰 예정이다. 마침 댓글 수집 기간과 드루킹의 댓글 조작 기간이 맞물려 있어서 분석해 볼 수 있는 데이터가 손에 쥐어졌다. 최대한 선입견없이 담백한 분석을 해보려고 노력했다. 정말인지 아닌지 다음 글에서 확인해보자.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://namu.wiki/w/네이버 뉴스&quot;&gt;https://namu.wiki/w/네이버 뉴스&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wikitree.co.kr/main/news_view.php?id=71675&quot;&gt;https://www.wikitree.co.kr/main/news_view.php?id=71675&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.mk.co.kr/news/society/view/2018/05/294952/&quot;&gt;https://www.mk.co.kr/news/society/view/2018/05/294952/&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20180619040311/http://www.munhwa.com/news/view.html?no=2018061101070103011001&quot;&gt;https://web.archive.org/web/20180619040311/http://www.munhwa.com/news/view.html?no=2018061101070103011001&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/2017년_대한민국&quot;&gt;https://ko.wikipedia.org/wiki/2017년_대한민국&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:6&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/2018년_대한민국&quot;&gt;https://ko.wikipedia.org/wiki/2018년_대한민국&lt;/a&gt; &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 25 Jul 2019 22:23:00 +0200</pubDate>
+        <link>http://localhost:4000/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D/data%20analysis/%EC%82%AC%ED%9A%8C/society/2019/07/25/%EB%89%B4%EC%8A%A4-%EB%8C%93%EA%B8%80-%EB%B6%84%EC%84%9D-(1).html</link>
+        <guid isPermaLink="true">http://localhost:4000/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D/data%20analysis/%EC%82%AC%ED%9A%8C/society/2019/07/25/%EB%89%B4%EC%8A%A4-%EB%8C%93%EA%B8%80-%EB%B6%84%EC%84%9D-(1).html</guid>
+        
+        
+        <category>데이터 분석</category>
+        
+        <category>Data Analysis</category>
+        
+        <category>사회</category>
+        
+        <category>Society</category>
+        
+      </item>
+    
+      <item>
+        <title>유쾌한 슬럼프</title>
+        <description>&lt;p&gt;어렸을 때의 나는 무언가 새롭게 ‘시작’하는 것을 좋아했다. 무언가를 빨리 배우는 편이었고, 새롭게 어떤 환경이나 개념에 적응하는데에 드는 시간이 적게 들었기 때문에 ‘시작’을 즐길 수 있었기 때문이었던 것 같다. ‘시작’이 주는 그 몰입감과 성취감은 권태로움에서 나를 꺼내주는 좋은 처방전이었다.&lt;/p&gt;
+
+&lt;p&gt;하지만 동시에, 내가 ‘시작’했던 많은 자잘한 일들은 소위말해 ‘꿀만 빨고’ 그만 둘 수 없었다. 처음이 주는 신선함에 어느 정도 익숙해지고나면 이 분야의 ‘탁월함’이 보이기 시작하고, 나는 한참 밑에 자리하고 있다는 사실을 인지하게 된다. 그리고, 그때쯤 항상 그만두고 싶어졌다.&lt;/p&gt;
+
+&lt;p&gt;이 시기를 견디지 못하는 이유는, 아마 기준이 낮았기 때문이었을 것이다. 내가 성취하고자 하는 것은 굉장히 낮은 수준의 것이었고 그 수준을 빠르게 달성하고 나면 더 이상의 열정이 생기지 않았다. 오히려 ‘왜 해야하지?’ 라는 생각이 나를 합리화시키면서 금방 포기하게 만들었다.
+그래서 참 많은, 잡다한 무언가를 하지만 어느 것 하나 제대로 마치지 못하는 나를 발견하곤, ‘잘’하는 것에 좀 더 집중해보기로 했다. 그 이후로 시작에 대한 두려움이 커졌다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;시간과 실력의 관계를 그래프 형태로 나타내면, ‘계단’형이라고 할 수 있겠다. 기나긴 슬럼프 끝에 오는 어느 순간의 깨달음으로, 실력이 갑자기 반등한다. 내게 두려운 기간은 바로 이 ‘슬럼프’의 시기다. 이 또한 지나가리라는 것을 알면서도, 그 순간들은 언제나 고통스럽다. 마치 근력운동을 할 때 정말 힘들지만, 이 순간을 견뎌내야 근육이 붙는다는 사실을 인지하는 느낌이다.&lt;/p&gt;
+
+&lt;p&gt;그 때에 나는 고민한다. &lt;strong&gt;새로운 시작을 할 때인가 아니면, 버텨내야할 때인가를.&lt;/strong&gt; 잘하고 싶기에 버텨내야 한다는 답을 내리지만, 이게 무슨 의미가 있지? 라고 물었을 땐, 쉽게 답하기가 어려울 때가 많다. 왜 버텨내야 하는지, 스스로를 격려하지 않으면 자꾸만 과거의 습관이 튀어나와 새로운 시작을 시도하려고 한다.&lt;/p&gt;
+
+&lt;p&gt;안타까운 건, 이젠 새로운 시작마저도 그 과정에서 다시금 슬럼프를 마주한다는 사실을 인지하고 있기 때문에 잘 하려고 들지 않는다는 것이다. 그래서, 차악으로, 내가 겪고 있는 슬럼프의 시기를 버티게 되는 요즘이다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;당신의 슬럼프는 안녕하신가요? 유쾌한 슬럼프란, 존재할 수 없는 개념일까요?&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 May 2019 22:01:00 +0200</pubDate>
+        <link>http://localhost:4000/%EC%8A%AC%EB%9F%BC%ED%94%84/%EC%8B%9C%EC%9E%91/%EA%B6%8C%ED%83%9C%EB%A1%9C%EC%9B%80/2019/05/15/%EC%9C%A0%EC%BE%8C%ED%95%9C-%EC%8A%AC%EB%9F%BC%ED%94%84.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%EC%8A%AC%EB%9F%BC%ED%94%84/%EC%8B%9C%EC%9E%91/%EA%B6%8C%ED%83%9C%EB%A1%9C%EC%9B%80/2019/05/15/%EC%9C%A0%EC%BE%8C%ED%95%9C-%EC%8A%AC%EB%9F%BC%ED%94%84.html</guid>
+        
+        
+        <category>슬럼프</category>
+        
+        <category>시작</category>
+        
+        <category>권태로움</category>
+        
+      </item>
+    
+      <item>
+        <title>내가 보내는 시간에 부여하는 나만의 의미</title>
+        <description>&lt;p&gt;개인적으로, PUBLY 박소령 대표님의 인스타계정을 좋아한다. 특히 본인이 읽었던 책에 대해 소개하는 피드를 애정한다. 공감하는 문장이 비슷할 때가 많고, 그 글을 읽고 난 뒤의 생각을 엿보는 재미가 있다.&lt;/p&gt;
+
+&lt;p&gt;최근, 회사에 연차를 이틀정도 내고 무엇을 할지 고민하던 중에 그 피드에 있었던 “일하는 마음”이라는 책이 떠올랐다. ‘옳다구나!’ 하고 집어든 책을 이제서야 거의 다 읽었는데, 그 중에 마음에 턱 걸렸던 부분을 소개하려고 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;전문성이 한 가지 이름의 직업과 결부되는 것이라면, 탁월성은 일을 바라보는 접근법, 다양한 분야로 확대할 수 있는 중심 기술과 연결된다. “중심 기술”은 사실 하나의 서사이자 이름 붙이기다. 기자였다가 번역가이자 작가로 일하고, 또 비영리단체의 옹호부장에서 사업본부장을 거친 김희경 작가는 자신의 중심 기술이 “정보를 구조화하는 것”이라고 말했다. 직업과 직위는 계속 바뀌었지만, 정보를 구조화하는 것이 언제나 자신의 일이었다는 것이다. &lt;br /&gt;
+… &lt;br /&gt;
+전문성의 필요 조건은 두 가지다. 하나는 ‘오랜 기간’을 보냈다는 것이고, 다른 하나는 그 오랜 기간이 ‘시스템이 인정하는 내부에서 보낸 기간’이어야 한다는 것이다. &lt;br /&gt;
+… &lt;br /&gt;
+그에 반해 탁월성은 누구에게나 열려 있지만, 그럼에도 더욱 가지기 어려운 것이다. 탁월성은 또한 자신이 해온 일, 하고 있는 일을 어떻게 반추하며 자신만의 시각으로 해석하는가의 문제이기도 하다. 같은 일을 해도 그 일의 경험을 통해 써내려갈 수 있는 이야기는 사람마다 다르다. 얼핏 보아 파편적이고 불연속적인 경험을 통해서도 일관되고 의미 있는 이야기를 써내려갈 수 있는 사람은 자기 기준을 가지고 있고, 그 기준에 맞춰 자기 일의 경험을 스스로 해석할 수 있는 사람이다. &lt;br /&gt;
+&lt;br /&gt;
+“전문성이 아닌 탁월성”, «일하는 마음» 중&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;지금 나는 서로 다른 성격의 두 가지 일 (파파고와 날리다) 을 병행하고 있다. 둘 다 잘하고 싶은 마음은 크지만 능력의 부족으로 어느 것 하나 제대로 하고 있지 못하고 있었는데, 일에 치일 때마다 ‘하나만 해도 버거운데, 나는 왜 이렇게 살고 있지?’ 라는 생각이 들면서 아무것도 하고 싶지 않은 느낌이 강하게 들곤 했다.&lt;/p&gt;
+
+&lt;p&gt;연차를 썼던 그 때의 나에게 필요했던 건, 내가 시간을 투자하는 일에 대한 나만의 의미를 되찾는 것이었다. 다행히 휴가 기간 내에, 불완전하고 미완성인 해석일지라도 새롭게 의미를 부여했다. 그리고 그제서야, 다시 시작할 수 있는 힘을 얻을 수 있었다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;내가 하고 있는 두 일의 중심에는 &lt;em&gt;사람&lt;/em&gt;이 있었다. 나는 타인이 해결하고 싶은 문제를 나의 문제로 쉽게 투영시킨다. 누군가의 문제와 이를 둘러썬 상황을 이해하고, 문제를 해결해서 그 사람을 만족시킬 때 큰 기쁨을 느낀다. 그래서 쉽게 드러나지 않는 문제 상황을 더 잘 이해하고자 데이터 분석을 시작했고, 내가 해결책을 제시할 수 있다고 생각하는 문제에 대해서는 더 많은 사람이 나의 해결 방식을 통해 도움을 받게 하고 싶어서 날리다에 속해 프로그램 기획을 하고 있다.&lt;/p&gt;
+
+&lt;p&gt;다른 사람들은 어떤 마음으로 자신이 해온 일, 하고 있는 일을 해석하고 있을까?&lt;/p&gt;
+
+&lt;p&gt;남에게 나를 소개하기 쉬운 방식-data manifold의 geometrical insight에 관심있는 로봇자동화 연구실 대학원생, HCI 연구실 대학원생, deep metric learning에 관심있는 대학원생, 전동킥보드 쉐어링 스타트업 개발자, (전) 인액터스 의장, 서울대 수학과 박사, google swe, 건축학도, 파파고 개발자-이 아닌, 본인 스스로에게 부여하는 이름은 무엇일까?&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Apr 2019 21:57:00 +0200</pubDate>
+        <link>http://localhost:4000/%ED%83%81%EC%9B%94%ED%95%A8/%EC%9D%BC/%EC%A0%84%EB%AC%B8%EC%84%B1/%EC%9D%98%EB%AF%B8/2019/04/04/%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%82%B4%EB%8A%94-%EC%8B%9C%EA%B0%84%EC%97%90-%EB%B6%80%EC%97%AC%ED%95%98%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9D%98%EB%AF%B8.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%ED%83%81%EC%9B%94%ED%95%A8/%EC%9D%BC/%EC%A0%84%EB%AC%B8%EC%84%B1/%EC%9D%98%EB%AF%B8/2019/04/04/%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%82%B4%EB%8A%94-%EC%8B%9C%EA%B0%84%EC%97%90-%EB%B6%80%EC%97%AC%ED%95%98%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9D%98%EB%AF%B8.html</guid>
+        
+        
+        <category>탁월함</category>
+        
+        <category>일</category>
+        
+        <category>전문성</category>
+        
+        <category>의미</category>
+        
+      </item>
     
       <item>
         <title>연울림 이야기</title>
         <description>&lt;p&gt;&lt;strong&gt;연울림&lt;/strong&gt;의 연은, &lt;strong&gt;이야기할 연&lt;/strong&gt;이다.
 이야기의 힘을 믿기에 나올 수 있었던 기획이다.&lt;/p&gt;
 
-&lt;p&gt;우리, &lt;a href=&quot;https://brunch.co.kr/@nalida&quot;&gt;날리다: 나를 알리다&lt;/a&gt; 팀은 기본적으로 모든 사람들은 본연의 색을 가지고 있다고 믿고 있다. 색이 없다고 말하는 사람들은 그 색을 모르고 있거나, 보이지 않을 뿐이거나, 볼 여력이 없거나, 제대로 보아준 사람이 없어서 그렇게 여길 뿐이라고 생각한다.&lt;/p&gt;
+&lt;p&gt;우리, &lt;a href=&quot;https://brunch.co.kr/@nalida&quot;&gt;날리다: 나를 알리다&lt;/a&gt; 팀은 기본적으로 모든 사람들은 본연의 색을 가지고 있다고 믿고 있다. 지금 이 순간에도 사람들은 각자의 방식으로 현상을 인식하고, 이해하고, 느끼고 있다. 그리고 나만이 경험하는 특별한 시간을 보낸다. 그 속에서 우리는 각자의 가치관과 각자의 고민을 가지게 된다.&lt;/p&gt;
 
-&lt;p&gt;당장 코앞에 일어나는 상황들을 버텨내는데 모든 힘을 쏟고 있다면 스스로를 돌볼 여력이 사라진다. 그러다보면 점점 나의 생각대로 사는 것이 아니라, 사는 대로 생각하게 되고, 시간에 끌려다니면서 시간의 흐름 속에 본인을 맡기기 때문에 색을 잃어버렸다고 여기기 쉽다.&lt;/p&gt;
+&lt;p&gt;평소에 이런 개인적인 생각들은 수면 위로 잘 드러나지 않는다. 가치관을 가감 없이 이야기하기엔 사회에서 수용 가능한 범위가 제한적이고, 고민을 숨김없이 이야기하기엔 나의 고민을 진심으로 귀 기울여줄 사람이 부족하다.&lt;/p&gt;
 
-&lt;p&gt;혹은, 나의 지금을 이루는 본질적인 무엇인가를 누구에게도 털어놓지 못하고 가짜의 모습으로 살고 있다는 생각 때문에 무채색이라고 느끼는 것일 수도 있다. 나의 생각을 인정받지 못하고, 나의 모습을 나로서 이해받지 못하고 있다고 느낄 때. 우리는 스스로를 외부와 단절시키고 색을 잃은 사람 마냥 살아간다.&lt;/p&gt;
+&lt;p&gt;그래서 연울림이 기획되었다. 연울림의 연(讌)은 이야기할 연이고, 울림은 다양한 사람들의 이야기가 공명하는 순간을 담은 단어이다.&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;우리가 말하는 ‘본연의 색’은 스스로의 시간과 경험들 속에서 의미를 찾을 때 비로소 모습을 드러낸다. 내가 보내는 시간 속에 어떤 의미가 있는지, 그 시간을 보내게 된 배경은 무엇인지, 그때 나의 다짐은 무엇인지. 또, 나는 왜 그렇게 밖에 할 수 없었는지를 돌아보고, 그때의 상황과 그때의 나를 객관적으로 바라보고 이해한다.&lt;/p&gt;
+&lt;h3 id=&quot;연讌&quot;&gt;연(讌)&lt;/h3&gt;
 
-&lt;p&gt;스스로 돌아보는 것도 좋지만, 그보다는 이런 생각을 정리한 채로, 나의 이야기를 진심으로 들어줄 사람과 이야기를 나누는 것이 더욱 좋다. 진심으로 나를 이해하고 편견 없이 받아주기 때문에 위로받을뿐더러, 새롭게 나의 시간을 바라보는 시각을 제공받기 때문이다. 새로운 관점은 새로운 의미를 준다. 그래서 나의 경험은 다시금 새로운 의미를 가진 채로 나에게 다가온다.&lt;/p&gt;
+&lt;p&gt;이야기를 통해 각자의 색이 드러난다. 다른 사람들에게 내가 가진 생각과 고민을 전달하는 과정에서 추상적인 형태로 남아있던 경험이 나만의 언어로 뚜렷하게 묘사된다. 그때 나는 왜 그런 생각을 하게 되었는지, 나는 왜 그렇게 밖에 할 수 없었는지를 이야기함으로써 그때의 나와 그때의 상황을 이해한다.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;우리는 우리의 경험을 하나의 이야기로서 누군가에게 말할 필요가 있는데, 이때의 이야기는 미래를 담는 그릇을 품고 있다. 우리가 말하는 과거의 이야기는 스스로 바라는 남은 삶의 방식을 지시한다. &lt;br /&gt;
-&amp;lt;일하는 마음, p.81&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h3 id=&quot;울림&quot;&gt;울림&lt;/h3&gt;
+
+&lt;p&gt;이야기는, 그것을 진심으로 들어주는 사람들이 있을 때 힘을 가진다. 나의 가치관과 타인의 가치관이 만나 서로의 가치관에 영향을 줌으로써 확장되고, 내가 가진 고민을 다른 사람의 시선에서 바라봄으로써 새롭게 나의 고민을 바라보는 시각을 제공받을뿐더러, 나를 이해해주고 편견 없이 받아주기 때문에 위로받는다. 그래서 나의 이야기는 다시금 새로운 의미를 가진 채로 나에게 다가온다.&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
 &lt;p&gt;이야기와 이야기가 만나 공명하는 순간을 만들어가고 싶다. 모든 이야기는 저마다의 가치가 있고, 나눌수록 더 큰 힘을 발휘할 수 있다.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 01 Apr 2019 12:57:00 +0900</pubDate>
+        <pubDate>Mon, 01 Apr 2019 12:57:00 +0200</pubDate>
         <link>http://localhost:4000/%EC%97%B0%EC%9A%B8%EB%A6%BC/%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EB%82%A0%EB%A6%AC%EB%8B%A4/2019/04/01/%EC%97%B0%EC%9A%B8%EB%A6%BC-%EC%9D%B4%EC%95%BC%EA%B8%B0.html</link>
         <guid isPermaLink="true">http://localhost:4000/%EC%97%B0%EC%9A%B8%EB%A6%BC/%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EB%82%A0%EB%A6%AC%EB%8B%A4/2019/04/01/%EC%97%B0%EC%9A%B8%EB%A6%BC-%EC%9D%B4%EC%95%BC%EA%B8%B0.html</guid>
         
@@ -126,7 +1792,7 @@
 
 &lt;p&gt;&lt;strong&gt;답은 언제나 내 안에 있다.&lt;/strong&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 20 Jan 2019 16:55:00 +0900</pubDate>
+        <pubDate>Sun, 20 Jan 2019 16:55:00 +0100</pubDate>
         <link>http://localhost:4000/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EB%82%A0%EB%A6%AC%EB%8B%A4/2019/01/20/%EB%8B%B5%EC%9D%80-%EC%96%B8%EC%A0%9C%EB%82%98-%EB%82%98%EC%97%90%EA%B2%8C-%EC%9E%88%EB%8B%A4.html</link>
         <guid isPermaLink="true">http://localhost:4000/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EB%82%A0%EB%A6%AC%EB%8B%A4/2019/01/20/%EB%8B%B5%EC%9D%80-%EC%96%B8%EC%A0%9C%EB%82%98-%EB%82%98%EC%97%90%EA%B2%8C-%EC%9E%88%EB%8B%A4.html</guid>
         
@@ -187,7 +1853,7 @@ B. 저는 맵고 자극적인 음식을 싫어하고, 오늘은 밀가루 음식
 
 &lt;p&gt;꼭 잇다가 아니더라도 조언을 구하고 싶은 선배나 멘토가 있다면, 좋은 질문을 고민하는 과정에서 하나의 힌트가 되길 바란다.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 08 Jan 2019 11:38:00 +0900</pubDate>
+        <pubDate>Tue, 08 Jan 2019 11:38:00 +0100</pubDate>
         <link>http://localhost:4000/%EB%A9%98%ED%86%A0%EB%A7%81/%EC%A7%88%EB%AC%B8/%EB%A9%98%ED%8B%B0/2019/01/08/%EB%A9%98%ED%86%A0%EC%97%90%EA%B2%8C-%EC%A2%8B%EC%9D%80-%EC%A7%88%EB%AC%B8%EC%9D%84-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95.html</link>
         <guid isPermaLink="true">http://localhost:4000/%EB%A9%98%ED%86%A0%EB%A7%81/%EC%A7%88%EB%AC%B8/%EB%A9%98%ED%8B%B0/2019/01/08/%EB%A9%98%ED%86%A0%EC%97%90%EA%B2%8C-%EC%A2%8B%EC%9D%80-%EC%A7%88%EB%AC%B8%EC%9D%84-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95.html</guid>
         
@@ -265,7 +1931,7 @@ Ch.19: Takeaways: Basic error analysis&lt;/p&gt;
 
 &lt;p&gt;그리고 여기까지 소개된 일련의 과정-데이터 수집 -&amp;gt; 모델 구성 -&amp;gt; 학습 -&amp;gt; 결과 분석 pipeline-이 최대한 빨리 iterate하는 것이 중요하다. 처음부터 완벽한 것은 없다. 일단 시작하자!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 01 Jan 2019 15:47:00 +0900</pubDate>
+        <pubDate>Tue, 01 Jan 2019 15:47:00 +0100</pubDate>
         <link>http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2019/01/01/Machine-Learning-Yearning-%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8-Ch.13~19.html</link>
         <guid isPermaLink="true">http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2019/01/01/Machine-Learning-Yearning-%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8-Ch.13~19.html</guid>
         
@@ -338,7 +2004,7 @@ Test set: 알고리즘의 성능을 평가하기 위한 데이터 &lt;br /&gt;&l
 
 &lt;p&gt;dev/test set이 더이상 실제 사용자의 distribution을 대표하지 않을 때, dev set에 너무 overfit 되어버렸을 때, metric이 팀의 방향을 대변하지 못할 때, 과감히 변화를 시도하자.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 26 Dec 2018 01:24:00 +0900</pubDate>
+        <pubDate>Wed, 26 Dec 2018 01:24:00 +0100</pubDate>
         <link>http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/26/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.5~12.html</link>
         <guid isPermaLink="true">http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/26/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.5~12.html</guid>
         
@@ -409,7 +2075,7 @@ Ch.4: Scale drives machine learning progress&lt;/p&gt;
 
 &lt;p&gt;이 주제를 보면 책의 큰 흐름을 알 수 있을 것이다. 다음 글은 Setting up development and test sets에 대한 내용이다.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 25 Dec 2018 17:17:00 +0900</pubDate>
+        <pubDate>Tue, 25 Dec 2018 17:17:00 +0100</pubDate>
         <link>http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8-Ch.1~4.html</link>
         <guid isPermaLink="true">http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8-Ch.1~4.html</guid>
         
@@ -421,147 +2087,6 @@ Ch.4: Scale drives machine learning progress&lt;/p&gt;
         <category>책</category>
         
         <category>요약</category>
-        
-      </item>
-    
-      <item>
-        <title>스카이캐슬을 통해 본 서울대학교 학생들의 우울증</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://news.v.daum.net/v/20181130174505442&quot;&gt;기사&lt;/a&gt;에 따르면, 서울대학교 학생들의 47%가 우울증을 앓고 있다고 한다. 그 원인으로 사상 최악의 취업난과 과열된 학점 경쟁을 꼽고 있는데, 실상을 전혀 모르고 하는 소리다. 만약 그 이유로 우울했더라면, 진로문제나 학업문제로 상담소를 찾는 학생들이 제일 많아야 한다. 그러나, 기사에도 적혀있듯이 심리상담소를 찾는 대부분의 학생은 “정서문제”로 어려움을 겪고 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/snu_blues.jpeg&quot; alt=&quot;snu_blues&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;서울대 학생들은 확실히 타교 학생들에 비해 취업 걱정이 덜하다. 주변에서 “취업을 하지 못할 것”으로 염려하는 학생들은 보지 못했다. 대신, “내가 무엇을 좋아하는지, 무엇을 잘할 수 있는지, 내가 선택한 모든 것들이 괜찮은 것인지, 이래도 되는 것인지, 평생에 걸쳐 이뤄내고 싶은 내 삶의 목적은 무엇인지, 나는 어떤 사람인지”를 몰라 방황하는 학생들은 많았다.&lt;/p&gt;
-
-&lt;p&gt;요즘 인기리에 방영 중인 드라마 “스카이캐슬”을 본 사람들이라면, 서울대생의 이런 고민에 공감할 수 있을 것이다. 서울대학교에 입학한 대부분의 학생들은 스카이캐슬의 학생들과 비슷한 학창시절을 보낸다. 운 좋게 공부에 재능을 가지고 태어나서 큰 어려움없이 초등학교와 중학교 교육과정에서 요구하는 바를 충실히 따라가고, 고등학교에 진학하면 자연스레 좋은 대학에 가는 것이 목표가 되어 버린다. 주변에서 관심을 가지는 것은 모두 “성적”에 관련된 것들 뿐이다. 지금 내가 취약한 과목은 무엇인지, 어떤 인강이, 어떤 선생님이 좋은지. 부모님도 내가 높은 성적을 받을 수 있도록 모든 방면에서 서포트를 해주신다. &lt;strong&gt;마치 좋은 대학에만 들어가면 나의 인생에서 행복이 보장된 것처럼. 그리고, 학생 스스로도 자신을 기만한다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;대학교에 입학하기 전까지 이 학생들에게는 큰 고민이랄 것이 없다. 목표는 확실했고, 그 목표를 향해 충실히 달려나가고 있기 때문에. 문득 떠오르는, &lt;strong&gt;“왜 나는 좋은 대학에 가야하지?”&lt;/strong&gt;라는 질문이 가장 큰 방해물이고, 그런 생각은 &lt;strong&gt;일단 좋은 대학에 붙은 이후&lt;/strong&gt;에 하는 것으로 여겨진다. 그렇게 &lt;strong&gt;인생의 중요한 문제를 고민하는 시기를 미루게 된다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;서울대학교에 입학하고 나서 이들은 과연 행복했을까? 그리고, 인생의 근본적인 문제들-삶의 이유, 목적, 나의 존재 이유-이 해결이 되었을까? 전혀 그렇지 않다. 대학교 입학 자체가 목적이었기에 이를 달성한 순간에는 행복했겠지만, 그 이후의 삶에 대해서는 크게 고민해본 적이 없었기 때문에 대학 입학 이후의 시간들은 이 학생들에게 너무나 큰 짐으로 다가왔을 것이다. 고등학교 때 &lt;strong&gt;나에 대한 진지한 고민없이 선택&lt;/strong&gt;한 전공이 나와 맞지 않음을 깨닫기 시작하고, 그렇다면 나에게 맞는 미래는 무엇인지를 묻게 된다. 하지만 경험이 적다보니 그 질문에 대한 답을 찾는 것이 어렵고, 답이 문득 떠올랐더라도 항상 제일 좋은 선택지를 택해왔고, 정답이 있는 선택을 해왔기 때문에 ‘이래도 되는걸까?’라는 생각과 함께 스스로 결정을 내리지 못하고 머물러있다.&lt;/p&gt;
-
-&lt;p&gt;이들은 그동안 살아왔던 방식과 전혀 다른 방식으로 살아가길 도전받는다. 그래서 서울대학교 학생들은 두렵다. 하지만 그 마음을 누군가에게 잘 털어놓지 못한다. 부모님은 ‘우리 아이는 스스로 알아서 잘 할 것’이라고 생각하기에 털어놓지 못하고, 고등학교 친구들은 ‘서울대가 고민은 무슨 고민’이라고 생각하기에, 같은 대학교 친구들은 속을 쉽게 털어놓을만큼 깊은 관계가 아니기에 이런 이야기를 하기 어렵다.&lt;/p&gt;
-
-&lt;p&gt;마음 속에 부채처럼 쌓이는 이야기들이 어느 순간 스스로를 곪게 만든다. 나의 이야기를 편견없이 들어줄 수 있는 사람을 원하게 된다. 그래서 상담소를 찾게 되고, 그 곳에서 오히려 주변 사람들에게 하지 못했던 나의 깊은 이야기를 털어놓게 된다. 그리고, 그 것만으로도 마음이 치유된다. 내가 느끼는 모든 것들이 이상하지 않고, 지금은 넘어지고 다칠 수 밖에 없는 시기라는 사실에 위안받는다.&lt;/p&gt;
-
-&lt;p&gt;남의 이야기처럼 썼지만, 약 70%정도는 나의 이야기이다. 그래서 요즘 스카이캐슬을 보면 마음이 아프다. 스카이캐슬 입주 가족 중 어느 누구도 대학 이후의 삶에 대해서는 이야기하지 않는다. 어떤 사람이 되고 싶은지, 나의 죽음은 어떻게 기억되고 싶은지, 왜 그 대학에 가고 싶은지, 그 대학에 가서 제일 하고 싶은 것은 무엇인지 등. ‘서울의대 합격’이라는 증명서가 전부인 세상. 그 안에서 이미 곪을대로 곪아버린 영재를 떠올려본다.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 23 Dec 2018 12:59:00 +0900</pubDate>
-        <link>http://localhost:4000/%EC%9A%B0%EC%9A%B8%EC%A6%9D/%EB%8C%80%ED%95%99%EC%83%9D/%EA%B3%A0%EB%AF%BC/2018/12/23/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8F%E1%85%A2%E1%84%89%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B3%E1%86%AF-%E1%84%90%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A2-%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A5%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%83%E1%85%A2%E1%84%92%E1%85%A1%E1%86%A8%E1%84%80%E1%85%AD-%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A2%E1%86%BC%E1%84%83%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B4-%E1%84%8B%E1%85%AE%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B3%E1%86%BC.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%EC%9A%B0%EC%9A%B8%EC%A6%9D/%EB%8C%80%ED%95%99%EC%83%9D/%EA%B3%A0%EB%AF%BC/2018/12/23/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8F%E1%85%A2%E1%84%89%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B3%E1%86%AF-%E1%84%90%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A2-%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A5%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%83%E1%85%A2%E1%84%92%E1%85%A1%E1%86%A8%E1%84%80%E1%85%AD-%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A2%E1%86%BC%E1%84%83%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B4-%E1%84%8B%E1%85%AE%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B3%E1%86%BC.html</guid>
-        
-        
-        <category>우울증</category>
-        
-        <category>대학생</category>
-        
-        <category>고민</category>
-        
-      </item>
-    
-      <item>
-        <title>좋아하는 일은 어떻게 찾을 수 있을까?</title>
-        <description>&lt;p&gt;&lt;em&gt;잇다에서 보기: https://www.itdaa.net/mentor_posts/6337&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.itdaa.net/&quot;&gt;잇다&lt;/a&gt;라는 온라인 멘토링 플랫폼에서 멘토로 활동하면서 가장 많이 받는 질문은 &lt;em&gt;“좋아하는 일을 어떻게 찾을 수 있나요?”&lt;/em&gt; 이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;좋아하는 일, 어떻게 찾을 수 있을까요? 주변에서 좋아하는 일을 하라고들 많이 말하는데 막상 저에 대해 생각해보면 진짜 제가 뭘 좋아하는지 모르겠습니다. 뭘 좋아하는지부터 알아야 앞으로 나아갈 수 있을 것이라고 생각이 드는데 어떤 방법으로 찾을 수 있을지 궁금합니다. 나를 탐색하는 방법이나 추천하고 싶은 방법을 알려주세요.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;진로는 어떻게 찾아가셨나요? 사실 지금 직장은 나이때문에 부랴부랴 들어간 곳이라 보람감 혹은 성취감 없이 다니고있습니다,, 제가 정말 성장하고 흥미를 느낄만한 분야를 찾고싶은데 사실 진로를 찾고 발을 내딛기가 엄두도안나고 막막하기만 하네요, 멘토님은 자신의 진로를 어떻게 찾아가셨나요?&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;지금 이 시점에 돌이켜보니 그저 소속된 곳에서 흘러가는대로 살아왔던 것 같고, 이제 무소속이 된 지금 이 시점에 어떤 직업을 가져야 할지 내가 과연 원하는 것이 무엇일지 너무 답답해서 (중략) 혹시나 멘토로서 조언해주실 것이 있다면 어떤 피드백이라도 주시면 감사하겠습니다.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;좋아하는 일은 많고 하기에는 두려워요.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;기계공학과를 오긴 했지만 제가 정말 하고싶은 일이 기계를 다루는 일일까라는 걱정도 많이 되고… 멘토님은 좋아하는 일을 어떻게 찾으셨는지 궁금합니다!&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;멘티들의 질문을 마주하고 글 이면에 숨겨진 각자의 어려움을 상상하다보면, 나의 대학시절의 모습이 많이 떠오른다. 무비판적으로 지식과 이론을 습득하기에 바빴던 고등학생이 대학생이 되어 스스로의 생각으로 걸어나가기 위해 무수히 많이 넘어졌던 시절이. 나에 대해 깊게 고민해 본 시간이 없었기 때문에 내가 무언가를 좋아한다는 것이 무엇인지조차 알 수 없었던 시절이. 나의 생각보다 타인의 생각을 더 높게 평가했기 때문에 다른 사람들이 하는 선택과 남들이 좋다고 생각하는 것에 이리저리 휘둘리기도 했던 시절이. 이미 본인의 길을 걸어가고 있는 친구들을 보며 부러움과 동시에 나의 길이 과연 세상에 존재는 하는 것일지에 대한 불안감을 느꼈던 그 시절이.&lt;/p&gt;
-
-&lt;p&gt;이 모든 혼란스러움과 불안의 시간을 거쳐, 나는 끝내 내가 기꺼이 걷기로 선택한 나만의 길을 찾을 수 있었다.  멘티들의 상황이 모두 나의 예전과 같다고는 할 수 없지만 내가 비슷한 시기에 스스로에게 질문을 던지고 이에 답했던 내용들이 조금이라도 멘티들에게 힌트가 되길 바라며 이 글을 쓰게 되었다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;우리는 왜 좋아하는 일을 찾으려고 할까? 인생에서 대부분의 시간을 일을 하며 보내기에 그 시간을 행복하게 쓰고자 하기 위함이다. 그래서 나에게 “좋아하는 일을 어떻게 찾을 수 있나요?”라는 질문은 “내게 행복을 주는 일은 어떻게 찾을 수 있나요?”와 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span class=&quot;evidence&quot;&gt;이 질문에 대한 답을 하기 위해 나는 스스로에게 다음의 세 질문을 던졌다.&lt;/span&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;내가 행복했던 경험들은 무엇이고 그 경험들의 어떤 특징이 나를 행복하게 만들었을까?&lt;/li&gt;
-  &lt;li&gt;내 행복의 요인을 지속적으로 제공할 수 있는 일은 무엇일까?&lt;/li&gt;
-  &lt;li&gt;그 일을 선택하게 됨으로써 내가 부딪힐 수많은 어려움을 나는 감당할 자신이 있을까?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;1-내가-행복했던-경험들은-무엇이고-그-경험들의-어떤-특징이-나를-행복하게-만들었을까&quot;&gt;1. 내가 행복했던 경험들은 무엇이고 그 경험들의 어떤 특징이 나를 행복하게 만들었을까?&lt;/h3&gt;
-
-&lt;p&gt;이 질문에 답하기 전에 “행복”이라는 것에 대해 한 번 짚고 넘어갈 필요가 있다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;우리가 행복이라는 말을 통해 의미하는 것은 대개 잠시의 쾌감에 가깝다. 행복이란, 온천물에 들어간 후 10초 같은 것. 그러한 느낌은 오래 지속될 수 없다. 오래 지속될 수 없는 것을 바라다보면, 그 덧없음으로 말미암아 사람은 쉽게 불행해진다.&lt;/em&gt; &lt;br /&gt; &lt;br /&gt;&lt;em&gt;«김영민, 한국일보 칼럼 “새해에 행복해지겠다는 계획은 없다” 중»&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;짧은 순간에 머무르는 말초적이고 자극적인 쾌락을 행복이라고 정의해선 안된다. 또한 행복의 원인이 타인이나 주위의 환경(주변의 기대, 동경, 인정 등)에 의존적이라면, 다시 생각해보아야 한다. 그래서 나는 행복했던 경험을 찾기 위해 순간의 감정에 집중하기보다 오랜 기간 지속해온, 혹은, 해왔던 활동들에 집중했다.&lt;/p&gt;
-
-&lt;p&gt;사람은 저마다 각자의 행복을 위해 산다&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. 그리고 삶은 유한하다. 주어진 시간을, 사람들은 저마다의 행복을 최대화할 수 있는 선택들으로 채워나간다. 그렇기 때문에 수많은 선택지들 중에서 하필 왜 “그 선택”을 내렸는가에 답이 들어있을 것이라 믿었다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어보자. 나는 잇다에서 멘토로 활동하고 있다. 잇다의 멘토는 아무런 금전적 보상을 받지 않는다. 그럼에도 멘토링을 하는 이유는 내 도움을 필요로 하는 멘티들이 내 답변을 통해 도움을 얻었을 때 뿌듯하기 때문이다. 그 순간이 내게는 보상이다. 이런 나의 선택을 통해 나라는 사람에게 돈이라는 가치는 크게 중요하지 않다는 사실을 유추할 수 있다. 오히려 &lt;strong&gt;내게 중요한 것은 타인에게 미치는 긍정적인 영향력&lt;/strong&gt;이다. 다른 사람들이 나로 인해 좀 더 나은 삶을 영위하게 되었을 때 행복해진다.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-내-행복의-요인을-지속적으로-제공할-수-있는-일은-무엇일까&quot;&gt;2. 내 행복의 요인을 지속적으로 제공할 수 있는 일은 무엇일까?&lt;/h3&gt;
-
-&lt;p&gt;내 행복한 경험의 특징을 더 구체적으로 생각해보자. 좀 더 나은 삶이란 무엇인가? 몸이 아픈 사람이 건강해지는 것? 모든 사람에게 동일한 기회가 제공되는 것? 나의 답은 &lt;strong&gt;서비스를 통해 더 편리해지고 유익해지는 삶&lt;/strong&gt;. 그리고 &lt;strong&gt;획일화된 사고방식을 강요하는 교육이 아닌, 다양한 가치를 존중하고 나만의 고유함을 인정받는 교육을 제공받는 삶&lt;/strong&gt;이었다.&lt;/p&gt;
-
-&lt;p&gt;사람들의 삶이 더 편리해지고 유익해질 수 있는 서비스를 직접 만들거나, 이미 만들고 있는 기업에 참여하는 과정일 것이다. 그런 서비스는 무엇일까? 나의 답은 사람들이 원하는 것을 읽어내 그 부분을 채워주는 서비스였다. 그리고 그 방법으로 떠올린 것이 “데이터 분석”이었다. 고등학교 때부터 데이터에는 힘이 있다고 믿었다. 잔반량이 문제였던 고등학교 시절, 음식의 맛과 잔뱐량의 상관관계를 데이터로 파악할 수 있다면 금방 잔반량을 최소화하는 방법을 마련할 수 있을 것이라고 생각했다. 맛없는 음식은 급식의 품질에 달려있고, 품질은 급식비와 큰 관련이 있기 때문에 적절하게 급식비를 올리면 해결될 수 있는 문제였다. 마찬가지로, 사람들이 사용하는 서비스에는 어쩔 수 없이 사람들이 남긴 흔적들이 있을 것이다. 그 흔적을 분석하여 사용자들이 원하는 바를 읽어내고, 새로이 서비스에 반영하면 사람들의 삶이 더 편리해질 것이라고 믿었다. 이 일을 하는 사람들은 &lt;em&gt;데이터 분석가&lt;/em&gt;, &lt;em&gt;데이터 사이언티스트&lt;/em&gt;라는 이름으로 불리고 있었고, 현실적으로도 내가 도전해볼 수 있는 영역 안에 자리했다.&lt;/p&gt;
-
-&lt;p&gt;고유함을 인정받는 교육을 실현하는 과정을 구체화하는 것은 어려웠다. 현재의 교육 시스템을 바꾸어야 가능한데, 교육에 관련된 많은 사람들-학부모, 학생, 학원 강사, 학원 원장, 교육부, 학교, 교사 등-의 공감을 얻어야만 가능한 일이기 때문에 쉽게 그려지지 않았다. 교육에 관련된 일을 하고 있는 직업도 내가 하고싶은 일이라고 느껴지지 않았다. 교사와 학원 강사는 이미 현재 교육 시스템 안에서 활동하는 사람이기 때문에 혁신과는 거리가 멀었다고 생각했기 때문이었고, 교육부장관은 교육에 관련된 수많은 이해관계자들 속에서 마땅한 해결책을 제안할 수 없을 뿐더러 top-down 방식으로는 절대 교육의 혁신이 이루어지지 못할 것이라고 생각하였기에 제외하였다. 오히려 내가 직접 학교를 세워 그 안에서 자유롭게 내가 생각하는 교육을 실현하는 방식을 꿈꾸었다. 그러나 당시 내가 처한 현실-화학생물공학 전공의 3학년 대학생-에서는 길이 보이지 않았기 때문에 마음 속에만 간직해둔 채로 언젠가 다가올 기회만을 기다리기로 했다.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-그-일을-하기로-결정하게-됨으로써-앞으로-부딪힐-수많은-어려움을-나는-감당할-자신이-있을까&quot;&gt;3. 그 일을 하기로 결정하게 됨으로써 앞으로 부딪힐 수많은 어려움을 나는 감당할 자신이 있을까?&lt;/h3&gt;
-
-&lt;p&gt;여기까지 구체화되었다면, 남은 것은 목표를 향해 움직이는 것 뿐이었다.&lt;/p&gt;
-
-&lt;p&gt;먼저, 데이터 사이언티스트는 어떻게 해야 될 수 있는지를 알아보아야 했다. 그 당시만해도 지금처럼 이 직업이 핫하지는 않았다. 그래서 어떤 회사에 들어가야 데이터 분석가로 일할 수 있는지, 어떻게 해야 데이터 분석가가 될 수 있는지 자세히 알기 어려웠다. 더욱이 나의 전공은 이 분야와 관련이 없어서 주변에 데이터 분석가로 일하고 있는 선배를 소개받기도 어려웠다.&lt;/p&gt;
-
-&lt;p&gt;또한, 데이터 분석과 관련된 공부를 시작해야했다. 내가 원하는 바와 가장 가까웠던 연구실-산업공학 데이터마이닝 연구실-을 찾았고, 그 연구실에 입학하고 싶기도 했고, 교수님의 수업을 듣고 싶었다. 그렇게 산업공학 부전공을 시작하게 되었다. 내 주변에서는 아무도 선택하지 않았던 길이라 많이 두려웠다. 다른 사람들에 비해 출발이 늦었다고 생각했기 때문에 불안하기도 했다.&lt;/p&gt;
-
-&lt;p&gt;그렇지만, 지금이라도 늦지 않았다고 나를 다독였다. 하고 싶은 것을 향해 나아가는 과정에서 더 많은 어려움이 있을 것을 직감했다. 현실적인 제약으로 수많은 좋은 방법을 포기해야 하기 때문에, 전혀 다른 분야여서 내가 배워야할 것이 정말 많기 때문에, 다른 사람들에 비해 뒤쳐져 있기 때문에, 그런 와중에도 같은 목표를 향해가는 수많은 사람들 속에서 나만의 고유함을 계속 갈고 닦아야 하기 때문에 정말 많이 넘어지고, 깨지고, 좌절하는 경험이 많을 것이었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;그럼에도 불구하고, 나는 데이터 사이언티스트가 되고 싶었다. 그래서 내 선택에 이어질 모든 순간들을 받아들이기로 결심했다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;여기까지 생각이 정리되자, 내게 무언가를 할 용기가 생겼다. 스스로에게 끊임없이 물었던 시간들만큼 나의 결정에 무게감이 실렸다. 실제로 그 이후의 많은 시간들은 힘겨웠지만 포기하진 않았다. 그 때 버텨냈던 경험 덕분에 지금의 나는 행복할 수 있었고, 그 경험으로 당시의 나와 같은 고민을 하고 있을 멘티들에게 도움을 줄 수 있었다. 마지막으로, 여기까지 글을 읽었을, 스스로에 대한 고민이 많을 사람들에게 전해주고 싶은 문장을 인용하며 마무리 지으려고 한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;실망이라는 향유. 실망은 불행이라고 간주되지만, 이는 분별없는 선입견일 뿐이다. 실망을 하지 않는다면 우리가 무엇을 기대하고 원했는지 어떻게 발견할 수 있으랴? 또한 이런 발견 없이 자기 인식의 근본을 어떻게 알 수 있으랴? 그러니 실망이 없이 자기 자신에 대한 명확함을 어떻게 얻을 수 있으랴?&lt;/em&gt; &lt;br /&gt; &lt;br /&gt; &lt;em&gt;«리스본행 야간열차 중»&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;문유석, 개인주의자 선언 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sat, 24 Nov 2018 20:48:00 +0900</pubDate>
-        <link>http://localhost:4000/%EB%A9%98%ED%86%A0%EB%A7%81/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EA%BF%88/%EC%A7%84%EB%A1%9C/2018/11/24/%EC%A2%8B%EC%95%84%ED%95%98%EB%8A%94-%EC%9D%BC%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%B0%BE%EC%9D%84-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%EB%A9%98%ED%86%A0%EB%A7%81/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EA%BF%88/%EC%A7%84%EB%A1%9C/2018/11/24/%EC%A2%8B%EC%95%84%ED%95%98%EB%8A%94-%EC%9D%BC%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%B0%BE%EC%9D%84-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C.html</guid>
-        
-        
-        <category>멘토링</category>
-        
-        <category>자기이해</category>
-        
-        <category>꿈</category>
-        
-        <category>진로</category>
         
       </item>
     
