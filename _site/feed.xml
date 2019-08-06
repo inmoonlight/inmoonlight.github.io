@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Aug 2019 21:02:43 +0200</pubDate>
-    <lastBuildDate>Tue, 06 Aug 2019 21:02:43 +0200</lastBuildDate>
+    <pubDate>Tue, 06 Aug 2019 21:10:06 +0200</pubDate>
+    <lastBuildDate>Tue, 06 Aug 2019 21:10:06 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -39,7 +39,7 @@
     &lt;a href=&quot;#14-analysis&quot;&gt;1.4 Analysis&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#2-conclusions&quot;&gt;2. Conclusions&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#appendix-a-gaussian-mixture-model-fitting&quot;&gt;Appendix A: Gaussian Mixture Model Fitting&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#appendix-b-기타-정치면-top-user-ratios&quot;&gt;Appendix B: 기타 정치면 top users&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#appendix-b-기타-정치면-top-users&quot;&gt;Appendix B: 기타 정치면 top users&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
