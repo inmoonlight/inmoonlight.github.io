@@ -25,6 +25,17 @@ jekyll-archives:
 paginate: 6
 paginate_path: /page:num/
     
+# Social icons and sharing options
+social:
+  - icon:	twitter
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+  - icon:	facebook
+    share_url: https://www.facebook.com/sharer.php
+    share_title: ?t=
+    share_link: "&amp;u="
+
 # Other
 markdown: kramdown
 highlighter: rouge
