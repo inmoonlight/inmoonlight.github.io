@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Aug 2019 20:31:02 +0200</pubDate>
-    <lastBuildDate>Tue, 06 Aug 2019 20:31:02 +0200</lastBuildDate>
+    <pubDate>Tue, 06 Aug 2019 20:38:54 +0200</pubDate>
+    <lastBuildDate>Tue, 06 Aug 2019 20:38:54 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -31,15 +31,15 @@
 
 &lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;#0-previous-work&quot;&gt;0. Previous Work&lt;/a&gt;
-&lt;a href=&quot;#1-abuser,-who-are-you?&quot;&gt;1. Abuser, who are you?&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#1.1-introduction&quot;&gt; 1.1 Introduction&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#1.2-abuser-criteria&quot;&gt; 1.2 Abuser Criteria&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#1.3-data-preprocessing&quot;&gt; 1.3 Data preprocessing&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#1.4-analysis&quot;&gt; 1.4 Analysis&lt;/a&gt;
-&lt;a href=&quot;#2-conclusions&quot;&gt;2. Conclusions&lt;/a&gt;
-&lt;a href=&quot;#appendix-A:-Gaussian-Mixture-Model-Fitting&quot;&gt;Appendix A&lt;/a&gt;
-&lt;a href=&quot;#appendix-B:-기타-정치면-top-user-ratio-graph&quot;&gt;Appendix B&lt;/a&gt;
+&lt;p&gt;&lt;a href=&quot;#0-previous-work&quot;&gt;0. Previous Work&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#1-abuser-who-are-you&quot;&gt;1. Abuser, who are you?&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#11-introduction&quot;&gt; 1.1 Introduction&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#12-abuser-criteria&quot;&gt; 1.2 Abuser Criteria&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#13-data-preprocessing&quot;&gt; 1.3 Data preprocessing&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#14-analysis&quot;&gt; 1.4 Analysis&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#2-conclusions&quot;&gt;2. Conclusions&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#appendix-a-gaussian-mixture-model-fitting&quot;&gt;Appendix A: Gaussian Mixture Model Fitting&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#appendix-b-기타-정치면-top-user-ratios&quot;&gt;Appendix B: 기타 정치면 top users&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
@@ -664,7 +664,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;t5XZ&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;2NX3n&lt;/code&gt; 등 일부 top user는 여러 섹션에 걸쳐 top user로 등장한다. 하지만 중복 top user를 개별적인 user로 간주하고 분석을 진행하였다. (Gaussian Mixture Model로 distribution fitting한 결과는 &lt;a href=&quot;#appendix-A:-Gaussian-Mixture-Model-Fitting&quot;&gt;Appendix A&lt;/a&gt; 참고)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;t5XZ&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;2NX3n&lt;/code&gt; 등 일부 top user는 여러 섹션에 걸쳐 top user로 등장한다. 하지만 중복 top user를 개별적인 user로 간주하고 분석을 진행하였다. (Gaussian Mixture Model로 distribution fitting한 결과는 &lt;a href=&quot;#appendix-A-Gaussian-Mixture-Model-Fitting&quot;&gt;Appendix A&lt;/a&gt; 참고)&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/abuser-gaussian.png&quot; width=&quot;80%&quot; /&gt;
@@ -1001,7 +1001,7 @@
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 두 명만 어뷰저라고 가정하고, 나머지 8명이 아니었다고 했을 때 &lt;a href=&quot;#appendix-B:-기타-정치면-top-user-ratio-graph&quot;&gt;다른 유저들의 실제 댓글 내용&lt;/a&gt;까지 보면 큰 차이가 느껴지진 않았다. 박근혜-최순실 게이트나 이명박의 다스 이슈는 “비리” 사건이었기 때문에 호의적인 반응을 보이긴 쉽지 않았겠지만 충분히 반대의 의견이 개시될 수 있을 법한 사건 (남미, 남북, 한일 관계 등) 등에서도 너무 일관된 내용의 댓글이 top 10에 보였다.&lt;/p&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 두 명만 어뷰저라고 가정하고, 나머지 8명이 아니었다고 했을 때 &lt;a href=&quot;#appendix-B-기타-정치면-top-users&quot;&gt;다른 유저들의 실제 댓글 내용&lt;/a&gt;까지 보면 큰 차이가 느껴지진 않았다. 박근혜-최순실 게이트나 이명박의 다스 이슈는 “비리” 사건이었기 때문에 호의적인 반응을 보이긴 쉽지 않았겠지만 충분히 반대의 의견이 개시될 수 있을 법한 사건 (남미, 남북, 한일 관계 등) 등에서도 너무 일관된 내용의 댓글이 top 10에 보였다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;위와 같은 면에서 &lt;strong&gt;네이버 뉴스 댓글은 다양성을 충분히 수용하고 있지 못하다는 생각이 들었다.&lt;/strong&gt; “플랫폼이기 때문에 그럴 수 있지 않을까?” 싶지만 페이스북이나 유튜브, 레딧같은 다른 플랫폼에서의 댓글을 보면 무작정 호감순으로 정렬하지는 않는다. 이 플랫폼들의 기준이 문제가 없다는 것은 아니다. 하지만 네이버 뉴스 보다 다양한 기준으로 댓글을 정렬시키고 있으며 (최신순, 오래된 순, 공감을 많이 받은 순, relevance 순, 호감 + vote의 크기 등) 이를 통해 다양한 의견이 쉽게 노출될 수 있는 환경을 조성하였다는 점에서는 좀 더 높은 점수를 주고 싶다.&lt;/p&gt;
@@ -1091,7 +1091,7 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;appendix-b-기타-정치면-top-user-ratio-graph&quot;&gt;Appendix B: 기타 정치면 top user ratio graph&lt;/h2&gt;
+&lt;h2 id=&quot;appendix-b-기타-정치면-top-users&quot;&gt;Appendix B: 기타 정치면 top users&lt;/h2&gt;
 
 &lt;h4 id=&quot;a06bv-ratio-8900&quot;&gt;a06BV (ratio: 89.00%)&lt;/h4&gt;
 
