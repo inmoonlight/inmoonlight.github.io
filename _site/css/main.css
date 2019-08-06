@@ -264,7 +264,7 @@ body {
     .content {
       padding: 0 16px; } }
   .content article {
-    padding: 40px 0;
+    padding-top: 40px;
     border-bottom: 1px solid #f2f2f0; }
     .content article:last-child {
       border-bottom: 0px; }
@@ -573,7 +573,7 @@ body {
     margin-bottom: 12px;
     padding-top: 2px; }
     .post .post-content-mediator li p {
-      padding: 0 0 1.618rem; }
+      padding: 0 0 0.1rem; }
   .post .post-content-mediator ol li {
     list-style-type: decimal; }
   .post .post-content-mediator table, .post .post-content-mediator th, .post .post-content-mediator td {
