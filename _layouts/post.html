@@ -11,6 +11,9 @@ layout: default2
 	{% include header.html %}
 	<main class="content" role="main">
 	  <article class="post">
+			<script type="text/javascript" async
+				src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+			</script>
 		{% if page.image %}
 		<div class="article-image">
 		  <div class="post-image-image" style="background-image: url({% if page.image %}{{ page.image | prepend: site.baseurl }}{% endif %})">

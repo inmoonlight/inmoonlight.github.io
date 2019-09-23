@@ -135,11 +135,11 @@
   <meta property="og:description" content="Deep learning으로 예전에는 풀지 못했던 문제들을 풀게 되면서 다양한 기업에서 자신들의 서비스에 Deep learning을 활용하려는 시도가 많아졌다. 그러나 생각보다 Deep learning을 서비스에 적용하는 과정은 간단하지 않다. 연구 목적으로 사용되는 것보다 데이터가 훨씬 크고, 이 때문에 한번 모델을 학습시키는데 소요되는 시간이 더 ..." />
   
   <meta property="og:image" content="http://localhost:4000/assets/images/mlyearning.jpg" />
-  <meta property="og:url" content="http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8-Ch.1~4.html" >
+  <meta property="og:url" content="http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html" >
   <meta property="og:type" content="blog" />
   <meta property="article:published_time" content="2018-12-25T17:17:00+09:00">
 
-  <link rel="canonical" href="http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8-Ch.1~4.html"/>
+  <link rel="canonical" href="http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html"/>
   <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
   <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -156,6 +156,9 @@
 
 	<main class="content" role="main">
 	  <article class="post">
+			<script type="text/javascript" async
+				src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+			</script>
 		
 		<div class="article-image">
 		  <div class="post-image-image" style="background-image: url(/assets/images/mlyearning.jpg)">
@@ -259,14 +262,14 @@ Ch.4: Scale drives machine learning progress</p>
 		  <section class="share">
 				
 			  	
-						<a class="icon-twitter" href="http://twitter.com/share?text=Machine+Learning+Yearning+%EC%9A%94%EC%95%BD%3A+Ch.1%7E4&amp;url=http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-요약:-Ch.1~4"
+						<a class="icon-twitter" href="http://twitter.com/share?text=Machine+Learning+Yearning+%EC%9A%94%EC%95%BD%3A+Ch.1%7E4&amp;url=http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-요약:-Ch.1~4"
 				  		onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
 						<i class="fa fa-twitter"></i><span class="hidden">twitter</span>
 						</a>
 			 		
 				
 			  	
-						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=Machine+Learning+Yearning+%EC%9A%94%EC%95%BD%3A+Ch.1%7E4&amp;u=http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-요약:-Ch.1~4"
+						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=Machine+Learning+Yearning+%EC%9A%94%EC%95%BD%3A+Ch.1%7E4&amp;u=http://localhost:4000/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-요약:-Ch.1~4"
 				  		onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
 						<i class="fa fa-facebook"></i><span class="hidden">facebook</span>
 						</a>
@@ -442,31 +445,33 @@ ga('send', 'pageview');
              
               <a href="/category/권태로움">권태로움 (1)</a>
              
-              <a href="/category/데이터 분석">데이터 분석 (2)</a>
+              <a href="/category/나">나 (1)</a>
              
-              <a href="/category/Data Analysis">Data analysis (2)</a>
+              <a href="/category/데이터 분석">데이터 분석 (3)</a>
              
-              <a href="/category/사회">사회 (2)</a>
+              <a href="/category/Data Analysis">Data analysis (3)</a>
              
-              <a href="/category/Society">Society (2)</a>
+              <a href="/category/사회">사회 (3)</a>
              
-              <a href="/category/노르웨이">노르웨이 (4)</a>
+              <a href="/category/Society">Society (3)</a>
              
-              <a href="/category/나홀로">나홀로 (4)</a>
+              <a href="/category/노르웨이">노르웨이 (1)</a>
              
-              <a href="/category/여행">여행 (4)</a>
+              <a href="/category/나홀로">나홀로 (1)</a>
+             
+              <a href="/category/여행">여행 (1)</a>
              
               <a href="/category/피오르드">피오르드 (1)</a>
              
               <a href="/category/브라운 치즈">브라운 치즈 (1)</a>
              
-              <a href="/category/트롤">트롤 (1)</a>
+              <a href="/category/뉴스">뉴스 (1)</a>
              
-              <a href="/category/페르귄트">페르귄트 (1)</a>
+              <a href="/category/댓글">댓글 (1)</a>
              
-              <a href="/category/입센">입센 (1)</a>
+              <a href="/category/News">News (1)</a>
              
-              <a href="/category/뭉크">뭉크 (1)</a>
+              <a href="/category/Comments">Comments (1)</a>
             
           
         
