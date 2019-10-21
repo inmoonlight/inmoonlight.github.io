@@ -41,7 +41,7 @@ hidden: true
 
 ## 0. Previous Work
 
-[뉴스 댓글 분석 (1)](https://inmoonlight.github.io/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D/data%20analysis/%EC%82%AC%ED%9A%8C/society/2019/07/25/%EB%89%B4%EC%8A%A4-%EB%8C%93%EA%B8%80-%EB%B6%84%EC%84%9D-(1).html)
+[Naver News Comment Analysis (1)]({% post_url 2019-07-25-Naver-News-Comments-Analysis-(1) %})
 
 <div class="breaker"></div>
 
@@ -245,7 +245,7 @@ top user의 top 10 성공률을 확률 변수 X라고 했을 때의 histogram과
 
 <span style="color:darkgray">회색 line</span>이 정치면 기사 댓글, <span style="color:blue">파란색 line</span>이 작성자가 쓴 전체 댓글 수, <span style="color:green">초록색 line</span>이 작성자가 쓴 댓글 중 top 10 내에 들었던 댓글 수를 나타낸다. 
 
-`user 1`가 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.
+`user 1`이 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.
 
 
 
