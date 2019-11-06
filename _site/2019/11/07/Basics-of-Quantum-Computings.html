@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<link rel="icon" href="/assets/images/logo.png">
+    
+<title>수학으로 이해하는 양자컴퓨터의 기초 | Space Moon</title>
+    
+ 
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300">
+
+<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+    
+<link href="/assets/css/main.css" rel="stylesheet">
+    
+</head>
+    
+
+    
+
+<body class="layout-post">
+
+    
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    
+    <div class="container pr-0">    
+    
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Space Moon">
+    </a>
+    <!-- End Logo -->
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+       
+        <!-- Begin Menu -->
+        
+            <ul class="navbar-nav ml-auto">
+                
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/about">About</a>
+                </li>
+                
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/inmoonlight/"><i class="fab fa-github"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.linkedin.com/in/mjihyung/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="https://twitter.com/inmoonlight_kr"><i class="fab fa-twitter"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="https://www.instagram.com/jihyung.moon/"><i class="fab fa-instagram"></i></a>
+                </li>
+                
+            </ul>		
+  
+        <!-- End Menu -->
+
+    </div>
+        
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+    
+<div class="site-content">   
+<div class="container">
+    
+<!-- Site Title
+================================================== -->
+<!-- <div class="mainheading">
+    <h1 class="sitetitle">Space Moon</h1>
+    <p class="lead">
+         개인적이지만 사소하지 않은 이야기를 담고 싶습니다
+    </p>
+</div> -->
+
+    
+    
+<!-- Content
+================================================== --> 
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>수학으로 이해하는 양자컴퓨터의 기초</title>
+  <meta name="description" content="최근에 있었던 구글의 양자 우월성 (Quantum Superemacy) 달성은 전세계적으로 큰 화제였다.물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자 컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다." />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="수학으로 이해하는 양자컴퓨터의 기초"/>
+  
+  <meta property="og:description" content="최근에 있었던 구글의 양자 우월성 (Quantum Superemacy) 달성은 전세계적으로 큰 화제였다.물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자 컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다." />
+  
+  <meta property="og:image" content="http://localhost:4000/assets/images/quantum_computer_main.jpg" />
+  <meta property="og:url" content="http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings.html" >
+  <meta property="og:type" content="blog" />
+  <meta property="article:published_time" content="2019-11-07T00:07:00+09:00">
+
+  <link rel="canonical" href="http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings.html"/>
+  <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+	<!-- header start -->
+
+
+<!-- header end -->
+
+	<main class="content" role="main">
+	  <article class="post">
+			<script type="text/javascript" async
+				src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+			</script>
+		
+		<div class="article-image">
+		  <div class="post-image-image" style="background-image: url(/assets/images/quantum_computer_main.jpg)">
+			Article Image
+		  </div>
+		  <div class="post-image-image2" style="background-image: url(/assets/images/quantum_computer_main.jpg)">
+			Article Image
+		  </div>
+		  <div class="post-meta">
+			<h1 class="post-title">수학으로 이해하는 양자컴퓨터의 기초</h1>
+			<div class="cf post-meta-text">
+        <time datetime="07-11-2019">Nov 07, 2019</time>
+        | <span class="reading-time" title="Estimated read time">
+    
+
+    
+        24 mins
+    
+</span> read
+			  <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
+			</div>
+			<!-- <div style="text-align:center">
+			  <a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a>
+			</div> -->
+		  </div>
+		</div>
+		
+		<section class="post-content-mediator">
+		  <p>최근에 있었던 구글의 양자 우월성 (Quantum Superemacy) 달성은 전세계적으로 큰 화제였다.
+물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자 컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다.</p>
+
+<p>아마 나와 같이 관련 기사나 여러 블로그 글, 유튜브 등을 찾아본 사람들이라면 어렵지 않게 아래의 정보는 얻었을 것이다.</p>
+<ul>
+  <li>n개의 qbit은 <script type="math/tex">2^n</script>의 state를 설명하므로 더 빠르고 superposition 때문에 병렬연산이 가능하다.</li>
+  <li>superposition이란 동시에 0과 1의 상태를 띠는 것이다.</li>
+</ul>
+
+<p>텍스트만 보면 “아 그렇구나.” 싶은 내용들이다. 
+이해가 된 것일까 싶었지만 스스로에게 세 질문을 던졌을 때 답하지 못하는 것을 보며 제대로 이해하지 못했음을 인지했다. <br /></p>
+
+<p>    <strong>Q1.</strong> n개의 bit로도 <script type="math/tex">2^n</script>을 표현할 수 있는거 아닌가? 3개의 bit가 000, 001, 010, 011, 100, 101, 110, 111 이렇게 8개의 상태를 표현할 수 있으니까. <br />
+    <strong>Q2.</strong> 양자 세계는 불확정성 원리에 지배받는다고 하는데, 대체 양자컴퓨터로 어떻게 연산하고 있는 것이며, 이 성질이 어떻게 계산 비용을 감소시킬 수 있는거지? <br />
+    <strong>Q3.</strong> Entanglement는 대체 qbit들이 어떻게 된 상태인거지?</p>
+
+<p>이 질문들에 제대로 답하기 위해서는 수학이 필요하다는 생각이 들었다.
+4차원 이상의 공간을 제대로 시각화하지 못하듯이 양자 세계를 자연어로 표현한다는 것 자체가 말이 되지 않는 것 같았기 때문이다.
+그래서 수학으로 설명된 자료를 찾으려고 부던히 애를 썼고, 끝내 “내 수준에 맞는” (= 이 글을 읽을 모두가 다 이해할 수 있는) 수학으로 설명된 자료를 찾았다.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F_Riqjdh2oM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p><a href="https://speakerdeck.com/ahelwer/quantum-computing-for-computer-scientists">발표자료</a></p>
+
+<p>이 영상을 보는 것을 추천하지만 무려 한시간이 넘는지라 글로도 정리를 해보았다. 아래에 기술된 내용은 내 방식대로 위의 영상과 자료를 요약한 것이라고 할 수 있다.</p>
+
+<p>사실 이 자료를 다 보더라도 양자컴퓨터에 대해 많은 것을 알았다고 보긴 어렵다.
+python을 처음 접한 사람이 <code class="highlighter-rouge">print('Hello World!')</code>를 성공했다고 해서 python을 잘 알았다고 하기 어려운 것처럼.
+그리고 딥러닝에 관심있는 사람이 tutorial을 따라해보며 CNN을 돌려봤다고 해서 딥러닝을 잘 알았다고 하기 어려운 것처럼.</p>
+
+<p>그렇지만 양자 세계에 한 번은 ‘Hello World!’를 날려봐야 하지 않을까?</p>
+
+<div class="breaker"></div>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<p><a href="#1-introduction">1. Introduction</a><br />
+<a href="#2-basics">2. Basics</a><br />
+    <a href="#21-qubit--qbit">2.1 Qubit / Qbit</a><br />
+    <a href="#22-superposition">2.2 Superposition</a><br />
+    <a href="#23-tensor-product">2.3 Tensor product</a><br />
+    <a href="#24-1-bit-operations">2.4 1-bit operations</a><br />
+    <a href="#25-cnot-one-of-the-2-bit-operations">2.5 CNOT (one of the 2-bit operations)</a><br />
+<a href="#3-the-deutsch-jozsa-problem">3. The Deutsch-Jozsa problem</a><br />
+    <a href="#31-classical-computer">3.1 Classical computer</a><br />
+    <a href="#32-quantum-computer">3.2 Quantum computer</a><br />
+<a href="#4-entanglement">4. Entanglement</a><br />
+<a href="#references">References</a></p>
+
+<div class="breaker"></div>
+
+<h2 id="1-introduction">1. Introduction</h2>
+
+<p>(수정) 이번 글에서는 불확정성의 원리가 지배하는 양자 세계에서 양자컴퓨터는 어떻게 연산을 하는지 알아볼 것이다.
+이를 이해하기 위한 matrix 연산과 기초적인 논리회로에 대한 내용이 담겨 있다. 
+그리고 The Deutsch-Jozsa problem을 통해 양자 컴퓨터가 어떻게 고전 컴퓨터에 비해 연산 속도에서 이점을 보이는지 설명한다.
+추가로, entanglement에 대한 간단한 설명이 있으며 관련된 실습 또한 있다.</p>
+
+<div class="breaker"></div>
+
+<h2 id="2-basics">2. Basics</h2>
+
+<h3 id="21-qubit--qbit">2.1 Qubit / Qbit</h3>
+
+<p>Qubit 혹은 Qbit은 양자컴퓨터 계산의 기본적인 단위이다. 조금이라도 양자컴퓨터에 대해 알아본 사람들이라면 qbit은 지겹도록 보고 들었을 것이다.</p>
+
+<p>Qbit은 언제나 다음의 조건을 만족시킨다. <br /></p>
+<blockquote>
+  <p>A qbit, represented by 
+<script type="math/tex">\begin{pmatrix}
+ \alpha \\
+ \beta
+ \end{pmatrix}</script>
+ where <script type="math/tex">\alpha</script> and <script type="math/tex">\beta</script> are complex numbers must be constrained by the equation 
+<script type="math/tex">||\alpha||^2 + ||\beta||^2 = 1</script></p>
+</blockquote>
+
+<p>따라서 아래의 예시들은 qbit에 해당된다.</p>
+
+<p><script type="math/tex">\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+ \end{pmatrix}</script>
+<script type="math/tex">\begin{pmatrix}
+\frac{1}{2} \\
+\frac{\sqrt{3}}{2}
+ \end{pmatrix}</script>
+<script type="math/tex">\begin{pmatrix}
+ 1 \\
+ 0
+ \end{pmatrix}</script>
+<script type="math/tex">\begin{pmatrix}
+ 0 \\
+ -1
+ \end{pmatrix}</script></p>
+
+<p>그리고 이 모든 벡터들의 basis가 되는 
+<script type="math/tex">\begin{pmatrix}
+ 1 \\
+ 0
+ \end{pmatrix}</script>
+ 과 
+ <script type="math/tex">\begin{pmatrix}
+ 0 \\
+ 1
+ \end{pmatrix}</script>
+은 각각 <script type="math/tex">\mid 0\rangle</script> 과 <script type="math/tex">\mid 1\rangle</script> 이라는 특별한 기호로 정의한다.</p>
+
+<h3 id="22-superposition">2.2 Superposition</h3>
+
+<p>양자컴퓨터의 qbit을 설명할 때 빠지지 않는 성질이다. 
+“동시에 0과 1을 가진다.”는 문장으로 자주 설명된다.
+하지만 이보다는 슈뢰딩거의 고양이 느낌이 물씬 나는 “When we measure a qbit, it collapses to an actual value of 0 or 1.” 이라는 문장이 더 좋은 설명인 것 같다.</p>
+
+<p>위에서 qbit이라고 언급했던 벡터 하나를 예시로 들어보자.</p>
+
+<script type="math/tex; mode=display">\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+ \end{pmatrix}</script>
+
+<p>이 qbit은 <script type="math/tex">0</script> 혹은 <script type="math/tex">1</script> 로 collapse될 확률이 (
+<script type="math/tex">\frac{1}{2} = || \frac{1}{\sqrt{2}} || ^2</script>
+) 이다.</p>
+
+<p>감사하게도 <a href="https://quantum-computing.ibm.com/">IBM은 자사의 양자컴퓨터를 사용할 수 있는 API</a>를 만들어 놓았다. 
+여기서 이 qbit을 만들고 1024번 관측해보면 0과 1이 50%씩 나오는 것을 확인할 수 있다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/qubit_1_2_example.png" height="200px" style="margin-right:20px" />
+<img class="image" src="/assets/images/qubit_1_2_result.png" height="200px" />
+<figcaption class="caption">(왼) H gate를 통해 |0&gt; 은 예시로 든 qbit으로 바뀐다. (이 내용은 밑에서 다룬다.) (오) 1024번 관측한 결과다. 50% 확률로 0과 1을 나타낸다.</figcaption>
+</div>
+<p><br /></p>
+
+<p><script type="math/tex">\begin{pmatrix}
+\frac{1}{2} \\
+\frac{\sqrt{3}}{2}
+ \end{pmatrix}</script>
+은 <script type="math/tex">0</script> 으로 collapse 될 확률이 <script type="math/tex">\frac{1}{4}</script>, <script type="math/tex">1</script> 로 collapse 될 확률이 <script type="math/tex">\frac{3}{4}</script>인 qbit이다.</p>
+
+<p><script type="math/tex">|0\rangle</script> 
+은 0으로만 collapse 한다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/qubit_0_example.png" height="200px" style="margin-right:20px" />
+<img class="image" src="/assets/images/qubit_0_result.png" height="200px" />
+<figcaption class="caption">(왼) |0&gt; (오) 1024번 관측한 결과로, 100% 0으로 관측된다. </figcaption>
+</div>
+<p><br /></p>
+
+<h3 id="23-tensor-product">2.3 Tensor product</h3>
+
+<p>여러 개의 qbit을 나타내기 위해 Tensor product 개념이 필요하다.
+수학적으로 엄밀한 표현은 아니지만, n개의 qbit 연산을 표현하기 위해서는 아래의 표기 방식을 따르는 것이 좋다.</p>
+
+<script type="math/tex; mode=display">\binom{x_0}{x_1} \otimes \binom{y_0}{y_1} 
+= \begin{pmatrix} x_0  \binom{y_0}{y_1} \\ 
+{x_1  \binom{y_0}{y_1}} \end{pmatrix} 
+= \begin{pmatrix} x_0 y_0 \\ x_0 y_1 \\ x_1 y_0 \\ x_1 y_1 \end{pmatrix}</script>
+
+<p>이를 응용하면 2개, 3개의 qbit도 벡터처럼 표현할 수 있다.</p>
+
+<script type="math/tex; mode=display">|01\rangle = \binom{1}{0} \otimes \binom{0}{1} = \begin{pmatrix}
+  0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}
+\hspace{10pt}
+|100\rangle = \binom{0}{1} \otimes \binom{1}{0} \otimes \binom{1}{0} = \begin{pmatrix}
+  0\\ 0\\0\\0 \\ 1 \\ 0 \\ 0 \\ 0
+\end{pmatrix}</script>
+
+<p>이와 같이 tensor product의 결과로 표현된 벡터는 product state라고 한다.
+여기서 우리는 n개 qbit의 product state 크기는 <script type="math/tex">2^n</script> 이라는 것을 알 수 있다.
+만약 
+<script type="math/tex">\binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} \otimes \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} = 
+\begin{pmatrix}
+ \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2}
+\end{pmatrix}</script>
+의 multiple qbits 이 있다면 <script type="math/tex">\mid 00\rangle</script>, <script type="math/tex">\mid 01\rangle</script>, <script type="math/tex">\mid 10\rangle</script>, <script type="math/tex">\mid 11\rangle</script> 으로 collapse될 확률이 모두 <script type="math/tex">\frac{1}{4}</script>이므로 동시에 4개의 state를 표현할 수 있게 된다. 
+즉, qbit이 bit와는 다르게 <script type="math/tex">2^n</script> 개의 state를 표현할 수 있다고 한 것은 <em>동시에</em> 가질 수 있는 최대 state 관점에서 비교한 것이다.
+bit는 절대로 동시에 2개 이상의 state를 가질 수 없으므로 한 번에 계산할 수 있는 정보는 1개 뿐이다.</p>
+
+<p>또한 product state는, 뒤의 entanglement와 구분되는 중요한 성질로, <strong>독립적인 state 들로 factorize가 가능</strong>하다는 점이 있다.</p>
+
+<p>Multiple qbits의 product state 또한 single qbit과 같은 성질을 만족시킨다.</p>
+
+<script type="math/tex; mode=display">\binom{a}{b} \otimes \binom{c}{d} = 
+\begin{pmatrix}
+  ac \\ ad \\ bc \\ bd
+\end{pmatrix}</script>
+
+<script type="math/tex; mode=display">\text{where, } ||ac||^2 + ||ad||^2 + ||bc||^2 + ||bd||^2 = 1</script>
+
+<p><br /></p>
+
+<h3 id="24-1-bit-operations">2.4 1-bit operations</h3>
+
+<p>1-bit에서 가능한 연산은 Identity, Negation, Constant-0, Constant-1의 총 4가지가 있다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/1bit_operations.png" width="40%" />
+<figcaption class="caption">1-bit 연산의 4 종류</figcaption>
+</div>
+<p><br /></p>
+
+<p>각각의 연산은 matrix로 표현할 수 있다.</p>
+
+<p><script type="math/tex">% <![CDATA[
+\text{Identity} = \begin{pmatrix}
+1 & 0 \\ 
+0 & 1
+\end{pmatrix} %]]></script>, 
+<script type="math/tex">% <![CDATA[
+\text{Negation} = \begin{pmatrix}
+0 & 1 \\ 
+1 & 0
+\end{pmatrix} %]]></script>, 
+<script type="math/tex">% <![CDATA[
+\text{Contant-0} = \begin{pmatrix}
+1 & 1 \\ 
+0 & 0
+\end{pmatrix} %]]></script>, 
+<script type="math/tex">% <![CDATA[
+\text{Contant-1} = \begin{pmatrix}
+0 & 0 \\ 
+1 & 1
+\end{pmatrix} %]]></script></p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/1bit_matrix.png" width="70%" />
+<figcaption class="caption">1-bit 연산의 matrix 표현</figcaption>
+</div>
+<p><br /></p>
+
+<h3 id="25-cnot-one-of-the-2-bit-operations">2.5 CNOT (one of the 2-bit operations)</h3>
+
+<p>CNOT 연산은 control bit와 target bit로 구성된 2-bit가 있을 때 control bit가 0이면 target bit를 바꾸지 않고, control bit가 1일 때 target bit를 바꾸는 연산이다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/CNOT_operation.png" width="20%" />
+<figcaption class="caption">CNOT</figcaption>
+</div>
+<p><br /></p>
+
+<p>마찬가지로 이 연산도 matrix로 표현할 수 있다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+C = \begin{pmatrix}
+1 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 \\ 
+0 & 0 & 1 & 0 \\ 
+\end{pmatrix} %]]></script>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/CNOT_examples.png" width="60%" />
+<figcaption class="caption">2-qbits에 적용한 CNOT 예시</figcaption>
+</div>
+<p><br /></p>
+
+<div class="breaker"></div>
+
+<p><a href="#24-1-bit-operations">2.4</a>와 <a href="#25-cnot-one-of-the-2-bit-operations">2.5</a>에서 opertaion들을 matrix화 한 것에 주목하자. 
+확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.
+아래의 예시에서 우리가 확신할 수 있는 정보는 qbit이 0과 1로 관측될 확률이 반대가 되었다는 것이다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{pmatrix}
+0 & 1 \\ 
+1 & 0
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{2} \\ \frac{\sqrt{3}}{2} 
+\end{pmatrix} = \begin{pmatrix}
+  \frac{\sqrt{3}}{2} \\ \frac{1}{2}
+\end{pmatrix} %]]></script>
+
+<p>항상 0 혹은 1로 관측되는 <script type="math/tex">\mid0\rangle</script>이나 <script type="math/tex">\mid1\rangle</script>을 쓰면 굳이 복잡한 matrix 연산이 필요없지만 이런 qbit만 사용할거라면 고전 컴퓨터를 쓰면 그만이다.
+굳이 0K 가까이 되는 험악한 조건을 유지해가며 계산할 필요가 없다.</p>
+
+<p>그래서 matrix 연산은 양자 컴퓨팅에서 굉장히 중요하다. 여기에는 한가지 추가조건이 있는데, 반드시 연산에 사용되는 matrix는 <strong>reversible</strong>해야한다는 것이다.
+따라서 앞서 본 1-bit 연산 중 Constant-1과 Constant-0를 계산하기 위해서는 단순 matrix를 곱하는 것 외의 다른 방법이 필요하다.</p>
+
+<div class="breaker"></div>
+
+<h2 id="3-the-deutsch-jozsa-problem-">3. The Deutsch-Jozsa problem <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></h2>
+
+<p>이 문제는 양자컴퓨터가 고전컴퓨터에 비해 계산적인 이점을 가지는 아주 간단한 (<del><em>동시에 쓸데없는</em></del>) 문제다.</p>
+
+<blockquote>
+  <p>1-bit를 입력받아서 1-bit를 내뱉는 어떤 함수가 있다고 하자. 
+만약 이 함수가 Constant(Contant-0, Constant-1)인지 아니면 Variable(Identity, Negation)인지 알기 위해서는 최소 몇 번의 query를 날려야 할까?</p>
+</blockquote>
+
+<h3 id="31-classical-computer">3.1 Classical computer</h3>
+
+<p>고전 컴퓨터에서는 0과 1을 입력해야하므로 총 두 번의 연산이 필요하다.</p>
+
+<h3 id="32-quantum-computer">3.2 Quantum computer</h3>
+
+<p>예상했듯이 정답은 한 번이다. 왜인지 알기위해서는 추가적인 개념이 필요하다.</p>
+
+<h4 id="--hadamard-gate">- Hadamard gate</h4>
+
+<p>앞서 언급된 적 있는 H gate이다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+H = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}
+\end{pmatrix} %]]></script>
+
+<p>Hadamard gate는 0- 혹은 1-qbit을 받아서 0과 1을 같은 확률로 가지는 qbit으로 바꿔준다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+H\mid0\rangle = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+H\mid1\rangle = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} %]]></script>
+
+<p>Hadamard gate는 또 다른 중요한 성질이 있다. 0과 1을 같은 확률로 가지는 qbit을 다시 0- 과 1-qbit으로 돌려보낸다는 것이다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{pmatrix}
+  \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{pmatrix}
+  \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} %]]></script>
+
+<h4 id="--x-gate">- X gate</h4>
+
+<p>X gate는 qbit의 위 아래를 바꿔준다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+X = 
+\begin{pmatrix}
+   0 & 1 \\
+   1 & 0
+\end{pmatrix} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{pmatrix}
+   0 & 1 \\
+   1 & 0
+\end{pmatrix} 
+\begin{pmatrix}
+  0 \\ 1
+\end{pmatrix}
+= \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{pmatrix}
+   0 & 1 \\
+   1 & 0
+\end{pmatrix} 
+\begin{pmatrix}
+  \frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix}
+= \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} %]]></script>
+
+<p>H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/gates-visualization.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<p><script type="math/tex">\begin{pmatrix}
+  1 \\ 0
+\end{pmatrix}</script>
+에 X, H, X, H, X gate를 씌운 결과는 그림으로 보면 더 쉽게 이해된다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_logic_operation_example.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<h4 id="--non-reversible-matrix">- non-reversible matrix</h4>
+
+<p>앞서 양자 컴퓨터는 non-reversible한 matrix 를 곱하는 연산은 불가능하다고 했다.
+1-bit 연산 중에서 Constant-0과 Constant-1은 non-reversible하다. 그래서 양자 컴퓨팅에서는 2개의 qbit을 사용한다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_non_reversible.png" width="60%" />
+</div>
+<p><br /></p>
+
+<p>BB(Black Box)에 적당한 gate를 넣으면 Constant-0과 Constant-1을 포함한 1-bit 연산 4가지가 모두 가능하다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_constant_0.png" height="200px" width="300px" style="margin-right:20px; margin-bottom:10px" />
+<img class="image" src="/assets/images/quantum_constant_1.png" height="200px" width="300px" style="margin-bottom:10px" />
+<img class="image" src="/assets/images/quantum_identity.png" height="200px" width="300px" style="margin-right:20px; margin-bottom:10px" />
+<img class="image" src="/assets/images/quantum_negation.png" height="200px" width="300px" style="margin-bottom:10px" />
+<figcaption class="caption">왼쪽 위 부터 차례대로 Constant-0, Constant-1, Identity, Negation. Identity와 Negation에 있는 이상한 operation은 CNOT이다.</figcaption>
+</div>
+<p><br /></p>
+
+<p>다시 문제로 돌아가서, 양자 컴퓨터에서는 어떻게 한번에 구할 수 있을까? 정답은 아래의 그림이 설명해준다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_one_query.png" width="60%" />
+<figcaption class="caption">양자 컴퓨터가 한 번에 문제를 푸는 법</figcaption>
+</div>
+<p><br /></p>
+
+<p>이 연산대로라면 BB가 constant였을 경우, 측정시에 <script type="math/tex">\mid11\rangle</script>로 나타나고 variable이었을 경우에는 <script type="math/tex">\mid01\rangle</script>로 나타난다.</p>
+
+<p>BB를 치환해보며 이해해보자.</p>
+
+<h4 id="preprocessing-bb-입력-직전까지의-연산">preprocessing (BB 입력 직전까지의 연산)</h4>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_preprocessing.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<p>BB에 들어가기 전 input과 output qbit의 상태는 모두 X와 H gate를 거치므로
+<script type="math/tex">\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  \frac{-1}{\sqrt{2}}
+\end{pmatrix}</script>
+가 된다.</p>
+
+<h4 id="case-1-bb가-constant-0-이었을-경우">case 1) BB가 Constant-0 이었을 경우</h4>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_bb_const_0.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<h4 id="case-2-bb가-contstant-1-이었을-경우">case 2) BB가 Contstant-1 이었을 경우</h4>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_bb_const_1.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<h4 id="case-3-bb가-identity-이었을-경우">case 3) BB가 Identity 이었을 경우</h4>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_bb_identity.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<h4 id="case-4-bb가-negation-이었을-경우">case 4) BB가 Negation 이었을 경우</h4>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/quantum_bb_negation.png" width="80%" />
+<figcaption class="caption"></figcaption>
+</div>
+<p><br /></p>
+
+<h2 id="4-entanglement">4. Entanglement</h2>
+
+<p>Entanlged qbit은 얼핏 보면 product state 같지만 product state와는 다르게 개별적인 qbit으로 factorize 되지 않는다. 
+(If the product state of two qbits cannot be factored, they are said to be <strong>entanlged</strong>.)</p>
+
+<p><script type="math/tex">\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix}</script>
+는 entangle된 qbit이다.
+왜냐하면, 
+<script type="math/tex">\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+  a \\
+  b
+\end{pmatrix} \otimes \begin{pmatrix}
+  c \\
+  d
+\end{pmatrix}</script>
+를 만족하는 <script type="math/tex">a</script>, <script type="math/tex">b</script>, <script type="math/tex">c</script>, <script type="math/tex">d</script>는 존재하지 않기 때문이다.</p>
+
+<p>Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/entanlge.png" width="60%" />
+</div>
+
+<script type="math/tex; mode=display">% <![CDATA[
+CH_1
+\begin{pmatrix}
+  \begin{pmatrix}
+    1 \\
+    0
+  \end{pmatrix} \otimes \begin{pmatrix}
+    1 \\
+    0
+  \end{pmatrix}
+\end{pmatrix} = C \begin{pmatrix}
+  \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{1}{\sqrt{2}} 
+  \end{pmatrix} \otimes \begin{pmatrix}
+    1 \\ 0
+  \end{pmatrix}
+\end{pmatrix} = 
+\begin{pmatrix}
+  1 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 \\ 
+0 & 0 & 1 & 0 \\ 
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  \frac{1}{\sqrt{2}} \\
+  0 
+\end{pmatrix} = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix} %]]></script>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm#Problem_statement <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+		</section>
+		<footer class="post-footer">
+			<!-- <div class="col-md-8 p-5 align-self-center text-center"> -->
+			<ul class="tag-box inline">
+					  
+					
+						 
+							<a href="/category/Quantum Computer">Quantum computer </a>
+						 
+							<a href="/category/Basic">Basic </a>
+						 
+							<a href="/category/Qbit">Qbit </a>
+						 
+							<a href="/category/Superposition">Superposition </a>
+						 
+							<a href="/category/Entanglement">Entanglement </a>
+						 
+							<a href="/category/Quantum Supremacy">Quantum supremacy </a>
+						 
+							<a href="/category/양자컴퓨터">양자컴퓨터 </a>
+						 
+							<a href="/category/기초">기초 </a>
+						 
+							<a href="/category/양자 중첩">양자 중첩 </a>
+						 
+							<a href="/category/양자 얽힘">양자 얽힘 </a>
+						 
+							<a href="/category/양자 우월성">양자 우월성 </a>
+						
+					
+					
+			</ul>
+		  <section class="share">
+				
+			  	
+						<a class="icon-twitter" href="http://twitter.com/share?text=%EC%88%98%ED%95%99%EC%9C%BC%EB%A1%9C+%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94+%EC%96%91%EC%9E%90%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98+%EA%B8%B0%EC%B4%88&amp;url=http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings"
+				  		onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+						<i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+						</a>
+			 		
+				
+			  	
+						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=%EC%88%98%ED%95%99%EC%9C%BC%EB%A1%9C+%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94+%EC%96%91%EC%9E%90%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98+%EA%B8%B0%EC%B4%88&amp;u=http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings"
+				  		onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+						<i class="fa fa-facebook"></i><span class="hidden">facebook</span>
+						</a>
+			 		
+				
+		  </section>
+		</footer>
+	  </article>
+	</main>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image, .teaserimage-image');
+    
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-131297969-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>
+<!-- End Article
+================================================== -->
+
+  
+
+<!-- Begin Comments
+================================================== -->
+
+	<div class="container">
+		<div id="comments" class="row justify-content-center mb-5">
+			<div class="col-md-10">              
+				<section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'inmoonlight'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+                
+			</div>
+		</div>
+	</div>
+
+<!--End Comments
+================================================== -->
+</div>
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!-- <div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/logo.png" alt=""> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>     -->
+    
+</div><!-- /.container>
+    
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+          
+             
+              <a href="/category/멘토링">멘토링 (2)</a>
+             
+              <a href="/category/자기이해">자기이해 (3)</a>
+             
+              <a href="/category/꿈">꿈 (1)</a>
+             
+              <a href="/category/진로">진로 (1)</a>
+             
+              <a href="/category/우울증">우울증 (1)</a>
+             
+              <a href="/category/대학생">대학생 (1)</a>
+             
+              <a href="/category/고민">고민 (1)</a>
+             
+              <a href="/category/머신러닝">머신러닝 (3)</a>
+             
+              <a href="/category/스터디">스터디 (3)</a>
+             
+              <a href="/category/책">책 (3)</a>
+             
+              <a href="/category/요약">요약 (3)</a>
+             
+              <a href="/category/질문">질문 (1)</a>
+             
+              <a href="/category/멘티">멘티 (1)</a>
+             
+              <a href="/category/날리다">날리다 (2)</a>
+             
+              <a href="/category/연울림">연울림 (1)</a>
+             
+              <a href="/category/이야기">이야기 (1)</a>
+             
+              <a href="/category/탁월함">탁월함 (1)</a>
+             
+              <a href="/category/일">일 (1)</a>
+             
+              <a href="/category/전문성">전문성 (1)</a>
+             
+              <a href="/category/의미">의미 (1)</a>
+             
+              <a href="/category/슬럼프">슬럼프 (1)</a>
+             
+              <a href="/category/시작">시작 (1)</a>
+             
+              <a href="/category/권태로움">권태로움 (1)</a>
+             
+              <a href="/category/나">나 (1)</a>
+             
+              <a href="/category/데이터 분석">데이터 분석 (3)</a>
+             
+              <a href="/category/Data Analysis">Data analysis (3)</a>
+             
+              <a href="/category/사회">사회 (3)</a>
+             
+              <a href="/category/Society">Society (3)</a>
+             
+              <a href="/category/노르웨이">노르웨이 (1)</a>
+             
+              <a href="/category/나홀로">나홀로 (1)</a>
+             
+              <a href="/category/여행">여행 (1)</a>
+             
+              <a href="/category/피오르드">피오르드 (1)</a>
+             
+              <a href="/category/브라운 치즈">브라운 치즈 (1)</a>
+             
+              <a href="/category/뉴스">뉴스 (1)</a>
+             
+              <a href="/category/댓글">댓글 (1)</a>
+             
+              <a href="/category/News">News (1)</a>
+             
+              <a href="/category/Comments">Comments (1)</a>
+             
+              <a href="/category/Quantum Computer">Quantum computer (1)</a>
+             
+              <a href="/category/Basic">Basic (1)</a>
+             
+              <a href="/category/Qbit">Qbit (1)</a>
+             
+              <a href="/category/Superposition">Superposition (1)</a>
+             
+              <a href="/category/Entanglement">Entanglement (1)</a>
+             
+              <a href="/category/Quantum Supremacy">Quantum supremacy (1)</a>
+             
+              <a href="/category/양자컴퓨터">양자컴퓨터 (1)</a>
+             
+              <a href="/category/기초">기초 (1)</a>
+             
+              <a href="/category/양자 중첩">양자 중첩 (1)</a>
+             
+              <a href="/category/양자 얽힘">양자 얽힘 (1)</a>
+             
+              <a href="/category/양자 우월성">양자 우월성 (1)</a>
+            
+          
+        
+
+		</div>
+	</div>
+</div>
+ 
+
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                 Copyright © 2019 Space Moon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+   
+</div> <!-- /.site-content>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+    
+<script src="/assets/js/jquery.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+<script src="/assets/js/mediumish.js"></script>
+    
+<script id="dsq-count-scr" src="//inmoonlight.disqus.com/count.js"></script>
+</body>
+</html>

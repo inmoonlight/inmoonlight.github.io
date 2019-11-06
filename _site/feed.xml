@@ -5,9 +5,607 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Sep 2019 18:02:25 +0900</pubDate>
-    <lastBuildDate>Mon, 23 Sep 2019 18:02:25 +0900</lastBuildDate>
+    <pubDate>Thu, 07 Nov 2019 02:27:48 +0900</pubDate>
+    <lastBuildDate>Thu, 07 Nov 2019 02:27:48 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>수학으로 이해하는 양자컴퓨터의 기초</title>
+        <description>&lt;p&gt;최근에 있었던 구글의 양자 우월성 (Quantum Superemacy) 달성은 전세계적으로 큰 화제였다.
+물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자 컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다.&lt;/p&gt;
+
+&lt;p&gt;아마 나와 같이 관련 기사나 여러 블로그 글, 유튜브 등을 찾아본 사람들이라면 어렵지 않게 아래의 정보는 얻었을 것이다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;n개의 qbit은 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt;의 state를 설명하므로 더 빠르고 superposition 때문에 병렬연산이 가능하다.&lt;/li&gt;
+  &lt;li&gt;superposition이란 동시에 0과 1의 상태를 띠는 것이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;텍스트만 보면 “아 그렇구나.” 싶은 내용들이다. 
+이해가 된 것일까 싶었지만 스스로에게 세 질문을 던졌을 때 답하지 못하는 것을 보며 제대로 이해하지 못했음을 인지했다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;    &lt;strong&gt;Q1.&lt;/strong&gt; n개의 bit로도 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt;을 표현할 수 있는거 아닌가? 3개의 bit가 000, 001, 010, 011, 100, 101, 110, 111 이렇게 8개의 상태를 표현할 수 있으니까. &lt;br /&gt;
+    &lt;strong&gt;Q2.&lt;/strong&gt; 양자 세계는 불확정성 원리에 지배받는다고 하는데, 대체 양자컴퓨터로 어떻게 연산하고 있는 것이며, 이 성질이 어떻게 계산 비용을 감소시킬 수 있는거지? &lt;br /&gt;
+    &lt;strong&gt;Q3.&lt;/strong&gt; Entanglement는 대체 qbit들이 어떻게 된 상태인거지?&lt;/p&gt;
+
+&lt;p&gt;이 질문들에 제대로 답하기 위해서는 수학이 필요하다는 생각이 들었다.
+4차원 이상의 공간을 제대로 시각화하지 못하듯이 양자 세계를 자연어로 표현한다는 것 자체가 말이 되지 않는 것 같았기 때문이다.
+그래서 수학으로 설명된 자료를 찾으려고 부던히 애를 썼고, 끝내 “내 수준에 맞는” (= 이 글을 읽을 모두가 다 이해할 수 있는) 수학으로 설명된 자료를 찾았다.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/F_Riqjdh2oM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/ahelwer/quantum-computing-for-computer-scientists&quot;&gt;발표자료&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이 영상을 보는 것을 추천하지만 무려 한시간이 넘는지라 글로도 정리를 해보았다. 아래에 기술된 내용은 내 방식대로 위의 영상과 자료를 요약한 것이라고 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;사실 이 자료를 다 보더라도 양자컴퓨터에 대해 많은 것을 알았다고 보긴 어렵다.
+python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&gt;print('Hello World!')&lt;/code&gt;를 성공했다고 해서 python을 잘 알았다고 하기 어려운 것처럼.
+그리고 딥러닝에 관심있는 사람이 tutorial을 따라해보며 CNN을 돌려봤다고 해서 딥러닝을 잘 알았다고 하기 어려운 것처럼.&lt;/p&gt;
+
+&lt;p&gt;그렇지만 양자 세계에 한 번은 ‘Hello World!’를 날려봐야 하지 않을까?&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;#1-introduction&quot;&gt;1. Introduction&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#2-basics&quot;&gt;2. Basics&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#21-qubit--qbit&quot;&gt;2.1 Qubit / Qbit&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#22-superposition&quot;&gt;2.2 Superposition&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#23-tensor-product&quot;&gt;2.3 Tensor product&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#24-1-bit-operations&quot;&gt;2.4 1-bit operations&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#25-cnot-one-of-the-2-bit-operations&quot;&gt;2.5 CNOT (one of the 2-bit operations)&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#3-the-deutsch-jozsa-problem&quot;&gt;3. The Deutsch-Jozsa problem&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#31-classical-computer&quot;&gt;3.1 Classical computer&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#32-quantum-computer&quot;&gt;3.2 Quantum computer&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#4-entanglement&quot;&gt;4. Entanglement&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
+
+&lt;p&gt;(수정) 이번 글에서는 불확정성의 원리가 지배하는 양자 세계에서 양자컴퓨터는 어떻게 연산을 하는지 알아볼 것이다.
+이를 이해하기 위한 matrix 연산과 기초적인 논리회로에 대한 내용이 담겨 있다. 
+그리고 The Deutsch-Jozsa problem을 통해 양자 컴퓨터가 어떻게 고전 컴퓨터에 비해 연산 속도에서 이점을 보이는지 설명한다.
+추가로, entanglement에 대한 간단한 설명이 있으며 관련된 실습 또한 있다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-basics&quot;&gt;2. Basics&lt;/h2&gt;
+
+&lt;h3 id=&quot;21-qubit--qbit&quot;&gt;2.1 Qubit / Qbit&lt;/h3&gt;
+
+&lt;p&gt;Qubit 혹은 Qbit은 양자컴퓨터 계산의 기본적인 단위이다. 조금이라도 양자컴퓨터에 대해 알아본 사람들이라면 qbit은 지겹도록 보고 들었을 것이다.&lt;/p&gt;
+
+&lt;p&gt;Qbit은 언제나 다음의 조건을 만족시킨다. &lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;A qbit, represented by 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+ \alpha \\
+ \beta
+ \end{pmatrix}&lt;/script&gt;
+ where &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt; are complex numbers must be constrained by the equation 
+&lt;script type=&quot;math/tex&quot;&gt;||\alpha||^2 + ||\beta||^2 = 1&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;따라서 아래의 예시들은 qbit에 해당된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+ \end{pmatrix}&lt;/script&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+\frac{1}{2} \\
+\frac{\sqrt{3}}{2}
+ \end{pmatrix}&lt;/script&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+ 1 \\
+ 0
+ \end{pmatrix}&lt;/script&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+ 0 \\
+ -1
+ \end{pmatrix}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 이 모든 벡터들의 basis가 되는 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+ 1 \\
+ 0
+ \end{pmatrix}&lt;/script&gt;
+ 과 
+ &lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+ 0 \\
+ 1
+ \end{pmatrix}&lt;/script&gt;
+은 각각 &lt;script type=&quot;math/tex&quot;&gt;\mid 0\rangle&lt;/script&gt; 과 &lt;script type=&quot;math/tex&quot;&gt;\mid 1\rangle&lt;/script&gt; 이라는 특별한 기호로 정의한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;22-superposition&quot;&gt;2.2 Superposition&lt;/h3&gt;
+
+&lt;p&gt;양자컴퓨터의 qbit을 설명할 때 빠지지 않는 성질이다. 
+“동시에 0과 1을 가진다.”는 문장으로 자주 설명된다.
+하지만 이보다는 슈뢰딩거의 고양이 느낌이 물씬 나는 “When we measure a qbit, it collapses to an actual value of 0 or 1.” 이라는 문장이 더 좋은 설명인 것 같다.&lt;/p&gt;
+
+&lt;p&gt;위에서 qbit이라고 언급했던 벡터 하나를 예시로 들어보자.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+ \end{pmatrix}&lt;/script&gt;
+
+&lt;p&gt;이 qbit은 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt; 혹은 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 로 collapse될 확률이 (
+&lt;script type=&quot;math/tex&quot;&gt;\frac{1}{2} = || \frac{1}{\sqrt{2}} || ^2&lt;/script&gt;
+) 이다.&lt;/p&gt;
+
+&lt;p&gt;감사하게도 &lt;a href=&quot;https://quantum-computing.ibm.com/&quot;&gt;IBM은 자사의 양자컴퓨터를 사용할 수 있는 API&lt;/a&gt;를 만들어 놓았다. 
+여기서 이 qbit을 만들고 1024번 관측해보면 0과 1이 50%씩 나오는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/qubit_1_2_example.png&quot; height=&quot;200px&quot; style=&quot;margin-right:20px&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/qubit_1_2_result.png&quot; height=&quot;200px&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;(왼) H gate를 통해 |0&amp;gt; 은 예시로 든 qbit으로 바뀐다. (이 내용은 밑에서 다룬다.) (오) 1024번 관측한 결과다. 50% 확률로 0과 1을 나타낸다.&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+\frac{1}{2} \\
+\frac{\sqrt{3}}{2}
+ \end{pmatrix}&lt;/script&gt;
+은 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt; 으로 collapse 될 확률이 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{4}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 로 collapse 될 확률이 &lt;script type=&quot;math/tex&quot;&gt;\frac{3}{4}&lt;/script&gt;인 qbit이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;|0\rangle&lt;/script&gt; 
+은 0으로만 collapse 한다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/qubit_0_example.png&quot; height=&quot;200px&quot; style=&quot;margin-right:20px&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/qubit_0_result.png&quot; height=&quot;200px&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;(왼) |0&amp;gt; (오) 1024번 관측한 결과로, 100% 0으로 관측된다. &lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;23-tensor-product&quot;&gt;2.3 Tensor product&lt;/h3&gt;
+
+&lt;p&gt;여러 개의 qbit을 나타내기 위해 Tensor product 개념이 필요하다.
+수학적으로 엄밀한 표현은 아니지만, n개의 qbit 연산을 표현하기 위해서는 아래의 표기 방식을 따르는 것이 좋다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\binom{x_0}{x_1} \otimes \binom{y_0}{y_1} 
+= \begin{pmatrix} x_0  \binom{y_0}{y_1} \\ 
+{x_1  \binom{y_0}{y_1}} \end{pmatrix} 
+= \begin{pmatrix} x_0 y_0 \\ x_0 y_1 \\ x_1 y_0 \\ x_1 y_1 \end{pmatrix}&lt;/script&gt;
+
+&lt;p&gt;이를 응용하면 2개, 3개의 qbit도 벡터처럼 표현할 수 있다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;|01\rangle = \binom{1}{0} \otimes \binom{0}{1} = \begin{pmatrix}
+  0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}
+\hspace{10pt}
+|100\rangle = \binom{0}{1} \otimes \binom{1}{0} \otimes \binom{1}{0} = \begin{pmatrix}
+  0\\ 0\\0\\0 \\ 1 \\ 0 \\ 0 \\ 0
+\end{pmatrix}&lt;/script&gt;
+
+&lt;p&gt;이와 같이 tensor product의 결과로 표현된 벡터는 product state라고 한다.
+여기서 우리는 n개 qbit의 product state 크기는 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt; 이라는 것을 알 수 있다.
+만약 
+&lt;script type=&quot;math/tex&quot;&gt;\binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} \otimes \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} = 
+\begin{pmatrix}
+ \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2}
+\end{pmatrix}&lt;/script&gt;
+의 multiple qbits 이 있다면 &lt;script type=&quot;math/tex&quot;&gt;\mid 00\rangle&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\mid 01\rangle&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\mid 10\rangle&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\mid 11\rangle&lt;/script&gt; 으로 collapse될 확률이 모두 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{4}&lt;/script&gt;이므로 동시에 4개의 state를 표현할 수 있게 된다. 
+즉, qbit이 bit와는 다르게 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt; 개의 state를 표현할 수 있다고 한 것은 &lt;em&gt;동시에&lt;/em&gt; 가질 수 있는 최대 state 관점에서 비교한 것이다.
+bit는 절대로 동시에 2개 이상의 state를 가질 수 없으므로 한 번에 계산할 수 있는 정보는 1개 뿐이다.&lt;/p&gt;
+
+&lt;p&gt;또한 product state는, 뒤의 entanglement와 구분되는 중요한 성질로, &lt;strong&gt;독립적인 state 들로 factorize가 가능&lt;/strong&gt;하다는 점이 있다.&lt;/p&gt;
+
+&lt;p&gt;Multiple qbits의 product state 또한 single qbit과 같은 성질을 만족시킨다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\binom{a}{b} \otimes \binom{c}{d} = 
+\begin{pmatrix}
+  ac \\ ad \\ bc \\ bd
+\end{pmatrix}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{where, } ||ac||^2 + ||ad||^2 + ||bc||^2 + ||bd||^2 = 1&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;24-1-bit-operations&quot;&gt;2.4 1-bit operations&lt;/h3&gt;
+
+&lt;p&gt;1-bit에서 가능한 연산은 Identity, Negation, Constant-0, Constant-1의 총 4가지가 있다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/1bit_operations.png&quot; width=&quot;40%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;1-bit 연산의 4 종류&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;각각의 연산은 matrix로 표현할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\text{Identity} = \begin{pmatrix}
+1 &amp; 0 \\ 
+0 &amp; 1
+\end{pmatrix} %]]&gt;&lt;/script&gt;, 
+&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\text{Negation} = \begin{pmatrix}
+0 &amp; 1 \\ 
+1 &amp; 0
+\end{pmatrix} %]]&gt;&lt;/script&gt;, 
+&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\text{Contant-0} = \begin{pmatrix}
+1 &amp; 1 \\ 
+0 &amp; 0
+\end{pmatrix} %]]&gt;&lt;/script&gt;, 
+&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\text{Contant-1} = \begin{pmatrix}
+0 &amp; 0 \\ 
+1 &amp; 1
+\end{pmatrix} %]]&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/1bit_matrix.png&quot; width=&quot;70%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;1-bit 연산의 matrix 표현&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;25-cnot-one-of-the-2-bit-operations&quot;&gt;2.5 CNOT (one of the 2-bit operations)&lt;/h3&gt;
+
+&lt;p&gt;CNOT 연산은 control bit와 target bit로 구성된 2-bit가 있을 때 control bit가 0이면 target bit를 바꾸지 않고, control bit가 1일 때 target bit를 바꾸는 연산이다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/CNOT_operation.png&quot; width=&quot;20%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;CNOT&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;마찬가지로 이 연산도 matrix로 표현할 수 있다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+C = \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 1 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\ 
+0 &amp; 0 &amp; 1 &amp; 0 \\ 
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/CNOT_examples.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;2-qbits에 적용한 CNOT 예시&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;#24-1-bit-operations&quot;&gt;2.4&lt;/a&gt;와 &lt;a href=&quot;#25-cnot-one-of-the-2-bit-operations&quot;&gt;2.5&lt;/a&gt;에서 opertaion들을 matrix화 한 것에 주목하자. 
+확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.
+아래의 예시에서 우리가 확신할 수 있는 정보는 qbit이 0과 1로 관측될 확률이 반대가 되었다는 것이다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{pmatrix}
+0 &amp; 1 \\ 
+1 &amp; 0
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{2} \\ \frac{\sqrt{3}}{2} 
+\end{pmatrix} = \begin{pmatrix}
+  \frac{\sqrt{3}}{2} \\ \frac{1}{2}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;항상 0 혹은 1로 관측되는 &lt;script type=&quot;math/tex&quot;&gt;\mid0\rangle&lt;/script&gt;이나 &lt;script type=&quot;math/tex&quot;&gt;\mid1\rangle&lt;/script&gt;을 쓰면 굳이 복잡한 matrix 연산이 필요없지만 이런 qbit만 사용할거라면 고전 컴퓨터를 쓰면 그만이다.
+굳이 0K 가까이 되는 험악한 조건을 유지해가며 계산할 필요가 없다.&lt;/p&gt;
+
+&lt;p&gt;그래서 matrix 연산은 양자 컴퓨팅에서 굉장히 중요하다. 여기에는 한가지 추가조건이 있는데, 반드시 연산에 사용되는 matrix는 &lt;strong&gt;reversible&lt;/strong&gt;해야한다는 것이다.
+따라서 앞서 본 1-bit 연산 중 Constant-1과 Constant-0를 계산하기 위해서는 단순 matrix를 곱하는 것 외의 다른 방법이 필요하다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-the-deutsch-jozsa-problem-&quot;&gt;3. The Deutsch-Jozsa problem &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;p&gt;이 문제는 양자컴퓨터가 고전컴퓨터에 비해 계산적인 이점을 가지는 아주 간단한 (&lt;del&gt;&lt;em&gt;동시에 쓸데없는&lt;/em&gt;&lt;/del&gt;) 문제다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1-bit를 입력받아서 1-bit를 내뱉는 어떤 함수가 있다고 하자. 
+만약 이 함수가 Constant(Contant-0, Constant-1)인지 아니면 Variable(Identity, Negation)인지 알기 위해서는 최소 몇 번의 query를 날려야 할까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;31-classical-computer&quot;&gt;3.1 Classical computer&lt;/h3&gt;
+
+&lt;p&gt;고전 컴퓨터에서는 0과 1을 입력해야하므로 총 두 번의 연산이 필요하다.&lt;/p&gt;
+
+&lt;h3 id=&quot;32-quantum-computer&quot;&gt;3.2 Quantum computer&lt;/h3&gt;
+
+&lt;p&gt;예상했듯이 정답은 한 번이다. 왜인지 알기위해서는 추가적인 개념이 필요하다.&lt;/p&gt;
+
+&lt;h4 id=&quot;--hadamard-gate&quot;&gt;- Hadamard gate&lt;/h4&gt;
+
+&lt;p&gt;앞서 언급된 적 있는 H gate이다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+H = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Hadamard gate는 0- 혹은 1-qbit을 받아서 0과 1을 같은 확률로 가지는 qbit으로 바꿔준다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+H\mid0\rangle = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+H\mid1\rangle = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Hadamard gate는 또 다른 중요한 성질이 있다. 0과 1을 같은 확률로 가지는 qbit을 다시 0- 과 1-qbit으로 돌려보낸다는 것이다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{pmatrix}
+  \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{pmatrix}
+  \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+  \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;--x-gate&quot;&gt;- X gate&lt;/h4&gt;
+
+&lt;p&gt;X gate는 qbit의 위 아래를 바꿔준다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+X = 
+\begin{pmatrix}
+   0 &amp; 1 \\
+   1 &amp; 0
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{pmatrix}
+   0 &amp; 1 \\
+   1 &amp; 0
+\end{pmatrix} 
+\begin{pmatrix}
+  0 \\ 1
+\end{pmatrix}
+= \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{pmatrix}
+   0 &amp; 1 \\
+   1 &amp; 0
+\end{pmatrix} 
+\begin{pmatrix}
+  \frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix}
+= \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/gates-visualization.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  1 \\ 0
+\end{pmatrix}&lt;/script&gt;
+에 X, H, X, H, X gate를 씌운 결과는 그림으로 보면 더 쉽게 이해된다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_logic_operation_example.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;--non-reversible-matrix&quot;&gt;- non-reversible matrix&lt;/h4&gt;
+
+&lt;p&gt;앞서 양자 컴퓨터는 non-reversible한 matrix 를 곱하는 연산은 불가능하다고 했다.
+1-bit 연산 중에서 Constant-0과 Constant-1은 non-reversible하다. 그래서 양자 컴퓨팅에서는 2개의 qbit을 사용한다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_non_reversible.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;BB(Black Box)에 적당한 gate를 넣으면 Constant-0과 Constant-1을 포함한 1-bit 연산 4가지가 모두 가능하다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_constant_0.png&quot; height=&quot;200px&quot; width=&quot;300px&quot; style=&quot;margin-right:20px; margin-bottom:10px&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_constant_1.png&quot; height=&quot;200px&quot; width=&quot;300px&quot; style=&quot;margin-bottom:10px&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_identity.png&quot; height=&quot;200px&quot; width=&quot;300px&quot; style=&quot;margin-right:20px; margin-bottom:10px&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_negation.png&quot; height=&quot;200px&quot; width=&quot;300px&quot; style=&quot;margin-bottom:10px&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;왼쪽 위 부터 차례대로 Constant-0, Constant-1, Identity, Negation. Identity와 Negation에 있는 이상한 operation은 CNOT이다.&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;다시 문제로 돌아가서, 양자 컴퓨터에서는 어떻게 한번에 구할 수 있을까? 정답은 아래의 그림이 설명해준다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_one_query.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;양자 컴퓨터가 한 번에 문제를 푸는 법&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 연산대로라면 BB가 constant였을 경우, 측정시에 &lt;script type=&quot;math/tex&quot;&gt;\mid11\rangle&lt;/script&gt;로 나타나고 variable이었을 경우에는 &lt;script type=&quot;math/tex&quot;&gt;\mid01\rangle&lt;/script&gt;로 나타난다.&lt;/p&gt;
+
+&lt;p&gt;BB를 치환해보며 이해해보자.&lt;/p&gt;
+
+&lt;h4 id=&quot;preprocessing-bb-입력-직전까지의-연산&quot;&gt;preprocessing (BB 입력 직전까지의 연산)&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_preprocessing.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;BB에 들어가기 전 input과 output qbit의 상태는 모두 X와 H gate를 거치므로
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  \frac{-1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt;
+가 된다.&lt;/p&gt;
+
+&lt;h4 id=&quot;case-1-bb가-constant-0-이었을-경우&quot;&gt;case 1) BB가 Constant-0 이었을 경우&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_const_0.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;case-2-bb가-contstant-1-이었을-경우&quot;&gt;case 2) BB가 Contstant-1 이었을 경우&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_const_1.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;case-3-bb가-identity-이었을-경우&quot;&gt;case 3) BB가 Identity 이었을 경우&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_identity.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;case-4-bb가-negation-이었을-경우&quot;&gt;case 4) BB가 Negation 이었을 경우&lt;/h4&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_negation.png&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-entanglement&quot;&gt;4. Entanglement&lt;/h2&gt;
+
+&lt;p&gt;Entanlged qbit은 얼핏 보면 product state 같지만 product state와는 다르게 개별적인 qbit으로 factorize 되지 않는다. 
+(If the product state of two qbits cannot be factored, they are said to be &lt;strong&gt;entanlged&lt;/strong&gt;.)&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt;
+는 entangle된 qbit이다.
+왜냐하면, 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+  a \\
+  b
+\end{pmatrix} \otimes \begin{pmatrix}
+  c \\
+  d
+\end{pmatrix}&lt;/script&gt;
+를 만족하는 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;는 존재하지 않기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/entanlge.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+CH_1
+\begin{pmatrix}
+  \begin{pmatrix}
+    1 \\
+    0
+  \end{pmatrix} \otimes \begin{pmatrix}
+    1 \\
+    0
+  \end{pmatrix}
+\end{pmatrix} = C \begin{pmatrix}
+  \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{1}{\sqrt{2}} 
+  \end{pmatrix} \otimes \begin{pmatrix}
+    1 \\ 0
+  \end{pmatrix}
+\end{pmatrix} = 
+\begin{pmatrix}
+  1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 1 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\ 
+0 &amp; 0 &amp; 1 &amp; 0 \\ 
+\end{pmatrix} \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  \frac{1}{\sqrt{2}} \\
+  0 
+\end{pmatrix} = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm#Problem_statement &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 07 Nov 2019 00:07:00 +0900</pubDate>
+        <link>http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings.html</guid>
+        
+        
+        <category>Quantum Computer</category>
+        
+        <category>Basic</category>
+        
+        <category>Qbit</category>
+        
+        <category>Superposition</category>
+        
+        <category>Entanglement</category>
+        
+        <category>Quantum Supremacy</category>
+        
+        <category>양자컴퓨터</category>
+        
+        <category>기초</category>
+        
+        <category>양자 중첩</category>
+        
+        <category>양자 얽힘</category>
+        
+        <category>양자 우월성</category>
+        
+      </item>
     
       <item>
         <title>Naver News Comment Analysis (3)</title>
@@ -57,7 +655,7 @@ reddit과 yelp 등에서 사용하고 있는 알고리즘을 비롯하여, 논�
 &lt;p&gt;모두가 다 알고 있는 사실이지만, 어뷰저는 존재한다. 드루킹과 지난 분석 글에서 나온 결론으로도 뒷받침될 수 있지만 트위터에 &lt;code class=&quot;highlighter-rouge&quot;&gt;m.news.naver.com/comment&lt;/code&gt; 라고 검색하기만 해도 아래와 같이 댓글 조작의 흔적을 쉽게 발견할 수 있다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/twitter_abuser.png&quot; width=&quot;60%&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/twitter.png&quot; width=&quot;60%&quot; /&gt;
 &lt;figcaption class=&quot;caption&quot;&gt;https://twitter.com/search?q=m.news.naver.com%2Fcomment&amp;amp;src=recent_search_click&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -371,61 +969,61 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;50y20&lt;/td&gt;
+      &lt;td&gt;user 1&lt;/td&gt;
       &lt;td&gt;대통령 각하, ‘사드 문제’ 갖고 거품무는 중국에도 내정 간섭이라고 거침 없이 말씀해주세요&lt;/td&gt;
       &lt;td&gt;26&lt;/td&gt;
       &lt;td&gt;26&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1N1GK&lt;/td&gt;
+      &lt;td&gt;user 2&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;이제는 한미일군사훈련을 해야 한다.&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;81&lt;/td&gt;
       &lt;td&gt;85&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1a1lV&lt;/td&gt;
+      &lt;td&gt;user 3&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;근데 왜 중국한테는 대놓고 내정간섭 받는거죠, 대통령님? 치욕스러웠던 조선시대가 그리운건가요?&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;22&lt;/td&gt;
       &lt;td&gt;22&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1huSl&lt;/td&gt;
+      &lt;td&gt;user 4&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;봐라 ㅋㅋㅋ \n한미연합훈련 연기하지?\n미군 철수 얘기나온다 백퍼 ㅋㅋㅋㅋ \n미군철수하면 베트남꼴 나는거야 ㅋㅋㅋ \n개돼지들아 정신 좀 차리자&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;33&lt;/td&gt;
       &lt;td&gt;31&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;akMSD&lt;/td&gt;
+      &lt;td&gt;user 5&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;아베만도못한 문통;                                  &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;11&lt;/td&gt;
       &lt;td&gt;11&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;32rhW&lt;/td&gt;
+      &lt;td&gt;user 6&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;문재인 아가라 닥쳐라. 사드도 내정문제인데 중국한테는 끽소리 못 하던 색히가 어디서 주둥아리 씨부리노.  &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;43lgl&lt;/td&gt;
+      &lt;td&gt;user 7&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;ㅋㅋㅋㅋㅋㅋ 곧 양념단와서 또 평화올림픽 울부짖겠네.         &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;66&lt;/td&gt;
       &lt;td&gt;57&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1qBRj&lt;/td&gt;
+      &lt;td&gt;user 8&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;미국이 한국을 버려야 할 듯.\n답이 없네.  &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;aaTK5&lt;/td&gt;
+      &lt;td&gt;user 9&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;미국을 대변하는거다.\n아베는 국익을 최우선으로 하는거지\n일본은 싫지만 아베가 똑똑하지않는냐.\n생각좀하고 살자.  &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5dcgw&lt;/td&gt;
+      &lt;td&gt;user 10&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;얼마나 답답하면 저런말을 할지 생각 안해보셨나요?? 북에서 원하는 대로 흘러가네요. 앞으로 한미군사훈련 연기뿐만 아니라 축소되고 없어지고 난리나겠네&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
@@ -486,61 +1084,61 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;4gnUX&lt;/td&gt;
+      &lt;td&gt;user 11&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;아베한테 대하듯 똑같이 김정은하고 북한, 중국한테도 당당하게 나와라!&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
       &lt;td&gt;11&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3TWS0&lt;/td&gt;
+      &lt;td&gt;user 12&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;개~~새끼 아베 한테는 그렇게 당당하면서 김정은한테는 왜 그렇게 꼬리를 내린다냐? 핵이 무섭긴 무서운가 보다&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;11&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;4SOr4&lt;/td&gt;
+      &lt;td&gt;user 13&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:blue&quot;&gt;한미 동맹도 좋다 그러나 우리 나라 스스로 강한 나라가 되어야 한다. 문대통형 수고 많으십니다 !!&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5qpx3&lt;/td&gt;
+      &lt;td&gt;user 14&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:blue&quot;&gt;아베에게 일침을 놔주신\n 문 대통령님 지지 합니다.\n아베 나대지 마시오&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2tUo3&lt;/td&gt;
+      &lt;td&gt;user 15&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:blue&quot;&gt;쪽바리 추종자들 많네!! 특히 벌레 틀딱들~~&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;R0Yj&lt;/td&gt;
+      &lt;td&gt;user 16&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:blue&quot;&gt;반대로 우리나라가 일본보고 자위대 훈련하는거 보고 참견하면 일본이 가많이 있겠냐?\n이 벌레들아! 비판을 하려면 국내 내정에 간섭하는 아베를 비판해야지 아베를 두둔하냐? 이 스레기들아…&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;IIus&lt;/td&gt;
+      &lt;td&gt;user 17&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;아베가 옳은말했네 지금이라고 김정은 참수 한미연합훈련을 시작하라 빨갱이한테 이 나라를 줄 수 없다 &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PqIi&lt;/td&gt;
+      &lt;td&gt;user 18&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;대한민국은 다시 한번 망해봐야 정신차리지..\n말로는 안된다.&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1ceFq&lt;/td&gt;
+      &lt;td&gt;user 19&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:blue&quot;&gt;일본이 우방이란애들 멍청한거 아니냐 일본애들도 그렇게 생각안하는데 왜 니혼자 망상해 찐따새끼인가ㅋㅋㅋㅋㅋㅋ&lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5Vnqo&lt;/td&gt;
+      &lt;td&gt;user 20&lt;/td&gt;
       &lt;td&gt;&lt;span style=&quot;color:red&quot;&gt;문재인씨 당신의 국적은 어디입니까? 다스 실소유주를 밝히는 것보다 훨씬 더 중요한 문제입니다. &lt;/span&gt;&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
@@ -593,61 +1191,61 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;3uhFA&lt;/td&gt;
+      &lt;td&gt;user 21&lt;/td&gt;
       &lt;td&gt;평화협정후 미군철수 바랍니다&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;BoU7&lt;/td&gt;
+      &lt;td&gt;user 22&lt;/td&gt;
       &lt;td&gt;홍발정씨..트럼프도 좌파 빨갱이죠??&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1cvun&lt;/td&gt;
+      &lt;td&gt;user 23&lt;/td&gt;
       &lt;td&gt;늙다리 미치광이는 빠져 줄래!\n우리끼리 자주통일좀 하자!&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;zg5j&lt;/td&gt;
+      &lt;td&gt;user 24&lt;/td&gt;
       &lt;td&gt;자국당은 사형감 많던데… 미국철수 애기했다고 파면? 자국당 5월에는 문정인으로 놀고먹겠군~!&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5OPN&lt;/td&gt;
+      &lt;td&gt;user 25&lt;/td&gt;
       &lt;td&gt;봐라. 지도자 하나가 이렇게나 세상을 바꿀 수 있다. 물론 촛불 들고, 직접민주주의를 구현한 국민 또한 위대하지. 지방선거 때 투표 잘 하자.&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;qNLK&lt;/td&gt;
+      &lt;td&gt;user 26&lt;/td&gt;
       &lt;td&gt;아직도. 미국이 인계철선이라믿고 50년대 사고방식이 존재하는구나 군사력 세계10위안에들고 1-1붙어도 안지니 너무 미군철수로 여론전말고 참신한거없어요 ? 자한당분들?&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;6lxkz&lt;/td&gt;
+      &lt;td&gt;user 27&lt;/td&gt;
       &lt;td&gt;극우 자한당은 미국도 빨갱이란다 제비가 왔다고 봄은 아니람서 ㅋㅋㅋ&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3lBvF&lt;/td&gt;
+      &lt;td&gt;user 28&lt;/td&gt;
       &lt;td&gt;원샷-빅딜!&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1jqva&lt;/td&gt;
+      &lt;td&gt;user 29&lt;/td&gt;
       &lt;td&gt;자한당분들께서 트럼프도 좌파래요..&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;8q0qW&lt;/td&gt;
+      &lt;td&gt;user 30&lt;/td&gt;
       &lt;td&gt;잊지마세요 지금도 북한은 세계 최악의 인권유린 국가입니다 이시간에도 북한 주민들은 김정은한테 총살당하거나 아오지탄광으로 끌려가고 있습니다 북한 여성들은 김정은의 성노예가 되고 있구요 대한한공 조현민의 갑질 화가나죠 미투운동으로 드러난 권력자들의 성폭력 정말 싫습니다 그런데 이것보다 수백배는 더심한 갑질과 성폭력을 일삼는게 북한 김정은입니다&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
@@ -881,8 +1479,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 09 Aug 2019 22:26:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/08/09/%EB%85%B8%EB%A5%B4%EC%9B%A8%EC%9D%B4%EC%97%90%EC%84%9C%EC%9D%98-%EB%82%98%ED%99%80%EB%A1%9C-%EC%97%AC%ED%96%89-1-%ED%94%BC%EC%98%A4%EB%A5%B4%EB%93%9C-%EB%B8%8C%EB%9D%BC%EC%9A%B4-%EC%B9%98%EC%A6%88.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/08/09/%EB%85%B8%EB%A5%B4%EC%9B%A8%EC%9D%B4%EC%97%90%EC%84%9C%EC%9D%98-%EB%82%98%ED%99%80%EB%A1%9C-%EC%97%AC%ED%96%89-1-%ED%94%BC%EC%98%A4%EB%A5%B4%EB%93%9C-%EB%B8%8C%EB%9D%BC%EC%9A%B4-%EC%B9%98%EC%A6%88.html</guid>
+        <link>http://localhost:4000/2019/08/09/%E1%84%82%E1%85%A9%E1%84%85%E1%85%B3%E1%84%8B%E1%85%B0%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%8B%E1%85%B4-%E1%84%82%E1%85%A1%E1%84%92%E1%85%A9%E1%86%AF%E1%84%85%E1%85%A9-%E1%84%8B%E1%85%A7%E1%84%92%E1%85%A2%E1%86%BC-1-%E1%84%91%E1%85%B5%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B3%E1%84%83%E1%85%B3-%E1%84%87%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB-%E1%84%8E%E1%85%B5%E1%84%8C%E1%85%B3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/09/%E1%84%82%E1%85%A9%E1%84%85%E1%85%B3%E1%84%8B%E1%85%B0%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%8B%E1%85%B4-%E1%84%82%E1%85%A1%E1%84%92%E1%85%A9%E1%86%AF%E1%84%85%E1%85%A9-%E1%84%8B%E1%85%A7%E1%84%92%E1%85%A2%E1%86%BC-1-%E1%84%91%E1%85%B5%E1%84%8B%E1%85%A9%E1%84%85%E1%85%B3%E1%84%83%E1%85%B3-%E1%84%87%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB-%E1%84%8E%E1%85%B5%E1%84%8C%E1%85%B3.html</guid>
         
         
         <category>노르웨이</category>
@@ -927,7 +1525,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
     &lt;a href=&quot;#14-analysis&quot;&gt;1.4 Analysis&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#2-conclusions&quot;&gt;2. Conclusions&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#appendix-a-gaussian-mixture-model-fitting&quot;&gt;Appendix A: Gaussian Mixture Model Fitting&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#appendix-b-기타-정치면-top-users&quot;&gt;Appendix B: 기타 정치면 top users&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
@@ -970,7 +1567,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 
 &lt;h3 id=&quot;13-data-preprocessing&quot;&gt;1.3 Data preprocessing&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;&quot;&gt;Previsous work에서 사용했던 데이터&lt;/a&gt;에서 추가로 필터링이 필요했다. 크롤링한 댓글 데이터에 hashing 된 아이디가 포함된 것이 2015년 12월 이후였기 때문이다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;Previous work에서 사용했던 데이터&lt;/a&gt;에서 추가로 필터링이 필요했다. 크롤링한 댓글 데이터에 hashing 된 아이디가 포함된 것이 2015년 12월 이후였기 때문이다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;사용한 댓글 데이터 기간: 2015.12.08 ~ 2018.05.25&lt;/li&gt;
@@ -981,7 +1578,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;먼저, &lt;strong&gt;정치&lt;/strong&gt; 분야에서 댓글이 top 10 내에 들었던 횟수를 작성자 별로 집계한 후, 횟수가 높은 순서대로 정렬하였을 때의 추이를 살펴보았다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/abuser_politics.png&quot; width=&quot;70%&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/politics_top_user.png&quot; width=&quot;70%&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1021,7 +1618,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 
 &lt;p&gt;그러나 이 전략들이 100%의 확률로(=항상) 통하지는 않았을 것이다. 때로는 일찍 댓글을 작성했음에도 뒤늦게 작성한 댓글이 폭발적인 공감을 이끌어내서 top 10에 들지 못했을 수도 있고, 당시의 전반적인 분위기에 탑승하는 댓글을 남겼음에도 다른 댓글 중에 두드러지지 못해 공감을 받지 못했을 수도 있다.&lt;/p&gt;
 
-&lt;p&gt;top user 간에 일반적인 top 10 성공률이 존재할 것이고 이는 normal distribution을 따른다는 가설을 바탕으로 “top user가 작성한 전체 댓글 수 대비 top 10에 들었던 댓글 수(=ratio)”를 계산해보았다.&lt;/p&gt;
+&lt;p&gt;top user 간에 일반적인 top 10 성공률이 존재할 것이고 이는 normal distribution을 따른다는 가설을 바탕으로 “top user가 작성한 전체 댓글 수 대비 top 10에 들었던 댓글 수(=top 10 성공률)”를 계산해보았다.&lt;/p&gt;
 
 &lt;h4 id=&quot;정치-top-users&quot;&gt;정치 top users&lt;/h4&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -1032,80 +1629,69 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;th&gt;userId&lt;/th&gt;
       &lt;th&gt;top comment #&lt;/th&gt;
       &lt;th&gt;total comment #&lt;/th&gt;
-      &lt;th&gt;ratio (%)&lt;/th&gt;
-      &lt;th&gt;note&lt;/th&gt;
+      &lt;th&gt;top 10 성공률 (%)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;1njDA&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;user 1&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;369&lt;/td&gt;
       &lt;td&gt;386&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;95.60&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;a06BV&lt;/td&gt;
+      &lt;td&gt;user 2&lt;/td&gt;
       &lt;td&gt;339&lt;/td&gt;
       &lt;td&gt;380&lt;/td&gt;
       &lt;td&gt;89.21&lt;/td&gt;
-      &lt;td&gt;정치, 사회 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;KPjq&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;user 3&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;269&lt;/td&gt;
       &lt;td&gt;289&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;93.08&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;6t8wY&lt;/td&gt;
+      &lt;td&gt;user 4&lt;/td&gt;
       &lt;td&gt;178&lt;/td&gt;
       &lt;td&gt;610&lt;/td&gt;
       &lt;td&gt;29.18&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3PblE&lt;/td&gt;
+      &lt;td&gt;user 5&lt;/td&gt;
       &lt;td&gt;178&lt;/td&gt;
       &lt;td&gt;1090&lt;/td&gt;
       &lt;td&gt;16.33&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2Yg9w&lt;/td&gt;
+      &lt;td&gt;user 6&lt;/td&gt;
       &lt;td&gt;175&lt;/td&gt;
       &lt;td&gt;424&lt;/td&gt;
       &lt;td&gt;41.27&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;vsPY&lt;/td&gt;
+      &lt;td&gt;user 7&lt;/td&gt;
       &lt;td&gt;174&lt;/td&gt;
       &lt;td&gt;818&lt;/td&gt;
       &lt;td&gt;21.27&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;4IEsT&lt;/td&gt;
+      &lt;td&gt;user 8&lt;/td&gt;
       &lt;td&gt;155&lt;/td&gt;
       &lt;td&gt;316&lt;/td&gt;
       &lt;td&gt;49.05&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3P9mY&lt;/td&gt;
+      &lt;td&gt;user 9&lt;/td&gt;
       &lt;td&gt;143&lt;/td&gt;
       &lt;td&gt;950&lt;/td&gt;
       &lt;td&gt;15.05&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3LV90&lt;/td&gt;
+      &lt;td&gt;user 10&lt;/td&gt;
       &lt;td&gt;141&lt;/td&gt;
       &lt;td&gt;583&lt;/td&gt;
       &lt;td&gt;24.19&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1120,80 +1706,69 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;th&gt;userId&lt;/th&gt;
       &lt;th&gt;top comment #&lt;/th&gt;
       &lt;th&gt;total comment #&lt;/th&gt;
-      &lt;th&gt;ratio (%)&lt;/th&gt;
-      &lt;th&gt;note&lt;/th&gt;
+      &lt;th&gt;top 10 성공률 (%)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;1ljwq&lt;/td&gt;
+      &lt;td&gt;user 11&lt;/td&gt;
       &lt;td&gt;289&lt;/td&gt;
       &lt;td&gt;1185&lt;/td&gt;
       &lt;td&gt;24.39&lt;/td&gt;
-      &lt;td&gt;경제, IT top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;abec3210-9d3c-11e5-9da8-00000000613a&lt;/td&gt;
+      &lt;td&gt;user 12&lt;/td&gt;
       &lt;td&gt;226&lt;/td&gt;
       &lt;td&gt;2935&lt;/td&gt;
       &lt;td&gt;7.70&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2NX3n&lt;/td&gt;
+      &lt;td&gt;user 13&lt;/td&gt;
       &lt;td&gt;219&lt;/td&gt;
       &lt;td&gt;1656&lt;/td&gt;
       &lt;td&gt;13.22&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;user 14&lt;/td&gt;
       &lt;td&gt;183&lt;/td&gt;
       &lt;td&gt;1636&lt;/td&gt;
       &lt;td&gt;11.19&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;KwbM&lt;/td&gt;
+      &lt;td&gt;user 15&lt;/td&gt;
       &lt;td&gt;173&lt;/td&gt;
       &lt;td&gt;1378&lt;/td&gt;
       &lt;td&gt;12.55&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3IQFB&lt;/td&gt;
+      &lt;td&gt;user 16&lt;/td&gt;
       &lt;td&gt;161&lt;/td&gt;
       &lt;td&gt;989&lt;/td&gt;
       &lt;td&gt;16.28&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2ZheW&lt;/td&gt;
+      &lt;td&gt;user 17&lt;/td&gt;
       &lt;td&gt;160&lt;/td&gt;
       &lt;td&gt;654&lt;/td&gt;
       &lt;td&gt;24.46&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;18Tqx&lt;/td&gt;
+      &lt;td&gt;user 18&lt;/td&gt;
       &lt;td&gt;157&lt;/td&gt;
       &lt;td&gt;2589&lt;/td&gt;
       &lt;td&gt;6.06&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2MvTH&lt;/td&gt;
+      &lt;td&gt;user 19&lt;/td&gt;
       &lt;td&gt;139&lt;/td&gt;
       &lt;td&gt;1514&lt;/td&gt;
       &lt;td&gt;9.18&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5CNxc&lt;/td&gt;
+      &lt;td&gt;user 20&lt;/td&gt;
       &lt;td&gt;127&lt;/td&gt;
       &lt;td&gt;742&lt;/td&gt;
       &lt;td&gt;17.12&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1208,80 +1783,69 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;th&gt;userId&lt;/th&gt;
       &lt;th&gt;top comment #&lt;/th&gt;
       &lt;th&gt;total comment #&lt;/th&gt;
-      &lt;th&gt;ratio (%)&lt;/th&gt;
-      &lt;th&gt;note&lt;/th&gt;
+      &lt;th&gt;top 10 성공률 (%)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;hatn&lt;/td&gt;
+      &lt;td&gt;user 21&lt;/td&gt;
       &lt;td&gt;366&lt;/td&gt;
       &lt;td&gt;953&lt;/td&gt;
       &lt;td&gt;38.41&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;user 22&lt;/td&gt;
       &lt;td&gt;308&lt;/td&gt;
       &lt;td&gt;1636&lt;/td&gt;
       &lt;td&gt;18.83&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;6krGo&lt;/td&gt;
+      &lt;td&gt;user 23&lt;/td&gt;
       &lt;td&gt;271&lt;/td&gt;
       &lt;td&gt;935&lt;/td&gt;
       &lt;td&gt;28.98&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5tHY4&lt;/td&gt;
+      &lt;td&gt;user 24&lt;/td&gt;
       &lt;td&gt;241&lt;/td&gt;
       &lt;td&gt;1254&lt;/td&gt;
       &lt;td&gt;19.22&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2NX3n&lt;/td&gt;
+      &lt;td&gt;user 25&lt;/td&gt;
       &lt;td&gt;233&lt;/td&gt;
       &lt;td&gt;1656&lt;/td&gt;
       &lt;td&gt;14.07&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;6I3uB&lt;/td&gt;
+      &lt;td&gt;user 26&lt;/td&gt;
       &lt;td&gt;204&lt;/td&gt;
       &lt;td&gt;328&lt;/td&gt;
       &lt;td&gt;62.20&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;69i2t&lt;/td&gt;
+      &lt;td&gt;user 27&lt;/td&gt;
       &lt;td&gt;191&lt;/td&gt;
       &lt;td&gt;719&lt;/td&gt;
       &lt;td&gt;26.56&lt;/td&gt;
-      &lt;td&gt;사회, 문화 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;a06BV&lt;/td&gt;
+      &lt;td&gt;user 28&lt;/td&gt;
       &lt;td&gt;168&lt;/td&gt;
       &lt;td&gt;625&lt;/td&gt;
       &lt;td&gt;26.88&lt;/td&gt;
-      &lt;td&gt;정치, 사회 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1cVAJ&lt;/td&gt;
+      &lt;td&gt;user 29&lt;/td&gt;
       &lt;td&gt;149&lt;/td&gt;
       &lt;td&gt;1190&lt;/td&gt;
       &lt;td&gt;12.52&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2JatM&lt;/td&gt;
+      &lt;td&gt;user 30&lt;/td&gt;
       &lt;td&gt;148&lt;/td&gt;
       &lt;td&gt;1489&lt;/td&gt;
       &lt;td&gt;9.94&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1296,80 +1860,69 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;th&gt;userId&lt;/th&gt;
       &lt;th&gt;top comment #&lt;/th&gt;
       &lt;th&gt;total comment #&lt;/th&gt;
-      &lt;th&gt;ratio (%)&lt;/th&gt;
-      &lt;th&gt;note&lt;/th&gt;
+      &lt;th&gt;top 10 성공률 (%)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;user 31&lt;/td&gt;
       &lt;td&gt;373&lt;/td&gt;
       &lt;td&gt;1636&lt;/td&gt;
       &lt;td&gt;22.80&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;6krGo&lt;/td&gt;
+      &lt;td&gt;user 32&lt;/td&gt;
       &lt;td&gt;367&lt;/td&gt;
       &lt;td&gt;935&lt;/td&gt;
       &lt;td&gt;39.25&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;4jQzS&lt;/td&gt;
+      &lt;td&gt;user 33&lt;/td&gt;
       &lt;td&gt;301&lt;/td&gt;
       &lt;td&gt;1417&lt;/td&gt;
       &lt;td&gt;21.24&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3drEW&lt;/td&gt;
+      &lt;td&gt;user 34&lt;/td&gt;
       &lt;td&gt;243&lt;/td&gt;
       &lt;td&gt;890&lt;/td&gt;
       &lt;td&gt;27.30&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2NX3n&lt;/td&gt;
+      &lt;td&gt;user 35&lt;/td&gt;
       &lt;td&gt;220&lt;/td&gt;
       &lt;td&gt;1656&lt;/td&gt;
       &lt;td&gt;13.29&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;75pdL&lt;/td&gt;
+      &lt;td&gt;user 36&lt;/td&gt;
       &lt;td&gt;188&lt;/td&gt;
       &lt;td&gt;1943&lt;/td&gt;
       &lt;td&gt;9.68&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;FxgQ&lt;/td&gt;
+      &lt;td&gt;user 37&lt;/td&gt;
       &lt;td&gt;178&lt;/td&gt;
       &lt;td&gt;3245&lt;/td&gt;
       &lt;td&gt;5.49&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;79KN&lt;/td&gt;
+      &lt;td&gt;user 38&lt;/td&gt;
       &lt;td&gt;172&lt;/td&gt;
       &lt;td&gt;2738&lt;/td&gt;
       &lt;td&gt;6.28&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ejrT&lt;/td&gt;
+      &lt;td&gt;user 39&lt;/td&gt;
       &lt;td&gt;164&lt;/td&gt;
       &lt;td&gt;200&lt;/td&gt;
       &lt;td&gt;82.00&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;69i2t&lt;/td&gt;
+      &lt;td&gt;user 40&lt;/td&gt;
       &lt;td&gt;151&lt;/td&gt;
       &lt;td&gt;719&lt;/td&gt;
       &lt;td&gt;21.00&lt;/td&gt;
-      &lt;td&gt;사회, 문화 top user&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1384,80 +1937,69 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;th&gt;userId&lt;/th&gt;
       &lt;th&gt;top comment #&lt;/th&gt;
       &lt;th&gt;total comment #&lt;/th&gt;
-      &lt;th&gt;ratio (%)&lt;/th&gt;
-      &lt;th&gt;note&lt;/th&gt;
+      &lt;th&gt;top 10 성공률 (%)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;22l8g&lt;/td&gt;
+      &lt;td&gt;user 41&lt;/td&gt;
       &lt;td&gt;714&lt;/td&gt;
       &lt;td&gt;3123&lt;/td&gt;
       &lt;td&gt;22.86&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;sdoY&lt;/td&gt;
+      &lt;td&gt;user 42&lt;/td&gt;
       &lt;td&gt;572&lt;/td&gt;
       &lt;td&gt;3886&lt;/td&gt;
       &lt;td&gt;14.72&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2gLns&lt;/td&gt;
+      &lt;td&gt;user 43&lt;/td&gt;
       &lt;td&gt;442&lt;/td&gt;
       &lt;td&gt;2287&lt;/td&gt;
       &lt;td&gt;19.33&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;d43fdb70-f2a1-11e6-b1a5-000000006cbf&lt;/td&gt;
+      &lt;td&gt;user 44&lt;/td&gt;
       &lt;td&gt;399&lt;/td&gt;
       &lt;td&gt;1468&lt;/td&gt;
       &lt;td&gt;27.18&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1XfOt&lt;/td&gt;
+      &lt;td&gt;user 45&lt;/td&gt;
       &lt;td&gt;231&lt;/td&gt;
       &lt;td&gt;810&lt;/td&gt;
       &lt;td&gt;28.52&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2wZIa&lt;/td&gt;
+      &lt;td&gt;user 46&lt;/td&gt;
       &lt;td&gt;234&lt;/td&gt;
       &lt;td&gt;3010&lt;/td&gt;
       &lt;td&gt;7.77&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2rms7&lt;/td&gt;
+      &lt;td&gt;user 47&lt;/td&gt;
       &lt;td&gt;275&lt;/td&gt;
       &lt;td&gt;1622&lt;/td&gt;
       &lt;td&gt;16.95&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;q9aB&lt;/td&gt;
+      &lt;td&gt;user 48&lt;/td&gt;
       &lt;td&gt;317&lt;/td&gt;
       &lt;td&gt;1493&lt;/td&gt;
       &lt;td&gt;21.23&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5GXYo&lt;/td&gt;
+      &lt;td&gt;user 49&lt;/td&gt;
       &lt;td&gt;346&lt;/td&gt;
       &lt;td&gt;2349&lt;/td&gt;
       &lt;td&gt;14.73&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1ljwq&lt;/td&gt;
+      &lt;td&gt;user 50&lt;/td&gt;
       &lt;td&gt;364&lt;/td&gt;
       &lt;td&gt;1185&lt;/td&gt;
       &lt;td&gt;30.72&lt;/td&gt;
-      &lt;td&gt;경제, IT top user&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1472,87 +2014,76 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;th&gt;userId&lt;/th&gt;
       &lt;th&gt;top comment #&lt;/th&gt;
       &lt;th&gt;total comment #&lt;/th&gt;
-      &lt;th&gt;ratio (%)&lt;/th&gt;
-      &lt;th&gt;note&lt;/th&gt;
+      &lt;th&gt;top 10 성공률 (%)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;t5XZ&lt;/td&gt;
+      &lt;td&gt;user 51&lt;/td&gt;
       &lt;td&gt;237&lt;/td&gt;
       &lt;td&gt;1636&lt;/td&gt;
       &lt;td&gt;14.49&lt;/td&gt;
-      &lt;td&gt;사회, 경제, 문화, 세계 top user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2Ezzr&lt;/td&gt;
+      &lt;td&gt;user 52&lt;/td&gt;
       &lt;td&gt;214&lt;/td&gt;
       &lt;td&gt;1432&lt;/td&gt;
       &lt;td&gt;14.94&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;32VUM&lt;/td&gt;
+      &lt;td&gt;user 53&lt;/td&gt;
       &lt;td&gt;145&lt;/td&gt;
       &lt;td&gt;615&lt;/td&gt;
       &lt;td&gt;23.58&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1CPrf&lt;/td&gt;
+      &lt;td&gt;user 54&lt;/td&gt;
       &lt;td&gt;148&lt;/td&gt;
       &lt;td&gt;1709&lt;/td&gt;
       &lt;td&gt;8.66&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;6n0SW&lt;/td&gt;
+      &lt;td&gt;user 55&lt;/td&gt;
       &lt;td&gt;155&lt;/td&gt;
       &lt;td&gt;611&lt;/td&gt;
       &lt;td&gt;25.37&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3INjw&lt;/td&gt;
+      &lt;td&gt;user 56&lt;/td&gt;
       &lt;td&gt;156&lt;/td&gt;
       &lt;td&gt;1076&lt;/td&gt;
       &lt;td&gt;14.50&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;7ewFK&lt;/td&gt;
+      &lt;td&gt;user 57&lt;/td&gt;
       &lt;td&gt;162&lt;/td&gt;
       &lt;td&gt;864&lt;/td&gt;
       &lt;td&gt;18.75&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;MFLJ&lt;/td&gt;
+      &lt;td&gt;user 58&lt;/td&gt;
       &lt;td&gt;165&lt;/td&gt;
       &lt;td&gt;2778&lt;/td&gt;
       &lt;td&gt;5.94&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;5tHY4&lt;/td&gt;
+      &lt;td&gt;user 59&lt;/td&gt;
       &lt;td&gt;165&lt;/td&gt;
       &lt;td&gt;1254&lt;/td&gt;
       &lt;td&gt;13.16&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;HQDr&lt;/td&gt;
+      &lt;td&gt;user 60&lt;/td&gt;
       &lt;td&gt;175&lt;/td&gt;
       &lt;td&gt;575&lt;/td&gt;
       &lt;td&gt;30.43&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;t5XZ&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;2NX3n&lt;/code&gt; 등 일부 top user는 여러 섹션에 걸쳐 top user로 등장한다. 하지만 중복 top user를 개별적인 user로 간주하고 분석을 진행하였다. (Gaussian Mixture Model로 distribution fitting한 결과는 &lt;a href=&quot;#appendix-A-Gaussian-Mixture-Model-Fitting&quot;&gt;Appendix A&lt;/a&gt; 참고)&lt;/p&gt;
+&lt;p&gt;top user의 top 10 성공률을 확률 변수 X라고 했을 때의 histogram과 모든 유저가 전략을 바탕으로 활동하는 그룹이라고 가정했을 때 Gaussian distribution으로 추정한 확률 분포이다. (Gaussian Mixture Model로 distribution fitting한 결과는 &lt;a href=&quot;#appendix-A-Gaussian-Mixture-Model-Fitting&quot;&gt;Appendix A&lt;/a&gt; 참고)&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/abuser-gaussian.png&quot; width=&quot;80%&quot; /&gt;
@@ -1560,9 +2091,9 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;정치 섹션에서만 유일하게 &lt;code class=&quot;highlighter-rouge&quot;&gt;ratio &amp;gt; 90%&lt;/code&gt; 인 top user(&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt;)가 존재했으며 이들의 top 10 전략 성공률은 다른 top user 대비 발생하기 어려울 정도로 (0.0053%, 0.0079%) 높다고 해석할 수 있다.&lt;/p&gt;
+&lt;p&gt;정치 섹션에서만 유일하게 &lt;code class=&quot;highlighter-rouge&quot;&gt;ratio &amp;gt; 90%&lt;/code&gt; 인 top user(&lt;code class=&quot;highlighter-rouge&quot;&gt;user 1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;user 3&lt;/code&gt;)가 존재했으며 이들의 top 10 전략 성공률은 다른 top user 대비 발생하기 어려울 정도로 (0.0053%, 0.0079%) 높다고 해석할 수 있다.&lt;/p&gt;
 
-&lt;p&gt;숫자 이면의 패턴을 보기 위해 전체 정치면 기사들의 댓글 수와 &lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt;의 전체 댓글 수, top 10 내에 든 댓글 수를 그래프로 시각화 해보았다.&lt;/p&gt;
+&lt;p&gt;숫자 이면의 패턴을 보기 위해 전체 정치면 기사들의 댓글 수와 &lt;code class=&quot;highlighter-rouge&quot;&gt;user 1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;user 3&lt;/code&gt;의 전체 댓글 수, top 10 내에 든 댓글 수를 그래프로 시각화 해보았다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1585,16 +2116,16 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;141-1njda-ratio-96&quot;&gt;1.4.1 &lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt; (ratio: 96%)&lt;/h4&gt;
+&lt;h4 id=&quot;141-user-1-ratio-96&quot;&gt;1.4.1 &lt;code class=&quot;highlighter-rouge&quot;&gt;user 1&lt;/code&gt; (ratio: 96%)&lt;/h4&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/1njDA.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/user1.png&quot; width=&quot;90%&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;span style=&quot;color:darkgray&quot;&gt;회색 line&lt;/span&gt;이 정치면 기사 댓글, &lt;span style=&quot;color:blue&quot;&gt;파란색 line&lt;/span&gt;이 작성자가 쓴 전체 댓글 수, &lt;span style=&quot;color:green&quot;&gt;초록색 line&lt;/span&gt;이 작성자가 쓴 댓글 중 top 10 내에 들었던 댓글 수를 나타낸다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;가 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;user 1&lt;/code&gt;이 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1720,7 +2251,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;전반적으로 친문 성향을 보였다.&lt;/li&gt;
   &lt;li&gt;같은 내용의 댓글이 top 에 오른 것도 확인할 수 있었다.
     &lt;ul&gt;
       &lt;li&gt;다른 섹션에 같은 댓글을 남기고도 top에 오른 적도 있다. (아래 표 참고)&lt;/li&gt;
@@ -1753,14 +2283,14 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;142-kpjq-ratio-93&quot;&gt;1.4.2 &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; (ratio: 93%)&lt;/h4&gt;
+&lt;h4 id=&quot;142-user-3-ratio-93&quot;&gt;1.4.2 &lt;code class=&quot;highlighter-rouge&quot;&gt;user 3&lt;/code&gt; (ratio: 93%)&lt;/h4&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/KPjq.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/user3.png&quot; width=&quot;90%&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 의 주 활동 시기는 사드배치, 평창 동계올림픽 및 북미회담과 맞물려있었다. 댓글을 자세히 보면 아래와 같다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;user 3&lt;/code&gt; 의 주 활동 시기는 사드배치, 평창 동계올림픽 및 북미회담과 맞물려있었다. 댓글을 자세히 보면 아래와 같다.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1865,9 +2395,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/table&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;국익과 국가안보에 대한 내용을 보면 보수같지만, 다른 댓글을 보면 친문파에 가까워 보인다.&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -1880,7 +2407,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
   &lt;li&gt;작성한 댓글 수 대비 top 10 댓글 수의 비율이 일반적이지 않은 작성자&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;개인적으로, &lt;strong&gt;1.&lt;/strong&gt;과 &lt;strong&gt;2.&lt;/strong&gt;의 기준에 드는 사용자는 &lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 라는 생각이다. 작성한 전체 댓글 수는 다른 사용자들에 비해 적은 편이었지만 top 댓글에 들었던 비율은 가장 높았고, 그 수치가 일반적이지는 않았다.&lt;/p&gt;
+&lt;p&gt;개인적으로, &lt;strong&gt;1.&lt;/strong&gt;과 &lt;strong&gt;2.&lt;/strong&gt;의 기준에 드는 사용자는 &lt;code class=&quot;highlighter-rouge&quot;&gt;user 1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;user 3&lt;/code&gt; 라는 생각이다. 작성한 전체 댓글 수는 다른 사용자들에 비해 적은 편이었지만 top 댓글에 들었던 비율은 가장 높았고, 그 수치가 일반적이지는 않았다.&lt;/p&gt;
 
 &lt;p&gt;어뷰저를 찾고자 시작한 분석이었지만 데이터를 살펴보면서 네이버 뉴스 댓글이 가지는 단일하고 공개된 ranking system이 얼마나 위험한지를 오히려 인식하게 되었다.&lt;/p&gt;
 
@@ -1888,11 +2415,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
   &lt;p&gt;분석한 기간에서 중복 제거한 기사의 수는 총 100,780개 였고, 만약 top 10 댓글의 작성자가 모두 다른 사용자였다면 1,007,800명이 각자의 의견을 개시했을 것이다. 하지만 실제 그 기간에 집계된 unique한 작성자는 총 308,731 명에 불과했다. 게다가 중복 댓글까지 포함하면, 그 다양성은 조금 더 떨어진다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1njDA&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;KPjq&lt;/code&gt; 두 명만 어뷰저라고 가정하고, 나머지 8명이 아니었다고 했을 때 &lt;a href=&quot;#appendix-B-기타-정치면-top-users&quot;&gt;다른 유저들의 실제 댓글 내용&lt;/a&gt;까지 보면 큰 차이가 느껴지진 않았다. 박근혜-최순실 게이트나 이명박의 다스 이슈는 “비리” 사건이었기 때문에 호의적인 반응을 보이긴 쉽지 않았겠지만 충분히 반대의 의견이 개시될 수 있을 법한 사건 (남미, 남북, 한일 관계 등) 등에서도 너무 일관된 내용의 댓글이 top 10에 보였다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;위와 같은 면에서 &lt;strong&gt;네이버 뉴스 댓글은 다양성을 충분히 수용하고 있지 못하다는 생각이 들었다.&lt;/strong&gt; “플랫폼이기 때문에 그럴 수 있지 않을까?” 싶지만 페이스북이나 유튜브, 레딧같은 다른 플랫폼에서의 댓글을 보면 무작정 호감순으로 정렬하지는 않는다. 이 플랫폼들의 기준이 문제가 없다는 것은 아니다. 하지만 네이버 뉴스 보다 다양한 기준으로 댓글을 정렬시키고 있으며 (최신순, 오래된 순, 공감을 많이 받은 순, relevance 순, 호감 + vote의 크기 등) 이를 통해 다양한 의견이 쉽게 노출될 수 있는 환경을 조성하였다는 점에서는 좀 더 높은 점수를 주고 싶다.&lt;/p&gt;
+&lt;p&gt;이 같은 면에서 &lt;strong&gt;네이버 뉴스 댓글은 다양성을 충분히 수용하고 있지 못하다는 생각이 들었다.&lt;/strong&gt; “플랫폼이기 때문에 그럴 수 있지 않을까?” 싶지만 페이스북이나 유튜브, 레딧같은 다른 플랫폼에서의 댓글을 보면 무작정 호감순으로 정렬하지는 않는다. 이 플랫폼들의 기준이 문제가 없다는 것은 아니다. 하지만 네이버 뉴스 보다 다양한 기준으로 댓글을 정렬시키고 있으며 (최신순, 오래된 순, 공감을 많이 받은 순, relevance 순, 호감 + vote의 크기 등) 이를 통해 다양한 의견이 쉽게 노출될 수 있는 환경을 조성하였다는 점에서는 좀 더 높은 점수를 주고 싶다.&lt;/p&gt;
 
 &lt;p&gt;그래서 세 번째 글은, 간단하지만 다른 정렬 기준을 적용했을 때 발견되는 새로운 댓글에 대해서 다뤄 볼 예정이다. 프로젝트 초창기에, 같이 작업을 진행했던 재명님이 돌려본 결과가 있는데 이 것도 조금 다듬어서 올리면 재밌을 것 같다! 3탄은… 휴가(@Norway) 다녀오고 나서 작업해볼까 싶다. To be continued…&lt;/p&gt;
 
@@ -1926,25 +2449,25 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;1njDA&lt;/td&gt;
+      &lt;td&gt;user 1&lt;/td&gt;
       &lt;td&gt;2.27E-16&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;95.60&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;KPjq&lt;/td&gt;
+      &lt;td&gt;user 3&lt;/td&gt;
       &lt;td&gt;2.56E-15&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;93.08&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;a06BV&lt;/td&gt;
+      &lt;td&gt;user 2&lt;/td&gt;
       &lt;td&gt;9.31E-14&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;89.21&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ejrT&lt;/td&gt;
+      &lt;td&gt;user 39&lt;/td&gt;
       &lt;td&gt;4.96E-11&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;82.00&lt;/td&gt;
@@ -1956,7 +2479,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2Yg9w&lt;/td&gt;
+      &lt;td&gt;user 6&lt;/td&gt;
       &lt;td&gt;8.11E-01&lt;/td&gt;
       &lt;td&gt;0.188898&lt;/td&gt;
       &lt;td&gt;41.27&lt;/td&gt;
@@ -1968,7 +2491,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;3P9mY&lt;/td&gt;
+      &lt;td&gt;user 9&lt;/td&gt;
       &lt;td&gt;1.00E+00&lt;/td&gt;
       &lt;td&gt;0.000219&lt;/td&gt;
       &lt;td&gt;15.05&lt;/td&gt;
@@ -1977,255 +2500,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/table&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;appendix-b-기타-정치면-top-users&quot;&gt;Appendix B: 기타 정치면 top users&lt;/h2&gt;
-
-&lt;h4 id=&quot;a06bv-ratio-8900&quot;&gt;a06BV (ratio: 89.00%)&lt;/h4&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/a06BV.png&quot; width=&quot;90%&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a06BV&lt;/code&gt;는 주로 평창 동계 올림픽과 MB 다스 사건 시기에 가장 활발히 활동했다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;title&lt;/th&gt;
-      &lt;th&gt;article date&lt;/th&gt;
-      &lt;th&gt;user top comments&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;법정 흔든 ‘정유라 깜짝 증언’…이재용 유죄 결정적 근거&lt;/td&gt;
-      &lt;td&gt;2017-08-26 21:26:00&lt;/td&gt;
-      &lt;td&gt;그똥이그똥이지요~개가웃것다~~~&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;홍준표 “탄핵은 박근혜 잘못…물에 빠져 같이 죽을 수 없다”&lt;/td&gt;
-      &lt;td&gt;2017-08-26 22:35:00&lt;/td&gt;
-      &lt;td&gt;홍준표/너부터약속지켜야지~강물에빠진다고했잔유~~~&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;軍, 핵잠수함 건조연구 본격 시동…국제규범 등 해소방안 연구&lt;/td&gt;
-      &lt;td&gt;2017-08-27 06:00:00&lt;/td&gt;
-      &lt;td&gt;젠즉에했어야지~지금이라도늣지않았다~대찬성이요~~~&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;檢, ‘국정원 외곽팀 의혹’ MB 지지단체·예비역 장교단체 조사&lt;/td&gt;
-      &lt;td&gt;2017-08-27 07:01:00&lt;/td&gt;
-      &lt;td&gt;쥐새끼가와이리안잡히노~잡히야끝날낀데~MB쥐어디간노~~~&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[취재파일] 김관진의 ‘적반하장’ 식 입장표명과 MB의 ‘정치적 의무’&lt;/td&gt;
-      &lt;td&gt;2017-11-11 09:52:00&lt;/td&gt;
-      &lt;td&gt;큰쥐를잡아야끝난다&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;韓中정상, 사드 마침표 찍고 관계복원 공식화…”새 출발” 다짐(종합)&lt;/td&gt;
-      &lt;td&gt;2017-11-12 00:28:00&lt;/td&gt;
-      &lt;td&gt;이제야나라다운나라가되는것같습니다~&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;이명박, 12일 중동출국 전 ‘적폐청산’우려 메시지 발표&lt;/td&gt;
-      &lt;td&gt;2017-11-12 06:23:00&lt;/td&gt;
-      &lt;td&gt;쥐박이출국금지하고ㆍ구속해야된다&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;귀순 북한군, 군용 지프로 MDL까지 접근…北추격조 40여발 총격(종합)&lt;/td&gt;
-      &lt;td&gt;2017-11-14 11:55:00&lt;/td&gt;
-      &lt;td&gt;힘들게넘어왔는데ㆍ빠른쾌유바랍니다&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;‘JSA 북한군 귀순’ 한반도 정세 미칠 파장…北대응 촉각&lt;/td&gt;
-      &lt;td&gt;2017-11-14 15:14:00&lt;/td&gt;
-      &lt;td&gt;목숨걸고넘어왔는데ㅠ빠른쾌유바랍니다&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;대응사격 안 한 우리군, 왜?…정전협정·교전수칙 보니&lt;/td&gt;
-      &lt;td&gt;2017-11-14 20:50:00&lt;/td&gt;
-      &lt;td&gt;목숨걸고넘어왔는데ㆍ빠른쾌유바랍니다&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[단독] “이상은, 다스 ‘바지 회장’…월 500 이상 못 써”&lt;/td&gt;
-      &lt;td&gt;2018-01-03 20:52:00&lt;/td&gt;
-      &lt;td&gt;큰쥐 작은쥐 새끼쥐 전부잡자ㅡ&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;박근혜 특활비 전액 ‘현금’ 받아써…사용처 어떻게 밝혔나?&lt;/td&gt;
-      &lt;td&gt;2018-01-04 17:30:00&lt;/td&gt;
-      &lt;td&gt;적폐 암덩어리ㅡAI닭 살처분&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“최순실에 속았다” 주장했지만…’한 지갑’ 사용 정황&lt;/td&gt;
-      &lt;td&gt;2018-01-04 22:00:00&lt;/td&gt;
-      &lt;td&gt;두뇬다ㅡ무기징역 때려죽일&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;문 대통령 “유약하게 대화만 추구않겠다…국방력으로 평화 추구”(종합)&lt;/td&gt;
-      &lt;td&gt;2018-01-05 15:56:00&lt;/td&gt;
-      &lt;td&gt;기레기들 오바금지ㅡ대통령님홧팅하세요&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;우리 대표단 명단 北에 통보…남북 현안은 ‘단계적 접근’&lt;/td&gt;
-      &lt;td&gt;2018-01-06 20:09:00&lt;/td&gt;
-      &lt;td&gt;성공적인 평창 동계 올림픽을 기원합니다&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;6t8wy-ratio-2918&quot;&gt;6t8wY (ratio: 29.18%)&lt;/h4&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/6t8wY.png&quot; width=&quot;90%&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;title&lt;/th&gt;
-      &lt;th&gt;article date&lt;/th&gt;
-      &lt;th&gt;user top comments&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[단독] K스포츠 설립 전 회사 창설…개인 돈벌이 정황&lt;/td&gt;
-      &lt;td&gt;2016-10-18 20:22:00&lt;/td&gt;
-      &lt;td&gt;박그네 멍청하면 깨끗하던지.무능하면 청렴하던지.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;‘미르재단’ 중심에 선 안종범, 권력 개입 의혹 적극 반박&lt;/td&gt;
-      &lt;td&gt;2016-10-21 16:44:00&lt;/td&gt;
-      &lt;td&gt;얘는 그냥 정치깡패네!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“北에 굴욕” vs “비선실세”…여야, 靑국감서 맞불 공세(종합)&lt;/td&gt;
-      &lt;td&gt;2016-10-21 23:23:00&lt;/td&gt;
-      &lt;td&gt;그나마 무능한건 이해하고 역대정권보다 친인척 멀리해 깨끗하다고 나름 다르구나!생각 했으나 이젠 현실로 비선이 나라를 좌지우지 하는거 보니 진짜 넌 아니구나! 무능하면 깨끗하던지.멍청하면 가만있던지.휘둘린건지 이용당한건지.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;문 대통령, 직원들과 똑같이!&lt;/td&gt;
-      &lt;td&gt;2017-05-12 13:04:00&lt;/td&gt;
-      &lt;td&gt;혼자 밥쳐묵던 503이 생각나네!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;文대통령, 이영렬-안태근 ‘돈봉투 만찬’ 감찰 지시…파장(종합)&lt;/td&gt;
-      &lt;td&gt;2017-05-17 15:02:00&lt;/td&gt;
-      &lt;td&gt;당연한건데 왠 파장!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;소통·혼밥·국밥… 역대 대통령들의 ‘식사 정치’&lt;/td&gt;
-      &lt;td&gt;2017-05-20 06:27:00&lt;/td&gt;
-      &lt;td&gt;저중에 압권은 국밥 쳐묵더니 4대강이랑 경제 시원하게 말어 먹었지.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3pble-ratio-1633&quot;&gt;3PblE (ratio: 16.33%)&lt;/h4&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/3PblE.png&quot; width=&quot;90%&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;title&lt;/th&gt;
-      &lt;th&gt;article date&lt;/th&gt;
-      &lt;th&gt;user top comments&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;정부, 오전 9시 임시 국무회의…국회법 거부권 행사 방침(종합)&lt;/td&gt;
-      &lt;td&gt;2016-10-18 20:22:00&lt;/td&gt;
-      &lt;td&gt;박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하고…서민을 약자를 죽이는 법을 만들기 위해 서명 하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;거부권 행사된 ‘상임위 청문회법’ 앞으로 어떻게 되나&lt;/td&gt;
-      &lt;td&gt;2016-10-21 16:44:00&lt;/td&gt;
-      &lt;td&gt;박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하고…서민을 약자를 죽이는 법을 만들기 위해 서명하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;작년 국가부채 1천285조…감사원 검사로 4천억원 증가(종합)&lt;/td&gt;
-      &lt;td&gt;2016-10-21 23:23:00&lt;/td&gt;
-      &lt;td&gt;박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고…서민을 약자를 죽이는 법을 만들기 위해 서명 하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;전경련 “청와대 개입 의혹 K스포츠재단 이사장 거취 일주일 안에 결정”&lt;/td&gt;
-      &lt;td&gt;2016-09-25 08:58:00&lt;/td&gt;
-      &lt;td&gt;대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고…. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고…..계속 노동개혁 하자고 하는 이유가 있었네요.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;丁 “하나는 내놔야” 논란‥與 “野와 작당한 증거” 野 “정치적 중재”(종합)&lt;/td&gt;
-      &lt;td&gt;2016-09-26 10:06:00&lt;/td&gt;
-      &lt;td&gt;대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고.. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고…전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 법인세 인상 반대하는 새누리당 아웃!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;이틀째 국감파행…與 ‘보이콧’ 균열조짐·野 사회권 요구(종합)&lt;/td&gt;
-      &lt;td&gt;2016-09-27 18:31:00&lt;/td&gt;
-      &lt;td&gt;대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고….. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고……전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2yg9w-ratio-4127&quot;&gt;2Yg9w (ratio: 41.27%)&lt;/h4&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/2Yg9w.png&quot; width=&quot;90%&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;vspy-ratio-2127&quot;&gt;vsPY (ratio: 21.27%)&lt;/h4&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/vsPY.png&quot; width=&quot;90%&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;4lest-ratio-4905&quot;&gt;4lEsT (ratio: 49.05%)&lt;/h4&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;img class=&quot;image&quot; src=&quot;/assets/images/4lEsT.png&quot; width=&quot;90%&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
@@ -2524,8 +2798,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 당신은 어떤 사람인가?&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Jul 2019 20:26:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/07/20/%EB%82%98-%EB%8B%A4%EC%8B%9C-%EC%93%B0%EB%8A%94-%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C%EC%84%9C.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/07/20/%EB%82%98-%EB%8B%A4%EC%8B%9C-%EC%93%B0%EB%8A%94-%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C%EC%84%9C.html</guid>
+        <link>http://localhost:4000/2019/07/20/%E1%84%82%E1%85%A1-%E1%84%83%E1%85%A1%E1%84%89%E1%85%B5-%E1%84%8A%E1%85%B3%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%A1%E1%84%80%E1%85%B5%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/20/%E1%84%82%E1%85%A1-%E1%84%83%E1%85%A1%E1%84%89%E1%85%B5-%E1%84%8A%E1%85%B3%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%8C%E1%85%A1%E1%84%80%E1%85%B5%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5.html</guid>
         
         
         <category>나</category>
@@ -2554,8 +2828,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;당신의 슬럼프는 안녕하신가요? 유쾌한 슬럼프란, 존재할 수 없는 개념일까요?&lt;/p&gt;
 </description>
         <pubDate>Wed, 15 May 2019 22:01:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/05/15/%EC%9C%A0%EC%BE%8C%ED%95%9C-%EC%8A%AC%EB%9F%BC%ED%94%84.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/05/15/%EC%9C%A0%EC%BE%8C%ED%95%9C-%EC%8A%AC%EB%9F%BC%ED%94%84.html</guid>
+        <link>http://localhost:4000/2019/05/15/%E1%84%8B%E1%85%B2%E1%84%8F%E1%85%AB%E1%84%92%E1%85%A1%E1%86%AB-%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A5%E1%86%B7%E1%84%91%E1%85%B3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/15/%E1%84%8B%E1%85%B2%E1%84%8F%E1%85%AB%E1%84%92%E1%85%A1%E1%86%AB-%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A5%E1%86%B7%E1%84%91%E1%85%B3.html</guid>
         
         
         <category>슬럼프</category>
@@ -2597,8 +2871,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;남에게 나를 소개하기 쉬운 방식-data manifold의 geometrical insight에 관심있는 로봇자동화 연구실 대학원생, HCI 연구실 대학원생, deep metric learning에 관심있는 대학원생, 전동킥보드 쉐어링 스타트업 개발자, (전) 인액터스 의장, 서울대 수학과 박사, google swe, 건축학도, 파파고 개발자-이 아닌, 본인 스스로에게 부여하는 이름은 무엇일까?&lt;/p&gt;
 </description>
         <pubDate>Thu, 04 Apr 2019 21:57:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/04/04/%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%82%B4%EB%8A%94-%EC%8B%9C%EA%B0%84%EC%97%90-%EB%B6%80%EC%97%AC%ED%95%98%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9D%98%EB%AF%B8.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/04/%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%82%B4%EB%8A%94-%EC%8B%9C%EA%B0%84%EC%97%90-%EB%B6%80%EC%97%AC%ED%95%98%EB%8A%94-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%9D%98%EB%AF%B8.html</guid>
+        <link>http://localhost:4000/2019/04/04/%E1%84%82%E1%85%A2%E1%84%80%E1%85%A1-%E1%84%87%E1%85%A9%E1%84%82%E1%85%A2%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%89%E1%85%B5%E1%84%80%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%A6-%E1%84%87%E1%85%AE%E1%84%8B%E1%85%A7%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%82%E1%85%A1%E1%84%86%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B4-%E1%84%8B%E1%85%B4%E1%84%86%E1%85%B5.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/04/%E1%84%82%E1%85%A2%E1%84%80%E1%85%A1-%E1%84%87%E1%85%A9%E1%84%82%E1%85%A2%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%89%E1%85%B5%E1%84%80%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%A6-%E1%84%87%E1%85%AE%E1%84%8B%E1%85%A7%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%82%E1%85%A1%E1%84%86%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B4-%E1%84%8B%E1%85%B4%E1%84%86%E1%85%B5.html</guid>
         
         
         <category>탁월함</category>
@@ -2637,8 +2911,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;이야기와 이야기가 만나 공명하는 순간을 만들어가고 싶다. 모든 이야기는 저마다의 가치가 있고, 나눌수록 더 큰 힘을 발휘할 수 있다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 01 Apr 2019 12:57:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/04/01/%EC%97%B0%EC%9A%B8%EB%A6%BC-%EC%9D%B4%EC%95%BC%EA%B8%B0.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/01/%EC%97%B0%EC%9A%B8%EB%A6%BC-%EC%9D%B4%EC%95%BC%EA%B8%B0.html</guid>
+        <link>http://localhost:4000/2019/04/01/%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%85%E1%85%B5%E1%86%B7-%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A3%E1%84%80%E1%85%B5.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/01/%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%85%E1%85%B5%E1%86%B7-%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A3%E1%84%80%E1%85%B5.html</guid>
         
         
         <category>연울림</category>
@@ -2728,76 +3002,13 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;&lt;strong&gt;답은 언제나 내 안에 있다.&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 20 Jan 2019 16:55:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/01/20/%EB%8B%B5%EC%9D%80-%EC%96%B8%EC%A0%9C%EB%82%98-%EB%82%98%EC%97%90%EA%B2%8C-%EC%9E%88%EB%8B%A4.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/01/20/%EB%8B%B5%EC%9D%80-%EC%96%B8%EC%A0%9C%EB%82%98-%EB%82%98%EC%97%90%EA%B2%8C-%EC%9E%88%EB%8B%A4.html</guid>
+        <link>http://localhost:4000/2019/01/20/%E1%84%83%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%B3%E1%86%AB-%E1%84%8B%E1%85%A5%E1%86%AB%E1%84%8C%E1%85%A6%E1%84%82%E1%85%A1-%E1%84%82%E1%85%A1%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A6-%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%83%E1%85%A1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/01/20/%E1%84%83%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%B3%E1%86%AB-%E1%84%8B%E1%85%A5%E1%86%AB%E1%84%8C%E1%85%A6%E1%84%82%E1%85%A1-%E1%84%82%E1%85%A1%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A6-%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%83%E1%85%A1.html</guid>
         
         
         <category>자기이해</category>
         
         <category>날리다</category>
-        
-      </item>
-    
-      <item>
-        <title>멘토에게 좋은 질문을 하는 방법</title>
-        <description>&lt;p&gt;&lt;em&gt;잇다에서 보기: https://www.itdaa.net/mentor_posts/6353&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.itdaa.net/&quot;&gt;잇다&lt;/a&gt; 멘토로 활동했던 3개월 남짓한 기간에 생각보다 다양한 질문을 받았다. 그 중에는 답변하고 싶게 만드는 질문이 있었고, 글이 무거운 나머지 내가 적게될 답변 하나하나가 조심스러워 결국 기간 내에 작성하지 못하게 된 질문도 있었고, 답변하기 싫은 질문도 (당연히) 있었다.&lt;/p&gt;
-
-&lt;p&gt;질문이 도착했음을 알리는 진동이 두려워진 적도 있었다. 좋은 질문이면 큰 어려움없이 글을 적을 수 있지만 그렇지 않으면 심적으로 부담이 많이 되기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;그러다 문득, 멘티의 입장에서 좋은 질문을 적는 것이 생각보다 어려울 수 있겠다는 생각이 들었다. 당장 스스로가 혼란스러운데, 어디서부터 어떻게 그 상황을 전달해야할지 막연하지 않을까?&lt;/p&gt;
-
-&lt;p&gt;그래서 이 글을 쓰게 되었다. 좋은 질문을 고민하는 과정에서 멘티들이 스스로 답을 찾게되길 바라는 기대도 함께하면서 말이다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;1-최대한-스스로의-고민-생각-경험을-구체적으로-적자&quot;&gt;1. 최대한 스스로의 고민, 생각, 경험을 구체적으로 적자.&lt;/h3&gt;
-
-&lt;p&gt;멘토는 질문을 받고 최대한 좋은 답변을 하기 위해 글만으로 드러나는 멘티를 있는 힘껏 이해하려고 노력한다. 문체를 보고, 스펙과 기타사항을 읽고, 최대한 질문한 사람의 입장을 헤아린다. 그래서 추상적이고 짧은 질문, 너무 간략한 스펙과 기타사항을 가진 멘티에게는 답변하기가 굉장히 어렵다.&lt;/p&gt;
-
-&lt;p&gt;맛집을 찾는 질문을 떠올려보자.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A. 저는 맛있는 것을 먹고 싶어요. 추천해주세요. &lt;br /&gt;
-B. 저는 맵고 자극적인 음식을 싫어하고, 오늘은 밀가루 음식이 먹고 싶지 않아요. 조미료가 많이 첨가되지 않고 단백질 함량이 높은 음식을 먹고 싶은데, 제가 가진 돈이 별로 없어요. 비싸지 않으면서 괜찮은 식당을 알고 계신가요?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;누가봐도 B의 질문이 더 매력적이고, 답변하기 쉽다. 때론, 멘토로서 잘 모르는 분야이더라도 어떻게든 주변에 물어물어 알려주고 싶을 정도다.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-질문은-날카롭게-끝내자&quot;&gt;2. 질문은 날카롭게 끝내자.&lt;/h3&gt;
-
-&lt;p&gt;잇다 플랫폼은 질문과 답변이 채팅처럼 가능한 형식이 아니다. 그래서 좋은 답변을 단번에 이끌어내기 위해서는 질문이 조금 뽀죡해질 필요가 있다.&lt;/p&gt;
-
-&lt;p&gt;다시 맛집 예시를 들어보자.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A. 저는 맵고 자극적인 음식을 싫어하고, 오늘은 밀가루 음식이 먹고 싶지 않아요. 조미료가 많이 첨가되지 않고 단백질 함량이 높은 음식을 먹고 싶은데, 제가 가진 돈이 별로 없어요. &lt;br /&gt;
-B. 저는 맵고 자극적인 음식을 싫어하고, 오늘은 밀가루 음식이 먹고 싶지 않아요. 조미료가 많이 첨가되지 않고 단백질 함량이 높은 음식을 먹고 싶은데, 제가 가진 돈이 별로 없어요. 비싸지 않으면서 괜찮은 식당을 알고 계신가요?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A와 B의 차이는 고작 마지막 문장이다. 그러나 멘토의 입장에서 A와 B는 크게 다른 질문으로 다가온다.&lt;/p&gt;
-
-&lt;p&gt;A는 스스로의 상황은 구체적이지만, 멘토에게 무엇을 기대하는지 알기 어렵다. 돈이 별로 없으니 돈을 많이 벌 수 있는 방법을 알려달라는 것인지, 비싸지 않으면서 괜찮은 식당을 알고 싶은 것인지, 저렴한 재료로 만들어 먹을 수 있는 음식의 레시피를 알고 싶은 것인지 질문의 의도를 알 수 없다. 반면 B는 멘토에게 질문한 목적이 뚜렷하다.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-좋은-질문이-준비가-되었다면-반드시-적절한-멘토에게-던지자&quot;&gt;3. 좋은 질문이 준비가 되었다면, 반드시 적절한 멘토에게 던지자.&lt;/h3&gt;
-
-&lt;p&gt;나의 멘토링 분야 중에는 “데이터 사이언티스트로 일하는 것”이 있다. 그런데 때로 멘티들 중에 데이터 사이언티스트와 프로그래머를 혼동해서 프로그래머 관련 질문을 던지는 경우가 있다. 좋은 질문임에도 주인을 잘못 만난 기분이 들어 난처해진다. 아예 관련이 없어서 답변을 못하는 정도는 아니지만, 프로그래머보다는 답변의 질이 떨어질 수 밖에 없다. 그러니, 좋은 질문이 준비되었다면 꼭 좋은 대답을 기대할 수 있을 멘토에게 던지자.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;꼭 잇다가 아니더라도 조언을 구하고 싶은 선배나 멘토가 있다면, 좋은 질문을 고민하는 과정에서 하나의 힌트가 되길 바란다.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 08 Jan 2019 11:38:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/01/08/%EB%A9%98%ED%86%A0%EC%97%90%EA%B2%8C-%EC%A2%8B%EC%9D%80-%EC%A7%88%EB%AC%B8%EC%9D%84-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/01/08/%EB%A9%98%ED%86%A0%EC%97%90%EA%B2%8C-%EC%A2%8B%EC%9D%80-%EC%A7%88%EB%AC%B8%EC%9D%84-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95.html</guid>
-        
-        
-        <category>멘토링</category>
-        
-        <category>질문</category>
-        
-        <category>멘티</category>
         
       </item>
     

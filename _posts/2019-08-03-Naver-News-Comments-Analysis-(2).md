@@ -4,8 +4,7 @@ layout: post
 date: 2019-08-03 17:59
 image: /assets/images/naver_news_comments.png
 categories: [ 데이터 분석, Data Analysis, 사회, Society ]
-featured: true
-hidden: true
+featured: false
 ---
 
 <span style="color:red">NOTICE: 앞으로 소개될 내용은 NAVER와 무관하며, 오히려 NAVER 뉴스가 정치적인 편향성을 가지고 있지 않은 중립적인 플랫폼이라고 생각하기 때문에 분석을 하게 되었음을 알립니다.</span>

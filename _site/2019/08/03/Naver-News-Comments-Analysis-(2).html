@@ -175,7 +175,7 @@
     
 
     
-        42 mins
+        31 mins
     
 </span> read
 			  <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
@@ -215,7 +215,6 @@
     <a href="#14-analysis">1.4 Analysis</a><br />
 <a href="#2-conclusions">2. Conclusions</a><br />
 <a href="#appendix-a-gaussian-mixture-model-fitting">Appendix A: Gaussian Mixture Model Fitting</a><br />
-<a href="#appendix-b-기타-정치면-top-users">Appendix B: 기타 정치면 top users</a><br />
 <a href="#references">References</a></p>
 
 <div class="breaker"></div>
@@ -258,7 +257,7 @@
 
 <h3 id="13-data-preprocessing">1.3 Data preprocessing</h3>
 
-<p><a href="">Previsous work에서 사용했던 데이터</a>에서 추가로 필터링이 필요했다. 크롤링한 댓글 데이터에 hashing 된 아이디가 포함된 것이 2015년 12월 이후였기 때문이다.</p>
+<p><a href="">Previous work에서 사용했던 데이터</a>에서 추가로 필터링이 필요했다. 크롤링한 댓글 데이터에 hashing 된 아이디가 포함된 것이 2015년 12월 이후였기 때문이다.</p>
 
 <ul>
   <li>사용한 댓글 데이터 기간: 2015.12.08 ~ 2018.05.25</li>
@@ -269,7 +268,7 @@
 <p>먼저, <strong>정치</strong> 분야에서 댓글이 top 10 내에 들었던 횟수를 작성자 별로 집계한 후, 횟수가 높은 순서대로 정렬하였을 때의 추이를 살펴보았다.</p>
 
 <div style="text-align:center">
-<img class="image" src="/assets/images/abuser_politics.png" width="70%" />
+<img class="image" src="/assets/images/politics_top_user.png" width="70%" />
 </div>
 <p><br /></p>
 
@@ -309,7 +308,7 @@
 
 <p>그러나 이 전략들이 100%의 확률로(=항상) 통하지는 않았을 것이다. 때로는 일찍 댓글을 작성했음에도 뒤늦게 작성한 댓글이 폭발적인 공감을 이끌어내서 top 10에 들지 못했을 수도 있고, 당시의 전반적인 분위기에 탑승하는 댓글을 남겼음에도 다른 댓글 중에 두드러지지 못해 공감을 받지 못했을 수도 있다.</p>
 
-<p>top user 간에 일반적인 top 10 성공률이 존재할 것이고 이는 normal distribution을 따른다는 가설을 바탕으로 “top user가 작성한 전체 댓글 수 대비 top 10에 들었던 댓글 수(=ratio)”를 계산해보았다.</p>
+<p>top user 간에 일반적인 top 10 성공률이 존재할 것이고 이는 normal distribution을 따른다는 가설을 바탕으로 “top user가 작성한 전체 댓글 수 대비 top 10에 들었던 댓글 수(=top 10 성공률)”를 계산해보았다.</p>
 
 <h4 id="정치-top-users">정치 top users</h4>
 <p><br /></p>
@@ -320,80 +319,69 @@
       <th>userId</th>
       <th>top comment #</th>
       <th>total comment #</th>
-      <th>ratio (%)</th>
-      <th>note</th>
+      <th>top 10 성공률 (%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>1njDA</strong></td>
+      <td><strong>user 1</strong></td>
       <td>369</td>
       <td>386</td>
       <td><strong>95.60</strong></td>
-      <td> </td>
     </tr>
     <tr>
-      <td>a06BV</td>
+      <td>user 2</td>
       <td>339</td>
       <td>380</td>
       <td>89.21</td>
-      <td>정치, 사회 top user</td>
     </tr>
     <tr>
-      <td><strong>KPjq</strong></td>
+      <td><strong>user 3</strong></td>
       <td>269</td>
       <td>289</td>
       <td><strong>93.08</strong></td>
-      <td> </td>
     </tr>
     <tr>
-      <td>6t8wY</td>
+      <td>user 4</td>
       <td>178</td>
       <td>610</td>
       <td>29.18</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>3PblE</td>
+      <td>user 5</td>
       <td>178</td>
       <td>1090</td>
       <td>16.33</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2Yg9w</td>
+      <td>user 6</td>
       <td>175</td>
       <td>424</td>
       <td>41.27</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>vsPY</td>
+      <td>user 7</td>
       <td>174</td>
       <td>818</td>
       <td>21.27</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>4IEsT</td>
+      <td>user 8</td>
       <td>155</td>
       <td>316</td>
       <td>49.05</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>3P9mY</td>
+      <td>user 9</td>
       <td>143</td>
       <td>950</td>
       <td>15.05</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>3LV90</td>
+      <td>user 10</td>
       <td>141</td>
       <td>583</td>
       <td>24.19</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -408,80 +396,69 @@
       <th>userId</th>
       <th>top comment #</th>
       <th>total comment #</th>
-      <th>ratio (%)</th>
-      <th>note</th>
+      <th>top 10 성공률 (%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1ljwq</td>
+      <td>user 11</td>
       <td>289</td>
       <td>1185</td>
       <td>24.39</td>
-      <td>경제, IT top user</td>
     </tr>
     <tr>
-      <td>abec3210-9d3c-11e5-9da8-00000000613a</td>
+      <td>user 12</td>
       <td>226</td>
       <td>2935</td>
       <td>7.70</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2NX3n</td>
+      <td>user 13</td>
       <td>219</td>
       <td>1656</td>
       <td>13.22</td>
-      <td>사회, 경제, 문화 top user</td>
     </tr>
     <tr>
-      <td>t5XZ</td>
+      <td>user 14</td>
       <td>183</td>
       <td>1636</td>
       <td>11.19</td>
-      <td>사회, 경제, 문화, 세계 top user</td>
     </tr>
     <tr>
-      <td>KwbM</td>
+      <td>user 15</td>
       <td>173</td>
       <td>1378</td>
       <td>12.55</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>3IQFB</td>
+      <td>user 16</td>
       <td>161</td>
       <td>989</td>
       <td>16.28</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2ZheW</td>
+      <td>user 17</td>
       <td>160</td>
       <td>654</td>
       <td>24.46</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>18Tqx</td>
+      <td>user 18</td>
       <td>157</td>
       <td>2589</td>
       <td>6.06</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2MvTH</td>
+      <td>user 19</td>
       <td>139</td>
       <td>1514</td>
       <td>9.18</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>5CNxc</td>
+      <td>user 20</td>
       <td>127</td>
       <td>742</td>
       <td>17.12</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -496,80 +473,69 @@
       <th>userId</th>
       <th>top comment #</th>
       <th>total comment #</th>
-      <th>ratio (%)</th>
-      <th>note</th>
+      <th>top 10 성공률 (%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>hatn</td>
+      <td>user 21</td>
       <td>366</td>
       <td>953</td>
       <td>38.41</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>t5XZ</td>
+      <td>user 22</td>
       <td>308</td>
       <td>1636</td>
       <td>18.83</td>
-      <td>사회, 경제, 문화, 세계 top user</td>
     </tr>
     <tr>
-      <td>6krGo</td>
+      <td>user 23</td>
       <td>271</td>
       <td>935</td>
       <td>28.98</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>5tHY4</td>
+      <td>user 24</td>
       <td>241</td>
       <td>1254</td>
       <td>19.22</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2NX3n</td>
+      <td>user 25</td>
       <td>233</td>
       <td>1656</td>
       <td>14.07</td>
-      <td>사회, 경제, 문화 top user</td>
     </tr>
     <tr>
-      <td>6I3uB</td>
+      <td>user 26</td>
       <td>204</td>
       <td>328</td>
       <td>62.20</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>69i2t</td>
+      <td>user 27</td>
       <td>191</td>
       <td>719</td>
       <td>26.56</td>
-      <td>사회, 문화 top user</td>
     </tr>
     <tr>
-      <td>a06BV</td>
+      <td>user 28</td>
       <td>168</td>
       <td>625</td>
       <td>26.88</td>
-      <td>정치, 사회 top user</td>
     </tr>
     <tr>
-      <td>1cVAJ</td>
+      <td>user 29</td>
       <td>149</td>
       <td>1190</td>
       <td>12.52</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2JatM</td>
+      <td>user 30</td>
       <td>148</td>
       <td>1489</td>
       <td>9.94</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -584,80 +550,69 @@
       <th>userId</th>
       <th>top comment #</th>
       <th>total comment #</th>
-      <th>ratio (%)</th>
-      <th>note</th>
+      <th>top 10 성공률 (%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>t5XZ</td>
+      <td>user 31</td>
       <td>373</td>
       <td>1636</td>
       <td>22.80</td>
-      <td>사회, 경제, 문화, 세계 top user</td>
     </tr>
     <tr>
-      <td>6krGo</td>
+      <td>user 32</td>
       <td>367</td>
       <td>935</td>
       <td>39.25</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>4jQzS</td>
+      <td>user 33</td>
       <td>301</td>
       <td>1417</td>
       <td>21.24</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>3drEW</td>
+      <td>user 34</td>
       <td>243</td>
       <td>890</td>
       <td>27.30</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2NX3n</td>
+      <td>user 35</td>
       <td>220</td>
       <td>1656</td>
       <td>13.29</td>
-      <td>사회, 경제, 문화 top user</td>
     </tr>
     <tr>
-      <td>75pdL</td>
+      <td>user 36</td>
       <td>188</td>
       <td>1943</td>
       <td>9.68</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>FxgQ</td>
+      <td>user 37</td>
       <td>178</td>
       <td>3245</td>
       <td>5.49</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>79KN</td>
+      <td>user 38</td>
       <td>172</td>
       <td>2738</td>
       <td>6.28</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>ejrT</td>
+      <td>user 39</td>
       <td>164</td>
       <td>200</td>
       <td>82.00</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>69i2t</td>
+      <td>user 40</td>
       <td>151</td>
       <td>719</td>
       <td>21.00</td>
-      <td>사회, 문화 top user</td>
     </tr>
   </tbody>
 </table>
@@ -672,80 +627,69 @@
       <th>userId</th>
       <th>top comment #</th>
       <th>total comment #</th>
-      <th>ratio (%)</th>
-      <th>note</th>
+      <th>top 10 성공률 (%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>22l8g</td>
+      <td>user 41</td>
       <td>714</td>
       <td>3123</td>
       <td>22.86</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>sdoY</td>
+      <td>user 42</td>
       <td>572</td>
       <td>3886</td>
       <td>14.72</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2gLns</td>
+      <td>user 43</td>
       <td>442</td>
       <td>2287</td>
       <td>19.33</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>d43fdb70-f2a1-11e6-b1a5-000000006cbf</td>
+      <td>user 44</td>
       <td>399</td>
       <td>1468</td>
       <td>27.18</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>1XfOt</td>
+      <td>user 45</td>
       <td>231</td>
       <td>810</td>
       <td>28.52</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2wZIa</td>
+      <td>user 46</td>
       <td>234</td>
       <td>3010</td>
       <td>7.77</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>2rms7</td>
+      <td>user 47</td>
       <td>275</td>
       <td>1622</td>
       <td>16.95</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>q9aB</td>
+      <td>user 48</td>
       <td>317</td>
       <td>1493</td>
       <td>21.23</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>5GXYo</td>
+      <td>user 49</td>
       <td>346</td>
       <td>2349</td>
       <td>14.73</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>1ljwq</td>
+      <td>user 50</td>
       <td>364</td>
       <td>1185</td>
       <td>30.72</td>
-      <td>경제, IT top user</td>
     </tr>
   </tbody>
 </table>
@@ -760,87 +704,76 @@
       <th>userId</th>
       <th>top comment #</th>
       <th>total comment #</th>
-      <th>ratio (%)</th>
-      <th>note</th>
+      <th>top 10 성공률 (%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>t5XZ</td>
+      <td>user 51</td>
       <td>237</td>
       <td>1636</td>
       <td>14.49</td>
-      <td>사회, 경제, 문화, 세계 top user</td>
     </tr>
     <tr>
-      <td>2Ezzr</td>
+      <td>user 52</td>
       <td>214</td>
       <td>1432</td>
       <td>14.94</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>32VUM</td>
+      <td>user 53</td>
       <td>145</td>
       <td>615</td>
       <td>23.58</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>1CPrf</td>
+      <td>user 54</td>
       <td>148</td>
       <td>1709</td>
       <td>8.66</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>6n0SW</td>
+      <td>user 55</td>
       <td>155</td>
       <td>611</td>
       <td>25.37</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>3INjw</td>
+      <td>user 56</td>
       <td>156</td>
       <td>1076</td>
       <td>14.50</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>7ewFK</td>
+      <td>user 57</td>
       <td>162</td>
       <td>864</td>
       <td>18.75</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>MFLJ</td>
+      <td>user 58</td>
       <td>165</td>
       <td>2778</td>
       <td>5.94</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>5tHY4</td>
+      <td>user 59</td>
       <td>165</td>
       <td>1254</td>
       <td>13.16</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>HQDr</td>
+      <td>user 60</td>
       <td>175</td>
       <td>575</td>
       <td>30.43</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
 <p><br /></p>
 
-<p><code class="highlighter-rouge">t5XZ</code>, <code class="highlighter-rouge">2NX3n</code> 등 일부 top user는 여러 섹션에 걸쳐 top user로 등장한다. 하지만 중복 top user를 개별적인 user로 간주하고 분석을 진행하였다. (Gaussian Mixture Model로 distribution fitting한 결과는 <a href="#appendix-A-Gaussian-Mixture-Model-Fitting">Appendix A</a> 참고)</p>
+<p>top user의 top 10 성공률을 확률 변수 X라고 했을 때의 histogram과 모든 유저가 전략을 바탕으로 활동하는 그룹이라고 가정했을 때 Gaussian distribution으로 추정한 확률 분포이다. (Gaussian Mixture Model로 distribution fitting한 결과는 <a href="#appendix-A-Gaussian-Mixture-Model-Fitting">Appendix A</a> 참고)</p>
 
 <div style="text-align:center">
 <img class="image" src="/assets/images/abuser-gaussian.png" width="80%" />
@@ -848,9 +781,9 @@
 </div>
 <p><br /></p>
 
-<p>정치 섹션에서만 유일하게 <code class="highlighter-rouge">ratio &gt; 90%</code> 인 top user(<code class="highlighter-rouge">1njDA</code>, <code class="highlighter-rouge">KPjq</code>)가 존재했으며 이들의 top 10 전략 성공률은 다른 top user 대비 발생하기 어려울 정도로 (0.0053%, 0.0079%) 높다고 해석할 수 있다.</p>
+<p>정치 섹션에서만 유일하게 <code class="highlighter-rouge">ratio &gt; 90%</code> 인 top user(<code class="highlighter-rouge">user 1</code>, <code class="highlighter-rouge">user 3</code>)가 존재했으며 이들의 top 10 전략 성공률은 다른 top user 대비 발생하기 어려울 정도로 (0.0053%, 0.0079%) 높다고 해석할 수 있다.</p>
 
-<p>숫자 이면의 패턴을 보기 위해 전체 정치면 기사들의 댓글 수와 <code class="highlighter-rouge">1njDA</code>, <code class="highlighter-rouge">KPjq</code>의 전체 댓글 수, top 10 내에 든 댓글 수를 그래프로 시각화 해보았다.</p>
+<p>숫자 이면의 패턴을 보기 위해 전체 정치면 기사들의 댓글 수와 <code class="highlighter-rouge">user 1</code>, <code class="highlighter-rouge">user 3</code>의 전체 댓글 수, top 10 내에 든 댓글 수를 그래프로 시각화 해보았다.</p>
 
 <ul>
   <li>
@@ -873,16 +806,16 @@
   </li>
 </ul>
 
-<h4 id="141-1njda-ratio-96">1.4.1 <code class="highlighter-rouge">1njDA</code> (ratio: 96%)</h4>
+<h4 id="141-user-1-ratio-96">1.4.1 <code class="highlighter-rouge">user 1</code> (ratio: 96%)</h4>
 
 <div style="text-align:center">
-<img class="image" src="/assets/images/1njDA.png" width="90%" />
+<img class="image" src="/assets/images/user1.png" width="90%" />
 </div>
 <p><br /></p>
 
 <p><span style="color:darkgray">회색 line</span>이 정치면 기사 댓글, <span style="color:blue">파란색 line</span>이 작성자가 쓴 전체 댓글 수, <span style="color:green">초록색 line</span>이 작성자가 쓴 댓글 중 top 10 내에 들었던 댓글 수를 나타낸다.</p>
 
-<p><code class="highlighter-rouge">1njDA</code>가 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.</p>
+<p><code class="highlighter-rouge">user 1</code>이 주로 활동했던 시기는, 최순실 태블릿 pc 사건, 박근혜 탄핵 및 19대 대통령 선거, 평창 동계올림픽 및 MB 다스 사건과 맞물려 있었다. 댓글 내용을 시기 별로 뜯어보면, 다음과 같다.</p>
 
 <table>
   <thead>
@@ -1008,7 +941,6 @@
 
 <p><br /></p>
 <ul>
-  <li>전반적으로 친문 성향을 보였다.</li>
   <li>같은 내용의 댓글이 top 에 오른 것도 확인할 수 있었다.
     <ul>
       <li>다른 섹션에 같은 댓글을 남기고도 top에 오른 적도 있다. (아래 표 참고)</li>
@@ -1041,14 +973,14 @@
   </li>
 </ul>
 
-<h4 id="142-kpjq-ratio-93">1.4.2 <code class="highlighter-rouge">KPjq</code> (ratio: 93%)</h4>
+<h4 id="142-user-3-ratio-93">1.4.2 <code class="highlighter-rouge">user 3</code> (ratio: 93%)</h4>
 
 <div style="text-align:center">
-<img class="image" src="/assets/images/KPjq.png" width="90%" />
+<img class="image" src="/assets/images/user3.png" width="90%" />
 </div>
 <p><br /></p>
 
-<p><code class="highlighter-rouge">KPjq</code> 의 주 활동 시기는 사드배치, 평창 동계올림픽 및 북미회담과 맞물려있었다. 댓글을 자세히 보면 아래와 같다.</p>
+<p><code class="highlighter-rouge">user 3</code> 의 주 활동 시기는 사드배치, 평창 동계올림픽 및 북미회담과 맞물려있었다. 댓글을 자세히 보면 아래와 같다.</p>
 
 <table>
   <thead>
@@ -1153,9 +1085,6 @@
 </table>
 
 <p><br /></p>
-<ul>
-  <li>국익과 국가안보에 대한 내용을 보면 보수같지만, 다른 댓글을 보면 친문파에 가까워 보인다.</li>
-</ul>
 
 <div class="breaker"></div>
 
@@ -1168,7 +1097,7 @@
   <li>작성한 댓글 수 대비 top 10 댓글 수의 비율이 일반적이지 않은 작성자</li>
 </ol>
 
-<p>개인적으로, <strong>1.</strong>과 <strong>2.</strong>의 기준에 드는 사용자는 <code class="highlighter-rouge">1njDA</code>, <code class="highlighter-rouge">KPjq</code> 라는 생각이다. 작성한 전체 댓글 수는 다른 사용자들에 비해 적은 편이었지만 top 댓글에 들었던 비율은 가장 높았고, 그 수치가 일반적이지는 않았다.</p>
+<p>개인적으로, <strong>1.</strong>과 <strong>2.</strong>의 기준에 드는 사용자는 <code class="highlighter-rouge">user 1</code>, <code class="highlighter-rouge">user 3</code> 라는 생각이다. 작성한 전체 댓글 수는 다른 사용자들에 비해 적은 편이었지만 top 댓글에 들었던 비율은 가장 높았고, 그 수치가 일반적이지는 않았다.</p>
 
 <p>어뷰저를 찾고자 시작한 분석이었지만 데이터를 살펴보면서 네이버 뉴스 댓글이 가지는 단일하고 공개된 ranking system이 얼마나 위험한지를 오히려 인식하게 되었다.</p>
 
@@ -1176,11 +1105,7 @@
   <p>분석한 기간에서 중복 제거한 기사의 수는 총 100,780개 였고, 만약 top 10 댓글의 작성자가 모두 다른 사용자였다면 1,007,800명이 각자의 의견을 개시했을 것이다. 하지만 실제 그 기간에 집계된 unique한 작성자는 총 308,731 명에 불과했다. 게다가 중복 댓글까지 포함하면, 그 다양성은 조금 더 떨어진다.</p>
 </blockquote>
 
-<blockquote>
-  <p><code class="highlighter-rouge">1njDA</code>, <code class="highlighter-rouge">KPjq</code> 두 명만 어뷰저라고 가정하고, 나머지 8명이 아니었다고 했을 때 <a href="#appendix-B-기타-정치면-top-users">다른 유저들의 실제 댓글 내용</a>까지 보면 큰 차이가 느껴지진 않았다. 박근혜-최순실 게이트나 이명박의 다스 이슈는 “비리” 사건이었기 때문에 호의적인 반응을 보이긴 쉽지 않았겠지만 충분히 반대의 의견이 개시될 수 있을 법한 사건 (남미, 남북, 한일 관계 등) 등에서도 너무 일관된 내용의 댓글이 top 10에 보였다.</p>
-</blockquote>
-
-<p>위와 같은 면에서 <strong>네이버 뉴스 댓글은 다양성을 충분히 수용하고 있지 못하다는 생각이 들었다.</strong> “플랫폼이기 때문에 그럴 수 있지 않을까?” 싶지만 페이스북이나 유튜브, 레딧같은 다른 플랫폼에서의 댓글을 보면 무작정 호감순으로 정렬하지는 않는다. 이 플랫폼들의 기준이 문제가 없다는 것은 아니다. 하지만 네이버 뉴스 보다 다양한 기준으로 댓글을 정렬시키고 있으며 (최신순, 오래된 순, 공감을 많이 받은 순, relevance 순, 호감 + vote의 크기 등) 이를 통해 다양한 의견이 쉽게 노출될 수 있는 환경을 조성하였다는 점에서는 좀 더 높은 점수를 주고 싶다.</p>
+<p>이 같은 면에서 <strong>네이버 뉴스 댓글은 다양성을 충분히 수용하고 있지 못하다는 생각이 들었다.</strong> “플랫폼이기 때문에 그럴 수 있지 않을까?” 싶지만 페이스북이나 유튜브, 레딧같은 다른 플랫폼에서의 댓글을 보면 무작정 호감순으로 정렬하지는 않는다. 이 플랫폼들의 기준이 문제가 없다는 것은 아니다. 하지만 네이버 뉴스 보다 다양한 기준으로 댓글을 정렬시키고 있으며 (최신순, 오래된 순, 공감을 많이 받은 순, relevance 순, 호감 + vote의 크기 등) 이를 통해 다양한 의견이 쉽게 노출될 수 있는 환경을 조성하였다는 점에서는 좀 더 높은 점수를 주고 싶다.</p>
 
 <p>그래서 세 번째 글은, 간단하지만 다른 정렬 기준을 적용했을 때 발견되는 새로운 댓글에 대해서 다뤄 볼 예정이다. 프로젝트 초창기에, 같이 작업을 진행했던 재명님이 돌려본 결과가 있는데 이 것도 조금 다듬어서 올리면 재밌을 것 같다! 3탄은… 휴가(@Norway) 다녀오고 나서 작업해볼까 싶다. To be continued…</p>
 
@@ -1214,25 +1139,25 @@
   </thead>
   <tbody>
     <tr>
-      <td>1njDA</td>
+      <td>user 1</td>
       <td>2.27E-16</td>
       <td>1</td>
       <td>95.60</td>
     </tr>
     <tr>
-      <td>KPjq</td>
+      <td>user 3</td>
       <td>2.56E-15</td>
       <td>1</td>
       <td>93.08</td>
     </tr>
     <tr>
-      <td>a06BV</td>
+      <td>user 2</td>
       <td>9.31E-14</td>
       <td>1</td>
       <td>89.21</td>
     </tr>
     <tr>
-      <td>ejrT</td>
+      <td>user 39</td>
       <td>4.96E-11</td>
       <td>1</td>
       <td>82.00</td>
@@ -1244,7 +1169,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td>2Yg9w</td>
+      <td>user 6</td>
       <td>8.11E-01</td>
       <td>0.188898</td>
       <td>41.27</td>
@@ -1256,7 +1181,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td>3P9mY</td>
+      <td>user 9</td>
       <td>1.00E+00</td>
       <td>0.000219</td>
       <td>15.05</td>
@@ -1265,255 +1190,6 @@
 </table>
 
 <p><br /></p>
-<div class="breaker"></div>
-
-<h2 id="appendix-b-기타-정치면-top-users">Appendix B: 기타 정치면 top users</h2>
-
-<h4 id="a06bv-ratio-8900">a06BV (ratio: 89.00%)</h4>
-
-<div style="text-align:center">
-<img class="image" src="/assets/images/a06BV.png" width="90%" />
-</div>
-<p><br /></p>
-
-<ul>
-  <li><code class="highlighter-rouge">a06BV</code>는 주로 평창 동계 올림픽과 MB 다스 사건 시기에 가장 활발히 활동했다.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>article date</th>
-      <th>user top comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>법정 흔든 ‘정유라 깜짝 증언’…이재용 유죄 결정적 근거</td>
-      <td>2017-08-26 21:26:00</td>
-      <td>그똥이그똥이지요~개가웃것다~~~</td>
-    </tr>
-    <tr>
-      <td>홍준표 “탄핵은 박근혜 잘못…물에 빠져 같이 죽을 수 없다”</td>
-      <td>2017-08-26 22:35:00</td>
-      <td>홍준표/너부터약속지켜야지~강물에빠진다고했잔유~~~</td>
-    </tr>
-    <tr>
-      <td>軍, 핵잠수함 건조연구 본격 시동…국제규범 등 해소방안 연구</td>
-      <td>2017-08-27 06:00:00</td>
-      <td>젠즉에했어야지~지금이라도늣지않았다~대찬성이요~~~</td>
-    </tr>
-    <tr>
-      <td>檢, ‘국정원 외곽팀 의혹’ MB 지지단체·예비역 장교단체 조사</td>
-      <td>2017-08-27 07:01:00</td>
-      <td>쥐새끼가와이리안잡히노~잡히야끝날낀데~MB쥐어디간노~~~</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>[취재파일] 김관진의 ‘적반하장’ 식 입장표명과 MB의 ‘정치적 의무’</td>
-      <td>2017-11-11 09:52:00</td>
-      <td>큰쥐를잡아야끝난다</td>
-    </tr>
-    <tr>
-      <td>韓中정상, 사드 마침표 찍고 관계복원 공식화…”새 출발” 다짐(종합)</td>
-      <td>2017-11-12 00:28:00</td>
-      <td>이제야나라다운나라가되는것같습니다~</td>
-    </tr>
-    <tr>
-      <td>이명박, 12일 중동출국 전 ‘적폐청산’우려 메시지 발표</td>
-      <td>2017-11-12 06:23:00</td>
-      <td>쥐박이출국금지하고ㆍ구속해야된다</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>귀순 북한군, 군용 지프로 MDL까지 접근…北추격조 40여발 총격(종합)</td>
-      <td>2017-11-14 11:55:00</td>
-      <td>힘들게넘어왔는데ㆍ빠른쾌유바랍니다</td>
-    </tr>
-    <tr>
-      <td>‘JSA 북한군 귀순’ 한반도 정세 미칠 파장…北대응 촉각</td>
-      <td>2017-11-14 15:14:00</td>
-      <td>목숨걸고넘어왔는데ㅠ빠른쾌유바랍니다</td>
-    </tr>
-    <tr>
-      <td>대응사격 안 한 우리군, 왜?…정전협정·교전수칙 보니</td>
-      <td>2017-11-14 20:50:00</td>
-      <td>목숨걸고넘어왔는데ㆍ빠른쾌유바랍니다</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>[단독] “이상은, 다스 ‘바지 회장’…월 500 이상 못 써”</td>
-      <td>2018-01-03 20:52:00</td>
-      <td>큰쥐 작은쥐 새끼쥐 전부잡자ㅡ</td>
-    </tr>
-    <tr>
-      <td>박근혜 특활비 전액 ‘현금’ 받아써…사용처 어떻게 밝혔나?</td>
-      <td>2018-01-04 17:30:00</td>
-      <td>적폐 암덩어리ㅡAI닭 살처분</td>
-    </tr>
-    <tr>
-      <td>“최순실에 속았다” 주장했지만…’한 지갑’ 사용 정황</td>
-      <td>2018-01-04 22:00:00</td>
-      <td>두뇬다ㅡ무기징역 때려죽일</td>
-    </tr>
-    <tr>
-      <td>문 대통령 “유약하게 대화만 추구않겠다…국방력으로 평화 추구”(종합)</td>
-      <td>2018-01-05 15:56:00</td>
-      <td>기레기들 오바금지ㅡ대통령님홧팅하세요</td>
-    </tr>
-    <tr>
-      <td>우리 대표단 명단 北에 통보…남북 현안은 ‘단계적 접근’</td>
-      <td>2018-01-06 20:09:00</td>
-      <td>성공적인 평창 동계 올림픽을 기원합니다</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><br /></p>
-<h4 id="6t8wy-ratio-2918">6t8wY (ratio: 29.18%)</h4>
-
-<div style="text-align:center">
-<img class="image" src="/assets/images/6t8wY.png" width="90%" />
-</div>
-<p><br /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>article date</th>
-      <th>user top comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>[단독] K스포츠 설립 전 회사 창설…개인 돈벌이 정황</td>
-      <td>2016-10-18 20:22:00</td>
-      <td>박그네 멍청하면 깨끗하던지.무능하면 청렴하던지.</td>
-    </tr>
-    <tr>
-      <td>‘미르재단’ 중심에 선 안종범, 권력 개입 의혹 적극 반박</td>
-      <td>2016-10-21 16:44:00</td>
-      <td>얘는 그냥 정치깡패네!</td>
-    </tr>
-    <tr>
-      <td>“北에 굴욕” vs “비선실세”…여야, 靑국감서 맞불 공세(종합)</td>
-      <td>2016-10-21 23:23:00</td>
-      <td>그나마 무능한건 이해하고 역대정권보다 친인척 멀리해 깨끗하다고 나름 다르구나!생각 했으나 이젠 현실로 비선이 나라를 좌지우지 하는거 보니 진짜 넌 아니구나! 무능하면 깨끗하던지.멍청하면 가만있던지.휘둘린건지 이용당한건지.</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>문 대통령, 직원들과 똑같이!</td>
-      <td>2017-05-12 13:04:00</td>
-      <td>혼자 밥쳐묵던 503이 생각나네!</td>
-    </tr>
-    <tr>
-      <td>文대통령, 이영렬-안태근 ‘돈봉투 만찬’ 감찰 지시…파장(종합)</td>
-      <td>2017-05-17 15:02:00</td>
-      <td>당연한건데 왠 파장!</td>
-    </tr>
-    <tr>
-      <td>소통·혼밥·국밥… 역대 대통령들의 ‘식사 정치’</td>
-      <td>2017-05-20 06:27:00</td>
-      <td>저중에 압권은 국밥 쳐묵더니 4대강이랑 경제 시원하게 말어 먹었지.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><br /></p>
-<h4 id="3pble-ratio-1633">3PblE (ratio: 16.33%)</h4>
-
-<div style="text-align:center">
-<img class="image" src="/assets/images/3PblE.png" width="90%" />
-</div>
-<p><br /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>article date</th>
-      <th>user top comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>정부, 오전 9시 임시 국무회의…국회법 거부권 행사 방침(종합)</td>
-      <td>2016-10-18 20:22:00</td>
-      <td>박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하고…서민을 약자를 죽이는 법을 만들기 위해 서명 하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!</td>
-    </tr>
-    <tr>
-      <td>거부권 행사된 ‘상임위 청문회법’ 앞으로 어떻게 되나</td>
-      <td>2016-10-21 16:44:00</td>
-      <td>박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하고…서민을 약자를 죽이는 법을 만들기 위해 서명하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!</td>
-    </tr>
-    <tr>
-      <td>작년 국가부채 1천285조…감사원 검사로 4천억원 증가(종합)</td>
-      <td>2016-10-21 23:23:00</td>
-      <td>박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고…서민을 약자를 죽이는 법을 만들기 위해 서명 하라고 격려했었죠….전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 옥시사태 그리고 어버이연합’ 입 닫은 전경련…’이거 청문회, 특검 해야 한다고 생각하시는 분 손!</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>전경련 “청와대 개입 의혹 K스포츠재단 이사장 거취 일주일 안에 결정”</td>
-      <td>2016-09-25 08:58:00</td>
-      <td>대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고…. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고…..계속 노동개혁 하자고 하는 이유가 있었네요.</td>
-    </tr>
-    <tr>
-      <td>丁 “하나는 내놔야” 논란‥與 “野와 작당한 증거” 野 “정치적 중재”(종합)</td>
-      <td>2016-09-26 10:06:00</td>
-      <td>대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고.. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고…전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요. 법인세 인상 반대하는 새누리당 아웃!</td>
-    </tr>
-    <tr>
-      <td>이틀째 국감파행…與 ‘보이콧’ 균열조짐·野 사회권 요구(종합)</td>
-      <td>2016-09-27 18:31:00</td>
-      <td>대한민국어버이연합이 청와대 지시로 ‘관변성 집회’를 열었다는 의혹에 대해 반드시청문회를 해야 한다 야당의 할일입니다. 투표만 잘하니까 정의가 실현되네요. 박근혜 대통령이 재벌의 폭력을 정당화해주는 법을 만들기 위해 자기가 서명하고 국민에게도 서명 하라고….. 서민을 약자를 죽이는 법을 만들기 위해 서명 하라고……전경련이 어버이연합을 후원했다니….계속 노동개혁 하자고 하는 이유가 있었네요.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><br /></p>
-<h4 id="2yg9w-ratio-4127">2Yg9w (ratio: 41.27%)</h4>
-
-<div style="text-align:center">
-<img class="image" src="/assets/images/2Yg9w.png" width="90%" />
-</div>
-<p><br /></p>
-
-<h4 id="vspy-ratio-2127">vsPY (ratio: 21.27%)</h4>
-
-<div style="text-align:center">
-<img class="image" src="/assets/images/vsPY.png" width="90%" />
-</div>
-<p><br /></p>
-
-<h4 id="4lest-ratio-4905">4lEsT (ratio: 49.05%)</h4>
-
-<div style="text-align:center">
-<img class="image" src="/assets/images/4lEsT.png" width="90%" />
-</div>
-<p><br /></p>
-
 <div class="breaker"></div>
 
 <h2 id="references">References</h2>
@@ -1763,6 +1439,28 @@ ga('send', 'pageview');
               <a href="/category/News">News (1)</a>
              
               <a href="/category/Comments">Comments (1)</a>
+             
+              <a href="/category/Quantum Computer">Quantum computer (1)</a>
+             
+              <a href="/category/Basic">Basic (1)</a>
+             
+              <a href="/category/Qbit">Qbit (1)</a>
+             
+              <a href="/category/Superposition">Superposition (1)</a>
+             
+              <a href="/category/Entanglement">Entanglement (1)</a>
+             
+              <a href="/category/Quantum Supremacy">Quantum supremacy (1)</a>
+             
+              <a href="/category/양자컴퓨터">양자컴퓨터 (1)</a>
+             
+              <a href="/category/기초">기초 (1)</a>
+             
+              <a href="/category/양자 중첩">양자 중첩 (1)</a>
+             
+              <a href="/category/양자 얽힘">양자 얽힘 (1)</a>
+             
+              <a href="/category/양자 우월성">양자 우월성 (1)</a>
             
           
         
