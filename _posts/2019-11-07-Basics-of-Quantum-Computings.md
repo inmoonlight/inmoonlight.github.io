@@ -412,7 +412,7 @@ $$
 $$
 
 
-H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다. 붉은 색이 X gate, 노란색이 H gate 연산의 방향이다. 
+H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다. 붉은색이 X gate, 노란색이 H gate 연산의 방향이다. 
 
 <div style="text-align:center">
 <img class="image" src="{{ site.baseurl }}/assets/images/gates-visualization.png" width="80%">
@@ -453,8 +453,7 @@ $$
 아쉽게도 강연자는 속시원하게 답변을 해주지 않아서 그런가보다 하고 넘어갔는데 다시 보니 이해가 된 부분이 있어 글로 설명해보려고 한다.
 
 `Input'`과 `Output'`이 실제 1-bit 연산의 input과 output을 나타낸다. 
-그리고 `Input`과 `Output`은 `Input'`과 `Output'` 각각의 input들이다. 
-`Input'`과 `Output'`이 BB 이후에 있기 때문에 BB 이전에 `Input'`과 `Output'`이 1-bit 연산의 input과 output이 되도록 넣어주는, 양자컴퓨터 연산 방식 때문에 필요한 input들이다. 
+그리고 `Input`과 `Output`은 `Input'`과 `Output'`이 BB 이후에 있기 때문에 BB 이전에 `Input'`과 `Output'`이 1-bit 연산의 input과 output이 되도록 넣어주는, 양자컴퓨터 연산 방식 때문에 필요한 input들이다. 
 
 이 약속에 따라서 양자컴퓨터가 1-bit 연산을 어떻게 수행하는지 아래의 예시를 통해 좀 더 이해해보자. 
 
@@ -484,8 +483,7 @@ Indentity는 `Input'`이 $$\mid 0 \rangle$$일 때는 `Output'`이 $$\mid 0 \ran
 <figcaption class="caption">양자컴퓨터가 한 번에 문제를 푸는 법</figcaption>
 </div>
 <br>
-
-이 연산대로라면 BB가 Constant(Contant-0, Constant-1)이었을 경우, 측정시에 $$\mid11\rangle$$로 나타나고 Variable(Identity, Negation)이었을 경우에는 $$\mid01\rangle$$로 나타난다.
+이 연산대로라면 BB가 Constant(Contant-0, Constant-1)이었을 경우, 측정 결과가 $$\mid11\rangle$$이고, Variable(Identity, Negation)이었을 경우에는 $$\mid01\rangle$$이 된다.
 
 BB의 경우의 수를 따져가며 이해해보자.
 
@@ -497,7 +495,7 @@ BB의 경우의 수를 따져가며 이해해보자.
 </div>
 <br>
 
-BB에 들어가기 전 input과 output qbit ($$ \mid 0 \rangle$$) 모두 X와 H gate를 거쳐서
+BB에 들어가기 전 input ($$ \mid 0 \rangle$$) 과 output qbit ($$ \mid 0 \rangle$$) 모두 X와 H gate를 거쳐서
 $$ \begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
   \frac{-1}{\sqrt{2}}
@@ -644,7 +642,7 @@ Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산�
 <br>
 
 
-정리하면, 양자컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 "한 번"만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다!
+정리하면, 양자컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 "한 번"만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다는 것이다!
 
 <div class="breaker"></div>
 
@@ -654,6 +652,7 @@ Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산�
 Entanglement는 지금까지의 흐름에서는 동떨어진 이야기지만 양자컴퓨터에서 항상 소개되는 내용이기 때문에 추가하였다. 
 
 앞서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 entanglement도 수학적인 성질로 표현할 수 있다. 
+
 $$
 \begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
@@ -662,10 +661,20 @@ $$
   \frac{1}{\sqrt{2}}
 \end{pmatrix}
 $$
-는 entangle된 qbit인데, 그 모양새가 product state 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
+는 entangle된 qbit인데, 그 모양새가 product state와 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
 위에서 설명했듯이 product state는 개별적인 qbit으로 factorize된다. 하지만 entanlged qbit은 개별적인 qbit으로 factorize 되지 않는다. 
-(If the product state of two qbits cannot be factored, they are said to be **entanlged**.)
+(If the product state of two qbits **cannot be factored**, they are said to be **entanlged**.)
+이 때문에 entangled qbit은 차원이 늘어난 하나의 qbit으로 볼 수 있으며 일부를 관측했을 때 나머지 일부의 상태가 유추된다. 
 
+$$
+\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix}
+$$
+이 entangle 되었음을 증명하는 것은 간단하다. 
 $$
 \begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
@@ -680,7 +689,7 @@ $$
   d
 \end{pmatrix}
 $$
-를 만족하는 $$a$$, $$b$$, $$c$$, $$d$$는 존재하지 않는다. 즉 개별적인 qbit으로 factorize되지 못하므로 entanlge되어 있는 qbit인 것이다.
+를 만족하는 $$a$$, $$b$$, $$c$$, $$d$$는 존재하지 않기 때문에 이는 entanlge되어 있는 qbit이다.
 
 Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.
 
@@ -725,7 +734,7 @@ CH_1
 \end{pmatrix}
 $$
 
-만약 이후에 이런 게이트의 조합을 본다면 곧바로 'entanlge 시키려고 했군!' 이라고 생각하면 된다 :)
+만약 이후에 이런 게이트의 조합을 본다면 곧바로 'entanlge 되었군!' 이라고 생각하면 된다 :)
 
 
 <div class="breaker"></div>
@@ -733,7 +742,7 @@ $$
 
 ## 5. Conclusion
 
-개인적으로 이 영상을 본 이후, 게비스콘을 먹은 것 같이 속이 뚫리는 기분이 들었다. 아직 matrix로 표현되는 qbit이 물리적으로 어떤 모습인지, gate들이 물리적으로 어떻게 qbit에 적용되는지는 모르지만
+개인적으로 이 영상을 본 이후, 속이 뻥 뚫리는 기분이 들었다. 아직 matrix로 표현되는 qbit이 물리적으로 어떤 모습인지, gate들이 물리적으로 어떻게 qbit에 적용되는지는 모르지만
 (이건 실제 양자컴퓨터를 눈으로 보면 이해가 되지 않을까) 이 정도라도 양자컴퓨터와 고전컴퓨터의 연산과정에서의 차이를 구체적으로 알 수 있었기 때문에 만족할 수 있었다.
 
 양자컴퓨터의 연산 과정을 이해하고나니 양자 우월성은 그냥 달성되는 것은 아니었으며, 잘 설계된 gate가 뒷받침되었을 때 가능한 것임을 깨닫게 되기도 했다.
