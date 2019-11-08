@@ -275,7 +275,7 @@ $$ C = \begin{pmatrix}
 
 <div class="breaker"></div>
 
-[2.4](#24-1-bit-operations)와 [2.5](#25-cnot-one-of-the-2-bit-operations)에서 opertaion들을 matrix화 한 것에 주목하자. 
+[2.4](#24-1-bit-operations)와 [2.5](#25-cnot-one-of-the-2-bit-operations)에서 operation들을 matrix화 한 것에 주목하자. 
 확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.
 아래의 예시에서 우리가 확신할 수 있는 정보는 qbit이 0과 1로 관측될 확률이 반대가 되었다는 것이다.
 
