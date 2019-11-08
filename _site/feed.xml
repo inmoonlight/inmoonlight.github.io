@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Nov 2019 02:27:48 +0900</pubDate>
-    <lastBuildDate>Thu, 07 Nov 2019 02:27:48 +0900</lastBuildDate>
+    <pubDate>Fri, 08 Nov 2019 11:32:40 +0900</pubDate>
+    <lastBuildDate>Fri, 08 Nov 2019 11:32:40 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -16,16 +16,16 @@
 
 &lt;p&gt;아마 나와 같이 관련 기사나 여러 블로그 글, 유튜브 등을 찾아본 사람들이라면 어렵지 않게 아래의 정보는 얻었을 것이다.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;n개의 qbit은 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt;의 state를 설명하므로 더 빠르고 superposition 때문에 병렬연산이 가능하다.&lt;/li&gt;
-  &lt;li&gt;superposition이란 동시에 0과 1의 상태를 띠는 것이다.&lt;/li&gt;
+  &lt;li&gt;n개의 qbit은 bit와 달리 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt;의 state를 표현할 수 있다.&lt;/li&gt;
+  &lt;li&gt;superposition이란 동시에 0과 1의 상태를 띠는 성질로, 병렬연산이 가능해져서 고전 컴퓨터에 비해 계산 속도의 이점이 생긴다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;텍스트만 보면 “아 그렇구나.” 싶은 내용들이다. 
 이해가 된 것일까 싶었지만 스스로에게 세 질문을 던졌을 때 답하지 못하는 것을 보며 제대로 이해하지 못했음을 인지했다. &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;    &lt;strong&gt;Q1.&lt;/strong&gt; n개의 bit로도 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt;을 표현할 수 있는거 아닌가? 3개의 bit가 000, 001, 010, 011, 100, 101, 110, 111 이렇게 8개의 상태를 표현할 수 있으니까. &lt;br /&gt;
-    &lt;strong&gt;Q2.&lt;/strong&gt; 양자 세계는 불확정성 원리에 지배받는다고 하는데, 대체 양자컴퓨터로 어떻게 연산하고 있는 것이며, 이 성질이 어떻게 계산 비용을 감소시킬 수 있는거지? &lt;br /&gt;
-    &lt;strong&gt;Q3.&lt;/strong&gt; Entanglement는 대체 qbit들이 어떻게 된 상태인거지?&lt;/p&gt;
+    &lt;strong&gt;Q2.&lt;/strong&gt; 양자 세계는 불확정성 원리에 지배받는다고 하는데, 대체 양자컴퓨터로 어떻게 연산하고 있는 것이며, 이 성질이 어떻게 계산 비용을 감소시킬 수 있는걸까? &lt;br /&gt;
+    &lt;strong&gt;Q3.&lt;/strong&gt; Entanglement는 qbit들이 어떻게 된 상태인거지?&lt;/p&gt;
 
 &lt;p&gt;이 질문들에 제대로 답하기 위해서는 수학이 필요하다는 생각이 들었다.
 4차원 이상의 공간을 제대로 시각화하지 못하듯이 양자 세계를 자연어로 표현한다는 것 자체가 말이 되지 않는 것 같았기 때문이다.
@@ -35,13 +35,13 @@
 
 &lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/ahelwer/quantum-computing-for-computer-scientists&quot;&gt;발표자료&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;이 영상을 보는 것을 추천하지만 무려 한시간이 넘는지라 글로도 정리를 해보았다. 아래에 기술된 내용은 내 방식대로 위의 영상과 자료를 요약한 것이라고 할 수 있다.&lt;/p&gt;
+&lt;p&gt;이 영상을 보는 것을 추천하지만 무려 한시간이 넘는지라 글로도 정리를 해보았다. 아래에 기술된 내용은 내 방식대로 위의 영상과 자료를 재구성한 것이다.&lt;/p&gt;
 
 &lt;p&gt;사실 이 자료를 다 보더라도 양자컴퓨터에 대해 많은 것을 알았다고 보긴 어렵다.
 python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&gt;print('Hello World!')&lt;/code&gt;를 성공했다고 해서 python을 잘 알았다고 하기 어려운 것처럼.
 그리고 딥러닝에 관심있는 사람이 tutorial을 따라해보며 CNN을 돌려봤다고 해서 딥러닝을 잘 알았다고 하기 어려운 것처럼.&lt;/p&gt;
 
-&lt;p&gt;그렇지만 양자 세계에 한 번은 ‘Hello World!’를 날려봐야 하지 않을까?&lt;/p&gt;
+&lt;p&gt;그렇지만 양자 세계에 한 번은 &lt;code class=&quot;highlighter-rouge&quot;&gt;'Hello World!'&lt;/code&gt;를 날려봐야 하지 않을까?&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -58,16 +58,17 @@ python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&g
     &lt;a href=&quot;#31-classical-computer&quot;&gt;3.1 Classical computer&lt;/a&gt;&lt;br /&gt;
     &lt;a href=&quot;#32-quantum-computer&quot;&gt;3.2 Quantum computer&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#4-entanglement&quot;&gt;4. Entanglement&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#5-conclusion&quot;&gt;5. Conclusion&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 
-&lt;p&gt;(수정) 이번 글에서는 불확정성의 원리가 지배하는 양자 세계에서 양자컴퓨터는 어떻게 연산을 하는지 알아볼 것이다.
-이를 이해하기 위한 matrix 연산과 기초적인 논리회로에 대한 내용이 담겨 있다. 
-그리고 The Deutsch-Jozsa problem을 통해 양자 컴퓨터가 어떻게 고전 컴퓨터에 비해 연산 속도에서 이점을 보이는지 설명한다.
-추가로, entanglement에 대한 간단한 설명이 있으며 관련된 실습 또한 있다.&lt;/p&gt;
+&lt;p&gt;The Deutsch-Jozsa problem 이라는 아주 간단한 문제를 통해 양자 컴퓨터가 고전 컴퓨터에 비해 어떻게 연산 속도에서 이점을 보이는지 알아보려고 한다.
+이 과정을 이해하기 위해 양자 컴퓨터가 연산하는 방법에 대해 소개할 것이며 matrix 연산과 기초적인 논리회로에 대한 내용을 짚고 넘어갈 것이다.&lt;/p&gt;
+
+&lt;p&gt;추가로, entanglement에 대한 간단한 설명이 있다.&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -122,8 +123,7 @@ python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&g
 &lt;h3 id=&quot;22-superposition&quot;&gt;2.2 Superposition&lt;/h3&gt;
 
 &lt;p&gt;양자컴퓨터의 qbit을 설명할 때 빠지지 않는 성질이다. 
-“동시에 0과 1을 가진다.”는 문장으로 자주 설명된다.
-하지만 이보다는 슈뢰딩거의 고양이 느낌이 물씬 나는 “When we measure a qbit, it collapses to an actual value of 0 or 1.” 이라는 문장이 더 좋은 설명인 것 같다.&lt;/p&gt;
+“동시에 0과 1을 가진다.”는 문장으로 자주 설명되지만 이보다는 슈뢰딩거의 고양이 느낌이 물씬 나는 “When we measure a qbit, it collapses to an actual value of 0 or 1.” 이라는 문장이 더 좋은 설명인 것 같다.&lt;/p&gt;
 
 &lt;p&gt;위에서 qbit이라고 언급했던 벡터 하나를 예시로 들어보자.&lt;/p&gt;
 
@@ -183,7 +183,7 @@ python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&g
 \end{pmatrix}&lt;/script&gt;
 
 &lt;p&gt;이와 같이 tensor product의 결과로 표현된 벡터는 product state라고 한다.
-여기서 우리는 n개 qbit의 product state 크기는 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt; 이라는 것을 알 수 있다.
+여기서 우리는 n개 qbit의 product state 크기가 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt; 이라는 것을 알 수 있다.
 만약 
 &lt;script type=&quot;math/tex&quot;&gt;\binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} \otimes \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} = 
 \begin{pmatrix}
@@ -193,7 +193,7 @@ python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&g
 즉, qbit이 bit와는 다르게 &lt;script type=&quot;math/tex&quot;&gt;2^n&lt;/script&gt; 개의 state를 표현할 수 있다고 한 것은 &lt;em&gt;동시에&lt;/em&gt; 가질 수 있는 최대 state 관점에서 비교한 것이다.
 bit는 절대로 동시에 2개 이상의 state를 가질 수 없으므로 한 번에 계산할 수 있는 정보는 1개 뿐이다.&lt;/p&gt;
 
-&lt;p&gt;또한 product state는, 뒤의 entanglement와 구분되는 중요한 성질로, &lt;strong&gt;독립적인 state 들로 factorize가 가능&lt;/strong&gt;하다는 점이 있다.&lt;/p&gt;
+&lt;p&gt;또한 product state는, 뒤의 entanglement와 구분되는 중요한 성질로, &lt;strong&gt;독립적인 state들로 factorize가 가능&lt;/strong&gt;하다는 점이 있다.&lt;/p&gt;
 
 &lt;p&gt;Multiple qbits의 product state 또한 single qbit과 같은 성질을 만족시킨다.&lt;/p&gt;
 
@@ -287,7 +287,7 @@ C = \begin{pmatrix}
   \frac{\sqrt{3}}{2} \\ \frac{1}{2}
 \end{pmatrix} %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;항상 0 혹은 1로 관측되는 &lt;script type=&quot;math/tex&quot;&gt;\mid0\rangle&lt;/script&gt;이나 &lt;script type=&quot;math/tex&quot;&gt;\mid1\rangle&lt;/script&gt;을 쓰면 굳이 복잡한 matrix 연산이 필요없지만 이런 qbit만 사용할거라면 고전 컴퓨터를 쓰면 그만이다.
+&lt;p&gt;항상 0 혹은 1로 관측되는 &lt;script type=&quot;math/tex&quot;&gt;\mid0\rangle&lt;/script&gt;이나 &lt;script type=&quot;math/tex&quot;&gt;\mid1\rangle&lt;/script&gt;을 쓰면 matrix 연산을 고집하지 않아도 되지만 이런 qbit만 사용할거라면 고전 컴퓨터를 쓰면 그만이다.
 굳이 0K 가까이 되는 험악한 조건을 유지해가며 계산할 필요가 없다.&lt;/p&gt;
 
 &lt;p&gt;그래서 matrix 연산은 양자 컴퓨팅에서 굉장히 중요하다. 여기에는 한가지 추가조건이 있는데, 반드시 연산에 사용되는 matrix는 &lt;strong&gt;reversible&lt;/strong&gt;해야한다는 것이다.
@@ -301,7 +301,7 @@ C = \begin{pmatrix}
 
 &lt;blockquote&gt;
   &lt;p&gt;1-bit를 입력받아서 1-bit를 내뱉는 어떤 함수가 있다고 하자. 
-만약 이 함수가 Constant(Contant-0, Constant-1)인지 아니면 Variable(Identity, Negation)인지 알기 위해서는 최소 몇 번의 query를 날려야 할까?&lt;/p&gt;
+만약 이 함수가 Constant(Contant-0, Constant-1)인지, 아니면 Variable(Identity, Negation)인지 알기 위해서는 최소 몇 번의 query를 날려야 할까?&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;31-classical-computer&quot;&gt;3.1 Classical computer&lt;/h3&gt;
@@ -311,6 +311,8 @@ C = \begin{pmatrix}
 &lt;h3 id=&quot;32-quantum-computer&quot;&gt;3.2 Quantum computer&lt;/h3&gt;
 
 &lt;p&gt;예상했듯이 정답은 한 번이다. 왜인지 알기위해서는 추가적인 개념이 필요하다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;--hadamard-gate&quot;&gt;- Hadamard gate&lt;/h4&gt;
 
@@ -401,7 +403,7 @@ X =
   \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
 \end{pmatrix} %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다.&lt;/p&gt;
+&lt;p&gt;H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다. 붉은 색이 X gate, 노란색이 H gate 연산의 방향이다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/gates-visualization.png&quot; width=&quot;80%&quot; /&gt;
@@ -412,11 +414,14 @@ X =
 &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   1 \\ 0
 \end{pmatrix}&lt;/script&gt;
-에 X, H, X, H, X gate를 씌운 결과는 그림으로 보면 더 쉽게 이해된다.&lt;/p&gt;
+에 X - H - X - H - X gate를 씌운 결과는 그림으로 보면 더 쉽게 이해된다. 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  1 \\ 0
+\end{pmatrix}&lt;/script&gt;
+에서 출발해 각 gate가 연산되는 방향으로 화살표를 움직이면 마지막에 도달하는 곳이 결과값이 된다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_logic_operation_example.png&quot; width=&quot;80%&quot; /&gt;
-&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -430,7 +435,14 @@ X =
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;BB(Black Box)에 적당한 gate를 넣으면 Constant-0과 Constant-1을 포함한 1-bit 연산 4가지가 모두 가능하다.&lt;/p&gt;
+&lt;p&gt;이 그림의 input과 output notation을 보면 “응?” 이라는 생각이 절로 들 것이다. 영상에서도 사람들이 대체 왜 “Output”이 Input 쪽에 가 있는지에 대해 끊임없이 묻는다.
+아쉽게도 강연자는 속시원하게 답변을 해주지 않아서 그런가보다 하고 넘어갔는데 다시 보니 이해가 된 부분이 있어 글로 설명해보려고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 실제 1-bit 연산의 input과 output을 나타낸다. 
+그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output&lt;/code&gt;은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt; 각각의 input들이다. 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 BB 이후에 있기 때문에 BB 이전에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 1-bit 연산의 input과 output이 되도록 넣어주는, 양자컴퓨터 연산 방식 때문에 필요한 input들이다.&lt;/p&gt;
+
+&lt;p&gt;이 약속에 따라서 양자컴퓨터가 1-bit 연산을 어떻게 수행하는지 아래의 예시를 통해 좀 더 이해해보자.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_constant_0.png&quot; height=&quot;200px&quot; width=&quot;300px&quot; style=&quot;margin-right:20px; margin-bottom:10px&quot; /&gt;
@@ -441,7 +453,17 @@ X =
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;다시 문제로 돌아가서, 양자 컴퓨터에서는 어떻게 한번에 구할 수 있을까? 정답은 아래의 그림이 설명해준다.&lt;/p&gt;
+&lt;p&gt;Constant-0은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;일 때와 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt;일 때 모두 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;이어야 한다. 
+어떤 gate도 없는 왼쪽 위 그림의 회로에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input&lt;/code&gt;에 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt; 혹은 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt;을 대입해보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 Constant-0의 관계를 가지는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;Indentity는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;일 때는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;이고 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt;일 때는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt;인 함수다. 
+왼쪽 아래 그림의 회로는 CNOT gate를 표현하고 있다. 색이 채워진 원이 control bit 쪽을 나타내고 그렇지 않은 쪽 원은 target bit를 나타낸다.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Input&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt; 이면 control bit가 0이므로 target bit도 그대로 유지한다. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;도 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;도 &lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;이 된다.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Input&lt;/code&gt;이 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt; 이면 control bit가 1이므로 target bit가 바뀐다. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;도 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;도 &lt;script type=&quot;math/tex&quot;&gt;\mid 1 \rangle&lt;/script&gt;이 된다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;그럼 다시 The Deutsch-Jozsa problem로 돌아가서, 양자 컴퓨터에서는 어떻게 한 번에 구할 수 있을까? 정답은 아래의 그림이 설명해준다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_one_query.png&quot; width=&quot;60%&quot; /&gt;
@@ -449,19 +471,19 @@ X =
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;이 연산대로라면 BB가 constant였을 경우, 측정시에 &lt;script type=&quot;math/tex&quot;&gt;\mid11\rangle&lt;/script&gt;로 나타나고 variable이었을 경우에는 &lt;script type=&quot;math/tex&quot;&gt;\mid01\rangle&lt;/script&gt;로 나타난다.&lt;/p&gt;
+&lt;p&gt;이 연산대로라면 BB가 Constant(Contant-0, Constant-1)이었을 경우, 측정시에 &lt;script type=&quot;math/tex&quot;&gt;\mid11\rangle&lt;/script&gt;로 나타나고 Variable(Identity, Negation)이었을 경우에는 &lt;script type=&quot;math/tex&quot;&gt;\mid01\rangle&lt;/script&gt;로 나타난다.&lt;/p&gt;
 
-&lt;p&gt;BB를 치환해보며 이해해보자.&lt;/p&gt;
+&lt;p&gt;BB의 경우의 수를 따져가며 이해해보자.&lt;/p&gt;
 
 &lt;h4 id=&quot;preprocessing-bb-입력-직전까지의-연산&quot;&gt;preprocessing (BB 입력 직전까지의 연산)&lt;/h4&gt;
-
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_preprocessing.png&quot; width=&quot;80%&quot; /&gt;
 &lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;BB에 들어가기 전 input과 output qbit의 상태는 모두 X와 H gate를 거치므로
+&lt;p&gt;BB에 들어가기 전 input과 output qbit (&lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;) 모두 X와 H gate를 거쳐서
 &lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
   \frac{-1}{\sqrt{2}}
@@ -469,41 +491,147 @@ X =
 가 된다.&lt;/p&gt;
 
 &lt;h4 id=&quot;case-1-bb가-constant-0-이었을-경우&quot;&gt;case 1) BB가 Constant-0 이었을 경우&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;
+Constant-0은 input과 output에 어떤 gate도 씌우지 않는다. 
+따라서 BB가 Constant-0이었을 때 Input과 Output은 H gate만 통과한 이후 관측된다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/const_0.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;Constant-0&lt;/figcaption&gt;
+&lt;/div&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_const_0.png&quot; width=&quot;80%&quot; /&gt;
-&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;BB가 Constant-0인 경우 Input'과 Output'&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;case-2-bb가-contstant-1-이었을-경우&quot;&gt;case 2) BB가 Contstant-1 이었을 경우&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;
+Constant-1은 output에만 X gate를 적용한다. 
+따라서 BB가 Constant-1이었을 때는 Output에 X gate가 추가되고, 이후 Input과 Output 모두에 H gate가 적용된다.&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/const_1.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;Constant-1&lt;/figcaption&gt;
+&lt;/div&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_const_1.png&quot; width=&quot;80%&quot; /&gt;
-&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;BB가 Constant-1인 경우 Input'과 Output'&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;case-3-bb가-identity-이었을-경우&quot;&gt;case 3) BB가 Identity 이었을 경우&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt;
+Identity는 CNOT gate를 통해 연산된다.
+앞에서 CNOT 연산은 
+&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 1 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\ 
+0 &amp; 0 &amp; 1 &amp; 0 \\ 
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+을 곱하는 것과 같다고 설명했다.
+Preprocessing을 거친 Input과 Output은 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  \frac{-1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt;
+이므로 CNOT연산은 아래와 같이 표현할 수 있다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+C \begin{pmatrix}
+  \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{-1}{\sqrt{2}}
+  \end{pmatrix} \otimes
+    \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{-1}{\sqrt{2}}
+  \end{pmatrix}
+\end{pmatrix} = C \begin{pmatrix}
+  \frac{1}{2} \\
+  \frac{-1}{2} \\
+  \frac{-1}{2} \\
+  \frac{1}{2}
+\end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+  1 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1 \\
+  0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix} \begin{pmatrix}
+  1 \\
+  -1 \\
+  -1 \\
+  1
+\end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+  1 \\
+  -1 \\
+  -1 \\
+  1
+\end{pmatrix} = \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{1}{\sqrt{2}}
+  \end{pmatrix} \otimes
+    \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{-1}{\sqrt{2}}
+  \end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;즉 Input은 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{-1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt;
+에서 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt; 
+로 바뀌고 Output은 그대로 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\
+    \frac{-1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt;
+이 된다.
+이 상태에서 H gate가 각각 적용되어 최종 결과는 &lt;script type=&quot;math/tex&quot;&gt;\mid 01 \rangle&lt;/script&gt;이 된다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/identity.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;Identity&lt;/figcaption&gt;
+&lt;/div&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_identity.png&quot; width=&quot;80%&quot; /&gt;
-&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;BB가 Identity인 경우 Input'과 Output'&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;case-4-bb가-negation-이었을-경우&quot;&gt;case 4) BB가 Negation 이었을 경우&lt;/h4&gt;
+&lt;p&gt;&lt;br /&gt; 
+Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산이다. 
+따라서 아래 그림처럼 연산이 이루어지고 Identity와 마찬가지로 최종 결과는 &lt;script type=&quot;math/tex&quot;&gt;\mid 01 \rangle&lt;/script&gt;이 된다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/negation.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;Negation&lt;/figcaption&gt;
+&lt;/div&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_bb_negation.png&quot; width=&quot;80%&quot; /&gt;
-&lt;figcaption class=&quot;caption&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;BB가 Negation인 경우 Input'과 Output'&lt;/figcaption&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;p&gt;정리하면, 양자 컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 “한 번”만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다!&lt;/p&gt;
+
 &lt;h2 id=&quot;4-entanglement&quot;&gt;4. Entanglement&lt;/h2&gt;
 
-&lt;p&gt;Entanlged qbit은 얼핏 보면 product state 같지만 product state와는 다르게 개별적인 qbit으로 factorize 되지 않는다. 
-(If the product state of two qbits cannot be factored, they are said to be &lt;strong&gt;entanlged&lt;/strong&gt;.)&lt;/p&gt;
+&lt;p&gt;Entanglement는 지금까지의 흐름에서는 동떨어진 이야기다. 
+하지만 양자컴퓨터에서 항상 소개되는 내용이기 때문에 추가하였다.&lt;/p&gt;
+
+&lt;p&gt;위에서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 Entanglement도 수학적인 성질로 표현할 수 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
@@ -512,8 +640,12 @@ X =
   \frac{1}{\sqrt{2}}
 \end{pmatrix}&lt;/script&gt;
 는 entangle된 qbit이다.
-왜냐하면, 
-&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+얼핏 보면 product state 같다. 하지만 product state와는 중요한 성질에서 차이를 보인다.&lt;/p&gt;
+
+&lt;p&gt;위에서 설명했듯이 product state는 개별적인 qbit으로 factorize된다. 하지만 entanlged qbit은 개별적인 qbit으로 factorize 되지 않는다. 
+(If the product state of two qbits cannot be factored, they are said to be &lt;strong&gt;entanlged&lt;/strong&gt;.)&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
   0 \\
   0 \\
@@ -525,12 +657,13 @@ X =
   c \\
   d
 \end{pmatrix}&lt;/script&gt;
-를 만족하는 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;는 존재하지 않기 때문이다.&lt;/p&gt;
+를 만족하는 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;는 존재하지 않는다. 즉 개별적인 qbit으로 factorize되지 못하므로 entanlge되어 있는 qbit이다.&lt;/p&gt;
 
 &lt;p&gt;Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/entanlge.png&quot; width=&quot;60%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;Entangled qbit&lt;/figcaption&gt;
 &lt;/div&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
@@ -567,6 +700,8 @@ CH_1
   0 \\
   \frac{1}{\sqrt{2}}
 \end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;5-conclusion&quot;&gt;5. Conclusion&lt;/h2&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 
