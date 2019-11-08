@@ -9,11 +9,11 @@ hidden: true
 ---
 
 최근에 있었던 구글의 양자 우월성 (Quantum Superemacy) 달성은 전세계적으로 큰 화제였다.
-물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자 컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다.
+물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다.
 
 아마 나와 같이 관련 기사나 여러 블로그 글, 유튜브 등을 찾아본 사람들이라면 어렵지 않게 아래의 정보는 얻었을 것이다.
  - n개의 qbit은 bit와 달리 $$2^n$$의 state를 표현할 수 있다. 
- - superposition이란 동시에 0과 1의 상태를 띠는 성질로, 병렬연산이 가능해져서 고전 컴퓨터에 비해 계산 속도의 이점이 생긴다. 
+ - superposition이란 동시에 0과 1의 상태를 띠는 성질로, 병렬연산이 가능해져서 고전컴퓨터에 비해 계산 속도의 이점이 생긴다. 
 
 텍스트만 보면 "아 그렇구나." 싶은 내용들이다. 
 이해가 된 것일까 싶었지만 스스로에게 세 질문을 던졌을 때 답하지 못하는 것을 보며 제대로 이해하지 못했음을 인지했다. <br>
@@ -62,8 +62,8 @@ python을 처음 접한 사람이 `print('Hello World!')`를 성공했다고 해
 
 ## 1. Introduction
 
-The Deutsch-Jozsa problem 이라는 아주 간단한 문제를 통해 양자 컴퓨터가 고전 컴퓨터에 비해 어떻게 연산 속도에서 이점을 보이는지 알아보려고 한다.
-이 과정을 이해하기 위해 양자 컴퓨터가 연산하는 방법에 대해 소개할 것이며 matrix 연산과 기초적인 논리회로에 대한 내용을 짚고 넘어갈 것이다. 
+The Deutsch-Jozsa problem 이라는 아주 간단한 문제를 통해 양자컴퓨터가 고전컴퓨터에 비해 어떻게 연산 속도에서 이점을 보이는지 알아보려고 한다.
+이 과정을 이해하기 위해 양자컴퓨터가 연산하는 방법에 대해 소개할 것이며 matrix 연산과 기초적인 논리회로에 대한 내용을 짚고 넘어갈 것이다. 
 
 추가로, entanglement에 대한 간단한 설명이 있다.
 
@@ -289,7 +289,7 @@ $$ \begin{pmatrix}
 \end{pmatrix}$$
 
 
-항상 0 혹은 1로 관측되는 $$\mid0\rangle$$이나 $$\mid1\rangle$$을 쓰면 matrix 연산을 고집하지 않아도 되지만 이런 qbit만 사용할거라면 고전 컴퓨터를 쓰면 그만이다.
+항상 0 혹은 1로 관측되는 $$\mid0\rangle$$이나 $$\mid1\rangle$$을 쓰면 matrix 연산을 고집하지 않아도 되지만 이런 qbit만 사용할거라면 고전컴퓨터를 쓰면 그만이다.
 굳이 0K 가까이 되는 험악한 조건을 유지해가며 계산할 필요가 없다.
 
 그래서 matrix 연산은 양자 컴퓨팅에서 굉장히 중요하다. 여기에는 한가지 추가조건이 있는데, 반드시 연산에 사용되는 matrix는 **reversible**해야한다는 것이다.
@@ -307,7 +307,7 @@ $$ \begin{pmatrix}
 
 ### 3.1 Classical computer
 
-고전 컴퓨터에서는 0과 1을 입력해야하므로 총 두 번의 연산이 필요하다.
+고전컴퓨터에서는 0과 1을 입력해야하므로 총 두 번의 연산이 필요하다.
 
 ### 3.2 Quantum computer
 
@@ -441,7 +441,7 @@ $$
 
 #### - non-reversible matrix 
 
-앞서 양자 컴퓨터는 non-reversible한 matrix 를 곱하는 연산은 불가능하다고 했다.
+앞서 양자컴퓨터는 non-reversible한 matrix 를 곱하는 연산은 불가능하다고 했다.
 1-bit 연산 중에서 Constant-0과 Constant-1은 non-reversible하다. 그래서 양자 컴퓨팅에서는 2개의 qbit을 사용한다.
 
 <div style="text-align:center">
@@ -477,11 +477,11 @@ Indentity는 `Input'`이 $$\mid 0 \rangle$$일 때는 `Output'`이 $$\mid 0 \ran
 
 <div class="breaker"></div>
 
-그럼 다시 The Deutsch-Jozsa problem로 돌아가서, 양자 컴퓨터에서는 어떻게 한 번에 구할 수 있을까? 정답은 아래의 그림이 설명해준다.
+그럼 다시 The Deutsch-Jozsa problem로 돌아가서, 양자컴퓨터에서는 어떻게 한 번에 구할 수 있을까? 정답은 아래의 그림이 설명해준다.
 
 <div style="text-align:center">
 <img class="image" src="{{ site.baseurl }}/assets/images/quantum_one_query.png" width="60%">
-<figcaption class="caption">양자 컴퓨터가 한 번에 문제를 푸는 법</figcaption>
+<figcaption class="caption">양자컴퓨터가 한 번에 문제를 푸는 법</figcaption>
 </div>
 <br>
 
@@ -644,16 +644,16 @@ Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산�
 <br>
 
 
-정리하면, 양자 컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 "한 번"만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다!
+정리하면, 양자컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 "한 번"만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다!
+
+<div class="breaker"></div>
 
 
 ## 4. Entanglement
 
-Entanglement는 지금까지의 흐름에서는 동떨어진 이야기다. 
-하지만 양자컴퓨터에서 항상 소개되는 내용이기 때문에 추가하였다. 
+Entanglement는 지금까지의 흐름에서는 동떨어진 이야기지만 양자컴퓨터에서 항상 소개되는 내용이기 때문에 추가하였다. 
 
-위에서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 Entanglement도 수학적인 성질로 표현할 수 있다. 
-
+앞서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 entanglement도 수학적인 성질로 표현할 수 있다. 
 $$
 \begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
@@ -662,9 +662,7 @@ $$
   \frac{1}{\sqrt{2}}
 \end{pmatrix}
 $$
-는 entangle된 qbit이다.
-얼핏 보면 product state 같다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
-
+는 entangle된 qbit인데, 그 모양새가 product state 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
 위에서 설명했듯이 product state는 개별적인 qbit으로 factorize된다. 하지만 entanlged qbit은 개별적인 qbit으로 factorize 되지 않는다. 
 (If the product state of two qbits cannot be factored, they are said to be **entanlged**.)
 
@@ -682,7 +680,7 @@ $$
   d
 \end{pmatrix}
 $$
-를 만족하는 $$a$$, $$b$$, $$c$$, $$d$$는 존재하지 않는다. 즉 개별적인 qbit으로 factorize되지 못하므로 entanlge되어 있는 qbit이다.
+를 만족하는 $$a$$, $$b$$, $$c$$, $$d$$는 존재하지 않는다. 즉 개별적인 qbit으로 factorize되지 못하므로 entanlge되어 있는 qbit인 것이다.
 
 Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.
 
@@ -727,9 +725,22 @@ CH_1
 \end{pmatrix}
 $$
 
+만약 이후에 이런 게이트의 조합을 본다면 곧바로 'entanlge 시키려고 했군!' 이라고 생각하면 된다 :)
+
+
+<div class="breaker"></div>
+
+
 ## 5. Conclusion
 
+개인적으로 이 영상을 본 이후, 게비스콘을 먹은 것 같이 속이 뚫리는 기분이 들었다. 아직 matrix로 표현되는 qbit이 물리적으로 어떤 모습인지, gate들이 물리적으로 어떻게 qbit에 적용되는지는 모르지만
+(이건 실제 양자컴퓨터를 눈으로 보면 이해가 되지 않을까) 이 정도라도 양자컴퓨터와 고전컴퓨터의 연산과정에서의 차이를 구체적으로 알 수 있었기 때문에 만족할 수 있었다.
 
+양자컴퓨터의 연산 과정을 이해하고나니 양자 우월성은 그냥 달성되는 것은 아니었으며, 잘 설계된 gate가 뒷받침되었을 때 가능한 것임을 깨닫게 되기도 했다.
+
+이 정도면 양자 세계에 ``Hello World!'`를 했다고 볼 수 있지 않을까? 
+
+<div class="breaker"></div>
 
 ## References
 
