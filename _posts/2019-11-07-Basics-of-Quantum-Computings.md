@@ -49,7 +49,7 @@ python을 처음 접한 사람이 `print('Hello World!')`를 성공했다고 해
 &nbsp;&nbsp;&nbsp;&nbsp;[2.3 Tensor product](#23-tensor-product)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[2.4 1-bit operations](#24-1-bit-operations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[2.5 CNOT (one of the 2-bit operations)](#25-cnot-one-of-the-2-bit-operations)<br>
-[3. The Deutsch-Jozsa problem](#3-the-deutsch-jozsa-problem)<br>
+[3. The Deutsch-Jozsa problem](#3-the-deutsch-jozsa-problem-)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[3.1 Classical computer](#31-classical-computer)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[3.2 Quantum computer](#32-quantum-computer)<br>
 [4. Entanglement](#4-entanglement)<br>
