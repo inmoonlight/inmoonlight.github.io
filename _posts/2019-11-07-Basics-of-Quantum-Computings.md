@@ -584,8 +584,8 @@ C \begin{pmatrix}
 \end{pmatrix} = \frac{1}{2} \begin{pmatrix}
   1 \\
   -1 \\
-  -1 \\
-  1
+  1 \\
+  -1
 \end{pmatrix} = \begin{pmatrix}
     \frac{1}{\sqrt{2}} \\
     \frac{1}{\sqrt{2}}
