@@ -59,7 +59,7 @@ task는 크게 3가지 - Single-Sentence Tasks (CoLA, SST-2), Similarity and Par
 
 <div class="breaker"></div>
 
-### [Corpus of Linguistic Acceptability (CoLA)](#overview)[^1]
+### [Corpus of Linguistic Acceptability (CoLA)](#1-glue-overall)[^1]
 
 공개된 언어학 문헌(publised liguistics literature)에서 추출된 약 21k 문장들로 구성되어 있다.
 이 문장들은 문법적으로 옳은지, 그른지가 표기되어 있다.
@@ -113,7 +113,7 @@ GLUE는 원래 구분된 두 testset을 하나로 합쳐 단일 testset을 구�
 
 
 
-### [Stanford Sentiment Treebank (SST-2)](#overview)
+### [Stanford Sentiment Treebank (SST-2)](#1-glue-overall)
 
 `rottentomatoes.com`의 영화 리뷰 corpus로 구성되었으며 AMT(Amazon Mechanical Turk)를 통해 리뷰의 sentiment가 labeling 되었다.
 1은 긍정, 0은 부정을 나타낸다.
@@ -131,7 +131,7 @@ on the worst revenge-of-the-nerds clichés the filmmakers could dredge up 0
 
 
 
-### [Microsoft Research Paraphrase Corpus (MRPC)](#overview)
+### [Microsoft Research Paraphrase Corpus (MRPC)](#1-glue-overall)
 
 MRPC는 온라인 뉴스에서 추출된 문장들로 구성되었으며 2개의 문장이 의미적으로 같은지 다른지를 평가하는 task이다.
 
@@ -154,7 +154,7 @@ testset이 label이 불균등(68% positive,  32% negative)하므로 accuracy와 
 
 
 
-### [Quora Question Pairs (QQP)](#overview)[^2]
+### [Quora Question Pairs (QQP)](#1-glue-overall)[^2]
 
 `https://www.quora.com/`의 질문들로 구성되었으며, 두 개의 질문이 의미상 같은지 다른지가 표기되어있다.
 
@@ -179,7 +179,7 @@ MRPC와 마찬가지로 불균등(37% positive, 63% negative)하므로 accuracy�
 
 
 
-### [Semantic Textual Similarity Benchmark (STS-B)](#overview)
+### [Semantic Textual Similarity Benchmark (STS-B)](#1-glue-overall)
 
 문장의 유사도는 번역, 요약, 문장 생성, QA, 대화 모델링 등등 다양한 NLP 분야에서 중요하게 다뤄진다. 
 STS shared task는 모델이 문장들의 유사도를 얼마나 잘 파악하는지를 평가하기 위해 등장하였고, 2012년부터 2017년까지 매년 개최되었으며 그 때마다 다른 dataset이 사용되었다.
@@ -211,7 +211,7 @@ Regression task이므로 human label과의 Pearson correlation으로 평가된�
 
 
 
-### [Multi-Genre NLI corpus (MNLI)](#overview)[^3]
+### [Multi-Genre NLI corpus (MNLI)](#1-glue-overall)[^3]
 
 MNLI는 SNLI(Stanford NLI) dataset의 단점을 개선시킨 데이터셋이다.
 SNLI는 image caption으로만 구성되었기 때문에 장면을 표현하는 짧고 간단한 문장이 많고 NLU(Natural Language Understanding) task와 무관한 단어들이 많이 등장한다.
@@ -257,7 +257,7 @@ mismatched에는 9/11, FACE-TO-FACE, LETTERS, OUP, VERBATIM처럼 training set�
 
 
 
-### [The Recognizing Textual Entailment (RTE)](#overview)
+### [The Recognizing Textual Entailment (RTE)](#1-glue-overall)
 
 RTE도 STS처럼 RTE1부터 RTE7까지의 데이터셋에서 만들어졌다. 
 구체적으로는 RTE1, RTE2, RTE3, RTE5로 구성되었고, 나머지 데이터셋 중 RTE4는 공개되지 않아서, RTE6와 7은 NLI task로는 부적합해서 제외했다고 한다. 
@@ -281,7 +281,7 @@ not_entailment
 
 
 
-### [The Stanford Question Answering NLI (QNLI)](#overview)
+### [The Stanford Question Answering NLI (QNLI)](#1-glue-overall)
 
 Stanford에서 구축한 Machine Comprehension 목적의 QA Dataset, a.k.a SQuAD,을 NLI task에 맞게 변형한 데이터셋이다.
 SQuAD는 wikipedia에서 paragraph를 가져와서 annotator들이 적절한 질문을 던지는데 이에 대한 답을 paragraph 내에 있는 문장, 구, 단어로 답할 수 있게 구성되었다.
@@ -304,7 +304,7 @@ not_entailment
 <div class="breaker"></div>
 
 
-### [The Winograd Schema Challenge NLI (WNLI)](#overview)
+### [The Winograd Schema Challenge NLI (WNLI)](#1-glue-overall)
 
 이 데이터셋도 entailment를 평가하는 목적으로 만들어졌다.
 original sentence와 이 문장에서 대명사를 일반명사로 치환한 문장 사이의 entailment가 있는지 없는지가 label로 달려있다.
