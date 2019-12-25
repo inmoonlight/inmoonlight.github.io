@@ -5,13 +5,472 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Nov 2019 11:51:55 +0900</pubDate>
-    <lastBuildDate>Fri, 08 Nov 2019 11:51:55 +0900</lastBuildDate>
+    <pubDate>Wed, 25 Dec 2019 14:49:00 +0900</pubDate>
+    <lastBuildDate>Wed, 25 Dec 2019 14:49:00 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
+        <title>General Language Understanding Evaluation (GLUE) benchmark</title>
+        <description>&lt;p&gt;General Language Understanding Evaluation benchmark, 줄여서 GLUE benchmark 라고 불리는 이 데이터셋은 NLP 분야에서 Language Model 검증을 위해 사용된다.
+ICLR 2019와 BlackboxNLP workshop 2018에 모두 publish 되었으며, &lt;a href=&quot;https://openreview.net/pdf?id=rJ4km2R5t7&quot;&gt;전자&lt;/a&gt;는 설명이 상세하고 &lt;a href=&quot;https://www.aclweb.org/anthology/W18-5446.pdf&quot;&gt;후자&lt;/a&gt;는 요약되어 있다. 
+이 글은 가장 최근(2019.2.22)에 업데이트된 &lt;a href=&quot;https://arxiv.org/pdf/1804.07461.pdf&quot;&gt;arXiv에 있는 논문&lt;/a&gt;을 기반으로 작성되었다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;#1-glue-overall&quot;&gt;1. GLUE overall&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#corpus-of-linguistic-acceptability-cola&quot;&gt;Corpus of Linguistic Acceptability (CoLA)&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#2-download&quot;&gt;2. Download&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#3-leaderboard&quot;&gt;3. Leaderboard&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-glue-overall&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1. GLUE overall&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;GLUE는 총 9개의 task로 구성되었으며 각 task는 언어의 특정한 성질을 평가하기 위한 목적으로 만들어졌고, 최종 점수는 각 task 별 점수의 평균 값을 가져간다.
+task는 크게 3가지 - Single-Sentence Tasks (CoLA, SST-2), Similarity and Paraphrase Tasks (MRPC, QQP, STS-B), Inference Tasks (MNLI, RTE, QNLI, WNLI) - 로 구분할 수 있다.
+세부 task에 대해 살펴보기 전에 전반적인 task의 특징을 아래의 표에 정리했다.
+원 논문에 정리되어 있는 것을 바탕으로 재구성하였고 직접 다운로드 받은 데이터를 기준으로 측정했기 때문에 corpus의 size가 다를 수 있다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;data&lt;/th&gt;
+      &lt;th&gt;|train|&lt;/th&gt;
+      &lt;th&gt;|dev|&lt;/th&gt;
+      &lt;th&gt;|test|&lt;/th&gt;
+      &lt;th&gt;domain&lt;/th&gt;
+      &lt;th&gt;input&lt;/th&gt;
+      &lt;th&gt;task&lt;/th&gt;
+      &lt;th&gt;metrics&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#corpus-of-linguistic-acceptability-cola&quot;&gt;Corpus of Linguistic Acceptability (CoLA)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;8.5k&lt;/td&gt;
+      &lt;td&gt;1.0k&lt;/td&gt;
+      &lt;td&gt;1.2k&lt;/td&gt;
+      &lt;td&gt;linguistics literature&lt;/td&gt;
+      &lt;td&gt;single-sentence&lt;/td&gt;
+      &lt;td&gt;- grammatical acceptability &lt;br /&gt; - binary classification &lt;br /&gt; (grammatical / ungrammatical)&lt;/td&gt;
+      &lt;td&gt;Matthews correlation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#stanford-sentiment-treebank-sst-2&quot;&gt;Stanford Sentiment Treebank (SST-2)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;67k&lt;/td&gt;
+      &lt;td&gt;872&lt;/td&gt;
+      &lt;td&gt;1.8k&lt;/td&gt;
+      &lt;td&gt;movie reviews&lt;/td&gt;
+      &lt;td&gt;single-sentence&lt;/td&gt;
+      &lt;td&gt;- sentiment &lt;br /&gt; - binary classification &lt;br /&gt; (positive / negative)&lt;/td&gt;
+      &lt;td&gt;acc.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#microsoft-research-paraphrase-corpus-mrpc&quot;&gt;Microsoft Research Paraphrase Corpus (MRPC)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;3.7k&lt;/td&gt;
+      &lt;td&gt;408&lt;/td&gt;
+      &lt;td&gt;1.7k&lt;/td&gt;
+      &lt;td&gt;news&lt;/td&gt;
+      &lt;td&gt;two sentences&lt;/td&gt;
+      &lt;td&gt;paraphrase&lt;/td&gt;
+      &lt;td&gt;acc./F1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#quora-question-pairs-qqp&quot;&gt;Quora Question Pairs (QQP)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;364k&lt;/td&gt;
+      &lt;td&gt;40k&lt;/td&gt;
+      &lt;td&gt;391k&lt;/td&gt;
+      &lt;td&gt;social QA questions&lt;/td&gt;
+      &lt;td&gt;two sentences&lt;/td&gt;
+      &lt;td&gt;paraphrase&lt;/td&gt;
+      &lt;td&gt;acc./F1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#semantic-textual-similarity-benchmark-sts-b&quot;&gt;Semantic Textual Similarity Benchmark (STS-B)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;5.8k&lt;/td&gt;
+      &lt;td&gt;1.5k&lt;/td&gt;
+      &lt;td&gt;1.4k&lt;/td&gt;
+      &lt;td&gt;news &lt;br /&gt; caption &lt;br /&gt; forum&lt;/td&gt;
+      &lt;td&gt;two sentences&lt;/td&gt;
+      &lt;td&gt;- sentence similarity &lt;br /&gt; - regression&lt;/td&gt;
+      &lt;td&gt;Pearson / Spearman corr.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#multi-genre-nli-corpus-mnli&quot;&gt;Multi-Genre NLI corpus (MNLI)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;393k&lt;/td&gt;
+      &lt;td&gt;20k&lt;/td&gt;
+      &lt;td&gt;20k&lt;/td&gt;
+      &lt;td&gt;fiction &lt;br /&gt; face-to-face &lt;br /&gt; government &lt;br /&gt; letters &lt;br /&gt; 9/11 &lt;br /&gt; oxford university press (oup) &lt;br /&gt; slate&lt;br /&gt; telephone &lt;br /&gt; travel &lt;br /&gt; verbatim&lt;/td&gt;
+      &lt;td&gt;two sentences&lt;/td&gt;
+      &lt;td&gt;ternary classification &lt;br /&gt; (entailment / contradiction / neutral)&lt;/td&gt;
+      &lt;td&gt;matched acc. / mismatched acc.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#the-recognizing-textual-entailment-rte&quot;&gt;The Recognizing Textual Entailment (RTE)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;2.5k&lt;/td&gt;
+      &lt;td&gt;276&lt;/td&gt;
+      &lt;td&gt;3.0k&lt;/td&gt;
+      &lt;td&gt;news &lt;br /&gt; wikipedia&lt;/td&gt;
+      &lt;td&gt;two sentences&lt;/td&gt;
+      &lt;td&gt;binary classification &lt;br /&gt; (entailment / not_entailment)&lt;/td&gt;
+      &lt;td&gt;acc.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#the-stanford-question-answering-nli-qnli&quot;&gt;The Stanford Question Answering NLI (QNLI)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;105k&lt;/td&gt;
+      &lt;td&gt;5.5k&lt;/td&gt;
+      &lt;td&gt;5.5k&lt;/td&gt;
+      &lt;td&gt;wikipedia&lt;/td&gt;
+      &lt;td&gt;two sentences (question, sentence)&lt;/td&gt;
+      &lt;td&gt;binary classification &lt;br /&gt; (entailment / not_entailment)&lt;/td&gt;
+      &lt;td&gt;acc.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;#the-winograd-schema-challenge-nli-wnli&quot;&gt;The Winograd Schema Challenge NLI (WNLI)&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;634&lt;/td&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;146&lt;/td&gt;
+      &lt;td&gt;fiction books&lt;/td&gt;
+      &lt;td&gt;two sentences&lt;/td&gt;
+      &lt;td&gt;binary classification &lt;br /&gt; (entailment / not_entailment)&lt;/td&gt;
+      &lt;td&gt;acc.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;corpus-of-linguistic-acceptability-cola&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;Corpus of Linguistic Acceptability (CoLA)&lt;/a&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;공개된 언어학 문헌(publised liguistics literature)에서 추출된 약 21k 문장들로 구성되어 있다.
+이 문장들은 문법적으로 옳은지, 그른지가 표기되어 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1 They drank the pub dry.
+0 * They drank the pub.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;문법적으로 옳고 그름을 판단하는 기준은 다양하다. 
+아래의 표는 corpus를 제작하면서 기준에서 포함된 것들과 제외된 것들을 나타낸다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/cola_dataset_description.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Included&lt;/strong&gt;
+&lt;br /&gt; 
+&lt;strong&gt;(a) Morphological Violation&lt;/strong&gt;: “should leave” 가 올바른 표현이지만 “should leaving”으로 작성되었다. 동사의 형태(verbal inflection)가 맞지 않는 경우에 해당한다.
+&lt;br /&gt;
+&lt;strong&gt;(b) Syntactic Violation&lt;/strong&gt;: “What did Bill buy?” 혹은 “Bill bought potatoes and _” 이 되어야 한다. 통사 구조가 틀린 경우에 해당한다.
+&lt;br /&gt;
+&lt;strong&gt;(c) Semantic Violation&lt;/strong&gt;: 의미적으로 말이 되지 않는 문장에 해당한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Excluded&lt;/strong&gt;
+&lt;br /&gt;
+&lt;strong&gt;(d) Pragmatic Anomalies&lt;/strong&gt;: grammar와 상관없는 외부 지식이 필요하므로 제외되었다.
+&lt;br /&gt;
+&lt;strong&gt;(e) Unavailable Meanings&lt;/strong&gt;: 문장만보고는 판단이 애매하므로 제외되었다.
+&lt;br /&gt;
+&lt;strong&gt;(f) Prescriptive Rules&lt;/strong&gt;: 사람도 누군가의 가르침없이는 터득하기 어려운 rule이기 때문에 제외되었다.
+&lt;br /&gt;
+&lt;strong&gt;(g) Nonce Words&lt;/strong&gt;: “arrivable”과 같이 typical word-level NLP 모델의 vocab에는 등장하지 않는 단어가 포함된 경우이다. NLP 모델의 scope이 아니라고 판단되어 제외되었다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;testset-and-metrics&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;testset은 In-Domain과 Out-of-Domain으로 구성되어 있다. 
+In-Domain은 training set이 추출된 source와 같은 source에서, Out-of-Domain은 training set이 추출되지 &lt;em&gt;않은&lt;/em&gt; source에서 구성되었다. 
+GLUE는 원래 구분된 두 testset을 하나로 합쳐 단일 testset을 구축하였고 총 1,160 문장이다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/cola_by_source.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 task의 평가는 unbalanced binary classification task에서 사용되는 Matthews correlation으로 한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;stanford-sentiment-treebank-sst-2&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;Stanford Sentiment Treebank (SST-2)&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rottentomatoes.com&lt;/code&gt;의 영화 리뷰 corpus로 구성되었으며 AMT(Amazon Mechanical Turk)를 통해 리뷰의 sentiment가 labeling 되었다.
+1은 긍정, 0은 부정을 나타낸다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;that loves its characters and communicates something rather beautiful about human nature 1
+on the worst revenge-of-the-nerds clichés the filmmakers could dredge up 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-1&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;일반적인 binary classification 문제로 accuracy를 통해 평가한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;microsoft-research-paraphrase-corpus-mrpc&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;Microsoft Research Paraphrase Corpus (MRPC)&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;MRPC는 온라인 뉴스에서 추출된 문장들로 구성되었으며 2개의 문장이 의미적으로 같은지 다른지를 평가하는 task이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;They had published an advertisement on the Internet on June 10 , offering the cargo for sale , he added . 
+On June 10 , the ship 's owners had published an advertisement on the Internet , offering the explosives for sale .
+1
+
+Yucaipa owned Dominick 's before selling the chain to Safeway in 1998 for $ 2.5 billion . 
+Yucaipa bought Dominick 's in 1995 for $ 693 million and sold it to Safeway for $ 1.8 billion in 1998 .
+0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-2&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;testset이 label이 불균등(68% positive,  32% negative)하므로 accuracy와 F1 score를 metric으로 한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;quora-question-pairs-qqp&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;Quora Question Pairs (QQP)&lt;/a&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.quora.com/&lt;/code&gt;의 질문들로 구성되었으며, 두 개의 질문이 의미상 같은지 다른지가 표기되어있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;How do you start a bakery?
+How can one start bakery business?
+1
+
+What are natural numbers?
+What is a least natural number?
+0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-3&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;MRPC와 마찬가지로 불균등(37% positive, 63% negative)하므로 accuracy와 F1 score가 metric으로 활용된다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;semantic-textual-similarity-benchmark-sts-b&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;Semantic Textual Similarity Benchmark (STS-B)&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;문장의 유사도는 번역, 요약, 문장 생성, QA, 대화 모델링 등등 다양한 NLP 분야에서 중요하게 다뤄진다. 
+STS shared task는 모델이 문장들의 유사도를 얼마나 잘 파악하는지를 평가하기 위해 등장하였고, 2012년부터 2017년까지 매년 개최되었으며 그 때마다 다른 dataset이 사용되었다.
+이 때문에 각 연도의 데이터셋을 적절히 조합한 common evaluation set으로 STS-B가 소개되었다.&lt;/p&gt;
+
+&lt;p&gt;이 전의 task와는 다르게 STS는 regression task이다. 
+human annotator들은 두 문장의 의미적인 유사도를 1~5점으로 평가하였고 모델은 score를 예측해야한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A plane is taking off.  An air plane is taking off.     5.000
+Three men are playing chess.    Two men are playing chess.      2.600
+A man is smoking.       A man is skating.       0.500
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-4&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;Regression task이므로 human label과의 Pearson correlation으로 평가된다.&lt;/p&gt;
+
+&lt;!-- collection of sentence pairs drawn from news headlines video and image captions and NLI data. --&gt;
+
+&lt;!-- 
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/stsb_dataset_description.png&quot; width=&quot;50%&quot;&gt;
+&lt;/div&gt;
+&lt;br&gt; --&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;multi-genre-nli-corpus-mnli&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;Multi-Genre NLI corpus (MNLI)&lt;/a&gt;&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;MNLI는 SNLI(Stanford NLI) dataset의 단점을 개선시킨 데이터셋이다.
+SNLI는 image caption으로만 구성되었기 때문에 장면을 표현하는 짧고 간단한 문장이 많고 NLU(Natural Language Understanding) task와 무관한 단어들이 많이 등장한다.
+그래서 NLU task의 benchmark로 사용되기는 어렵기 때문에 다양한 도메인(논문에서는 genre라고 표현)의 조합인 MNLI benchmark dataset이 등장하였다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/mnli_dataset_description.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 표에서 나와있듯이 MNLI는 총 10개의 Genre로 구성되었다.
+Fiction을 제외한 9개의 domain은 Open American National Corpus에서 추출되었고 Fiction은 fiction literature에서 가져왔으며 mystery, humor, sci-fi 등 그 안에서도 다양한 장르로 구성되었다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;OANC data constitutes the following nine genres: transcriptions from the Charlotte Narrative and Conversation Collection of two-sided, in-person conversations that took place in the early 2000s (FACE-TO-FACE); reports, speeches, letters, and press releases from public domain government websites (GOVERNMENT); letters from the Indiana Center for Intercultural Communication of Philanthropic Fundraising Discourse written in the late 1990s–early 2000s (LETTERS); the public report from the National Commission on Terrorist Attacks Upon the United States released on July 22, 2004 2 (9/11); five non-fiction works on the textile industry and child development published by the Oxford University Press (OUP); popular culture articles from the archives of Slate Magazine (SLATE) written between 1996–2000; transcriptions from University of Pennsylvania’s Linguistic Data Consortium Switchboard corpus of two-sided, telephone conversations that took place in 1990 or 1991 (TELEPHONE); travel guides published by Berlitz Publishing in the early 2000s (TRAVEL); and short posts about linguistics for non-specialists from the Verbatim archives written between 1990 and 1996 (VERBATIM).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For our tenth genre, FICTION, we compile several freely available works of contemporary fiction written between 1912 and 2010, spanning various genres, including mystery (The Mysterious Affair at Styles, 3 Christie, 1921; The Secret Adversary, 4 Christie, 1922; Murder in the Gun Room, 5 Piper, 1953), humor (Password Incorrect, 6 Name, 2008), western (Rebel Spurs, 7 Norton, 1962), science fiction (Seven Swords, 8 Shea, 2008; Living History,9  Essex, 2016; The Sky Is Falling, 10 Del Rey, 1973; Youth, 11 Asimov, May 1952), and adventure (Captain Blood, 12 Sabatini, 1922).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;선별된 문장을 premise로 두고 human annotator들이 premise와 같은 결론을 도출하는 문장(entailment), 반대되는 문장(contradiction), 두 경우 모두 아닌 문장(neutral)을 생성하고 label을 단다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;How do you know? All this is their information again.   
+This information belongs to them.      
+entailment
+
+Vrenna and I both fought him and he nearly took us.     
+Neither Vrenna nor myself have ever fought him.      
+contradiction
+
+There was nothing like that emotion now.        
+There are few emotions that come close.      
+neutral
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-5&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;testset은 CoLA처럼 matched(in-domain)와 mismatched(cross-domain)로 구성되었다. 
+mismatched에는 9/11, FACE-TO-FACE, LETTERS, OUP, VERBATIM처럼 training set에는 없는 domain이 포함되어 있다. (위의 표 참고)
+각각의 경우를 나누어서 accuracy로 평가한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;the-recognizing-textual-entailment-rte&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;The Recognizing Textual Entailment (RTE)&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;RTE도 STS처럼 RTE1부터 RTE7까지의 데이터셋에서 만들어졌다. 
+구체적으로는 RTE1, RTE2, RTE3, RTE5로 구성되었고, 나머지 데이터셋 중 RTE4는 공개되지 않아서, RTE6와 7은 NLI task로는 부적합해서 제외했다고 한다. 
+취합하는 과정에서 일부는 세 개의 class, 일부는 두 개의 class로 labeling이 되어있어 이를 일괄적으로 두 개의 class(entailment, not_entailment)로 구분지었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Swansea striker Lee Trundle has negotiated a lucrative image-rights deal with the League One club.      
+Lee Trundle is in business with the League One club.    
+entailment
+
+No Weapons of Mass Destruction Found in Iraq Yet.       
+Weapons of Mass Destruction Found in Iraq.      
+not_entailment
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-6&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;일반적인 binary classification 문제이므로 accuracy로 측정한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;the-stanford-question-answering-nli-qnli&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;The Stanford Question Answering NLI (QNLI)&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Stanford에서 구축한 Machine Comprehension 목적의 QA Dataset, a.k.a SQuAD,을 NLI task에 맞게 변형한 데이터셋이다.
+SQuAD는 wikipedia에서 paragraph를 가져와서 annotator들이 적절한 질문을 던지는데 이에 대한 답을 paragraph 내에 있는 문장, 구, 단어로 답할 수 있게 구성되었다.
+QNLI는 질문과 paragraph 내의 한 문장을 비교하여 이 둘이 entailment되었는지 아닌지를 판단하도록 바뀌었다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;What two things does Popper argue Tarski's theory involves in an evaluation of truth?   
+He bases this interpretation on the fact that examples such as the one described above refer to two things: assertions and the facts to which they refer.   
+entailment
+
+Who was elected as the Watch Tower Society's president in January of 1917?      
+His election was disputed, and members of the Board of Directors accused him of acting in an autocratic and secretive manner.       
+not_entailment
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-7&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;일반적인 binary classification 문제이므로 accuracy로 측정한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;the-winograd-schema-challenge-nli-wnli&quot;&gt;&lt;a href=&quot;#overview&quot;&gt;The Winograd Schema Challenge NLI (WNLI)&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;이 데이터셋도 entailment를 평가하는 목적으로 만들어졌다.
+original sentence와 이 문장에서 대명사를 일반명사로 치환한 문장 사이의 entailment가 있는지 없는지가 label로 달려있다.
+아래 예시의 첫 번째 문장에서 “it” had a hole의 it이 “The carrot”으로 바뀐 문장이 두 번째 문장이고 이 두 문장의 관계가 entailment 되어 있으므로 label 1이 달린다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I stuck a pin through a carrot. When I pulled the pin out, it had a hole.       
+The carrot had a hole.  
+1
+
+John was jogging through the park when he saw a man juggling watermelons. He was very impressive.       
+John was very impressive.       
+0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;testset-and-metrics-8&quot;&gt;testset and metrics&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gluebenchmark.com/faq&quot;&gt;GLUE FAQ&lt;/a&gt;의 12번 문항에는 WNLI에서 이상한 결과를 얻을 수 있는 이유가 적혀있다.
+같은 문장이 포함된 다른 example 끼리는 반대의 label이 달려있는데 이 때문에 training set에 overfit된 모델은 dev set에서 성능이 매우 나쁠 수 있다는 것이다.
+실제로 &lt;a href=&quot;https://arxiv.org/pdf/1810.04805.pdf&quot;&gt;BERT&lt;/a&gt;는 이 이유로 WNLI의 성능은 report 하지 않았다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-download&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;2. Download&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/nyu-mll/jiant/blob/master/scripts/download_glue_data.py&quot;&gt;링크&lt;/a&gt;에 있는 python script를 다운로드한 이후 실행시키면 된다.
+지정한 dir에 전체 task를 받을 수도 있고 일부 task만 받을 수도 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python download_glue_data.py &lt;span class=&quot;nt&quot;&gt;--data_dir&lt;/span&gt; data &lt;span class=&quot;nt&quot;&gt;--tasks&lt;/span&gt; all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-leaderboard&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3. Leaderboard&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;여태까지 제출한 모델의 성능은 &lt;a href=&quot;https://gluebenchmark.com/leaderboard&quot;&gt;GLUE leaderboard&lt;/a&gt;에 정리되어있다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/glue_leaderboard.png&quot; width=&quot;95%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;2019.12.22 기준 top 3&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Leaderboard에는 순기능과 역기능이 모두 공존하지만, 아직까지는 순기능이 더 많다고 생각한다.
+상대적으로 공정하게 비교할 수 있는 데이터셋이고 덕분에 다양한 Language Model이 주목받을 수 있었기 때문이다.
+너무 낡아버리기 전에 새로운 데이터셋이 나와야한다고도 생각했는데, Neurips 2019에 “Stickier Benchmark”라는 부제와 함께 &lt;a href=&quot;http://papers.nips.cc/paper/8589-superglue-a-stickier-benchmark-for-general-purpose-language-understanding-systems&quot;&gt;SuperGLUE&lt;/a&gt;가 등장했다!!&lt;/p&gt;
+
+&lt;p&gt;이로 인해 열릴 새로운 LM들의 등장을 기대해본다 :)&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1805.12471.pdf&quot;&gt;https://arxiv.org/pdf/1805.12471.pdf&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs&quot;&gt;https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.aclweb.org/anthology/N18-1101.pdf&quot;&gt;https://www.aclweb.org/anthology/N18-1101.pdf&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 22 Dec 2019 22:22:00 +0900</pubDate>
+        <link>http://localhost:4000/2019/12/22/GLUE.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/22/GLUE.html</guid>
+        
+        
+        <category>NLP</category>
+        
+        <category>Dataset</category>
+        
+        <category>자연어처리</category>
+        
+        <category>데이터셋</category>
+        
+      </item>
+    
+      <item>
         <title>수학으로 이해하는 양자컴퓨터의 기초</title>
-        <description>&lt;p&gt;최근에 있었던 구글의 양자 우월성 (Quantum Superemacy) 달성은 전세계적으로 큰 화제였다.
+        <description>&lt;p&gt;최근에 있었던 구글의 양자 우월성 (Quantum Supremacy) 달성은 전세계적으로 큰 화제였다.
 물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다.&lt;/p&gt;
 
 &lt;p&gt;아마 나와 같이 관련 기사나 여러 블로그 글, 유튜브 등을 찾아본 사람들이라면 어렵지 않게 아래의 정보는 얻었을 것이다.&lt;/p&gt;
@@ -54,7 +513,7 @@ python을 처음 접한 사람이 &lt;code class=&quot;highlighter-rouge&quot;&g
     &lt;a href=&quot;#23-tensor-product&quot;&gt;2.3 Tensor product&lt;/a&gt;&lt;br /&gt;
     &lt;a href=&quot;#24-1-bit-operations&quot;&gt;2.4 1-bit operations&lt;/a&gt;&lt;br /&gt;
     &lt;a href=&quot;#25-cnot-one-of-the-2-bit-operations&quot;&gt;2.5 CNOT (one of the 2-bit operations)&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;#3-the-deutsch-jozsa-problem&quot;&gt;3. The Deutsch-Jozsa problem&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#3-the-deutsch-jozsa-problem-&quot;&gt;3. The Deutsch-Jozsa problem&lt;/a&gt;&lt;br /&gt;
     &lt;a href=&quot;#31-classical-computer&quot;&gt;3.1 Classical computer&lt;/a&gt;&lt;br /&gt;
     &lt;a href=&quot;#32-quantum-computer&quot;&gt;3.2 Quantum computer&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;#4-entanglement&quot;&gt;4. Entanglement&lt;/a&gt;&lt;br /&gt;
@@ -273,7 +732,7 @@ C = \begin{pmatrix}
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;#24-1-bit-operations&quot;&gt;2.4&lt;/a&gt;와 &lt;a href=&quot;#25-cnot-one-of-the-2-bit-operations&quot;&gt;2.5&lt;/a&gt;에서 opertaion들을 matrix화 한 것에 주목하자. 
+&lt;p&gt;&lt;a href=&quot;#24-1-bit-operations&quot;&gt;2.4&lt;/a&gt;와 &lt;a href=&quot;#25-cnot-one-of-the-2-bit-operations&quot;&gt;2.5&lt;/a&gt;에서 operation들을 matrix화 한 것에 주목하자. 
 확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.
 아래의 예시에서 우리가 확신할 수 있는 정보는 qbit이 0과 1로 관측될 확률이 반대가 되었다는 것이다.&lt;/p&gt;
 
@@ -403,7 +862,7 @@ X =
   \frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
 \end{pmatrix} %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다. 붉은 색이 X gate, 노란색이 H gate 연산의 방향이다.&lt;/p&gt;
+&lt;p&gt;H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다. 붉은색이 X gate, 노란색이 H gate 연산의 방향이다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align:center&quot;&gt;
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/gates-visualization.png&quot; width=&quot;80%&quot; /&gt;
@@ -439,8 +898,7 @@ X =
 아쉽게도 강연자는 속시원하게 답변을 해주지 않아서 그런가보다 하고 넘어갔는데 다시 보니 이해가 된 부분이 있어 글로 설명해보려고 한다.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 실제 1-bit 연산의 input과 output을 나타낸다. 
-그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output&lt;/code&gt;은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt; 각각의 input들이다. 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 BB 이후에 있기 때문에 BB 이전에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 1-bit 연산의 input과 output이 되도록 넣어주는, 양자컴퓨터 연산 방식 때문에 필요한 input들이다.&lt;/p&gt;
+그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output&lt;/code&gt;은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 BB 이후에 있기 때문에 BB 이전에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Input'&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Output'&lt;/code&gt;이 1-bit 연산의 input과 output이 되도록 넣어주는, 양자컴퓨터 연산 방식 때문에 필요한 input들이다.&lt;/p&gt;
 
 &lt;p&gt;이 약속에 따라서 양자컴퓨터가 1-bit 연산을 어떻게 수행하는지 아래의 예시를 통해 좀 더 이해해보자.&lt;/p&gt;
 
@@ -469,9 +927,8 @@ X =
 &lt;img class=&quot;image&quot; src=&quot;/assets/images/quantum_one_query.png&quot; width=&quot;60%&quot; /&gt;
 &lt;figcaption class=&quot;caption&quot;&gt;양자컴퓨터가 한 번에 문제를 푸는 법&lt;/figcaption&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 연산대로라면 BB가 Constant(Contant-0, Constant-1)이었을 경우, 측정시에 &lt;script type=&quot;math/tex&quot;&gt;\mid11\rangle&lt;/script&gt;로 나타나고 Variable(Identity, Negation)이었을 경우에는 &lt;script type=&quot;math/tex&quot;&gt;\mid01\rangle&lt;/script&gt;로 나타난다.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+이 연산대로라면 BB가 Constant(Contant-0, Constant-1)이었을 경우, 측정 결과가 &lt;script type=&quot;math/tex&quot;&gt;\mid11\rangle&lt;/script&gt;이고, Variable(Identity, Negation)이었을 경우에는 &lt;script type=&quot;math/tex&quot;&gt;\mid01\rangle&lt;/script&gt;이 된다.&lt;/p&gt;
 
 &lt;p&gt;BB의 경우의 수를 따져가며 이해해보자.&lt;/p&gt;
 
@@ -483,7 +940,7 @@ X =
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;BB에 들어가기 전 input과 output qbit (&lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;) 모두 X와 H gate를 거쳐서
+&lt;p&gt;BB에 들어가기 전 input (&lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;) 과 output qbit (&lt;script type=&quot;math/tex&quot;&gt;\mid 0 \rangle&lt;/script&gt;) 모두 X와 H gate를 거쳐서
 &lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
   \frac{-1}{\sqrt{2}}
@@ -568,8 +1025,8 @@ C \begin{pmatrix}
 \end{pmatrix} = \frac{1}{2} \begin{pmatrix}
   1 \\
   -1 \\
-  -1 \\
-  1
+  1 \\
+  -1
 \end{pmatrix} = \begin{pmatrix}
     \frac{1}{\sqrt{2}} \\
     \frac{1}{\sqrt{2}}
@@ -624,7 +1081,7 @@ Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산�
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;정리하면, 양자컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 “한 번”만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다!&lt;/p&gt;
+&lt;p&gt;정리하면, 양자컴퓨터에서는 특정 설계 상황에서 고정된 BB input에 대한 BB output을 “한 번”만 관측하면 BB가 Constant인지 Variable인지 확인할 수 있다는 것이다!&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -632,18 +1089,27 @@ Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산�
 
 &lt;p&gt;Entanglement는 지금까지의 흐름에서는 동떨어진 이야기지만 양자컴퓨터에서 항상 소개되는 내용이기 때문에 추가하였다.&lt;/p&gt;
 
-&lt;p&gt;앞서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 entanglement도 수학적인 성질로 표현할 수 있다. 
-&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+&lt;p&gt;앞서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 entanglement도 수학적인 성질로 표현할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
   0 \\
   0 \\
   \frac{1}{\sqrt{2}}
 \end{pmatrix}&lt;/script&gt;
-는 entangle된 qbit인데, 그 모양새가 product state 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
+는 entangle된 qbit인데, 그 모양새가 product state와 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
 위에서 설명했듯이 product state는 개별적인 qbit으로 factorize된다. 하지만 entanlged qbit은 개별적인 qbit으로 factorize 되지 않는다. 
-(If the product state of two qbits cannot be factored, they are said to be &lt;strong&gt;entanlged&lt;/strong&gt;.)&lt;/p&gt;
+(If the product state of two qbits &lt;strong&gt;cannot be factored&lt;/strong&gt;, they are said to be &lt;strong&gt;entanlged&lt;/strong&gt;.)
+이 때문에 entangled qbit은 차원이 늘어난 하나의 qbit으로 볼 수 있으며 일부를 관측했을 때 나머지 일부의 상태가 유추된다.&lt;/p&gt;
 
 &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\
+  0 \\
+  0 \\
+  \frac{1}{\sqrt{2}}
+\end{pmatrix}&lt;/script&gt;
+이 entangle 되었음을 증명하는 것은 간단하다. 
+&lt;script type=&quot;math/tex&quot;&gt;\begin{pmatrix}
   \frac{1}{\sqrt{2}} \\
   0 \\
   0 \\
@@ -655,7 +1121,7 @@ Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산�
   c \\
   d
 \end{pmatrix}&lt;/script&gt;
-를 만족하는 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;는 존재하지 않는다. 즉 개별적인 qbit으로 factorize되지 못하므로 entanlge되어 있는 qbit인 것이다.&lt;/p&gt;
+를 만족하는 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;는 존재하지 않기 때문에 이는 entanlge되어 있는 qbit이다.&lt;/p&gt;
 
 &lt;p&gt;Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.&lt;/p&gt;
 
@@ -699,18 +1165,18 @@ CH_1
   \frac{1}{\sqrt{2}}
 \end{pmatrix} %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;만약 이후에 이런 게이트의 조합을 본다면 곧바로 ‘entanlge 시키려고 했군!’ 이라고 생각하면 된다 :)&lt;/p&gt;
+&lt;p&gt;만약 이후에 이런 게이트의 조합을 본다면 곧바로 ‘entanlge 되었군!’ 이라고 생각하면 된다 :)&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;5-conclusion&quot;&gt;5. Conclusion&lt;/h2&gt;
 
-&lt;p&gt;개인적으로 이 영상을 본 이후, 게비스콘을 먹은 것 같이 속이 뚫리는 기분이 들었다. 아직 matrix로 표현되는 qbit이 물리적으로 어떤 모습인지, gate들이 물리적으로 어떻게 qbit에 적용되는지는 모르지만
+&lt;p&gt;개인적으로 이 영상을 본 이후, 속이 뻥 뚫리는 기분이 들었다. 아직 matrix로 표현되는 qbit이 물리적으로 어떤 모습인지, gate들이 물리적으로 어떻게 qbit에 적용되는지는 모르지만
 (이건 실제 양자컴퓨터를 눈으로 보면 이해가 되지 않을까) 이 정도라도 양자컴퓨터와 고전컴퓨터의 연산과정에서의 차이를 구체적으로 알 수 있었기 때문에 만족할 수 있었다.&lt;/p&gt;
 
 &lt;p&gt;양자컴퓨터의 연산 과정을 이해하고나니 양자 우월성은 그냥 달성되는 것은 아니었으며, 잘 설계된 gate가 뒷받침되었을 때 가능한 것임을 깨닫게 되기도 했다.&lt;/p&gt;
 
-&lt;p&gt;이 정도면 양자 세계에 ``Hello World!’`를 했다고 볼 수 있지 않을까?&lt;/p&gt;
+&lt;p&gt;이 정도면 양자 세계에 &lt;code class=&quot;highlighter-rouge&quot;&gt;'Hello World!'&lt;/code&gt;를 했다고 볼 수 있지 않을까?&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -3064,93 +3530,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <category>연울림</category>
         
         <category>이야기</category>
-        
-        <category>자기이해</category>
-        
-        <category>날리다</category>
-        
-      </item>
-    
-      <item>
-        <title>답은 언제나 나에게 있다</title>
-        <description>&lt;p&gt;삶을 살아나간다는 것은 모두에게 주어진 같은 24시간을, 나의 선택들로 채워나가는 것이다.&lt;/p&gt;
-
-&lt;p&gt;하지만 고등학교 때까지 나에게 주어진 대부분의 시간은 다른 누군가에 의해 정해졌다. 부모님에 의해, 학교에 의해, 학원에 의해. 특히 고등학교 때는 7시까지 11시까지 정해진 수업시간, 야자시간으로 채워져 있어 내가 자유롭게 쓸 수 있는 시간은 더욱 없다. “대학 입학”이라는 공동의 목적을 향해 “성적을 올리는 것”을 공동의 목표로, 우리 모두는 정해진 시간 속에 살아간다.&lt;/p&gt;
-
-&lt;p&gt;하지만 대학 입학 이후, 환경은 갑자기, 극적으로 달라진다. 갑자기 공동의 목표가 사라지고, 갑자기 선택의 자유가 생기고, 갑자기 결정에 대한 책임이 주어진다. 갑자기 방향을 잃어버린 학생들에게 갑자기 “네가 좋아하는 것을 하고 살라”고 한다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;그래서 소심하게 내가 하고 싶은 것을 찾아 시간을 조금씩 채워본다. 바이올린을 배우고 싶어서 오케스트라 동아리에 들고, 독립이 하고 싶어서 자취를 시작한다. 술자리를 가지고, 미팅에 나가보고, 주점을 열고, 학교 축제에도 참여해본다.&lt;/p&gt;
-
-&lt;p&gt;그러다 보면 어느새, 졸업을 한 이후의 나의 모습을 고민해야 할 시기가 다가온다. 주변을 둘러보기 시작한다. 선배들은 어떤 진로를 택했는지, 친구들은 어떤 진로를 택하려고 하는지를 살핀다. 지도 교수님, 부모님 혹은 선배의 조언을 구한다. 다양한 충고, 조언이 쏟아져 나온다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“확실히 대기업이 좋긴 좋다. 복지도 좋고, 월급도 많고. 대기업 와, 괜찮아.” &lt;br /&gt;
-“사회에 나와보니까 왜 의사, 의사 하는지 알겠더라. 너는 꼭 기회가 남아있을 때 의전 가라.” &lt;br /&gt;
-“4차 산업 혁명 때문에 난리다. 우리 회사에서도 그쪽 관련된 전공자들 엄청 뽑으려고 하더라. 너도 그쪽 공부해두는 게 좋을 거야.” &lt;br /&gt;
-“그 전공으론 취직 어려울 거다. 차라리 공무원 준비를 하든지, 로스쿨 가.”&lt;br /&gt;
-“대학원 절대 오지 마라.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;진로 고민을 덜어내고자 만났던 사람들이지만 오히려 고민의 무게만 늘어난다. 대기업에 취직할까 싶다가도, 의전이나 로스쿨에 지원하는 것이 좋아 보이다가도, 아직 사회에 나갈 준비가 안됐다는 불안감에 대학원에 갈까 싶다가도, 익숙하게 고시 공부를 하는 것이 맞아 보이기도 한다.&lt;/p&gt;
-
-&lt;p&gt;하지만, &lt;br /&gt;
-  &lt;strong&gt;그들의 경험과 ‘나’의 경험은 다르다.&lt;/strong&gt; &lt;br /&gt;
-  &lt;strong&gt;그들의 성향과 ‘나’의 성향은 다르다.&lt;/strong&gt; &lt;br /&gt;
-  &lt;strong&gt;그들이 잘하는 것과 ‘내’가 잘하는 것은 다르다.&lt;/strong&gt; &lt;br /&gt;
-  &lt;strong&gt;그들의 관심사와 ‘나’의 관심사는 다르다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;그들의 조언은 어디까지나 그들의 입장에서의 이야기일 뿐이다. 그래서 그 이야기에 좌지우지될 필요가 없다.&lt;/p&gt;
-
-&lt;p&gt;대신, &lt;br /&gt;
-  &lt;strong&gt;‘나’의 이야기는 꼭 들어보아야 한다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;미래에 대한 불안감과 두려움은 단지, 어떤 선택을 함으로써 닥쳐올 미래의 일들을 내가 얼마나 잘 감당할 수 있고, 더 나아가 행복할 수 있을지 알지 못하는 “나에 대한 무지함” 때문에 비롯된 것이기 때문이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;스스로에게-물어보자-그리고-솔직하게-대답해보자&quot;&gt;스스로에게 물어보자. 그리고 솔직하게 대답해보자.&lt;/h3&gt;
-
-&lt;p&gt;복지가 좋고, 월급이 많은 것이 나에게 중요한가?&lt;br /&gt;
-남들이 동경하는 직업에, 개인 병원을 차리면 돈을 많이 벌 수 있다는 사실이 나에게 중요한가?&lt;br /&gt;
-4차 산업 혁명이 무엇인지 체감이나 하고 있는 것일까? 그래서 그게 왜, 얼마나 중요한지도 나는 알고 있을까?&lt;br /&gt;
-나는 한 분야에 대한 좀 더 전문적인 지식을 알고 싶은데, 내가 대학원에 가지 말아야 할 이유란 대체 무엇일까?&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;성적이 좋았기 때문에 주변 사람들 모두 의사가 되길 기대했고, 스스로도 의사가 되고 싶다고 생각해서 의과 전문대학원에 진학하기 위해 화학생물공학부를 전공으로 택한 학생을 만난 적이 있다.&lt;/p&gt;
-
-&lt;p&gt;원하는 대학, 원하는 전공에 합격했지만 어딘가 모르게 답답하고 ‘이게 맞는 걸까?’라는 생각이 자꾸만 든다고 했다. 주변에 이런 불안감을 토로해도 ‘네가 피곤해서 그런 걸 거야.’, ‘살다 보면 그럴 때가 있지.’라는 가벼운 대답만 돌아왔다고 했다. 처음에는 가볍게 넘겼지만, 학년이 올라갈수록 ‘이건 아니다’라는 생각이 더 강하게 들었다고도 했다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;“지금은 의사가 되고 싶지 않은 건가요?” &lt;br /&gt;
-그런 것 같아요.&lt;/p&gt;
-
-&lt;p&gt;“왜 그런 것 같나요?” &lt;br /&gt;
-어렸을 땐, 의사라는 직업에 대한 이해가 부족했어요. 막연히 어른들이 좋다고 하니까, 그리고 나는 뭐든 할 수 있는 사람이니까, 게다가 아무나 꿈꾸는 게 아니었으니까 그냥 하고 싶었나 봐요. 그런데 지금은 아니에요. 의사라는 직업이 현실적으로 다가오면서 나와 맞지 않는 것이 조금씩 보여요. 과에서 생물학을 배우는데, 정말 안 외워져요. ‘이거 알아서 어디에 쓰지?’라는 생각 때문에 동기부여가 되질 않아요. 또 의사는 매번 아프고 힘든 사람을 만나잖아요. 저는 사람들을 통해 힘을 많이 얻고, 주변 사람의 영향을 많이 받는데 항상 만나는 사람들이 환자라면 견디지 못할 것 같아요. 돈에도 큰 관심이 없고요.&lt;/p&gt;
-
-&lt;p&gt;“스스로에 대한 이해가 좋은 편인 것 같아요. 지금 듣기에는 의사를 하고 싶지 않은 것이 명확한데, 어떤 고민이 있나요?” &lt;br /&gt;
-이제야, 내가 하고 싶은 것이 생긴 것 같은데 지금 전공과 너무 달라서 불안하고 두려워요. 잘할 수 있을지, 이래도 되는 것인지 모르겠어요.&lt;/p&gt;
-
-&lt;p&gt;“하고 싶은 게 뭔데요? 무엇이 불안한가요?” &lt;br /&gt;
-저는 사실 고등학교 때부터 데이터에는 힘이 있다고 믿었어요. 어떤 문제 상황이 있을 때, 그 상황에 대한 데이터만 있다면 모를게 하나도 없다고 생각했으니까요. 대학생활을 하다 보니까 저는 남들보다 그런 상황을 더 많이 발견하고, 그래서 해결해보고 싶다는 욕구를 많이 느끼더라고요. 다양한 앱을 사용하는 것을 좋아하는데요, 앱의 업데이트되는 방향을 보면 어떨 때는 ‘와 진짜 잘한다’하는 것이 있고 ‘이걸 왜 했지? 사용자들의 마음을 이렇게나 모르나?’ 싶을 때가 있어요. 후자의 경우에 제가 막 데이터를 보고 싶어 져요. 인터넷에 검색을 해봤더니 이런 일을 데이터 마이닝이라고 하더라고요. 더 찾아보니까 산업공학과에서 제가 생각한 일을 하는 연구실이 있었고, 다행인지 불행인지 학부만 졸업해서는 이런 일을 할 수 없대요. 그런데 산업공학과를 부전공으로 하는 사람은 제 주변에서 보지 못했고, 또 저한테는 너무 생소하고 이제 처음 시작하는 건데 제가 얼마나 잘할 수 있을지 모르겠어서 두려워요.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;처음부터 이 학생이 이렇게 대답했던 것은 아니었다. 남에게 보이고 싶은 대로 말하기도 했고, 고민해본 적이 없어서 시간을 두고 답을 하기도 했다. 하지만 점점 스스로에게 솔직하게 이야기를 하고, 다양한 각도에서 스스로에게 묻는 질문들에 대답을 하는 과정 속에서 자신이 얼마나 데이터에 관심이 있었는지를 오히려 깨닫게 되었다. 그리고 더 이상 주변의 말에 휘둘리지 않는 굳건함을 얻게 되었다. 화학생물공학에서 산업공학으로 진로를 틀었을 때 주변에서 모두들 ‘왜? 화학생물공학을 졸업했을 때 더 돈을 많이 벌 수 있었을 텐데.’라고 이야기했지만, 그 전공을 택한 결정의 이면에는 ‘나’의 생각, ‘나’의 경험, ‘나’의 느낌이 강하게 있었기 때문에 흔들리지 않았다고 했다. 스스로를 어렵게 설득한 후에 결정을 내린 만큼 그 결정에 후회가 없을 수 있도록 많은 노력을 했고, 지금은 네이버에서 데이터를 다루는 데이터 사이언티스트로 일하고 있다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;인생은 언제나 우리에게 쉬운 질문을 던지는 법이 없다. “어떻게 살 것인가?”, “행복이란 무엇인가?”처럼 갈수록 더 어려운 질문이 우리를 기다리고 있다. 그렇다고 회피하거나, 두려워할 필요 없다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;답은 언제나 내 안에 있다.&lt;/strong&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 20 Jan 2019 16:55:00 +0900</pubDate>
-        <link>http://localhost:4000/2019/01/20/%E1%84%83%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%B3%E1%86%AB-%E1%84%8B%E1%85%A5%E1%86%AB%E1%84%8C%E1%85%A6%E1%84%82%E1%85%A1-%E1%84%82%E1%85%A1%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A6-%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%83%E1%85%A1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/01/20/%E1%84%83%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%B3%E1%86%AB-%E1%84%8B%E1%85%A5%E1%86%AB%E1%84%8C%E1%85%A6%E1%84%82%E1%85%A1-%E1%84%82%E1%85%A1%E1%84%8B%E1%85%A6%E1%84%80%E1%85%A6-%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%83%E1%85%A1.html</guid>
-        
         
         <category>자기이해</category>
         

@@ -4,8 +4,7 @@ layout: post
 date: 2019-09-23 17:25
 image: /assets/images/naver_news_comments.png
 categories: [ 데이터 분석, Data Analysis, 사회, Society, 뉴스, 댓글, News, Comments ]
-featured: true
-hidden: true
+featured: false
 ---
 
 이번 글은 **뉴스 댓글 분석** 3편이다. 지난 글에서와 마찬가지로 궁금한 점이나 추가 분석 요청은 댓글로 남겨주면 좋을 것 같다.
