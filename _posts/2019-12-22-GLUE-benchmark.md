@@ -18,6 +18,14 @@ ICLR 2019와 BlackboxNLP workshop 2018에 모두 publish 되었으며, [전자](
 
 [1. GLUE overall](#1-glue-overall)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[Corpus of Linguistic Acceptability (CoLA)](#corpus-of-linguistic-acceptability-cola)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Stanford Sentiment Treebank (SST-2)](#stanford-sentiment-treebank-sst-2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Microsoft Research Paraphrase Corpus (MRPC)](#microsoft-research-paraphrase-corpus-mrpc)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Quora Question Pairs (QQP)](#quora-question-pairs-qqp)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Semantic Textual Similarity Benchmark (STS-B)](#semantic-textual-similarity-benchmark-sts-b)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Multi-Genre NLI corpus (MNLI)](#multi-genre-nli-corpus-mnli)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[The Recognizing Textual Entailment (RTE)](#the-recognizing-textual-entailment-rte)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[The Stanford Question Answering NLI (QNLI)](#the-stanford-question-answering-nli-qnli)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[The Winograd Schema Challenge NLI (WNLI)](#the-winograd-schema-challenge-nli-wnli)<br>
 [2. Download](#2-download)<br>
 [3. Leaderboard](#3-leaderboard)<br>
 [References](#references)
