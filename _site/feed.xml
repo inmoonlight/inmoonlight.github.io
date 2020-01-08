@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Jan 2020 23:00:21 +0900</pubDate>
-    <lastBuildDate>Wed, 08 Jan 2020 23:00:21 +0900</lastBuildDate>
+    <pubDate>Thu, 09 Jan 2020 00:36:46 +0900</pubDate>
+    <lastBuildDate>Thu, 09 Jan 2020 00:36:46 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -168,7 +168,7 @@
         
         <category>은희경</category>
         
-        <category>빛의 과거</category>
+        <category>빛의과거</category>
         
         <category>독후감</category>
         
@@ -1372,7 +1372,7 @@ CH_1
         <guid isPermaLink="true">http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings.html</guid>
         
         
-        <category>Quantum Computer</category>
+        <category>QuantumComputer</category>
         
         <category>Basic</category>
         
@@ -1382,17 +1382,17 @@ CH_1
         
         <category>Entanglement</category>
         
-        <category>Quantum Supremacy</category>
+        <category>QuantumSupremacy</category>
         
         <category>양자컴퓨터</category>
         
         <category>기초</category>
         
-        <category>양자 중첩</category>
+        <category>양자중첩</category>
         
-        <category>양자 얽힘</category>
+        <category>양자얽힘</category>
         
-        <category>양자 우월성</category>
+        <category>양자우월성</category>
         
       </item>
     
@@ -2137,9 +2137,9 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
         <guid isPermaLink="true">http://localhost:4000/2019/09/23/Naver-News-Comments-Analysis-(3).html</guid>
         
         
-        <category>데이터 분석</category>
+        <category>데이터분석</category>
         
-        <category>Data Analysis</category>
+        <category>DataAnalysis</category>
         
         <category>사회</category>
         
@@ -2280,7 +2280,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         
         <category>피오르드</category>
         
-        <category>브라운 치즈</category>
+        <category>브라운치즈</category>
         
       </item>
     
@@ -3312,9 +3312,9 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <guid isPermaLink="true">http://localhost:4000/2019/08/03/Naver-News-Comments-Analysis-(2).html</guid>
         
         
-        <category>데이터 분석</category>
+        <category>데이터분석</category>
         
-        <category>Data Analysis</category>
+        <category>DataAnalysis</category>
         
         <category>사회</category>
         
@@ -3545,9 +3545,9 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <guid isPermaLink="true">http://localhost:4000/2019/07/25/Naver-News-Comments-Analysis-(1).html</guid>
         
         
-        <category>데이터 분석</category>
+        <category>데이터분석</category>
         
-        <category>Data Analysis</category>
+        <category>DataAnalysis</category>
         
         <category>사회</category>
         

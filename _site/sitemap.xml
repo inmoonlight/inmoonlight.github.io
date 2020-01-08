@@ -151,10 +151,10 @@
 <loc>http://localhost:4000/tag/%EB%82%98/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D/</loc>
+<loc>http://localhost:4000/tag/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/data-analysis/</loc>
+<loc>http://localhost:4000/tag/dataanalysis/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/%EC%82%AC%ED%9A%8C/</loc>
@@ -175,7 +175,7 @@
 <loc>http://localhost:4000/tag/%ED%94%BC%EC%98%A4%EB%A5%B4%EB%93%9C/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/%EB%B8%8C%EB%9D%BC%EC%9A%B4-%EC%B9%98%EC%A6%88/</loc>
+<loc>http://localhost:4000/tag/%EB%B8%8C%EB%9D%BC%EC%9A%B4%EC%B9%98%EC%A6%88/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/%EB%89%B4%EC%8A%A4/</loc>
@@ -190,7 +190,7 @@
 <loc>http://localhost:4000/tag/comments/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/quantum-computer/</loc>
+<loc>http://localhost:4000/tag/quantumcomputer/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/basic/</loc>
@@ -205,7 +205,7 @@
 <loc>http://localhost:4000/tag/entanglement/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/quantum-supremacy/</loc>
+<loc>http://localhost:4000/tag/quantumsupremacy/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90%EC%BB%B4%ED%93%A8%ED%84%B0/</loc>
@@ -214,13 +214,13 @@
 <loc>http://localhost:4000/tag/%EA%B8%B0%EC%B4%88/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90-%EC%A4%91%EC%B2%A9/</loc>
+<loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90%EC%A4%91%EC%B2%A9/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90-%EC%96%BD%ED%9E%98/</loc>
+<loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90%EC%96%BD%ED%9E%98/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90-%EC%9A%B0%EC%9B%94%EC%84%B1/</loc>
+<loc>http://localhost:4000/tag/%EC%96%91%EC%9E%90%EC%9A%B0%EC%9B%94%EC%84%B1/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/nlp/</loc>
@@ -238,7 +238,7 @@
 <loc>http://localhost:4000/tag/%EC%9D%80%ED%9D%AC%EA%B2%BD/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/tag/%EB%B9%9B%EC%9D%98-%EA%B3%BC%EA%B1%B0/</loc>
+<loc>http://localhost:4000/tag/%EB%B9%9B%EC%9D%98%EA%B3%BC%EA%B1%B0/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/%EB%8F%85%ED%9B%84%EA%B0%90/</loc>
