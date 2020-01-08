@@ -3,7 +3,7 @@ title: "General Language Understanding Evaluation (GLUE) benchmark"
 layout: post
 date: 2019-12-22 22:22
 image: /assets/images/glue.png
-categories: [ NLP, Dataset, 자연어처리, 데이터셋 ]
+categories: [ nlp, dataset, 자연어처리, 데이터셋 ]
 featured: true
 hidden: true
 ---
