@@ -3,7 +3,7 @@ title: "수학으로 이해하는 양자컴퓨터의 기초"
 layout: post
 date: 2019-11-07 00:07
 image: /assets/images/quantum_computer_main.jpg
-categories: [ Quantum Computer, Basic, Qbit, Superposition, Entanglement, Quantum Supremacy, 양자컴퓨터, 기초, 양자 중첩, 양자 얽힘, 양자 우월성 ]
+categories: [ QuantumComputer, Basic, Qbit, Superposition, Entanglement, QuantumSupremacy, 양자컴퓨터, 기초, 양자중첩, 양자얽힘, 양자우월성 ]
 featured: true
 hidden: true
 ---
