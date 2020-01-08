@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Jan 2020 00:59:26 +0900</pubDate>
-    <lastBuildDate>Thu, 09 Jan 2020 00:59:26 +0900</lastBuildDate>
+    <pubDate>Thu, 09 Jan 2020 01:10:11 +0900</pubDate>
+    <lastBuildDate>Thu, 09 Jan 2020 01:10:11 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -635,9 +635,9 @@ John was very impressive.
         <guid isPermaLink="true">/2019/12/22/GLUE-benchmark.html</guid>
         
         
-        <category>NLP</category>
+        <category>nlp</category>
         
-        <category>Dataset</category>
+        <category>dataset</category>
         
         <category>자연어처리</category>
         
@@ -1372,17 +1372,17 @@ CH_1
         <guid isPermaLink="true">/2019/11/07/Basics-of-Quantum-Computings.html</guid>
         
         
-        <category>QuantumComputer</category>
+        <category>quantum-computer</category>
         
-        <category>Basic</category>
+        <category>basic</category>
         
-        <category>Qbit</category>
+        <category>qbit</category>
         
-        <category>Superposition</category>
+        <category>superposition</category>
         
-        <category>Entanglement</category>
+        <category>entanglement</category>
         
-        <category>QuantumSupremacy</category>
+        <category>quantum-supremacy</category>
         
         <category>양자컴퓨터</category>
         
@@ -2139,19 +2139,19 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
         
         <category>데이터분석</category>
         
-        <category>DataAnalysis</category>
+        <category>data-analysis</category>
         
         <category>사회</category>
         
-        <category>Society</category>
+        <category>society</category>
         
         <category>뉴스</category>
         
         <category>댓글</category>
         
-        <category>News</category>
+        <category>news</category>
         
-        <category>Comments</category>
+        <category>comments</category>
         
       </item>
     
@@ -3314,11 +3314,11 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         
         <category>데이터분석</category>
         
-        <category>DataAnalysis</category>
+        <category>data-analysis</category>
         
         <category>사회</category>
         
-        <category>Society</category>
+        <category>society</category>
         
       </item>
     
@@ -3547,11 +3547,11 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         
         <category>데이터분석</category>
         
-        <category>DataAnalysis</category>
+        <category>data-analysis</category>
         
         <category>사회</category>
         
-        <category>Society</category>
+        <category>society</category>
         
       </item>
     
