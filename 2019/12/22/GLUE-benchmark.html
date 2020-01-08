@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<link rel="icon" href="/assets/images/logo.png">
+    
+<title>General Language Understanding Evaluation (GLUE) benchmark | Space Moon</title>
+    
+ 
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300">
+
+<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+    
+<link href="/assets/css/main.css" rel="stylesheet">
+    
+</head>
+    
+
+    
+
+<body class="layout-post">
+
+    
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    
+    <div class="container pr-0">    
+    
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Space Moon">
+    </a>
+    <!-- End Logo -->
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+       
+        <!-- Begin Menu -->
+        
+            <ul class="navbar-nav ml-auto">
+                
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/about">About</a>
+                </li>
+                
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/inmoonlight/"><i class="fab fa-github"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.linkedin.com/in/mjihyung/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="https://twitter.com/inmoonlight_kr"><i class="fab fa-twitter"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="https://www.instagram.com/jihyung.moon/"><i class="fab fa-instagram"></i></a>
+                </li>
+                
+            </ul>		
+  
+        <!-- End Menu -->
+
+    </div>
+        
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+    
+<div class="site-content">   
+<div class="container">
+    
+<!-- Site Title
+================================================== -->
+<!-- <div class="mainheading">
+    <h1 class="sitetitle">Space Moon</h1>
+    <p class="lead">
+         개인적이지만 사소하지 않은 이야기를 담고 싶습니다
+    </p>
+</div> -->
+
+    
+    
+<!-- Content
+================================================== --> 
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>General Language Understanding Evaluation (GLUE) benchmark</title>
+  <meta name="description" content="General Language Understanding Evaluation benchmark, 줄여서 GLUE benchmark 라고 불리는 이 데이터셋은 NLP 분야에서 Language Model 검증을 위해 사용된다.ICLR 2019와 BlackboxNLP workshop 2018에 모두 publish 되었으며, 전자는 설명이 상세하고 후자는 요약..." />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="General Language Understanding Evaluation (GLUE) benchmark"/>
+  
+  <meta property="og:description" content="General Language Understanding Evaluation benchmark, 줄여서 GLUE benchmark 라고 불리는 이 데이터셋은 NLP 분야에서 Language Model 검증을 위해 사용된다.ICLR 2019와 BlackboxNLP workshop 2018에 모두 publish 되었으며, 전자는 설명이 상세하고 후자는 요약..." />
+  
+  <meta property="og:image" content="http://localhost:4000/assets/images/glue.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/12/22/GLUE-benchmark.html" >
+  <meta property="og:type" content="blog" />
+  <meta property="article:published_time" content="2019-12-22T22:22:00+09:00">
+
+  <link rel="canonical" href="http://localhost:4000/2019/12/22/GLUE-benchmark.html"/>
+  <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+	<!-- header start -->
+
+
+<!-- header end -->
+
+	<main class="content" role="main">
+	  <article class="post">
+			<script type="text/javascript" async
+				src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+			</script>
+		
+		<div class="article-image">
+		  <div class="post-image-image" style="background-image: url(/assets/images/glue.png)">
+			Article Image
+		  </div>
+		  <div class="post-image-image2" style="background-image: url(/assets/images/glue.png)">
+			Article Image
+		  </div>
+		  <div class="post-meta">
+			<h1 class="post-title">General Language Understanding Evaluation (GLUE) benchmark</h1>
+			<div class="cf post-meta-text">
+        <time datetime="22-12-2019">Dec 22, 2019</time>
+        | <span class="reading-time" title="Estimated read time">
+    
+
+    
+        24 mins
+    
+</span> read
+			  <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
+			</div>
+			<!-- <div style="text-align:center">
+			  <a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a>
+			</div> -->
+		  </div>
+		</div>
+		
+		<section class="post-content-mediator">
+		  <p>General Language Understanding Evaluation benchmark, 줄여서 GLUE benchmark 라고 불리는 이 데이터셋은 NLP 분야에서 Language Model 검증을 위해 사용된다.
+ICLR 2019와 BlackboxNLP workshop 2018에 모두 publish 되었으며, <a href="https://openreview.net/pdf?id=rJ4km2R5t7">전자</a>는 설명이 상세하고 <a href="https://www.aclweb.org/anthology/W18-5446.pdf">후자</a>는 요약되어 있다. 
+이 글은 가장 최근(2019.2.22)에 업데이트된 <a href="https://arxiv.org/pdf/1804.07461.pdf">arXiv에 있는 논문</a>을 기반으로 작성되었다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<p><a href="#1-glue-overall">1. GLUE overall</a><br />
+    <a href="#corpus-of-linguistic-acceptability-cola">Corpus of Linguistic Acceptability (CoLA)</a><br />
+    <a href="#stanford-sentiment-treebank-sst-2">Stanford Sentiment Treebank (SST-2)</a><br />
+    <a href="#microsoft-research-paraphrase-corpus-mrpc">Microsoft Research Paraphrase Corpus (MRPC)</a><br />
+    <a href="#quora-question-pairs-qqp">Quora Question Pairs (QQP)</a><br />
+    <a href="#semantic-textual-similarity-benchmark-sts-b">Semantic Textual Similarity Benchmark (STS-B)</a><br />
+    <a href="#multi-genre-nli-corpus-mnli">Multi-Genre NLI corpus (MNLI)</a><br />
+    <a href="#the-recognizing-textual-entailment-rte">The Recognizing Textual Entailment (RTE)</a><br />
+    <a href="#the-stanford-question-answering-nli-qnli">The Stanford Question Answering NLI (QNLI)</a><br />
+    <a href="#the-winograd-schema-challenge-nli-wnli">The Winograd Schema Challenge NLI (WNLI)</a><br />
+<a href="#2-download">2. Download</a><br />
+<a href="#3-leaderboard">3. Leaderboard</a><br />
+<a href="#references">References</a></p>
+
+<div class="breaker"></div>
+
+<h2 id="1-glue-overall"><a href="#table-of-contents">1. GLUE overall</a></h2>
+
+<p>GLUE는 총 9개의 task로 구성되었으며 각 task는 언어의 특정한 성질을 평가하기 위한 목적으로 만들어졌고, 최종 점수는 각 task 별 점수의 평균 값을 가져간다.
+task는 크게 3가지 - Single-Sentence Tasks (CoLA, SST-2), Similarity and Paraphrase Tasks (MRPC, QQP, STS-B), Inference Tasks (MNLI, RTE, QNLI, WNLI) - 로 구분할 수 있다.
+세부 task에 대해 살펴보기 전에 전반적인 task의 특징을 아래의 표에 정리했다.
+원 논문에 정리되어 있는 것을 바탕으로 재구성하였고 직접 다운로드 받은 데이터를 기준으로 측정했기 때문에 corpus의 size가 다를 수 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>data</th>
+      <th>|train|</th>
+      <th>|dev|</th>
+      <th>|test|</th>
+      <th>domain</th>
+      <th>input</th>
+      <th>task</th>
+      <th>metrics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#corpus-of-linguistic-acceptability-cola">Corpus of Linguistic Acceptability (CoLA)</a></td>
+      <td>8.5k</td>
+      <td>1.0k</td>
+      <td>1.2k</td>
+      <td>linguistics literature</td>
+      <td>single-sentence</td>
+      <td>- grammatical acceptability <br /> - binary classification <br /> (grammatical / ungrammatical)</td>
+      <td>Matthews correlation</td>
+    </tr>
+    <tr>
+      <td><a href="#stanford-sentiment-treebank-sst-2">Stanford Sentiment Treebank (SST-2)</a></td>
+      <td>67k</td>
+      <td>872</td>
+      <td>1.8k</td>
+      <td>movie reviews</td>
+      <td>single-sentence</td>
+      <td>- sentiment <br /> - binary classification <br /> (positive / negative)</td>
+      <td>acc.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="#microsoft-research-paraphrase-corpus-mrpc">Microsoft Research Paraphrase Corpus (MRPC)</a></td>
+      <td>3.7k</td>
+      <td>408</td>
+      <td>1.7k</td>
+      <td>news</td>
+      <td>two sentences</td>
+      <td>paraphrase</td>
+      <td>acc./F1</td>
+    </tr>
+    <tr>
+      <td><a href="#quora-question-pairs-qqp">Quora Question Pairs (QQP)</a></td>
+      <td>364k</td>
+      <td>40k</td>
+      <td>391k</td>
+      <td>social QA questions</td>
+      <td>two sentences</td>
+      <td>paraphrase</td>
+      <td>acc./F1</td>
+    </tr>
+    <tr>
+      <td><a href="#semantic-textual-similarity-benchmark-sts-b">Semantic Textual Similarity Benchmark (STS-B)</a></td>
+      <td>5.8k</td>
+      <td>1.5k</td>
+      <td>1.4k</td>
+      <td>news <br /> caption <br /> forum</td>
+      <td>two sentences</td>
+      <td>- sentence similarity <br /> - regression</td>
+      <td>Pearson / Spearman corr.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="#multi-genre-nli-corpus-mnli">Multi-Genre NLI corpus (MNLI)</a></td>
+      <td>393k</td>
+      <td>20k</td>
+      <td>20k</td>
+      <td>fiction <br /> face-to-face <br /> government <br /> letters <br /> 9/11 <br /> oxford university press (oup) <br /> slate<br /> telephone <br /> travel <br /> verbatim</td>
+      <td>two sentences</td>
+      <td>ternary classification <br /> (entailment / contradiction / neutral)</td>
+      <td>matched acc. / mismatched acc.</td>
+    </tr>
+    <tr>
+      <td><a href="#the-recognizing-textual-entailment-rte">The Recognizing Textual Entailment (RTE)</a></td>
+      <td>2.5k</td>
+      <td>276</td>
+      <td>3.0k</td>
+      <td>news <br /> wikipedia</td>
+      <td>two sentences</td>
+      <td>binary classification <br /> (entailment / not_entailment)</td>
+      <td>acc.</td>
+    </tr>
+    <tr>
+      <td><a href="#the-stanford-question-answering-nli-qnli">The Stanford Question Answering NLI (QNLI)</a></td>
+      <td>105k</td>
+      <td>5.5k</td>
+      <td>5.5k</td>
+      <td>wikipedia</td>
+      <td>two sentences (question, sentence)</td>
+      <td>binary classification <br /> (entailment / not_entailment)</td>
+      <td>acc.</td>
+    </tr>
+    <tr>
+      <td><a href="#the-winograd-schema-challenge-nli-wnli">The Winograd Schema Challenge NLI (WNLI)</a></td>
+      <td>634</td>
+      <td>71</td>
+      <td>146</td>
+      <td>fiction books</td>
+      <td>two sentences</td>
+      <td>binary classification <br /> (entailment / not_entailment)</td>
+      <td>acc.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<div class="breaker"></div>
+
+<h3 id="corpus-of-linguistic-acceptability-cola"><a href="#1-glue-overall">Corpus of Linguistic Acceptability (CoLA)</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></h3>
+
+<p>공개된 언어학 문헌(publised liguistics literature)에서 추출된 약 21k 문장들로 구성되어 있다.
+이 문장들은 문법적으로 옳은지, 그른지가 표기되어 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 They drank the pub dry.
+0 * They drank the pub.
+</code></pre></div></div>
+
+<p>문법적으로 옳고 그름을 판단하는 기준은 다양하다. 
+아래의 표는 corpus를 제작하면서 기준에서 포함된 것들과 제외된 것들을 나타낸다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/cola_dataset_description.png" width="80%" />
+</div>
+<p><br /></p>
+
+<ul>
+  <li>
+    <p><strong>Included</strong>
+<br /> 
+<strong>(a) Morphological Violation</strong>: “should leave” 가 올바른 표현이지만 “should leaving”으로 작성되었다. 동사의 형태(verbal inflection)가 맞지 않는 경우에 해당한다.
+<br />
+<strong>(b) Syntactic Violation</strong>: “What did Bill buy?” 혹은 “Bill bought potatoes and _” 이 되어야 한다. 통사 구조가 틀린 경우에 해당한다.
+<br />
+<strong>(c) Semantic Violation</strong>: 의미적으로 말이 되지 않는 문장에 해당한다.</p>
+  </li>
+  <li>
+    <p><strong>Excluded</strong>
+<br />
+<strong>(d) Pragmatic Anomalies</strong>: grammar와 상관없는 외부 지식이 필요하므로 제외되었다.
+<br />
+<strong>(e) Unavailable Meanings</strong>: 문장만보고는 판단이 애매하므로 제외되었다.
+<br />
+<strong>(f) Prescriptive Rules</strong>: 사람도 누군가의 가르침없이는 터득하기 어려운 rule이기 때문에 제외되었다.
+<br />
+<strong>(g) Nonce Words</strong>: “arrivable”과 같이 typical word-level NLP 모델의 vocab에는 등장하지 않는 단어가 포함된 경우이다. NLP 모델의 scope이 아니라고 판단되어 제외되었다.</p>
+  </li>
+</ul>
+
+<h4 id="testset-and-metrics">testset and metrics</h4>
+
+<p>testset은 In-Domain과 Out-of-Domain으로 구성되어 있다. 
+In-Domain은 training set이 추출된 source와 같은 source에서, Out-of-Domain은 training set이 추출되지 <em>않은</em> source에서 구성되었다. 
+GLUE는 원래 구분된 두 testset을 하나로 합쳐 단일 testset을 구축하였고 총 1,160 문장이다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/cola_by_source.png" width="40%" />
+</div>
+<p><br /></p>
+
+<p>이 task의 평가는 unbalanced binary classification task에서 사용되는 Matthews correlation으로 한다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="stanford-sentiment-treebank-sst-2"><a href="#1-glue-overall">Stanford Sentiment Treebank (SST-2)</a></h3>
+
+<p><code class="highlighter-rouge">rottentomatoes.com</code>의 영화 리뷰 corpus로 구성되었으며 AMT(Amazon Mechanical Turk)를 통해 리뷰의 sentiment가 labeling 되었다.
+1은 긍정, 0은 부정을 나타낸다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>that loves its characters and communicates something rather beautiful about human nature 1
+on the worst revenge-of-the-nerds clichés the filmmakers could dredge up 0
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-1">testset and metrics</h4>
+
+<p>일반적인 binary classification 문제로 accuracy를 통해 평가한다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="microsoft-research-paraphrase-corpus-mrpc"><a href="#1-glue-overall">Microsoft Research Paraphrase Corpus (MRPC)</a></h3>
+
+<p>MRPC는 온라인 뉴스에서 추출된 문장들로 구성되었으며 2개의 문장이 의미적으로 같은지 다른지를 평가하는 task이다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>They had published an advertisement on the Internet on June 10 , offering the cargo for sale , he added . 
+On June 10 , the ship 's owners had published an advertisement on the Internet , offering the explosives for sale .
+1
+
+Yucaipa owned Dominick 's before selling the chain to Safeway in 1998 for $ 2.5 billion . 
+Yucaipa bought Dominick 's in 1995 for $ 693 million and sold it to Safeway for $ 1.8 billion in 1998 .
+0
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-2">testset and metrics</h4>
+
+<p>testset이 label이 불균등(68% positive,  32% negative)하므로 accuracy와 F1 score를 metric으로 한다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="quora-question-pairs-qqp"><a href="#1-glue-overall">Quora Question Pairs (QQP)</a><sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></h3>
+
+<p><code class="highlighter-rouge">https://www.quora.com/</code>의 질문들로 구성되었으며, 두 개의 질문이 의미상 같은지 다른지가 표기되어있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>How do you start a bakery?
+How can one start bakery business?
+1
+
+What are natural numbers?
+What is a least natural number?
+0
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-3">testset and metrics</h4>
+
+<p>MRPC와 마찬가지로 불균등(37% positive, 63% negative)하므로 accuracy와 F1 score가 metric으로 활용된다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="semantic-textual-similarity-benchmark-sts-b"><a href="#1-glue-overall">Semantic Textual Similarity Benchmark (STS-B)</a></h3>
+
+<p>문장의 유사도는 번역, 요약, 문장 생성, QA, 대화 모델링 등등 다양한 NLP 분야에서 중요하게 다뤄진다. 
+STS shared task는 모델이 문장들의 유사도를 얼마나 잘 파악하는지를 평가하기 위해 등장하였고, 2012년부터 2017년까지 매년 개최되었으며 그 때마다 다른 dataset이 사용되었다.
+이 때문에 각 연도의 데이터셋을 적절히 조합한 common evaluation set으로 STS-B가 소개되었다.</p>
+
+<p>이 전의 task와는 다르게 STS는 regression task이다. 
+human annotator들은 두 문장의 의미적인 유사도를 1~5점으로 평가하였고 모델은 score를 예측해야한다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A plane is taking off.  An air plane is taking off.     5.000
+Three men are playing chess.    Two men are playing chess.      2.600
+A man is smoking.       A man is skating.       0.500
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-4">testset and metrics</h4>
+
+<p>Regression task이므로 human label과의 Pearson correlation으로 평가된다.</p>
+
+<!-- collection of sentence pairs drawn from news headlines video and image captions and NLI data. -->
+
+<!-- 
+<div style="text-align:center">
+<img class="image" src="/assets/images/stsb_dataset_description.png" width="50%">
+</div>
+<br> -->
+
+<div class="breaker"></div>
+
+<h3 id="multi-genre-nli-corpus-mnli"><a href="#1-glue-overall">Multi-Genre NLI corpus (MNLI)</a><sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></h3>
+
+<p>MNLI는 SNLI(Stanford NLI) dataset의 단점을 개선시킨 데이터셋이다.
+SNLI는 image caption으로만 구성되었기 때문에 장면을 표현하는 짧고 간단한 문장이 많고 NLU(Natural Language Understanding) task와 무관한 단어들이 많이 등장한다.
+그래서 NLU task의 benchmark로 사용되기는 어렵기 때문에 다양한 도메인(논문에서는 genre라고 표현)의 조합인 MNLI benchmark dataset이 등장하였다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/mnli_dataset_description.png" width="90%" />
+</div>
+<p><br /></p>
+
+<p>위의 표에서 나와있듯이 MNLI는 총 10개의 Genre로 구성되었다.
+Fiction을 제외한 9개의 domain은 Open American National Corpus에서 추출되었고 Fiction은 fiction literature에서 가져왔으며 mystery, humor, sci-fi 등 그 안에서도 다양한 장르로 구성되었다.</p>
+
+<blockquote>
+  <p>OANC data constitutes the following nine genres: transcriptions from the Charlotte Narrative and Conversation Collection of two-sided, in-person conversations that took place in the early 2000s (FACE-TO-FACE); reports, speeches, letters, and press releases from public domain government websites (GOVERNMENT); letters from the Indiana Center for Intercultural Communication of Philanthropic Fundraising Discourse written in the late 1990s–early 2000s (LETTERS); the public report from the National Commission on Terrorist Attacks Upon the United States released on July 22, 2004 2 (9/11); five non-fiction works on the textile industry and child development published by the Oxford University Press (OUP); popular culture articles from the archives of Slate Magazine (SLATE) written between 1996–2000; transcriptions from University of Pennsylvania’s Linguistic Data Consortium Switchboard corpus of two-sided, telephone conversations that took place in 1990 or 1991 (TELEPHONE); travel guides published by Berlitz Publishing in the early 2000s (TRAVEL); and short posts about linguistics for non-specialists from the Verbatim archives written between 1990 and 1996 (VERBATIM).</p>
+</blockquote>
+
+<blockquote>
+  <p>For our tenth genre, FICTION, we compile several freely available works of contemporary fiction written between 1912 and 2010, spanning various genres, including mystery (The Mysterious Affair at Styles, 3 Christie, 1921; The Secret Adversary, 4 Christie, 1922; Murder in the Gun Room, 5 Piper, 1953), humor (Password Incorrect, 6 Name, 2008), western (Rebel Spurs, 7 Norton, 1962), science fiction (Seven Swords, 8 Shea, 2008; Living History,9  Essex, 2016; The Sky Is Falling, 10 Del Rey, 1973; Youth, 11 Asimov, May 1952), and adventure (Captain Blood, 12 Sabatini, 1922).</p>
+</blockquote>
+
+<p>선별된 문장을 premise로 두고 human annotator들이 premise와 같은 결론을 도출하는 문장(entailment), 반대되는 문장(contradiction), 두 경우 모두 아닌 문장(neutral)을 생성하고 label을 단다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>How do you know? All this is their information again.   
+This information belongs to them.      
+entailment
+
+Vrenna and I both fought him and he nearly took us.     
+Neither Vrenna nor myself have ever fought him.      
+contradiction
+
+There was nothing like that emotion now.        
+There are few emotions that come close.      
+neutral
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-5">testset and metrics</h4>
+
+<p>testset은 CoLA처럼 matched(in-domain)와 mismatched(cross-domain)로 구성되었다. 
+mismatched에는 9/11, FACE-TO-FACE, LETTERS, OUP, VERBATIM처럼 training set에는 없는 domain이 포함되어 있다. (위의 표 참고)
+각각의 경우를 나누어서 accuracy로 평가한다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="the-recognizing-textual-entailment-rte"><a href="#1-glue-overall">The Recognizing Textual Entailment (RTE)</a></h3>
+
+<p>RTE도 STS처럼 RTE1부터 RTE7까지의 데이터셋에서 만들어졌다. 
+구체적으로는 RTE1, RTE2, RTE3, RTE5로 구성되었고, 나머지 데이터셋 중 RTE4는 공개되지 않아서, RTE6와 7은 NLI task로는 부적합해서 제외했다고 한다. 
+취합하는 과정에서 일부는 세 개의 class, 일부는 두 개의 class로 labeling이 되어있어 이를 일괄적으로 두 개의 class(entailment, not_entailment)로 구분지었다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Swansea striker Lee Trundle has negotiated a lucrative image-rights deal with the League One club.      
+Lee Trundle is in business with the League One club.    
+entailment
+
+No Weapons of Mass Destruction Found in Iraq Yet.       
+Weapons of Mass Destruction Found in Iraq.      
+not_entailment
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-6">testset and metrics</h4>
+
+<p>일반적인 binary classification 문제이므로 accuracy로 측정한다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="the-stanford-question-answering-nli-qnli"><a href="#1-glue-overall">The Stanford Question Answering NLI (QNLI)</a></h3>
+
+<p>Stanford에서 구축한 Machine Comprehension 목적의 QA Dataset, a.k.a SQuAD,을 NLI task에 맞게 변형한 데이터셋이다.
+SQuAD는 wikipedia에서 paragraph를 가져와서 annotator들이 적절한 질문을 던지는데 이에 대한 답을 paragraph 내에 있는 문장, 구, 단어로 답할 수 있게 구성되었다.
+QNLI는 질문과 paragraph 내의 한 문장을 비교하여 이 둘이 entailment되었는지 아닌지를 판단하도록 바뀌었다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>What two things does Popper argue Tarski's theory involves in an evaluation of truth?   
+He bases this interpretation on the fact that examples such as the one described above refer to two things: assertions and the facts to which they refer.   
+entailment
+
+Who was elected as the Watch Tower Society's president in January of 1917?      
+His election was disputed, and members of the Board of Directors accused him of acting in an autocratic and secretive manner.       
+not_entailment
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-7">testset and metrics</h4>
+
+<p>일반적인 binary classification 문제이므로 accuracy로 측정한다.</p>
+
+<div class="breaker"></div>
+
+<h3 id="the-winograd-schema-challenge-nli-wnli"><a href="#1-glue-overall">The Winograd Schema Challenge NLI (WNLI)</a></h3>
+
+<p>이 데이터셋도 entailment를 평가하는 목적으로 만들어졌다.
+original sentence와 이 문장에서 대명사를 일반명사로 치환한 문장 사이의 entailment가 있는지 없는지가 label로 달려있다.
+아래 예시의 첫 번째 문장에서 “it” had a hole의 it이 “The carrot”으로 바뀐 문장이 두 번째 문장이고 이 두 문장의 관계가 entailment 되어 있으므로 label 1이 달린다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I stuck a pin through a carrot. When I pulled the pin out, it had a hole.       
+The carrot had a hole.  
+1
+
+John was jogging through the park when he saw a man juggling watermelons. He was very impressive.       
+John was very impressive.       
+0
+</code></pre></div></div>
+
+<h4 id="testset-and-metrics-8">testset and metrics</h4>
+
+<p><a href="https://gluebenchmark.com/faq">GLUE FAQ</a>의 12번 문항에는 WNLI에서 이상한 결과를 얻을 수 있는 이유가 적혀있다.
+같은 문장이 포함된 다른 example 끼리는 반대의 label이 달려있는데 이 때문에 training set에 overfit된 모델은 dev set에서 성능이 매우 나쁠 수 있다는 것이다.
+실제로 <a href="https://arxiv.org/pdf/1810.04805.pdf">BERT</a>는 이 이유로 WNLI의 성능은 report 하지 않았다.</p>
+
+<div class="breaker"></div>
+
+<h2 id="2-download"><a href="#table-of-contents">2. Download</a></h2>
+
+<p><a href="https://github.com/nyu-mll/jiant/blob/master/scripts/download_glue_data.py">링크</a>에 있는 python script를 다운로드한 이후 실행시키면 된다.
+지정한 dir에 전체 task를 받을 수도 있고 일부 task만 받을 수도 있다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python download_glue_data.py <span class="nt">--data_dir</span> data <span class="nt">--tasks</span> all
+</code></pre></div></div>
+
+<div class="breaker"></div>
+
+<h2 id="3-leaderboard"><a href="#table-of-contents">3. Leaderboard</a></h2>
+
+<p>여태까지 제출한 모델의 성능은 <a href="https://gluebenchmark.com/leaderboard">GLUE leaderboard</a>에 정리되어있다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/glue_leaderboard.png" width="95%" />
+<figcaption class="caption">2019.12.22 기준 top 3</figcaption>
+</div>
+<p><br /></p>
+
+<p>Leaderboard에는 순기능과 역기능이 모두 공존하지만, 아직까지는 순기능이 더 많다고 생각한다.
+상대적으로 공정하게 비교할 수 있는 데이터셋이고 덕분에 다양한 Language Model이 주목받을 수 있었기 때문이다.
+너무 낡아버리기 전에 새로운 데이터셋이 나와야한다고도 생각했는데, Neurips 2019에 “Stickier Benchmark”라는 부제와 함께 <a href="http://papers.nips.cc/paper/8589-superglue-a-stickier-benchmark-for-general-purpose-language-understanding-systems">SuperGLUE</a>가 등장했다!!</p>
+
+<p>이로 인해 열릴 새로운 LM들의 등장을 기대해본다 :)</p>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://arxiv.org/pdf/1805.12471.pdf">https://arxiv.org/pdf/1805.12471.pdf</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs">https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="https://www.aclweb.org/anthology/N18-1101.pdf">https://www.aclweb.org/anthology/N18-1101.pdf</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+		</section>
+		<footer class="post-footer">
+			<!-- <div class="col-md-8 p-5 align-self-center text-center"> -->
+			<ul class="tag-box inline">
+					  
+					
+						 
+							<a href="/tag/NLP">Nlp </a>
+						 
+							<a href="/tag/Dataset">Dataset </a>
+						 
+							<a href="/tag/자연어처리">자연어처리 </a>
+						 
+							<a href="/tag/데이터셋">데이터셋 </a>
+						
+					
+					
+			</ul>
+		  <section class="share">
+				
+			  	
+						<a class="icon-twitter" href="http://twitter.com/share?text=General+Language+Understanding+Evaluation+%28GLUE%29+benchmark&amp;url=http://localhost:4000/2019/12/22/GLUE-benchmark"
+				  		onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+						<i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+						</a>
+			 		
+				
+			  	
+						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=General+Language+Understanding+Evaluation+%28GLUE%29+benchmark&amp;u=http://localhost:4000/2019/12/22/GLUE-benchmark"
+				  		onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+						<i class="fa fa-facebook"></i><span class="hidden">facebook</span>
+						</a>
+			 		
+				
+		  </section>
+		</footer>
+	  </article>
+	</main>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image, .teaserimage-image');
+    
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-131297969-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>
+<!-- End Article
+================================================== -->
+
+  
+
+<!-- Begin Comments
+================================================== -->
+
+	<div class="container">
+		<div id="comments" class="row justify-content-center mb-5">
+			<div class="col-md-10">              
+				<section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'inmoonlight'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+                
+			</div>
+		</div>
+	</div>
+
+<!--End Comments
+================================================== -->
+</div>
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!-- <div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/logo.png" alt=""> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>     -->
+    
+</div><!-- /.container>
+    
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+          
+             
+              <a href="/tag/멘토링">멘토링 (2)</a>
+             
+              <a href="/tag/자기이해">자기이해 (3)</a>
+             
+              <a href="/tag/꿈">꿈 (1)</a>
+             
+              <a href="/tag/진로">진로 (1)</a>
+             
+              <a href="/tag/우울증">우울증 (1)</a>
+             
+              <a href="/tag/대학생">대학생 (1)</a>
+             
+              <a href="/tag/고민">고민 (1)</a>
+             
+              <a href="/tag/머신러닝">머신러닝 (3)</a>
+             
+              <a href="/tag/스터디">스터디 (3)</a>
+             
+              <a href="/tag/책">책 (3)</a>
+             
+              <a href="/tag/요약">요약 (3)</a>
+             
+              <a href="/tag/질문">질문 (1)</a>
+             
+              <a href="/tag/멘티">멘티 (1)</a>
+             
+              <a href="/tag/날리다">날리다 (2)</a>
+             
+              <a href="/tag/연울림">연울림 (1)</a>
+             
+              <a href="/tag/이야기">이야기 (1)</a>
+             
+              <a href="/tag/탁월함">탁월함 (1)</a>
+             
+              <a href="/tag/일">일 (1)</a>
+             
+              <a href="/tag/전문성">전문성 (1)</a>
+             
+              <a href="/tag/의미">의미 (1)</a>
+             
+              <a href="/tag/슬럼프">슬럼프 (1)</a>
+             
+              <a href="/tag/시작">시작 (1)</a>
+             
+              <a href="/tag/권태로움">권태로움 (1)</a>
+             
+              <a href="/tag/나">나 (1)</a>
+             
+              <a href="/tag/데이터분석">데이터분석 (3)</a>
+             
+              <a href="/tag/DataAnalysis">Dataanalysis (3)</a>
+             
+              <a href="/tag/사회">사회 (3)</a>
+             
+              <a href="/tag/Society">Society (3)</a>
+             
+              <a href="/tag/노르웨이">노르웨이 (1)</a>
+             
+              <a href="/tag/나홀로">나홀로 (1)</a>
+             
+              <a href="/tag/여행">여행 (1)</a>
+             
+              <a href="/tag/피오르드">피오르드 (1)</a>
+             
+              <a href="/tag/브라운치즈">브라운치즈 (1)</a>
+             
+              <a href="/tag/뉴스">뉴스 (1)</a>
+             
+              <a href="/tag/댓글">댓글 (1)</a>
+             
+              <a href="/tag/News">News (1)</a>
+             
+              <a href="/tag/Comments">Comments (1)</a>
+             
+              <a href="/tag/QuantumComputer">Quantumcomputer (1)</a>
+             
+              <a href="/tag/Basic">Basic (1)</a>
+             
+              <a href="/tag/Qbit">Qbit (1)</a>
+             
+              <a href="/tag/Superposition">Superposition (1)</a>
+             
+              <a href="/tag/Entanglement">Entanglement (1)</a>
+             
+              <a href="/tag/QuantumSupremacy">Quantumsupremacy (1)</a>
+             
+              <a href="/tag/양자컴퓨터">양자컴퓨터 (1)</a>
+             
+              <a href="/tag/기초">기초 (1)</a>
+             
+              <a href="/tag/양자중첩">양자중첩 (1)</a>
+             
+              <a href="/tag/양자얽힘">양자얽힘 (1)</a>
+             
+              <a href="/tag/양자우월성">양자우월성 (1)</a>
+             
+              <a href="/tag/NLP">Nlp (1)</a>
+             
+              <a href="/tag/Dataset">Dataset (1)</a>
+             
+              <a href="/tag/자연어처리">자연어처리 (1)</a>
+             
+              <a href="/tag/데이터셋">데이터셋 (1)</a>
+             
+              <a href="/tag/은희경">은희경 (1)</a>
+             
+              <a href="/tag/빛의과거">빛의과거 (1)</a>
+             
+              <a href="/tag/독후감">독후감 (1)</a>
+             
+              <a href="/tag/독서">독서 (1)</a>
+             
+              <a href="/tag/후기">후기 (1)</a>
+            
+          
+        
+
+		</div>
+	</div>
+</div>
+ 
+
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                 Copyright © 2020 Space Moon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+   
+</div> <!-- /.site-content>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+    
+<script src="/assets/js/jquery.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+<script src="/assets/js/mediumish.js"></script>
+    
+<script id="dsq-count-scr" src="//inmoonlight.disqus.com/count.js"></script>
+</body>
+</html>
