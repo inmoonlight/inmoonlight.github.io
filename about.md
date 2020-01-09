@@ -26,7 +26,7 @@ comments: false
 - [MAR 2019 ~ AUG 2019] **Naver News Comments Analysis** 
 - [MAR 2019 ~ NOV 2019] **연울림** [[instagram]](https://www.instagram.com/yeonullim/)
 - [NOV 2018 ~ NOV 2019] **날리다 (Nalida) : 나를 알리다** [[homepage]](http://www.nalida.info/) [[brunch]](https://brunch.co.kr/@nalida) [[facebook]](https://www.facebook.com/nalida2/) [[instagram]](https://www.instagram.com/nalida_official/) 
-- [NOV 2018 ~ PRESENT] **PyTorchTutorial for Beginners** [[github]](https://github.com/inmoonlight/PyTorchTutorial)
+- [NOV 2018] **PyTorchTutorial for Beginners** [[github]](https://github.com/inmoonlight/PyTorchTutorial)
 - [OCT 2018 ~ OCT 2019] **잇다 명예 멘토** [[page]](https://www.itdaa.net/mentors/29123)
 - [JUL 2017] **Tensorflow Implementation of Relation Network (RN)** [[github]](https://github.com/inmoonlight/Relation-Network)
 - [JAN 2017 ~ FEB 2017] **구글 여성 소프트웨어 캠프 (Develop with Google) 1기** 
