@@ -4,7 +4,7 @@ description: "개인적이지만 사소하지 않은 이야기를 담고 싶습�
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ""
-url: ""
+url: "https://inmoonlight.github.io"
 permalink: /:year/:month/:day/:title:output_ext
 google_analytics: 'UA-131297969-1'
 disqus: 'inmoonlight'
@@ -14,6 +14,7 @@ disqus: 'inmoonlight'
 plugins: 
   - jekyll-paginate
   - jekyll-archives
+  - jekyll-feed
     
 # Archives
 jekyll-archives:
