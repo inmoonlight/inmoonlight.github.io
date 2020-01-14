@@ -6,7 +6,7 @@
     
 <link rel="icon" href="/assets/images/logo.png">
     
-<title>유쾌한 슬럼프 | Space Moon</title>
+<title>Machine Learning Yearning 요약: Ch.13~19 | Space Moon</title>
     
  
     
@@ -120,8 +120,8 @@
   <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>유쾌한 슬럼프</title>
-  <meta name="description" content="어렸을 때의 나는 무언가 새롭게 ‘시작’하는 것을 좋아했다. 무언가를 빨리 배우는 편이었고, 새롭게 어떤 환경이나 개념에 적응하는데에 드는 시간이 적게 들었기 때문에 ‘시작’을 즐길 수 있었기 때문이었던 것 같다. ‘시작’이 주는 그 몰입감과 성취감은 권태로움에서 나를 꺼내주는 좋은 처방전이었다." />
+  <title>Machine Learning Yearning 요약: Ch.13~19</title>
+  <meta name="description" content="지난 글 »  Machine Learning Yearning 요약: Ch.1~4  Machine Learning Yearning 요약: Ch.5~12" />
 
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -130,16 +130,16 @@
   
   
   <meta property="og:site_name" content="" />
-  <meta property="og:title" content="유쾌한 슬럼프"/>
+  <meta property="og:title" content="Machine Learning Yearning 요약: Ch.13~19"/>
   
-  <meta property="og:description" content="어렸을 때의 나는 무언가 새롭게 ‘시작’하는 것을 좋아했다. 무언가를 빨리 배우는 편이었고, 새롭게 어떤 환경이나 개념에 적응하는데에 드는 시간이 적게 들었기 때문에 ‘시작’을 즐길 수 있었기 때문이었던 것 같다. ‘시작’이 주는 그 몰입감과 성취감은 권태로움에서 나를 꺼내주는 좋은 처방전이었다." />
+  <meta property="og:description" content="지난 글 »  Machine Learning Yearning 요약: Ch.1~4  Machine Learning Yearning 요약: Ch.5~12" />
   
-  <meta property="og:image" content="https://inmoonlight.github.io/assets/images/slump.jpeg" />
-  <meta property="og:url" content="https://inmoonlight.github.io/2019/05/15/%E1%84%8B%E1%85%B2%E1%84%8F%E1%85%AB%E1%84%92%E1%85%A1%E1%86%AB-%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A5%E1%86%B7%E1%84%91%E1%85%B3.html" >
+  <meta property="og:image" content="https://inmoonlight.github.io/assets/images/mlyearning.jpg" />
+  <meta property="og:url" content="https://inmoonlight.github.io/2019/01/01/Machine-Learning-Yearning-summary-Ch.13~19.html" >
   <meta property="og:type" content="blog" />
-  <meta property="article:published_time" content="2019-05-15T22:01:00+09:00">
+  <meta property="article:published_time" content="2019-01-01T15:47:00+09:00">
 
-  <link rel="canonical" href="https://inmoonlight.github.io/2019/05/15/%E1%84%8B%E1%85%B2%E1%84%8F%E1%85%AB%E1%84%92%E1%85%A1%E1%86%AB-%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A5%E1%86%B7%E1%84%91%E1%85%B3.html"/>
+  <link rel="canonical" href="https://inmoonlight.github.io/2019/01/01/Machine-Learning-Yearning-summary-Ch.13~19.html"/>
   <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
   <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -161,21 +161,21 @@
 			</script>
 		
 		<div class="article-image">
-		  <div class="post-image-image" style="background-image: url(/assets/images/slump.jpeg)">
+		  <div class="post-image-image" style="background-image: url(/assets/images/mlyearning.jpg)">
 			Article Image
 		  </div>
-		  <div class="post-image-image2" style="background-image: url(/assets/images/slump.jpeg)">
+		  <div class="post-image-image2" style="background-image: url(/assets/images/mlyearning.jpg)">
 			Article Image
 		  </div>
 		  <div class="post-meta">
-			<h1 class="post-title">유쾌한 슬럼프</h1>
+			<h1 class="post-title">Machine Learning Yearning 요약: Ch.13~19</h1>
 			<div class="cf post-meta-text">
-        <time datetime="15-05-2019">May 15, 2019</time>
+        <time datetime="01-01-2019">Jan 01, 2019</time>
         | <span class="reading-time" title="Estimated read time">
     
 
     
-        3 mins
+        6 mins
     
 </span> read
 			  <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
@@ -187,24 +187,68 @@
 		</div>
 		
 		<section class="post-content-mediator">
-		  <p>어렸을 때의 나는 무언가 새롭게 ‘시작’하는 것을 좋아했다. 무언가를 빨리 배우는 편이었고, 새롭게 어떤 환경이나 개념에 적응하는데에 드는 시간이 적게 들었기 때문에 ‘시작’을 즐길 수 있었기 때문이었던 것 같다. ‘시작’이 주는 그 몰입감과 성취감은 권태로움에서 나를 꺼내주는 좋은 처방전이었다.</p>
-
-<p>하지만 동시에, 내가 ‘시작’했던 많은 자잘한 일들은 소위말해 ‘꿀만 빨고’ 그만 둘 수 없었다. 처음이 주는 신선함에 어느 정도 익숙해지고나면 이 분야의 ‘탁월함’이 보이기 시작하고, 나는 한참 밑에 자리하고 있다는 사실을 인지하게 된다. 그리고, 그때쯤 항상 그만두고 싶어졌다.</p>
-
-<p>이 시기를 견디지 못하는 이유는, 아마 기준이 낮았기 때문이었을 것이다. 내가 성취하고자 하는 것은 굉장히 낮은 수준의 것이었고 그 수준을 빠르게 달성하고 나면 더 이상의 열정이 생기지 않았다. 오히려 ‘왜 해야하지?’ 라는 생각이 나를 합리화시키면서 금방 포기하게 만들었다.
-그래서 참 많은, 잡다한 무언가를 하지만 어느 것 하나 제대로 마치지 못하는 나를 발견하곤, ‘잘’하는 것에 좀 더 집중해보기로 했다. 그 이후로 시작에 대한 두려움이 커졌다.</p>
+		  <p>지난 글 » <br /> <a href="https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/25/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.1~4.html">Machine Learning Yearning 요약: Ch.1~4</a> <br /> 
+<a href="https://inmoonlight.github.io/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%B1%85/%EC%9A%94%EC%95%BD/2018/12/26/Machine-Learning-Yearning-%EC%9A%94%EC%95%BD-Ch.5~12.html">Machine Learning Yearning 요약: Ch.5~12</a></p>
 
 <div class="breaker"></div>
 
-<p>시간과 실력의 관계를 그래프 형태로 나타내면, ‘계단’형이라고 할 수 있겠다. 기나긴 슬럼프 끝에 오는 어느 순간의 깨달음으로, 실력이 갑자기 반등한다. 내게 두려운 기간은 바로 이 ‘슬럼프’의 시기다. 이 또한 지나가리라는 것을 알면서도, 그 순간들은 언제나 고통스럽다. 마치 근력운동을 할 때 정말 힘들지만, 이 순간을 견뎌내야 근육이 붙는다는 사실을 인지하는 느낌이다.</p>
+<p>목적에 맞는 Dev와 Test set을 구축했다면, 이제 모델이 얼마나 잘하고 있는지, 못한다면 그 이유는 무엇인지에 대한 분석을 할 수 있다. 그래서 이번에 다룰 주제는 <strong>Basic Error Analysis</strong>이다.</p>
 
-<p>그 때에 나는 고민한다. <strong>새로운 시작을 할 때인가 아니면, 버텨내야할 때인가를.</strong> 잘하고 싶기에 버텨내야 한다는 답을 내리지만, 이게 무슨 의미가 있지? 라고 물었을 땐, 쉽게 답하기가 어려울 때가 많다. 왜 버텨내야 하는지, 스스로를 격려하지 않으면 자꾸만 과거의 습관이 튀어나와 새로운 시작을 시도하려고 한다.</p>
-
-<p>안타까운 건, 이젠 새로운 시작마저도 그 과정에서 다시금 슬럼프를 마주한다는 사실을 인지하고 있기 때문에 잘 하려고 들지 않는다는 것이다. 그래서, 차악으로, 내가 겪고 있는 슬럼프의 시기를 버티게 되는 요즘이다.</p>
+<blockquote>
+  <p>Ch.13: Build your first system quickly, then iterate <br />
+Ch.14: Error analysis: Look at dev set examples to evaluate ideas <br />
+Ch.15: Evaluating multiple ideas in parallel during error analysis <br />
+Ch.16: Cleaning up mislabeled dev and test set examples <br />
+Ch.17: If you have a large dev set, split it into two subsets, only one of which you look at <br />
+Ch.18: How big should the Eyeball and Blackbox dev sets be? <br />
+Ch.19: Takeaways: Basic error analysis</p>
+</blockquote>
 
 <div class="breaker"></div>
 
-<p>당신의 슬럼프는 안녕하신가요? 유쾌한 슬럼프란, 존재할 수 없는 개념일까요?</p>
+<p>이해의 용이성을 위해, 내가 속한 팀이 사용자들이 올린 이미지를 classification하는 모델을 서비스한다고 가정해보자. 팀원들은 모델의 classification accuracy를 향상시키고 싶을 것이고, 이를 위해 적절한 training, dev, test set을 구축하였다. 학습시킨 모델의 정확도는 90%이다. 하지만 이 정도로는 서비스에 반영하기 어렵다. 자, 이제 우리는 어떻게 해야할까?</p>
+
+<p>일단, 10%의 에러가 어떤 데이터에 대해서 발생하는지 분석(=error analysis)해야 한다. 좋은 분석은 적절한 가정들을 바탕으로 이루어진다. 우리 팀이 생각한 모델의 문제는 “개(dog) 이미지를 잘못 분류한다”이다.</p>
+
+<p>지난 Chapter에서 dev set이 error analysis를 위한 data set임을 설명했다. 이 중 모델이 <strong>misclassify한 데이터에서 100개를 sampling</strong>한다. 그리고 우리의 가설-개 이미지를 잘못 분류-과 일치하는 case를 센다. 만약 5개였다면, 에러율 10%의 5%가 해당 케이스인 것이므로 모델이 앞으로 “개 이미지를 제대로 분류”한다고 하더라도 <code class="highlighter-rouge">10% * 0.05 = .5%</code> 정도의 향상을 기대할 수 있다.</p>
+
+<p>좀 더 효율을 높여보자. 우리는 지금 가설 1개에 대해서 100개의 sampling된 데이터를 살펴보았는데, 이 작업은 가설 여러개에 대해서 동시에 진행할 수 있다.</p>
+<blockquote>
+  <p>가설1: 개 이미지를 잘못 분류 <br />
+가설2: 고양이과(사자, 표범 등) 이미지를 잘못 분류 <br />
+가설3: 흐린 이미지를 잘못 분류</p>
+</blockquote>
+
+<p>Andrew Ng은 헷갈리지 않도록 아래 그림처럼 spreadsheet을 만들어서 작업을 진행한다고 한다.</p>
+
+<p><img src="/assets/images/mlyearning-ch13-19-figure1.png" alt="figure1" /></p>
+
+<p><code class="highlighter-rouge">% of total</code>을 통헤 현재 모델이 가장 critical하게 개선해야 하는 점이 무엇인지를 바로 파악할 수 있다.</p>
+
+<p>모델의 성능이 좋지 않을 때 항상 염두에 두어야 하는 가설이 있다. 바로, “mislabeled data의 비율이 얼마나 되는가?”이다. 데이터의 양이 많을수록 수집과정에서 예상치 못한 에러가 발생한다. mislabeled data가 발견된다면 training data의 mislabel은 어쩔 수 없으니 내버려두고, dev set과 test set은 수정하는 것을 권장한다. (dev와 test set의 distribution은 같아야 하므로)</p>
+
+<p><img src="/assets/images/mlyearning-ch13-19-figure2.png" alt="figure2" /></p>
+
+<div class="breaker"></div>
+
+<p>지금까지 소개한 error analysis 방법은 misclassify된 data 중에서 100개에 적용되었다. 이 말은 모델의 성능이 95%의 accuracy라고 가정했을 때, dev set의 크기가 <code class="highlighter-rouge">100/0.05 = 2,000</code> 정도라는 뜻을 함유하고 있다. 만약 나의 dev set이 이 정도의 규모보다 작다면, 혹은 크다면 어떻게 해야할까?</p>
+
+<p>Andrew Ng이 제안한 100개의 error data 개수는 이 정도가 모델의 major error source로서 매우 좋은 인사이트를 발견할 수 있다고 생각했기 때문이다.</p>
+
+<blockquote>
+  <p>~100개: 매우 좋은 인사이트 발견 <br />
+~50개: 좋은 인사이트 발견 <br />
+~20개: 개략적인 인사이트 발견 <br />
+~10개: 불충분. 하지만 적은 dev set을 가지고 있다면 없는 것보다는 나은 정도</p>
+</blockquote>
+
+<p>그래서 dev set이 작다면 모든 데이터를 error analysis를 위해 사용하는 것이 좋다. 만약 dev set이 크다면, <strong>eyeball dev set</strong>과 <strong>blackbox dev set</strong>으로 나누어 사용한다. eyeball dev set은 error analysis를 하면서 계속 모델이 잘하거나 못하는 것을 살펴볼 용도로 사용하는 dev set이고, blackbox dev set은 모델의 파라미터를 튜닝하기 위한 용도로만 사용하는 dev set이다. 만약 <code class="highlighter-rouge">eyeball error rate &lt;&lt; blackbox error rate</code> 이라면 모델이 eyeball dev set에 overfitting하고 있으므로 새로운 eyeball dev set을 구축하는 것으로 그 위험을 방지한다.</p>
+
+<p>여기에도 예외가 있는데, 사람조차 풀기 어려운 과제를 위한 모델을 만들고 있다면 eyeball dev set은 전혀 도움이 되지 않을 것이므로 eyeball dev set을 만들지 않아도 좋다.</p>
+
+<div class="breaker"></div>
+
+<p>그리고 여기까지 소개된 일련의 과정-데이터 수집 -&gt; 모델 구성 -&gt; 학습 -&gt; 결과 분석 pipeline-이 최대한 빨리 iterate하는 것이 중요하다. 처음부터 완벽한 것은 없다. 일단 시작하자!</p>
 
 		</section>
 		<footer class="post-footer">
@@ -213,11 +257,13 @@
 					  
 					
 						 
-							<a href="/tag/슬럼프">슬럼프 </a>
+							<a href="/tag/머신러닝">머신러닝 </a>
 						 
-							<a href="/tag/시작">시작 </a>
+							<a href="/tag/스터디">스터디 </a>
 						 
-							<a href="/tag/권태로움">권태로움 </a>
+							<a href="/tag/책">책 </a>
+						 
+							<a href="/tag/요약">요약 </a>
 						
 					
 					
@@ -225,14 +271,14 @@
 		  <section class="share">
 				
 			  	
-						<a class="icon-twitter" href="http://twitter.com/share?text=%EC%9C%A0%EC%BE%8C%ED%95%9C+%EC%8A%AC%EB%9F%BC%ED%94%84&amp;url=https://inmoonlight.github.io/2019/05/15/유쾌한-슬럼프"
+						<a class="icon-twitter" href="http://twitter.com/share?text=Machine+Learning+Yearning+%EC%9A%94%EC%95%BD%3A+Ch.13~19&amp;url=https://inmoonlight.github.io/2019/01/01/Machine-Learning-Yearning-summary-Ch.13~19"
 				  		onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
 						<i class="fa fa-twitter"></i><span class="hidden">twitter</span>
 						</a>
 			 		
 				
 			  	
-						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=%EC%9C%A0%EC%BE%8C%ED%95%9C+%EC%8A%AC%EB%9F%BC%ED%94%84&amp;u=https://inmoonlight.github.io/2019/05/15/유쾌한-슬럼프"
+						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=Machine+Learning+Yearning+%EC%9A%94%EC%95%BD%3A+Ch.13~19&amp;u=https://inmoonlight.github.io/2019/01/01/Machine-Learning-Yearning-summary-Ch.13~19"
 				  		onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
 						<i class="fa fa-facebook"></i><span class="hidden">facebook</span>
 						</a>
