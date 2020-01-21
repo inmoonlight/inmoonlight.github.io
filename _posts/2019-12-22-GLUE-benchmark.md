@@ -97,7 +97,7 @@ task는 크게 3가지 - Single-Sentence Tasks (CoLA, SST-2), Similarity and Par
 
 #### testset and metrics
 
-testset은 In-Domain과 Out-of-Domain으로 구성되어 있다. 
+testset은 In-Domain과 Out-of-Domain으로 구성되어 있다. 
 In-Domain은 training set이 추출된 source와 같은 source에서, Out-of-Domain은 training set이 추출되지 *않은* source에서 구성되었다. 
 GLUE는 원래 구분된 두 testset을 하나로 합쳐 단일 testset을 구축하였고 총 1,160 문장이다.
 
