@@ -5,8 +5,8 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>https://inmoonlight.github.io/</link>
     <atom:link href="https://inmoonlight.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jan 2020 23:39:05 +0900</pubDate>
-    <lastBuildDate>Tue, 21 Jan 2020 23:39:05 +0900</lastBuildDate>
+    <pubDate>Wed, 22 Jan 2020 00:03:06 +0900</pubDate>
+    <lastBuildDate>Wed, 22 Jan 2020 00:03:06 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -162,8 +162,8 @@
 수고했다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 07 Jan 2020 22:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung.html</guid>
+        <link>https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</guid>
         
         
         <category>은희경</category>
@@ -631,8 +631,8 @@ John was very impressive.
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 22 Dec 2019 22:22:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/12/22/GLUE-benchmark.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/12/22/GLUE-benchmark.html</guid>
+        <link>https://inmoonlight.github.io/2019/12/22/GLUE-benchmark</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/12/22/GLUE-benchmark</guid>
         
         
         <category>nlp</category>
@@ -1368,8 +1368,8 @@ CH_1
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 07 Nov 2019 00:07:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings.html</guid>
+        <link>https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings</guid>
         
         
         <category>quantum-computer</category>
@@ -1434,8 +1434,8 @@ reddit과 yelp 등에서 사용하고 있는 알고리즘을 비롯하여, 논�
 
 &lt;h2 id=&quot;0-previous-work&quot;&gt;0. Previous Work&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;/2019/07/25/Naver-News-Comments-Analysis-(1).html&quot;&gt;Naver News Comment Analysis (1)&lt;/a&gt;에서는 수집한 뉴스와 댓글 데이터의 전체 통계량을 보며 간단히 데이터를 이해해보았다. &lt;br /&gt;
-&lt;a href=&quot;/2019/08/03/Naver-News-Comments-Analysis-(2).html&quot;&gt;Naver News Comment Analysis (2)&lt;/a&gt;에서는 어뷰저를 찾기 위해 네이버 뉴스에 빈번하게 순위권에 오르는 유저 중에서 비정상적으로 빈번하게 오른 유저를 분석하였다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2019/07/25/Naver-News-Comments-Analysis-(1)&quot;&gt;Naver News Comment Analysis (1)&lt;/a&gt;에서는 수집한 뉴스와 댓글 데이터의 전체 통계량을 보며 간단히 데이터를 이해해보았다. &lt;br /&gt;
+&lt;a href=&quot;/2019/08/03/Naver-News-Comments-Analysis-(2)&quot;&gt;Naver News Comment Analysis (2)&lt;/a&gt;에서는 어뷰저를 찾기 위해 네이버 뉴스에 빈번하게 순위권에 오르는 유저 중에서 비정상적으로 빈번하게 오른 유저를 분석하였다.&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -2133,8 +2133,8 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 23 Sep 2019 17:25:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3).html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3).html</guid>
+        <link>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)</guid>
         
         
         <category>데이터분석</category>
@@ -2268,8 +2268,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 09 Aug 2019 22:26:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/08/09/Travel-to-Norway-fjord-brown-cheese.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/08/09/Travel-to-Norway-fjord-brown-cheese.html</guid>
+        <link>https://inmoonlight.github.io/2019/08/09/Travel-to-Norway-fjord-brown-cheese</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/08/09/Travel-to-Norway-fjord-brown-cheese</guid>
         
         
         <category>노르웨이</category>
@@ -2320,7 +2320,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 
 &lt;h2 id=&quot;0-previous-work&quot;&gt;0. Previous Work&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;/2019/07/25/Naver-News-Comments-Analysis-(1).html&quot;&gt;Naver News Comment Analysis (1)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2019/07/25/Naver-News-Comments-Analysis-(1)&quot;&gt;Naver News Comment Analysis (1)&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
 
@@ -3308,8 +3308,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 03 Aug 2019 17:59:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2).html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2).html</guid>
+        <link>https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2)</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2)</guid>
         
         
         <category>데이터분석</category>
@@ -3541,8 +3541,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 25 Jul 2019 22:23:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/07/25/Naver-News-Comments-Analysis-(1).html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/25/Naver-News-Comments-Analysis-(1).html</guid>
+        <link>https://inmoonlight.github.io/2019/07/25/Naver-News-Comments-Analysis-(1)</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/25/Naver-News-Comments-Analysis-(1)</guid>
         
         
         <category>데이터분석</category>
@@ -3587,8 +3587,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 당신은 어떤 사람인가?&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Jul 2019 20:26:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction.html</guid>
+        <link>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</guid>
         
         
         <category>나</category>
@@ -3617,8 +3617,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;당신의 슬럼프는 안녕하신가요? 유쾌한 슬럼프란, 존재할 수 없는 개념일까요?&lt;/p&gt;
 </description>
         <pubDate>Wed, 15 May 2019 22:01:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/05/15/Joyful-slump.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/05/15/Joyful-slump.html</guid>
+        <link>https://inmoonlight.github.io/2019/05/15/Joyful-slump</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/05/15/Joyful-slump</guid>
         
         
         <category>슬럼프</category>
@@ -3660,8 +3660,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;p&gt;남에게 나를 소개하기 쉬운 방식-data manifold의 geometrical insight에 관심있는 로봇자동화 연구실 대학원생, HCI 연구실 대학원생, deep metric learning에 관심있는 대학원생, 전동킥보드 쉐어링 스타트업 개발자, (전) 인액터스 의장, 서울대 수학과 박사, google swe, 건축학도, 파파고 개발자-이 아닌, 본인 스스로에게 부여하는 이름은 무엇일까?&lt;/p&gt;
 </description>
         <pubDate>Thu, 04 Apr 2019 21:57:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/04/04/Through-my-times.html</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/04/04/Through-my-times.html</guid>
+        <link>https://inmoonlight.github.io/2019/04/04/Through-my-times</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2019/04/04/Through-my-times</guid>
         
         
         <category>탁월함</category>
