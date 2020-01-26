@@ -1,5 +1,5 @@
 ---
-title: "Positional Encoding"
+title: "Positional Encoding in NLP"
 layout: post
 date: 2020-01-26 17:00
 image: /assets/images/positional_encoding.png
