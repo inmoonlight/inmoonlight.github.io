@@ -152,6 +152,16 @@ MemN2N에서의 PE와는 달리, position vector의 주기가 vector의 dimensio
 sinusodial 함수의 특징을 이용해 첫번째, 두번째마다 같은 position 정보를 주면서도 $$n + k$$ 번째 vector가 $$n$$ 번째 vector와 관계가 있을 때 이를 학습할 수 있는 여지를 남겨주기 위함이다.
 (참고로 이에 대한 수학적인 증명은 [이 article](https://timodenk.com/blog/linear-relationships-in-the-transformers-positional-encoding/)에 기술되어 있다.)
 
+또한 PE vector 간의 distance는 대칭적이고 거리에 따라 일정한 비율로 감소한다.
+Transformer의 self-attention 연산에서 빛을 발하는 특징이다.
+
+<div style="text-align:center">
+<img class="image" src="{{ site.baseurl }}/assets/images/PE_pros_1.png" width="60%">
+<figcaption class="caption">Image credit: https://kazemnejad.com/blog/transformer_architecture_positional_encoding</figcaption>
+</div>
+<br>
+
+
 <div class='breaker'></div>
 
 ## [4. Conclusions](#table-of-contents)

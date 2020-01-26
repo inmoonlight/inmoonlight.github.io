@@ -336,6 +336,15 @@ P E_{(\text {pos, 2k} )} &=\sin \left(\text {pos} / 10000^{2 k / d}\right) \\ P 
 <p>sinusodial 함수의 특징을 이용해 첫번째, 두번째마다 같은 position 정보를 주면서도 <script type="math/tex">n + k</script> 번째 vector가 <script type="math/tex">n</script> 번째 vector와 관계가 있을 때 이를 학습할 수 있는 여지를 남겨주기 위함이다.
 (참고로 이에 대한 수학적인 증명은 <a href="https://timodenk.com/blog/linear-relationships-in-the-transformers-positional-encoding/">이 article</a>에 기술되어 있다.)</p>
 
+<p>또한 PE vector 간의 distance는 대칭적이고 거리에 따라 일정한 비율로 감소한다.
+Transformer의 self-attention 연산에서 빛을 발하는 특징이다.</p>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/PE_pros_1.png" width="60%" />
+<figcaption class="caption">Image credit: https://kazemnejad.com/blog/transformer_architecture_positional_encoding</figcaption>
+</div>
+<p><br /></p>
+
 <div class="breaker"></div>
 
 <h2 id="4-conclusions"><a href="#table-of-contents">4. Conclusions</a></h2>
