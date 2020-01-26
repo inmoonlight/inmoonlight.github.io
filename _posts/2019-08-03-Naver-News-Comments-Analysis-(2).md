@@ -3,7 +3,7 @@ title: "Naver News Comment Analysis (2)"
 layout: post
 date: 2019-08-03 17:59
 image: /assets/images/naver_news_comments.png
-categories: [ 데이터분석, data-analysis, 사회, society ]
+categories: [ 데이터분석, data-analysis, 사회, society, 뉴스댓글, news-comments ]
 featured: false
 ---
 

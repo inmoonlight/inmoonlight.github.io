@@ -3,7 +3,7 @@ title: "Machine Learning Yearning 요약: Ch.1~4"
 layout: post
 date: 2018-12-25 17:17
 image: /assets/images/mlyearning.jpg
-categories: [ 머신러닝, 스터디, 책, 요약 ]
+categories: [ machine-learning, book, summary, 머신러닝, 책, 요약 ]
 featured: false
 ---
 

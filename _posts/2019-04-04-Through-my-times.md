@@ -3,7 +3,7 @@ title: "내가 보내는 시간에 부여하는 나만의 의미"
 layout: post
 date: 2019-04-04 21:57
 image: /assets/images/future-of-work.jpg
-categories: [ 탁월함, 일, 전문성, 의미 ]
+categories: [ 에세이, essay ]
 featured: false
 ---
 

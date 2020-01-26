@@ -3,7 +3,7 @@ title: "스카이캐슬을 통해 본 서울대학교 학생들의 우울증"
 layout: post
 date: 2018-12-23 12:59
 image: /assets/images/skycastle.jpg
-categories: [ 우울증, 대학생, 고민 ]
+categories: [ essay, 에세이 ]
 featured: false
 ---
 

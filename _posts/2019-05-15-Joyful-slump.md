@@ -3,7 +3,7 @@ title: "유쾌한 슬럼프"
 layout: post
 date: 2019-05-15 22:01
 image: /assets/images/slump.jpeg
-categories: [ 슬럼프, 시작, 권태로움 ]
+categories: [ 연울림 ]
 featured: false
 ---
 

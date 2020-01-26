@@ -3,7 +3,7 @@ title: "연울림 이야기"
 layout: post
 date: 2019-04-01 12:57
 image: /assets/images/story.jpg
-categories: [ 연울림, 이야기, 자기이해, 날리다 ]
+categories: [ 연울림 ]
 featured: false
 ---
 

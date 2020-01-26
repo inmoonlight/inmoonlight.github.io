@@ -3,7 +3,7 @@ title: "Machine Learning Yearning 요약: Ch.13~19"
 layout: post
 date: 2019-01-01 15:47
 image: /assets/images/mlyearning.jpg
-categories: [ 머신러닝, 스터디, 책, 요약 ]
+categories: [ machine-learning, book, summary, 머신러닝, 책, 요약 ]
 featured: false
 ---
 

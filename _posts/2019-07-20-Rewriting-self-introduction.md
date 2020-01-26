@@ -3,7 +3,7 @@ title: "나, 다시 쓰는 자기소개서"
 layout: post
 date: 2019-07-20 20:26
 image: /assets/images/puppy_rail.jpg
-categories: [ 나 ]
+categories: [ 연울림 ]
 featured: false
 ---
 

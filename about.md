@@ -23,6 +23,7 @@ comments: false
 
 #### Projects
 
+- [OCT 2019] [**데이터야놀자2019**](https://datayanolja.github.io/2019-datayanolja/index.html) **발표** [[slide]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255)
 - [MAR 2019 ~ AUG 2019] **Naver News Comments Analysis** 
 - [MAR 2019 ~ NOV 2019] **연울림** [[instagram]](https://www.instagram.com/yeonullim/)
 - [NOV 2018 ~ NOV 2019] **날리다 (Nalida) : 나를 알리다** [[homepage]](http://www.nalida.info/) [[brunch]](https://brunch.co.kr/@nalida) [[facebook]](https://www.facebook.com/nalida2/) [[instagram]](https://www.instagram.com/nalida_official/) 

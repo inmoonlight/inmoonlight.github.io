@@ -3,7 +3,7 @@ title: "노르웨이에서의 나홀로 여행 1: 피오르드, 브라운 치즈
 layout: post
 date: 2019-08-09 22:26
 image: /assets/images/naeroyfjord.jpeg
-categories: [ 노르웨이, 나홀로, 여행, 피오르드, 브라운치즈 ]
+categories: [ 노르웨이, 여행 ]
 featured: false
 ---
 

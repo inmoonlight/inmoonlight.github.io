@@ -3,7 +3,7 @@ title: "멘토에게 좋은 질문을 하는 방법"
 layout: post
 date: 2019-01-08 11:38
 image: /assets/images/mentor.jpg
-categories: [ 멘토링, 질문, 멘티 ]
+categories: [ 멘토링, mentoring ]
 featured: false
 ---
 

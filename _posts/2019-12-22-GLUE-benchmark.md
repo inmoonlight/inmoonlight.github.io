@@ -4,8 +4,7 @@ layout: post
 date: 2019-12-22 22:22
 image: /assets/images/glue.png
 categories: [ nlp, dataset, 자연어처리, 데이터셋 ]
-featured: true
-hidden: true
+featured: false
 ---
 
 General Language Understanding Evaluation benchmark, 줄여서 GLUE benchmark 라고 불리는 이 데이터셋은 NLP 분야에서 Language Model 검증을 위해 사용된다.

@@ -3,7 +3,7 @@ title: "좋아하는 일은 어떻게 찾을 수 있을까?"
 layout: post
 date: 2018-11-24 20:48
 image: /assets/images/myconfusingway.jpeg
-categories: [ 멘토링, 자기이해, 꿈, 진로 ]
+categories: [ 멘토링, mentoring ]
 featured: false
 ---
 

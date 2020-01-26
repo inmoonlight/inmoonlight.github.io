@@ -3,7 +3,7 @@ title: "답은 언제나 나에게 있다"
 layout: post
 date: 2019-01-20 16:55
 image: /assets/images/find_myself_answer.png
-categories: [ 자기이해, 날리다 ]
+categories: [ 연울림 ]
 featured: false
 ---
 
