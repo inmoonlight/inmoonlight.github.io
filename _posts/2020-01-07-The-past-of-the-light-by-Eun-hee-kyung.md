@@ -3,7 +3,7 @@ title: "은희경 - 빛의 과거"
 layout: post
 date: 2020-01-07 22:00
 image: /assets/images/past-of-the-light.jpeg
-categories: [ Book, review, essay, 책, 후기, 에세이 ]
+categories: [ book, review, essay, 책, 후기, 에세이 ]
 featured: false
 ---
 

@@ -3,7 +3,7 @@ title: "Positional Encoding"
 layout: post
 date: 2020-01-26 17:00
 image: /assets/images/positional_encoding.png
-categories: [ nlp, technique, 자연어처리 ]
+categories: [ machine-learning, nlp, technique, 머신러닝, 자연어처리 ]
 featured: true
 hidden: true
 ---
