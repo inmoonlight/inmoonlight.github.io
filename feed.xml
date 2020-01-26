@@ -5,9 +5,204 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>https://inmoonlight.github.io/</link>
     <atom:link href="https://inmoonlight.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Jan 2020 00:03:06 +0900</pubDate>
-    <lastBuildDate>Wed, 22 Jan 2020 00:03:06 +0900</lastBuildDate>
+    <pubDate>Sun, 26 Jan 2020 20:26:13 +0900</pubDate>
+    <lastBuildDate>Sun, 26 Jan 2020 20:26:13 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Positional Encoding</title>
+        <description>&lt;p&gt;Positional encoding 혹은 position encoding은 모델 구조에서 자연스럽게 sequential information을 얻지 못하는 경우에 대해 정보를 강제하는 방식이다.
+보통 sequential data를 Recurrent Neural Network (RNN) 외의 다른 모델로 다루고 싶을 때 많이 사용된다.
+이번 글에서는 Convolutional Neural Network (CNN), End-to-End Memory Network (MemN2N), Transformer에서 sentence embedding을 위해 사용된 positional encoding에 대해 소개하려고 한다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;#1-introduction&quot;&gt;1. Introduction&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#2-learned-positional-embeddings&quot;&gt;2. Learned Positional Embeddings&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#3-positional-encoding&quot;&gt;3. Positional Encoding&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#30-the-intuition&quot;&gt;3.0 Intuition&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#31-in-memn2n&quot;&gt;3.1 In MemN2N&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#32-in-transformer&quot;&gt;3.2 In Transformer&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#4-conclusions&quot;&gt;4. Conclusions&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-introduction&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1. Introduction&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;일반적으로 NLP 모델은 각 문장을 구성하는 token을 one-hot vector가 아닌 distributed vector로 표현한다.
+그 이유는 distributed representation이 1) 비슷한 의미지만 다른 lexical form을 가진 token을 더 잘 표현할 수 있기 때문이고, 2) embedding dimension을 감소시킬 수 있기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;문장의 embedding은 문장을 이루는 각 token의 embedding을 조합하는 방식으로 얻어진다.
+이 때 position에 대한 정보가 없다면 모델은 &lt;code class=&quot;highlighter-rouge&quot;&gt;handful of chocolate&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;chocolate of handful&lt;/code&gt;을 같은 의미로 인식하게 된다.
+RNN은 모델 구조 자체에 time information이 녹아져 있다.
+그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;handful --&amp;gt; of --&amp;gt; chocolate&lt;/code&gt; 의 순서가 담긴 sentence embedding을 자연스럽게 얻을 수 있다.
+반면 CNN이나 Attention 기반의 Transformer는 순서에 대한 정보를 강제해야 하고, 이 때 positional encoding이 사용된다.&lt;/p&gt;
+
+&lt;p&gt;Positional encoding (PE) 은 token embedding vector에 곱해지는 정보로, sentence에서 해당 token이 어디에 위치해 있는지를 나타낸다.
+J개의 token &lt;script type=&quot;math/tex&quot;&gt;t_j \in \mathbb{R}^d&lt;/script&gt; 으로 구성된 sentence &lt;script type=&quot;math/tex&quot;&gt;s = [t_1, t_2, ..., t_J]&lt;/script&gt; 가 있다고 하자. 
+PE &lt;script type=&quot;math/tex&quot;&gt;\in \mathbb{R}^{J \times d}&lt;/script&gt; 의 row &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; 마다 다른 값을 가지도록 하여 문장 맨 처음의 &lt;code class=&quot;highlighter-rouge&quot;&gt;handful&lt;/code&gt;과 맨 뒤의 &lt;code class=&quot;highlighter-rouge&quot;&gt;handful&lt;/code&gt;을 다르게 인식하도록 한다.&lt;/p&gt;
+
+&lt;p&gt;PE를 구성하는 방식에는 크게 두 종류가 있다.
+하나는 학습기반, 다른 하나는 position과 dimension을 입력으로 한 함수를 이용하는 방법이다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-learned-positional-embeddings&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;2. Learned Positional Embeddings&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;학습기반의 PE를 구성하는 방식은 Convolutional Sequence to Sequence Learning (ConvS2S)&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;에서 사용되었다.
+평균 0, 표준편차 0.1을 따르는 normal distribution으로 initialize되고 학습을 통해 position 정보를 배우길 기대한다.&lt;/p&gt;
+
+&lt;p&gt;PE를 encoder와 decoder 모두에 사용한 경우, encoder에만 사용한 경우, decoder에만 사용한 경우, 아예 사용하지 않은 경우로 나누어 번역 task에 실험해보았을 때의 결과는 다음과 같다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/learned_pe_table.png&quot; width=&quot;70%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+BLEU를 기준으로 분석해보면 encoder에서의 PE역할이 decoder보다 조금 더 중요하다.
+PE를 아예 쓰지 않을 때의 점수가 가장 낮지만 점수 차이를 생각해보면 모델 성능에는 크게 영향을 미치지 않는다고 해석해 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;학습 기반이므로 학습 시 다루지 않았던 길이의 문장이 입력으로 들어온 경우, 외삽이 불가능하다는 단점이 있다.&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-function-based-positional-encoding&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3. Function-based Positional Encoding&lt;/a&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;p&gt;함수 기반의 PE는 문장에서 몇 번째에 위치한 토큰인지, 토큰의 embedding dimension이 무엇인지를 정해주면 값이 정해진다.
+이 때, 다른 위치의 정보가 같은 값으로 mapping되지 않아야 한다.
+어떻게 구현할 수 있을까?&lt;/p&gt;
+
+&lt;h3 id=&quot;30-the-intuition&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3.0 The Intuition&lt;/a&gt;&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;0부터 15까지의 숫자를 2진법으로 나타내보자.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/PE_intuition.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+다른 색으로 구분지어 표현한 2진수의 자리수마다 다른 주기를 가지는 것을 볼 수 있다.
+붉은색은 주기가 1이고, 노란색은 주기가 2, 초록색은 주기가 4, 파란색은 주기가 8이다.&lt;/p&gt;
+
+&lt;p&gt;위 예시에서의 자리수를 embedding dimension이라고 생각해보면 PE에도 같은 원리를 확장시켜볼 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;31-in-memn2n&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3.1 In MemN2N&lt;/a&gt;&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;End-to-End Memory Network (MemN2N)&lt;sup id=&quot;fnref:4:1&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;에서는 아래의 함수를 사용했다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;PE_{k j}=(1- \frac{j}{J})-\frac{k}{d}(1- \frac{2j}{J})&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;j \in {1, ..., J}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;k \in {1, ..., D}&lt;/script&gt;
+
+&lt;p&gt;임의의 문장 &lt;code class=&quot;highlighter-rouge&quot;&gt;The same representation is used for questions, memory inputs and memory outputs.&lt;/code&gt;에 적용되는 PE를 시각화해보면 다음과 같다.&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/PE_example_1.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기서는 dimension에 관계없이 같은 주기를 가지지만 시작값이 전부 다르다.
+결과적으로는 position마다 다른 vector를 곱하게 되어 position 정보를 전달할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;다른 문장 길이를 가지는 경우에 대해서 적용해보면 어떨까?
+이번에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;We therefore propose a second representation that encodes the position of words within the sentence.&lt;/code&gt;에 대해 시각해보았다.&lt;sup id=&quot;fnref:5:1&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/PE_example_2.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;position이 늘어난만큼 position encoding 값의 변화도가 줄었다.
+J는 문장마다 달라지므로 첫번째, 두번째의 절대적인 위치보다는 각 순서를 구분짓기 위한 목적에 치중하였다.&lt;/p&gt;
+
+&lt;p&gt;ConvS2S에서와는 달리 MemN2N에서 PE의 효과는 꽤나 컸던 것으로 보인다.&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/MemN2N_PE.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;32-in-transformer&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3.2 In Transformer&lt;/a&gt;&lt;sup id=&quot;fnref:6:1&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;Attention is all you need&lt;sup id=&quot;fnref:6:2&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;에서 사용된 PE는 &lt;strong&gt;주기&lt;/strong&gt;함수로 유명한 sin 함수와 cos 함수를 기반으로 한다. (a.k.a, sinusoidal functions)&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned} 
+P E_{(\text {pos, 2k} )} &amp;=\sin \left(\text {pos} / 10000^{2 k / d}\right) \\ P E_{(\text {pos,2k+1})} &amp;=\cos \left(\text {pos} / 10000^{2 k / d}\right) 
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;잠시 고등학교 때 배운 수학을 떠올려보자. 
+&lt;script type=&quot;math/tex&quot;&gt;sin(ax + b)&lt;/script&gt; 의 주기는 &lt;script type=&quot;math/tex&quot;&gt;2\pi / |a|&lt;/script&gt; 이다.
+따라서 PE의 특정 position vector 값의 주기는 &lt;script type=&quot;math/tex&quot;&gt;2\pi \cdot 10000^{2 k / d}&lt;/script&gt; 와 같다.&lt;/p&gt;
+
+&lt;p&gt;MemN2N에서의 PE와는 달리, position vector의 주기가 vector의 dimension마다 변화한다.
+전체 벡터 크기(&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;)가 128이라고 가정할 때, k가 작을수록 주기가 짧고 k가 클수록 주기도 길어진다. (아래 그림 참고)&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/positional_encoding.png&quot; width=&quot;90%&quot; /&gt;
+&lt;figcaption class=&quot;caption&quot;&gt;Image credit: https://kazemnejad.com/blog/transformer_architecture_positional_encoding&lt;/figcaption&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;왜 Transformer에서는 MemN2N과 다르게 sinusoidal 함수를 썼을까?
+논문에서 그 이유를 짧게 기술하고 있다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We chose this function because we hypothesized it would allow the model to easily learn to attend by relative positions, since for any fixed offset &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;P E_{pos+k}&lt;/script&gt; can be represented as a linear function of &lt;script type=&quot;math/tex&quot;&gt;P E_{pos}&lt;/script&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;sinusodial 함수의 특징을 이용해 첫번째, 두번째마다 같은 position 정보를 주면서도 &lt;script type=&quot;math/tex&quot;&gt;n + k&lt;/script&gt; 번째 vector가 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 번째 vector와 관계가 있을 때 이를 학습할 수 있는 여지를 남겨주기 위함이다.
+(참고로 이에 대한 수학적인 증명은 &lt;a href=&quot;https://timodenk.com/blog/linear-relationships-in-the-transformers-positional-encoding/&quot;&gt;이 article&lt;/a&gt;에 기술되어 있다.)&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-conclusions&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;4. Conclusions&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;PE는 크게 학습을 통해 정해질 수 있고 미리 지정한 함수로 정해질 수도 있다.
+학습을 통한 방식은 학습시 보지 않았던 새로운 길이가 등장했을 때 외삽이 불가능하지만 함수 기반의 PE는 가능하다.
+함수도 어떤 함수를 쓰느냐에 따라 종류가 구분되는데, 절대적인 위치에 따라 같은 값을 가지면서도 상대적 위치의 관계도 학습할 수 있는 sin과 cos 기반의 함수가 가장 좋은 방법이라고 생각된다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1705.03122&quot;&gt;https://arxiv.org/abs/1705.03122&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:6&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf&quot;&gt;https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf&lt;/a&gt; &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:6:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; &lt;a href=&quot;#fnref:6:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;제가 만든 용어이므로 공식적으로 사용하면 곤란할 수 있습니다 ㅎㅎ &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://kazemnejad.com/blog/transformer_architecture_positional_encoding/&quot;&gt;https://kazemnejad.com/blog/transformer_architecture_positional_encoding/&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1503.08895&quot;&gt;https://arxiv.org/abs/1503.08895&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:4:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/inmoonlight/notebooks/blob/master/notebooks/2020-01-26-MemN2N-Position-Encoding.ipynb&quot;&gt;https://github.com/inmoonlight/notebooks/blob/master/notebooks/2020-01-26-MemN2N-Position-Encoding.ipynb&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:5:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 26 Jan 2020 17:00:00 +0900</pubDate>
+        <link>https://inmoonlight.github.io/2020/01/26/Positional-Embedding</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/26/Positional-Embedding</guid>
+        
+        
+        <category>nlp</category>
+        
+        <category>technique</category>
+        
+        <category>자연어처리</category>
+        
+      </item>
     
       <item>
         <title>은희경 - 빛의 과거</title>
@@ -166,15 +361,17 @@
         <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</guid>
         
         
-        <category>은희경</category>
+        <category>Book</category>
         
-        <category>빛의과거</category>
+        <category>review</category>
         
-        <category>독후감</category>
+        <category>essay</category>
         
-        <category>독서</category>
+        <category>책</category>
         
         <category>후기</category>
+        
+        <category>에세이</category>
         
       </item>
     
@@ -1376,23 +1573,9 @@ CH_1
         
         <category>basic</category>
         
-        <category>qbit</category>
-        
-        <category>superposition</category>
-        
-        <category>entanglement</category>
-        
-        <category>quantum-supremacy</category>
-        
         <category>양자컴퓨터</category>
         
         <category>기초</category>
-        
-        <category>양자중첩</category>
-        
-        <category>양자얽힘</category>
-        
-        <category>양자우월성</category>
         
       </item>
     
@@ -2145,13 +2328,9 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
         
         <category>society</category>
         
-        <category>뉴스</category>
+        <category>뉴스댓글</category>
         
-        <category>댓글</category>
-        
-        <category>news</category>
-        
-        <category>comments</category>
+        <category>news-comments</category>
         
       </item>
     
@@ -2274,13 +2453,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         
         <category>노르웨이</category>
         
-        <category>나홀로</category>
-        
         <category>여행</category>
-        
-        <category>피오르드</category>
-        
-        <category>브라운치즈</category>
         
       </item>
     
@@ -3320,6 +3493,10 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         
         <category>society</category>
         
+        <category>뉴스댓글</category>
+        
+        <category>news-comments</category>
+        
       </item>
     
       <item>
@@ -3553,6 +3730,10 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         
         <category>society</category>
         
+        <category>뉴스댓글</category>
+        
+        <category>news-comments</category>
+        
       </item>
     
       <item>
@@ -3591,7 +3772,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</guid>
         
         
-        <category>나</category>
+        <category>연울림</category>
         
       </item>
     
@@ -3621,56 +3802,7 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <guid isPermaLink="true">https://inmoonlight.github.io/2019/05/15/Joyful-slump</guid>
         
         
-        <category>슬럼프</category>
-        
-        <category>시작</category>
-        
-        <category>권태로움</category>
-        
-      </item>
-    
-      <item>
-        <title>내가 보내는 시간에 부여하는 나만의 의미</title>
-        <description>&lt;p&gt;개인적으로, PUBLY 박소령 대표님의 인스타계정을 좋아한다. 특히 본인이 읽었던 책에 대해 소개하는 피드를 애정한다. 공감하는 문장이 비슷할 때가 많고, 그 글을 읽고 난 뒤의 생각을 엿보는 재미가 있다.&lt;/p&gt;
-
-&lt;p&gt;최근, 회사에 연차를 이틀정도 내고 무엇을 할지 고민하던 중에 그 피드에 있었던 “일하는 마음”이라는 책이 떠올랐다. ‘옳다구나!’ 하고 집어든 책을 이제서야 거의 다 읽었는데, 그 중에 마음에 턱 걸렸던 부분을 소개하려고 한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전문성이 한 가지 이름의 직업과 결부되는 것이라면, 탁월성은 일을 바라보는 접근법, 다양한 분야로 확대할 수 있는 중심 기술과 연결된다. “중심 기술”은 사실 하나의 서사이자 이름 붙이기다. 기자였다가 번역가이자 작가로 일하고, 또 비영리단체의 옹호부장에서 사업본부장을 거친 김희경 작가는 자신의 중심 기술이 “정보를 구조화하는 것”이라고 말했다. 직업과 직위는 계속 바뀌었지만, 정보를 구조화하는 것이 언제나 자신의 일이었다는 것이다. &lt;br /&gt;
-… &lt;br /&gt;
-전문성의 필요 조건은 두 가지다. 하나는 ‘오랜 기간’을 보냈다는 것이고, 다른 하나는 그 오랜 기간이 ‘시스템이 인정하는 내부에서 보낸 기간’이어야 한다는 것이다. &lt;br /&gt;
-… &lt;br /&gt;
-그에 반해 탁월성은 누구에게나 열려 있지만, 그럼에도 더욱 가지기 어려운 것이다. 탁월성은 또한 자신이 해온 일, 하고 있는 일을 어떻게 반추하며 자신만의 시각으로 해석하는가의 문제이기도 하다. 같은 일을 해도 그 일의 경험을 통해 써내려갈 수 있는 이야기는 사람마다 다르다. 얼핏 보아 파편적이고 불연속적인 경험을 통해서도 일관되고 의미 있는 이야기를 써내려갈 수 있는 사람은 자기 기준을 가지고 있고, 그 기준에 맞춰 자기 일의 경험을 스스로 해석할 수 있는 사람이다. &lt;br /&gt;
-&lt;br /&gt;
-“전문성이 아닌 탁월성”, «일하는 마음» 중&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;지금 나는 서로 다른 성격의 두 가지 일 (파파고와 날리다) 을 병행하고 있다. 둘 다 잘하고 싶은 마음은 크지만 능력의 부족으로 어느 것 하나 제대로 하고 있지 못하고 있었는데, 일에 치일 때마다 ‘하나만 해도 버거운데, 나는 왜 이렇게 살고 있지?’ 라는 생각이 들면서 아무것도 하고 싶지 않은 느낌이 강하게 들곤 했다.&lt;/p&gt;
-
-&lt;p&gt;연차를 썼던 그 때의 나에게 필요했던 건, 내가 시간을 투자하는 일에 대한 나만의 의미를 되찾는 것이었다. 다행히 휴가 기간 내에, 불완전하고 미완성인 해석일지라도 새롭게 의미를 부여했다. 그리고 그제서야, 다시 시작할 수 있는 힘을 얻을 수 있었다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;내가 하고 있는 두 일의 중심에는 &lt;em&gt;사람&lt;/em&gt;이 있었다. 나는 타인이 해결하고 싶은 문제를 나의 문제로 쉽게 투영시킨다. 누군가의 문제와 이를 둘러썬 상황을 이해하고, 문제를 해결해서 그 사람을 만족시킬 때 큰 기쁨을 느낀다. 그래서 쉽게 드러나지 않는 문제 상황을 더 잘 이해하고자 데이터 분석을 시작했고, 내가 해결책을 제시할 수 있다고 생각하는 문제에 대해서는 더 많은 사람이 나의 해결 방식을 통해 도움을 받게 하고 싶어서 날리다에 속해 프로그램 기획을 하고 있다.&lt;/p&gt;
-
-&lt;p&gt;다른 사람들은 어떤 마음으로 자신이 해온 일, 하고 있는 일을 해석하고 있을까?&lt;/p&gt;
-
-&lt;p&gt;남에게 나를 소개하기 쉬운 방식-data manifold의 geometrical insight에 관심있는 로봇자동화 연구실 대학원생, HCI 연구실 대학원생, deep metric learning에 관심있는 대학원생, 전동킥보드 쉐어링 스타트업 개발자, (전) 인액터스 의장, 서울대 수학과 박사, google swe, 건축학도, 파파고 개발자-이 아닌, 본인 스스로에게 부여하는 이름은 무엇일까?&lt;/p&gt;
-</description>
-        <pubDate>Thu, 04 Apr 2019 21:57:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/04/04/Through-my-times</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/04/04/Through-my-times</guid>
-        
-        
-        <category>탁월함</category>
-        
-        <category>일</category>
-        
-        <category>전문성</category>
-        
-        <category>의미</category>
+        <category>연울림</category>
         
       </item>
     
