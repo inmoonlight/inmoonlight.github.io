@@ -5,12 +5,12 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>https://inmoonlight.github.io/</link>
     <atom:link href="https://inmoonlight.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 26 Jan 2020 21:32:19 +0900</pubDate>
-    <lastBuildDate>Sun, 26 Jan 2020 21:32:19 +0900</lastBuildDate>
+    <pubDate>Sun, 26 Jan 2020 22:35:04 +0900</pubDate>
+    <lastBuildDate>Sun, 26 Jan 2020 22:35:04 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>Positional Encoding</title>
+        <title>Positional Encoding in NLP</title>
         <description>&lt;p&gt;Positional encoding 혹은 position encoding은 모델 구조에서 자연스럽게 sequential information을 얻지 못하는 경우에 대해 정보를 강제하는 방식이다.
 보통 sequential data를 Recurrent Neural Network (RNN) 외의 다른 모델로 다루고 싶을 때 많이 사용된다.
 이번 글에서는 Convolutional Neural Network (CNN), End-to-End Memory Network (MemN2N), Transformer에서 sentence embedding을 위해 사용된 positional encoding에 대해 소개하려고 한다.&lt;/p&gt;
@@ -201,8 +201,8 @@ Transformer의 self-attention 연산에서 빛을 발하는 특징이다.&lt;/p&
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 26 Jan 2020 17:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/01/26/Positional-Embedding</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/26/Positional-Embedding</guid>
+        <link>https://inmoonlight.github.io/2020/01/26/Positional-Encoding</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/26/Positional-Encoding</guid>
         
         
         <category>machine-learning</category>
