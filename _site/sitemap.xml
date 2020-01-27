@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://inmoonlight.github.io/2020/01/27/Attention-in-NLP</loc>
+    </url>
+    
+    <url>
         <loc>https://inmoonlight.github.io/2020/01/26/Positional-Encoding</loc>
     </url>
     
@@ -339,6 +343,14 @@
     
     <url>
         <loc>https://inmoonlight.github.io/tag/technique/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://inmoonlight.github.io/tag/attention/</loc>
     </url>
     
     

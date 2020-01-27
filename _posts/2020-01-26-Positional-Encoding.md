@@ -4,8 +4,7 @@ layout: post
 date: 2020-01-26 17:00
 image: /assets/images/positional_encoding.png
 categories: [ machine-learning, nlp, technique, 머신러닝, 자연어처리 ]
-featured: true
-hidden: true
+featured: false
 ---
 
 Positional encoding 혹은 position encoding은 모델 구조에서 자연스럽게 sequential information을 얻지 못하는 경우에 대해 정보를 강제하는 방식이다.

@@ -5,9 +5,140 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>https://inmoonlight.github.io/</link>
     <atom:link href="https://inmoonlight.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 26 Jan 2020 22:35:04 +0900</pubDate>
-    <lastBuildDate>Sun, 26 Jan 2020 22:35:04 +0900</lastBuildDate>
+    <pubDate>Tue, 28 Jan 2020 00:43:15 +0900</pubDate>
+    <lastBuildDate>Tue, 28 Jan 2020 00:43:15 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Attention in NLP</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;“You can’t cram the meaning of a whole %&amp;amp;!$# sentence into a single $&amp;amp;!#* vector!” &lt;br /&gt;
+- Raymond Mooney&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Attention은 single vector에 한 문장의 의미를 완벽하게 담을 수 없기 때문에 필요한 순간에, 필요한 정보를 사용하기 위한 방법이다.
+기본적으로 &lt;strong&gt;query&lt;/strong&gt; vector와 &lt;strong&gt;key&lt;/strong&gt; vector의 조합으로 attention weight가 계산된다.
+여기서 “조합”의 방법에는 크게 두가지가 있다.
+하나는 Additive Attention으로 query vector와 key vector에 feed-forward network를 적용한 것이고,
+다른 하나는 Dot-Product Attention으로 문자그대로 query vector와 key vector의 dot-product를 이용한 것이다.
+이번 글에서는 각 Attention 방법들과 이들의 장단점을 소개하려고 한다.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;#1-additive-attention&quot;&gt;1. Additive Attention&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#11-bilinear&quot;&gt;1.1 Bilinear&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#12-multi-layer-perceptron&quot;&gt;1.2 Multi-layer Perceptron&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#2-dot-product-attention&quot;&gt;2. Dot-Product Attention&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#21-dot-product&quot;&gt;2.1 Dot-Product&lt;/a&gt; &lt;br /&gt;
+    &lt;a href=&quot;#22-scaled-dot-product&quot;&gt;2.2 Scaled Dot-Product&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#3-conclusions&quot;&gt;3. Conclusions&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-additive-attention&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1. Additive Attention&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Additive Attention은 query vector와 key vector의 조합으로 attention 값을 얻을 때 단일 hidden layer를 가진 feed-forward network를 이용한다.
+query vector (&lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt;) 와 key vector (&lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;) 가 같은 dimension을 가질 필요가 없으며, dimension의 크기에 상관없이 좋은 성능을 보인다는 장점이 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;11-bilinear&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.1 Bilinear&lt;/a&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;a(\boldsymbol{q}, \boldsymbol{k})=\boldsymbol{q}^{\top} W \boldsymbol{k}&lt;/script&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 와 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 에 &lt;script type=&quot;math/tex&quot;&gt;W&lt;/script&gt; 를 곱하는 방법이다. 
+&lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 를 linear transform 시킨 후, &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 와 dot-product를 한 것과 같다.&lt;/p&gt;
+
+&lt;h3 id=&quot;12-multi-layer-perceptron&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.2 Multi-layer Perceptron&lt;/a&gt;&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;a(\boldsymbol{q}, \boldsymbol{k})=\boldsymbol{w}_{2}^{\top} \tanh \left(W_{1}[\boldsymbol{q} ; \boldsymbol{k}]\right)&lt;/script&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 와 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 를 concat시킨 후 single hidden layer와 activation 함수로 tanh를 사용한 feed-forward network를 사용하였다. 
+이 방법은 익숙할 것이다.
+왜냐하면 &lt;a href=&quot;https://arxiv.org/abs/1409.0473&quot;&gt;Neural Machine Translation by Jointly Learning to Align and Translate&lt;/a&gt;에서 이 attention을 이용했기 때문이다. 
+아래의 오른쪽 수식에서 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;는 alignment model로 위에서 언급한 feed-forward network와 같은 역할을 한다.&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/seq2seq_attention.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-dot-product-attention&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;2. Dot-Product Attention&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Dot-Product attention은 &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{q}^{\top} \boldsymbol{k}&lt;/script&gt; 을 기반으로 attention weight를 구하는 방법이다.
+Additive attention과는 달리 hidden layer를 곱하는 과정이 추가되지 않아서 연산 속도와 space 측면에서 효율적이다.
+하지만 반드시 &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 와 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 의 dimension이 같아야 한다는 제약조건이 있으며, dimension이 클 때 학습에 방해가 된다는 단점이 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;21-dot-product&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;2.1 Dot-Product&lt;/a&gt;&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;a(\boldsymbol{q}, \boldsymbol{k})=\boldsymbol{q}^{\top} \boldsymbol{k}&lt;/script&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 와 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 의 elment-wise product의 합이다.
+이 연산의 특성 상, 반드시 dimension이 같아야 한다.&lt;/p&gt;
+
+&lt;p&gt;만약 &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 와 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 의 각 요소가 독립적이고 평균이 0, 분산이 1 인 분포의 random variable이라면, &lt;script type=&quot;math/tex&quot;&gt;{q}^{\top}{k}&lt;/script&gt; 는 평균이 0이고 분산이 dimension의 크기인 분포를 따른다. 
+분산이 증가되면 dot-product에 softmax를 취했을 때 어떤 값은 굉장히 크지만 대부분의 값은 굉장히 작게 만든다.
+작은 값들은 back-propagation 시 gradient도 작기 때문에 전체적으로 학습이 잘 되지 않게 만든다.
+따라서 dimension이 큰 경우 성능이 좋지 않다.&lt;/p&gt;
+
+&lt;h3 id=&quot;22-scaled-dot-product&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;2.2 Scaled Dot-Product&lt;/a&gt;&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;a(\boldsymbol{q}, \boldsymbol{k})=\frac{\boldsymbol{q}^{\top} \boldsymbol{k}}{\sqrt{|\boldsymbol{d}|}}&lt;/script&gt;
+
+&lt;p&gt;Scaled Dot-Product는 &lt;a href=&quot;https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf&quot;&gt;Attention is All You Need&lt;/a&gt; 에서 처음으로 소개된 방법이다.
+Dot-Product의 dimension이 클 때 학습이 잘 되지 않는 단점을 극복하게 위해 dot-product 결과를 &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 의 dimension &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; (&lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 의 dimension 이기도 하다) 의 root 값으로 나누어주었다.&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-conclusions&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3. Conclusions&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Additive attention은 dimension에 상관없이 좋은 결과를 내고, attention을 계산하는 재료인 query vector와 key vector의 dimension에 상관없이 사용할 수 있다. 
+하지만 최근의 NLP trend라고 할 수 있는, 대량의 데이터를 굉장히 큰 모델로 학습시키는 방법에는 안그래도 많은 연산량에 부담이 되는 방법이다.
+그래서 계산의 부담이 적으면서 dimension이 큰 경우에 대해서도 좋은 성능을 보이는 scaled dot-product 기반의 attention이 잘 쓰이는 편이다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;전반적인 내용은 Graham Neubig의 &lt;a href=&quot;http://phontron.com/class/nn4nlp2019/assets/slides/nn4nlp-09-attention.pdf&quot;&gt;NN4NLP Attention 강의&lt;/a&gt;를 참고했습니다. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.aclweb.org/anthology/D15-1166.pdf&quot;&gt;Effective Approaches to Attention-based Neural Machine Translation&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1409.0473&quot;&gt;Neural Machine Translation by Jointly Learning to Align and Translate&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf&quot;&gt;Attention is All You Need&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;root로 나누어 준 이유는 scaled dot-product의 결과를 평균이 0, 분산이 1 인 분포로 만들기 위해서다. &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 27 Jan 2020 21:00:00 +0900</pubDate>
+        <link>https://inmoonlight.github.io/2020/01/27/Attention-in-NLP</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/27/Attention-in-NLP</guid>
+        
+        
+        <category>machine-learning</category>
+        
+        <category>nlp</category>
+        
+        <category>attention</category>
+        
+        <category>머신러닝</category>
+        
+        <category>자연어처리</category>
+        
+      </item>
     
       <item>
         <title>Positional Encoding in NLP</title>
@@ -3787,36 +3918,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <pubDate>Sat, 20 Jul 2019 20:26:00 +0900</pubDate>
         <link>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</link>
         <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</guid>
-        
-        
-        <category>연울림</category>
-        
-      </item>
-    
-      <item>
-        <title>유쾌한 슬럼프</title>
-        <description>&lt;p&gt;어렸을 때의 나는 무언가 새롭게 ‘시작’하는 것을 좋아했다. 무언가를 빨리 배우는 편이었고, 새롭게 어떤 환경이나 개념에 적응하는데에 드는 시간이 적게 들었기 때문에 ‘시작’을 즐길 수 있었기 때문이었던 것 같다. ‘시작’이 주는 그 몰입감과 성취감은 권태로움에서 나를 꺼내주는 좋은 처방전이었다.&lt;/p&gt;
-
-&lt;p&gt;하지만 동시에, 내가 ‘시작’했던 많은 자잘한 일들은 소위말해 ‘꿀만 빨고’ 그만 둘 수 없었다. 처음이 주는 신선함에 어느 정도 익숙해지고나면 이 분야의 ‘탁월함’이 보이기 시작하고, 나는 한참 밑에 자리하고 있다는 사실을 인지하게 된다. 그리고, 그때쯤 항상 그만두고 싶어졌다.&lt;/p&gt;
-
-&lt;p&gt;이 시기를 견디지 못하는 이유는, 아마 기준이 낮았기 때문이었을 것이다. 내가 성취하고자 하는 것은 굉장히 낮은 수준의 것이었고 그 수준을 빠르게 달성하고 나면 더 이상의 열정이 생기지 않았다. 오히려 ‘왜 해야하지?’ 라는 생각이 나를 합리화시키면서 금방 포기하게 만들었다.
-그래서 참 많은, 잡다한 무언가를 하지만 어느 것 하나 제대로 마치지 못하는 나를 발견하곤, ‘잘’하는 것에 좀 더 집중해보기로 했다. 그 이후로 시작에 대한 두려움이 커졌다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;시간과 실력의 관계를 그래프 형태로 나타내면, ‘계단’형이라고 할 수 있겠다. 기나긴 슬럼프 끝에 오는 어느 순간의 깨달음으로, 실력이 갑자기 반등한다. 내게 두려운 기간은 바로 이 ‘슬럼프’의 시기다. 이 또한 지나가리라는 것을 알면서도, 그 순간들은 언제나 고통스럽다. 마치 근력운동을 할 때 정말 힘들지만, 이 순간을 견뎌내야 근육이 붙는다는 사실을 인지하는 느낌이다.&lt;/p&gt;
-
-&lt;p&gt;그 때에 나는 고민한다. &lt;strong&gt;새로운 시작을 할 때인가 아니면, 버텨내야할 때인가를.&lt;/strong&gt; 잘하고 싶기에 버텨내야 한다는 답을 내리지만, 이게 무슨 의미가 있지? 라고 물었을 땐, 쉽게 답하기가 어려울 때가 많다. 왜 버텨내야 하는지, 스스로를 격려하지 않으면 자꾸만 과거의 습관이 튀어나와 새로운 시작을 시도하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;안타까운 건, 이젠 새로운 시작마저도 그 과정에서 다시금 슬럼프를 마주한다는 사실을 인지하고 있기 때문에 잘 하려고 들지 않는다는 것이다. 그래서, 차악으로, 내가 겪고 있는 슬럼프의 시기를 버티게 되는 요즘이다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;당신의 슬럼프는 안녕하신가요? 유쾌한 슬럼프란, 존재할 수 없는 개념일까요?&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 May 2019 22:01:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/05/15/Joyful-slump</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/05/15/Joyful-slump</guid>
         
         
         <category>연울림</category>
