@@ -43,6 +43,7 @@ comments: false
 
 #### Publications
 
+- *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[pdf]](https://arxiv.org/abs/2004.13937)
 - *문지형*, 김재명. **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. Oct 2019. 데이터야놀자 [[Slide]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)
-- [Oral] 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회
+- [Oral] 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회 [[DBpia]](http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07613720)
 - *Jihyung Moon*, Hyochang Yang, Sungzoon Cho. **Finding ReMO (Related Memory Object): A Simple Neural Architecture for Text based Reasoning**. Feb 2018. arXiv [[pdf]](https://arxiv.org/pdf/1801.08459.pdf) [[github]](https://github.com/inmoonlight/RMN)
