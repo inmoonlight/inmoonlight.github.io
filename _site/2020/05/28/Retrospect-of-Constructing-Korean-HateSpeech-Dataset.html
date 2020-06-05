@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<link rel="icon" href="/assets/images/logo.png">
+    
+<title>한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기 | Space Moon</title>
+    
+ 
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300">
+
+<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+    
+<link href="/assets/css/main.css" rel="stylesheet">
+    
+</head>
+    
+
+    
+
+<body class="layout-post">
+
+    
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    
+    <div class="container pr-0">    
+    
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Space Moon">
+    </a>
+    <!-- End Logo -->
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+       
+        <!-- Begin Menu -->
+        
+            <ul class="navbar-nav ml-auto">
+                
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/about">About</a>
+                </li>
+                
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/inmoonlight/"><i class="fab fa-github"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.linkedin.com/in/mjihyung/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="https://twitter.com/inmoonlight_kr"><i class="fab fa-twitter"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="https://www.instagram.com/jihyung.moon/"><i class="fab fa-instagram"></i></a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank"  class="nav-link" href="/feed.xml"><i class="fa fa-rss"></i></a>
+                </li>
+                
+            </ul>		
+  
+        <!-- End Menu -->
+
+    </div>
+        
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+    
+<div class="site-content">   
+<div class="container">
+    
+<!-- Site Title
+================================================== -->
+<!-- <div class="mainheading">
+    <h1 class="sitetitle">Space Moon</h1>
+    <p class="lead">
+         개인적이지만 사소하지 않은 이야기를 담고 싶습니다
+    </p>
+</div> -->
+
+    
+    
+<!-- Content
+================================================== --> 
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기</title>
+  <meta name="description" content="약 4-5개월동안 사이드로 진행했던 혐오 댓글 프로젝트1가 성공적으로 마무리되었다. 같은 문제의식을 가진 사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이 무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는 활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고 원동력이 사라지지 않고 꾸준히 일이 진행되었던..." />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기"/>
+  
+  <meta property="og:description" content="약 4-5개월동안 사이드로 진행했던 혐오 댓글 프로젝트1가 성공적으로 마무리되었다. 같은 문제의식을 가진 사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이 무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는 활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고 원동력이 사라지지 않고 꾸준히 일이 진행되었던..." />
+  
+  <meta property="og:image" content="https://inmoonlight.github.io/assets/images/hate-speech-background.jpg" />
+  <meta property="og:url" content="https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset" >
+  <meta property="og:type" content="blog" />
+  <meta property="article:published_time" content="2020-05-28T21:00:00+09:00">
+
+  <link rel="canonical" href="https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset"/>
+  <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+	<!-- header start -->
+
+
+<!-- header end -->
+
+	<main class="content" role="main">
+	  <article class="post">
+			<script type="text/javascript" async
+				src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+			</script>
+		
+		<div class="article-image">
+		  <div class="post-image-image" style="background-image: url(/assets/images/hate-speech-background.jpg)">
+			Article Image
+		  </div>
+		  <div class="post-image-image2" style="background-image: url(/assets/images/hate-speech-background.jpg)">
+			Article Image
+		  </div>
+		  <div class="post-meta">
+			<h1 class="post-title">한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기</h1>
+			<div class="cf post-meta-text">
+        <time datetime="28-05-2020">May 28, 2020</time>
+        | <span class="reading-time" title="Estimated read time">
+    
+
+    
+        12 mins
+    
+</span> read
+			  <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
+			</div>
+			<!-- <div style="text-align:center">
+			  <a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a>
+			</div> -->
+		  </div>
+		</div>
+		
+		<section class="post-content-mediator">
+		  <p>약 4-5개월동안 사이드로 진행했던 혐오 댓글 프로젝트<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>가 성공적으로 마무리되었다. 같은 문제의식을 가진 사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이 무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는 활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고 원동력이 사라지지 않고 꾸준히 일이 진행되었던 것은 모두 구성원들의 상호보완적인 역량 덕분이 아니었을까 싶다.</p>
+
+<p>사실 이 글을 쓰게 된 계기는 논문에는 쓰지 못했던 데이터에 대한 이야기를 하고 싶어서였다. 주어진 4장에 많은 내용을 담으려다보니 정작 작업하면서 고려했던 세부사항이나 어려웠던 점, 지나고나니 아쉬웠던 부분들에 대해 적진 못했기 때문이다. 아마 데이터셋을 활용하려고 생각하는 사람들에게도 좋은 팁이 되지 않을까?</p>
+
+<div class="breaker"></div>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<p><a href="#1-어노테이션">1. 어노테이션</a> <br />
+<a href="#11-왜-편견과-혐오인가">1.1 왜 <code class="highlighter-rouge">편견</code>과 <code class="highlighter-rouge">혐오</code>인가?</a><br />
+    <a href="#12-표현의-자유와-혐오의-경계">1.2 표현의 자유와 혐오의 경계</a><br />
+    <a href="#13-어노테이션이-어려웠던-댓글">1.3 어노테이션이 어려웠던 댓글</a><br />
+    <a href="#14-other-biases-라는-label">1.4 <code class="highlighter-rouge">Other biases</code> 라는 label</a><br />
+    <a href="#15-어노테이션-작업-시-context-미제공">1.5 어노테이션 작업 시 context 미제공</a><br />
+<a href="#2-testset-구성">2. Testset 구성</a><br />
+<a href="#3-kobert-tokenization">3. KoBERT tokenization</a><br />
+<a href="#references">References</a></p>
+
+<div class="breaker"></div>
+
+<h2 id="1-어노테이션"><a href="#table-of-contents">1. 어노테이션</a></h2>
+
+<h3 id="11-왜-편견과-혐오인가"><a href="#table-of-contents">1.1 왜 <code class="highlighter-rouge">편견</code>과 <code class="highlighter-rouge">혐오</code>인가?</a></h3>
+
+<p><a href="https://www.notion.so/c1ecb7cc52d446cc93d928d172ef8442">어노테이션 가이드라인</a>에도 나와있듯이 우리는 크게 편견과 혐오라는 두 가지 aspect에 대해서 label을 수집했다. 
+처음에는 <code class="highlighter-rouge">성에 관련된 편견 및 혐오</code>와 <code class="highlighter-rouge">그 외의 편견 및 혐오</code>로 나누었는데, 이보다는 <code class="highlighter-rouge">편견</code>과 <code class="highlighter-rouge">혐오</code>로 구분하는 것이 낫다는 판단을 했다.</p>
+
+<p>가이드라인 작성을 위해 댓글을 직접 태깅하다 보니 편견만 존재하는 댓글과 혐오만 존재하는 댓글이 존재했다. 항상 혐오가 편견으로부터 시작되지는 않았고, 편견이 있음을 부끄러워하지 않고 세상의 진리인 것처럼 이야기하는 댓글이 보였다. 혐오가 편견으로 시작된 경우는, 무리하게 개인의 특성을 집단의 특성으로 확장해서 그 집단에 대한 혐오를 개인에게 표출할 때였다. 그래서 이 둘의 관계를 데이터로 파악할 수 있도록, 또 편견과 혐오를 구분지어 생각할 수 있도록 <code class="highlighter-rouge">편견</code>에 관련된 label과 <code class="highlighter-rouge">혐오</code>에 관련된 label을 구분짓기로 했다.</p>
+
+<p>언어학에 관심있는 사람들이라면 label을 바탕으로 댓글을 분석하는 것으로도 재밌는 연구가 될 것 같다.</p>
+
+<h3 id="12-표현의-자유와-혐오의-경계"><a href="#table-of-contents">1.2 표현의 자유와 혐오의 경계</a></h3>
+
+<p>이 둘을 구분짓는 좋은 threshold를 결정하는 것은 무슨 목적으로 활용하냐에 달려있다. 우리의 목적은 혐오 댓글의 피해자가 줄어들기를 바라는 것이었으므로 익명인의 표현의 자유보다는 기사의 대상이 되는 사람의 기분을 좀 더 신경쓰기로 했다. 그래서 태깅을 할 때에 당사자의 입장에서 생각하도록 가이드했다.</p>
+
+<h3 id="13-어노테이션이-어려웠던-댓글"><a href="#table-of-contents">1.3 어노테이션이 어려웠던 댓글</a></h3>
+
+<blockquote>
+  <p>예전에 데뷔작에서 수영복입고 수중씬 기억난다 진짜 섹씨했는데</p>
+</blockquote>
+
+<p>연예인이라는 직업이 가지는 특수성 때문에 판단하기 어려웠던 경우이다. 특히 여자연예인에 대해서는 외모에 대해 품평하는 댓글이 많았는데, 스스로가 연예인이었던 적이 없으니 감정이입을 해서 이를 모욕이라고 봐야할지도 모르겠고, 만약 의도적으로 외모를 부각해서 유명세를 얻은 경우라면 모욕이라고 보기가 더 어렵다고 생각했다. 결국 각자의 판단에 맡겨서 majority voting을 했지만 정말 어려웠던 케이스였다.</p>
+
+<blockquote>
+  <p>신천지?</p>
+</blockquote>
+
+<p>“일반적으로 비난받을만한 행위로 인한 혐오는 어떻게 판단해야할까?” 를 고민하게 만든 댓글이었다. 신천지 교도로 인해 코로나가 빠르게 퍼졌던 사건 이후로 “신천지”는 부정적인 이미지로 굳어져 버렸는데, 이 맥락을 고려해서 위의 댓글을 <code class="highlighter-rouge">혐오</code>라고 태깅하면 “신천지”라는 가치 중립적인 단어가 <code class="highlighter-rouge">혐오</code>로 태깅되기에 굉장히 고민이 많았습니다.</p>
+
+<blockquote>
+  <p>살빠진 마닷같애</p>
+</blockquote>
+
+<p>위와 비슷한 케이스로 이 댓글 또한 판단하기 무척이나 어려웠다 ㅠㅠ <code class="highlighter-rouge">offensive</code>로 판단하자니 마닷은 뭐가 되냐는…</p>
+
+<h3 id="14-other-biases-라는-label"><a href="#table-of-contents">1.4 <code class="highlighter-rouge">Other biases</code> 라는 label</a></h3>
+
+<p>현재는 <code class="highlighter-rouge">bias</code> label이 <code class="highlighter-rouge">gender bias</code>, <code class="highlighter-rouge">other biases</code>, <code class="highlighter-rouge">none</code> 의 세가지로 구성되어 있다. 이렇게 할 수 밖에 없었던 가장 큰 이유는 예산 문제였다 ㅠㅠ 돈이 많았다면 gender 외에도 정치, 지역, 인종 등에 대한 편견도 label을 수집할 수 있었을텐데 하는 아쉬움이… 인당 150만원 이상은 부담하고 싶지 않아서, 그리고 연예 도메인은 성 편견이 가장 많은 비중을 차지하고 있어서 이런 결정을 하게 되었다.</p>
+
+<p>그러다보니 <code class="highlighter-rouge">others</code> 라는 label 은 온갖 종류의 편견이 모두 모아져 있다. 아마도 모델이 곧장 others 를 예측하는 것은 쉽지 않을 것이라고 생각한다. 이 task는, <a href="https://arxiv.org/abs/2005.12503">논문</a>에 적혀있듯이, 2-step classification 문제를 푸는 방식이 낫지 않을까라고 생각한다. 먼저 <code class="highlighter-rouge">gender / no-gender</code> 를 예측하고, 그 이후에 <code class="highlighter-rouge">bias 유 / 무</code> 를 예측하면 <code class="highlighter-rouge">gender</code>, <code class="highlighter-rouge">others</code>, <code class="highlighter-rouge">none</code> 을 좀 더 쉽게 예측할 수 있을 것이라고 생각한다.</p>
+
+<h3 id="15-어노테이션-작업-시-context-미제공"><a href="#table-of-contents">1.5 어노테이션 작업 시 context 미제공</a></h3>
+
+<p>댓글에 포함된 편견 및 혐오를 더욱 정확하게 판단하기 위해서는 댓글이 작성된 뉴스 기사에 대한 정보가 필요하다. 하지만 현실적인 이유들로 포기했었다.</p>
+
+<blockquote>
+  <p>“작업자가 기사를 읽어야 하는 번거로움을 감수할까?” <br />
+“태깅 플랫폼에서 이 기능을 제공해줄까?” <br />
+“뉴스 기사의 내용에 대한 저작권은 우리에게 없기 때문에 공개 데이터셋에 포함할 수 없고, 그럴거라면 태깅을 컨텍스트 없이 하는게 좋지 않을까?”</p>
+</blockquote>
+
+<p>등의 질문들에 대해 명쾌한 답변을 내리지 못했고, 결국 댓글의 내용만 보고 판단하는 방식을 가져갔다. 지나고나니 아쉬움이 남는 건 어쩔 수 없는듯하다 ㅎㅎ</p>
+
+<div class="breaker"></div>
+
+<h2 id="2-testset-구성"><a href="#table-of-contents">2. Testset 구성</a></h2>
+
+<p>현재 testset은 함께 작업했던 저와 <a href="https://www.facebook.com/warnik.chow?__tn__=K-R&amp;eid=ARCNVgdXVouckswETyWV9lkDr_cQtrkWPysMCRo0j12ERGUOBQc35o_roiDziJvD-AI5QCjiPW9EQsqA&amp;fref=mentions&amp;__xts__[0]=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI">조원익</a>, <a href="https://www.facebook.com/Junbum.L?__tn__=K-R&amp;eid=ARAQ7IJ8TMPDz9gEkoGREztDVOhQ35RZDphJGLftwahcbbh0jQfEyAdsaWSGsuVPrtfxpv1Twpuw3vgF&amp;fref=mentions&amp;__xts__[0]=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI">이준범</a>이 직접 작업한 라벨이 달려있다. 우리의 의도와 부합하는, 가장 어노테이션이 잘 되었다고 보장할 수 있는 데이터셋이라고 볼 수 있다. 하지만 지나고나니 “시간 순으로 train, validation, testset을 구성했다면 어땠을까?” 하는 아쉬움이 남았다.</p>
+
+<p>댓글에는 많은 사회적 배경지식이 녹아져있다. 특히 인물의 이름이 가지고 있는 정보가 있는데, 우리가 수집한 기간에는 승리와 정준영 등의 연예인이 얽혀있던 단톡방 사건이 포함되어 있었다. 그래서 “승리”가 포함된 댓글은 부정적인 맥락 속에서 판단되었다.</p>
+
+<p>예를 들어 “승리가 뭘 잘못했다고 난리들인지…그냥 승리 부럽고 베알꼴린 애들이 화난거로밖에 안보임ㅎ” 라는 댓글에서 “승리”를 제거하면 성편견이 없는 것으로 태깅되었겠지만, “승리”가 포함되었기 때문에 성편견이 존재하는 것으로 태깅된다.</p>
+
+<p>Generalization을 잘 하는 모델이 진짜 잘하는 모델이라고 했을 때, 학습 데이터에 “승리”가 없어도 위의 댓글에 달린 라벨을 잘 예측할 수 있는 모델을 판별할 수 있게 testset을 구성했다면 더 좋았을 것 같다.</p>
+
+<div class="breaker"></div>
+
+<h2 id="3-kobert-tokenization"><a href="#table-of-contents">3. KoBERT tokenization</a></h2>
+
+<div style="text-align:center">
+<img class="image" src="/assets/images/korean-hate-speech-model-result.png" width="60%" />
+</div>
+<p><br /></p>
+
+<p>baseline으로 CharCNN, BiLSTM, BERT를 사용한 모델의 결과를 논문<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>에 첨부했다. 여러 task 모두 BERT가 가장 좋은 성능을 보였다.</p>
+
+<p>댓글은 맞춤법을 지키는 문장과는 거리가 멀고, 줄임말, 신조어, 연예인명, 그리고 그 외의 고유명사 등이 많이 등장한다. 그래서 BERT tokenization 결과를 보면 한 글자 씩 분리되는 경우가 빈번했다.</p>
+
+<blockquote>
+  <p>페지해라 가세연. 페지가 답이다 아님말고식 증거도없이 유재석 언급하노 <br />
+<code class="highlighter-rouge">['▁페', '지', '해', '라', '▁', '가', '세', '연', '.', '▁페', '지가', '▁답', '이다', '▁아', '님', '말', '고', '식', '▁증거', '도', '없이', '▁유재석', '▁언급', '하', '노']</code></p>
+</blockquote>
+
+<blockquote>
+  <p>god 박준형이 이 기사를 싫어합니다. <br />
+<code class="highlighter-rouge">['▁', 'go', 'd', '▁박', '준', '형', '이', '▁이', '▁기사', '를', '▁싫어', '합니다', '.']</code></p>
+</blockquote>
+
+<p>koBERT 학습 데이터에 자주 등장했던 연예인 이름은 원본 그대로 보존되는 반면, 그렇지 못한 연예인은 이름이 쪼개진다.</p>
+
+<blockquote>
+  <p>조개갖고 개ㅈㄹ하는 태콩이나 개촐싹대는조샌징들이나 ㅈㄴ웃김ㅋㅋㅋ <br />
+<code class="highlighter-rouge">['▁O', 'O', 'O', '▁조', '개', '갖', '고', '▁개', 'ᄌᄅ', '하는', '▁태', '콩', '이나', '▁개', '촐', '싹', '대', '는', '조', '샌', '징', '들이', '나', '▁', 'ᄌᄂ', '웃', '김', 'ᄏ', 'ᄏ', 'ᄏ']</code></p>
+</blockquote>
+
+<blockquote>
+  <p>ㅅㅂ 더럽게 메갈어로 제목뽑는거 봐라 <br />
+<code class="highlighter-rouge">['▁', 'ᄉᄇ', '▁더', '럽', '게', '▁메', '갈', '어', '로', '▁제', '목', '뽑', '는', '거', '▁봐', '라']</code></p>
+</blockquote>
+
+<p>“ㅈㄴ”, “ㅈㄹ”, “ㅅㅂ” 같은 단어가 tokenization에서는 쪼개지지 않는다.</p>
+
+<div class="breaker"></div>
+
+<p>어려웠던 작업이었고, 완벽했다고는 할 수 없지만 좋은 시작점이 될 수 있는 프로젝트였다고는 생각한다. 이번에 해결할 수 없었던 여러 한계점들을 극복하는 다른 좋은 결과들이 많이 나올 수 있길 :)</p>
+
+<p>이제 진짜 끝!</p>
+
+<div class="breaker"></div>
+
+<h2 id="references"><a href="#table-of-contents">References</a></h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>https://github.com/kocohub/korean-hate-speech <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>https://arxiv.org/abs/2005.12503 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+		</section>
+		<footer class="post-footer">
+			<!-- <div class="col-md-8 p-5 align-self-center text-center"> -->
+			<ul class="tag-box inline">
+					  
+					
+						 
+							<a href="/tag/machine-learning">Machine-learning </a>
+						 
+							<a href="/tag/nlp">Nlp </a>
+						 
+							<a href="/tag/korean">Korean </a>
+						 
+							<a href="/tag/hate-speech">Hate-speech </a>
+						 
+							<a href="/tag/머신러닝">머신러닝 </a>
+						 
+							<a href="/tag/자연어처리">자연어처리 </a>
+						 
+							<a href="/tag/한국어">한국어 </a>
+						 
+							<a href="/tag/혐오발언">혐오발언 </a>
+						
+					
+					
+			</ul>
+		  <section class="share">
+				
+			  	
+						<a class="icon-twitter" href="http://twitter.com/share?text=%ED%95%9C%EA%B5%AD%EC%96%B4+%EC%95%85%EC%84%B1%EB%8C%93%EA%B8%80+%ED%83%90%EC%A7%80%EB%A5%BC+%EC%9C%84%ED%95%9C+%EB%8C%93%EA%B8%80+%EC%BD%94%ED%8D%BC%EC%8A%A4+%EA%B5%AC%EC%B6%95%EA%B8%B0&amp;url=https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset"
+				  		onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+						<i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+						</a>
+			 		
+				
+			  	
+						<a class="icon-facebook" href="https://www.facebook.com/sharer.php?t=%ED%95%9C%EA%B5%AD%EC%96%B4+%EC%95%85%EC%84%B1%EB%8C%93%EA%B8%80+%ED%83%90%EC%A7%80%EB%A5%BC+%EC%9C%84%ED%95%9C+%EB%8C%93%EA%B8%80+%EC%BD%94%ED%8D%BC%EC%8A%A4+%EA%B5%AC%EC%B6%95%EA%B8%B0&amp;u=https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset"
+				  		onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+						<i class="fa fa-facebook"></i><span class="hidden">facebook</span>
+						</a>
+			 		
+				
+		  </section>
+		</footer>
+	  </article>
+	</main>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image, .teaserimage-image');
+    
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-131297969-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>
+<!-- End Article
+================================================== -->
+
+  
+
+<!-- Begin Comments
+================================================== -->
+
+	<div class="container">
+		<div id="comments" class="row justify-content-center mb-5">
+			<div class="col-md-10">              
+				<section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'inmoonlight'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+                
+			</div>
+		</div>
+	</div>
+
+<!--End Comments
+================================================== -->
+</div>
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!-- <div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/logo.png" alt=""> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>     -->
+    
+</div><!-- /.container>
+    
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+          
+             
+              <a href="/tag/멘토링">멘토링 (2)</a>
+             
+              <a href="/tag/mentoring">Mentoring (2)</a>
+             
+              <a href="/tag/essay">Essay (3)</a>
+             
+              <a href="/tag/에세이">에세이 (3)</a>
+             
+              <a href="/tag/machine-learning">Machine-learning (7)</a>
+             
+              <a href="/tag/book">Book (4)</a>
+             
+              <a href="/tag/summary">Summary (3)</a>
+             
+              <a href="/tag/머신러닝">머신러닝 (7)</a>
+             
+              <a href="/tag/책">책 (4)</a>
+             
+              <a href="/tag/요약">요약 (3)</a>
+             
+              <a href="/tag/연울림">연울림 (4)</a>
+             
+              <a href="/tag/데이터분석">데이터분석 (3)</a>
+             
+              <a href="/tag/data-analysis">Data-analysis (3)</a>
+             
+              <a href="/tag/사회">사회 (3)</a>
+             
+              <a href="/tag/society">Society (3)</a>
+             
+              <a href="/tag/뉴스댓글">뉴스댓글 (3)</a>
+             
+              <a href="/tag/news-comments">News-comments (3)</a>
+             
+              <a href="/tag/노르웨이">노르웨이 (1)</a>
+             
+              <a href="/tag/여행">여행 (1)</a>
+             
+              <a href="/tag/quantum-computer">Quantum-computer (1)</a>
+             
+              <a href="/tag/basic">Basic (1)</a>
+             
+              <a href="/tag/양자컴퓨터">양자컴퓨터 (1)</a>
+             
+              <a href="/tag/기초">기초 (1)</a>
+             
+              <a href="/tag/nlp">Nlp (4)</a>
+             
+              <a href="/tag/dataset">Dataset (1)</a>
+             
+              <a href="/tag/자연어처리">자연어처리 (4)</a>
+             
+              <a href="/tag/데이터셋">데이터셋 (1)</a>
+             
+              <a href="/tag/review">Review (1)</a>
+             
+              <a href="/tag/후기">후기 (1)</a>
+             
+              <a href="/tag/technique">Technique (1)</a>
+             
+              <a href="/tag/attention">Attention (1)</a>
+             
+              <a href="/tag/korean">Korean (1)</a>
+             
+              <a href="/tag/hate-speech">Hate-speech (1)</a>
+             
+              <a href="/tag/한국어">한국어 (1)</a>
+             
+              <a href="/tag/혐오발언">혐오발언 (1)</a>
+            
+          
+        
+
+		</div>
+	</div>
+</div>
+ 
+
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                 Copyright © 2020 Space Moon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+   
+</div> <!-- /.site-content>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+    
+<script src="/assets/js/jquery.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+<script src="/assets/js/mediumish.js"></script>
+    
+<script id="dsq-count-scr" src="//inmoonlight.disqus.com/count.js"></script>
+</body>
+</html>

@@ -5,9 +5,177 @@
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
     <link>https://inmoonlight.github.io/</link>
     <atom:link href="https://inmoonlight.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 May 2020 11:45:50 +0900</pubDate>
-    <lastBuildDate>Wed, 27 May 2020 11:45:50 +0900</lastBuildDate>
+    <pubDate>Sat, 06 Jun 2020 02:59:13 +0900</pubDate>
+    <lastBuildDate>Sat, 06 Jun 2020 02:59:13 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기</title>
+        <description>&lt;p&gt;약 4-5개월동안 사이드로 진행했던 혐오 댓글 프로젝트&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;가 성공적으로 마무리되었다. 같은 문제의식을 가진 사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이 무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는 활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고 원동력이 사라지지 않고 꾸준히 일이 진행되었던 것은 모두 구성원들의 상호보완적인 역량 덕분이 아니었을까 싶다.&lt;/p&gt;
+
+&lt;p&gt;사실 이 글을 쓰게 된 계기는 논문에는 쓰지 못했던 데이터에 대한 이야기를 하고 싶어서였다. 주어진 4장에 많은 내용을 담으려다보니 정작 작업하면서 고려했던 세부사항이나 어려웠던 점, 지나고나니 아쉬웠던 부분들에 대해 적진 못했기 때문이다. 아마 데이터셋을 활용하려고 생각하는 사람들에게도 좋은 팁이 되지 않을까?&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;#1-어노테이션&quot;&gt;1. 어노테이션&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;#11-왜-편견과-혐오인가&quot;&gt;1.1 왜 &lt;code class=&quot;highlighter-rouge&quot;&gt;편견&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;혐오&lt;/code&gt;인가?&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#12-표현의-자유와-혐오의-경계&quot;&gt;1.2 표현의 자유와 혐오의 경계&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#13-어노테이션이-어려웠던-댓글&quot;&gt;1.3 어노테이션이 어려웠던 댓글&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#14-other-biases-라는-label&quot;&gt;1.4 &lt;code class=&quot;highlighter-rouge&quot;&gt;Other biases&lt;/code&gt; 라는 label&lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#15-어노테이션-작업-시-context-미제공&quot;&gt;1.5 어노테이션 작업 시 context 미제공&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#2-testset-구성&quot;&gt;2. Testset 구성&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#3-kobert-tokenization&quot;&gt;3. KoBERT tokenization&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;1-어노테이션&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1. 어노테이션&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;11-왜-편견과-혐오인가&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.1 왜 &lt;code class=&quot;highlighter-rouge&quot;&gt;편견&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;혐오&lt;/code&gt;인가?&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.notion.so/c1ecb7cc52d446cc93d928d172ef8442&quot;&gt;어노테이션 가이드라인&lt;/a&gt;에도 나와있듯이 우리는 크게 편견과 혐오라는 두 가지 aspect에 대해서 label을 수집했다. 
+처음에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;성에 관련된 편견 및 혐오&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;그 외의 편견 및 혐오&lt;/code&gt;로 나누었는데, 이보다는 &lt;code class=&quot;highlighter-rouge&quot;&gt;편견&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;혐오&lt;/code&gt;로 구분하는 것이 낫다는 판단을 했다.&lt;/p&gt;
+
+&lt;p&gt;가이드라인 작성을 위해 댓글을 직접 태깅하다 보니 편견만 존재하는 댓글과 혐오만 존재하는 댓글이 존재했다. 항상 혐오가 편견으로부터 시작되지는 않았고, 편견이 있음을 부끄러워하지 않고 세상의 진리인 것처럼 이야기하는 댓글이 보였다. 혐오가 편견으로 시작된 경우는, 무리하게 개인의 특성을 집단의 특성으로 확장해서 그 집단에 대한 혐오를 개인에게 표출할 때였다. 그래서 이 둘의 관계를 데이터로 파악할 수 있도록, 또 편견과 혐오를 구분지어 생각할 수 있도록 &lt;code class=&quot;highlighter-rouge&quot;&gt;편견&lt;/code&gt;에 관련된 label과 &lt;code class=&quot;highlighter-rouge&quot;&gt;혐오&lt;/code&gt;에 관련된 label을 구분짓기로 했다.&lt;/p&gt;
+
+&lt;p&gt;언어학에 관심있는 사람들이라면 label을 바탕으로 댓글을 분석하는 것으로도 재밌는 연구가 될 것 같다.&lt;/p&gt;
+
+&lt;h3 id=&quot;12-표현의-자유와-혐오의-경계&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.2 표현의 자유와 혐오의 경계&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;이 둘을 구분짓는 좋은 threshold를 결정하는 것은 무슨 목적으로 활용하냐에 달려있다. 우리의 목적은 혐오 댓글의 피해자가 줄어들기를 바라는 것이었으므로 익명인의 표현의 자유보다는 기사의 대상이 되는 사람의 기분을 좀 더 신경쓰기로 했다. 그래서 태깅을 할 때에 당사자의 입장에서 생각하도록 가이드했다.&lt;/p&gt;
+
+&lt;h3 id=&quot;13-어노테이션이-어려웠던-댓글&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.3 어노테이션이 어려웠던 댓글&lt;/a&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;예전에 데뷔작에서 수영복입고 수중씬 기억난다 진짜 섹씨했는데&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;연예인이라는 직업이 가지는 특수성 때문에 판단하기 어려웠던 경우이다. 특히 여자연예인에 대해서는 외모에 대해 품평하는 댓글이 많았는데, 스스로가 연예인이었던 적이 없으니 감정이입을 해서 이를 모욕이라고 봐야할지도 모르겠고, 만약 의도적으로 외모를 부각해서 유명세를 얻은 경우라면 모욕이라고 보기가 더 어렵다고 생각했다. 결국 각자의 판단에 맡겨서 majority voting을 했지만 정말 어려웠던 케이스였다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;신천지?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;“일반적으로 비난받을만한 행위로 인한 혐오는 어떻게 판단해야할까?” 를 고민하게 만든 댓글이었다. 신천지 교도로 인해 코로나가 빠르게 퍼졌던 사건 이후로 “신천지”는 부정적인 이미지로 굳어져 버렸는데, 이 맥락을 고려해서 위의 댓글을 &lt;code class=&quot;highlighter-rouge&quot;&gt;혐오&lt;/code&gt;라고 태깅하면 “신천지”라는 가치 중립적인 단어가 &lt;code class=&quot;highlighter-rouge&quot;&gt;혐오&lt;/code&gt;로 태깅되기에 굉장히 고민이 많았습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;살빠진 마닷같애&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;위와 비슷한 케이스로 이 댓글 또한 판단하기 무척이나 어려웠다 ㅠㅠ &lt;code class=&quot;highlighter-rouge&quot;&gt;offensive&lt;/code&gt;로 판단하자니 마닷은 뭐가 되냐는…&lt;/p&gt;
+
+&lt;h3 id=&quot;14-other-biases-라는-label&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.4 &lt;code class=&quot;highlighter-rouge&quot;&gt;Other biases&lt;/code&gt; 라는 label&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;현재는 &lt;code class=&quot;highlighter-rouge&quot;&gt;bias&lt;/code&gt; label이 &lt;code class=&quot;highlighter-rouge&quot;&gt;gender bias&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;other biases&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;none&lt;/code&gt; 의 세가지로 구성되어 있다. 이렇게 할 수 밖에 없었던 가장 큰 이유는 예산 문제였다 ㅠㅠ 돈이 많았다면 gender 외에도 정치, 지역, 인종 등에 대한 편견도 label을 수집할 수 있었을텐데 하는 아쉬움이… 인당 150만원 이상은 부담하고 싶지 않아서, 그리고 연예 도메인은 성 편견이 가장 많은 비중을 차지하고 있어서 이런 결정을 하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;그러다보니 &lt;code class=&quot;highlighter-rouge&quot;&gt;others&lt;/code&gt; 라는 label 은 온갖 종류의 편견이 모두 모아져 있다. 아마도 모델이 곧장 others 를 예측하는 것은 쉽지 않을 것이라고 생각한다. 이 task는, &lt;a href=&quot;https://arxiv.org/abs/2005.12503&quot;&gt;논문&lt;/a&gt;에 적혀있듯이, 2-step classification 문제를 푸는 방식이 낫지 않을까라고 생각한다. 먼저 &lt;code class=&quot;highlighter-rouge&quot;&gt;gender / no-gender&lt;/code&gt; 를 예측하고, 그 이후에 &lt;code class=&quot;highlighter-rouge&quot;&gt;bias 유 / 무&lt;/code&gt; 를 예측하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;gender&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;others&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;none&lt;/code&gt; 을 좀 더 쉽게 예측할 수 있을 것이라고 생각한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;15-어노테이션-작업-시-context-미제공&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;1.5 어노테이션 작업 시 context 미제공&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;댓글에 포함된 편견 및 혐오를 더욱 정확하게 판단하기 위해서는 댓글이 작성된 뉴스 기사에 대한 정보가 필요하다. 하지만 현실적인 이유들로 포기했었다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“작업자가 기사를 읽어야 하는 번거로움을 감수할까?” &lt;br /&gt;
+“태깅 플랫폼에서 이 기능을 제공해줄까?” &lt;br /&gt;
+“뉴스 기사의 내용에 대한 저작권은 우리에게 없기 때문에 공개 데이터셋에 포함할 수 없고, 그럴거라면 태깅을 컨텍스트 없이 하는게 좋지 않을까?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;등의 질문들에 대해 명쾌한 답변을 내리지 못했고, 결국 댓글의 내용만 보고 판단하는 방식을 가져갔다. 지나고나니 아쉬움이 남는 건 어쩔 수 없는듯하다 ㅎㅎ&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-testset-구성&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;2. Testset 구성&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;현재 testset은 함께 작업했던 저와 &lt;a href=&quot;https://www.facebook.com/warnik.chow?__tn__=K-R&amp;amp;eid=ARCNVgdXVouckswETyWV9lkDr_cQtrkWPysMCRo0j12ERGUOBQc35o_roiDziJvD-AI5QCjiPW9EQsqA&amp;amp;fref=mentions&amp;amp;__xts__[0]=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI&quot;&gt;조원익&lt;/a&gt;, &lt;a href=&quot;https://www.facebook.com/Junbum.L?__tn__=K-R&amp;amp;eid=ARAQ7IJ8TMPDz9gEkoGREztDVOhQ35RZDphJGLftwahcbbh0jQfEyAdsaWSGsuVPrtfxpv1Twpuw3vgF&amp;amp;fref=mentions&amp;amp;__xts__[0]=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI&quot;&gt;이준범&lt;/a&gt;이 직접 작업한 라벨이 달려있다. 우리의 의도와 부합하는, 가장 어노테이션이 잘 되었다고 보장할 수 있는 데이터셋이라고 볼 수 있다. 하지만 지나고나니 “시간 순으로 train, validation, testset을 구성했다면 어땠을까?” 하는 아쉬움이 남았다.&lt;/p&gt;
+
+&lt;p&gt;댓글에는 많은 사회적 배경지식이 녹아져있다. 특히 인물의 이름이 가지고 있는 정보가 있는데, 우리가 수집한 기간에는 승리와 정준영 등의 연예인이 얽혀있던 단톡방 사건이 포함되어 있었다. 그래서 “승리”가 포함된 댓글은 부정적인 맥락 속에서 판단되었다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 “승리가 뭘 잘못했다고 난리들인지…그냥 승리 부럽고 베알꼴린 애들이 화난거로밖에 안보임ㅎ” 라는 댓글에서 “승리”를 제거하면 성편견이 없는 것으로 태깅되었겠지만, “승리”가 포함되었기 때문에 성편견이 존재하는 것으로 태깅된다.&lt;/p&gt;
+
+&lt;p&gt;Generalization을 잘 하는 모델이 진짜 잘하는 모델이라고 했을 때, 학습 데이터에 “승리”가 없어도 위의 댓글에 달린 라벨을 잘 예측할 수 있는 모델을 판별할 수 있게 testset을 구성했다면 더 좋았을 것 같다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-kobert-tokenization&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;3. KoBERT tokenization&lt;/a&gt;&lt;/h2&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;img class=&quot;image&quot; src=&quot;/assets/images/korean-hate-speech-model-result.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;baseline으로 CharCNN, BiLSTM, BERT를 사용한 모델의 결과를 논문&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;에 첨부했다. 여러 task 모두 BERT가 가장 좋은 성능을 보였다.&lt;/p&gt;
+
+&lt;p&gt;댓글은 맞춤법을 지키는 문장과는 거리가 멀고, 줄임말, 신조어, 연예인명, 그리고 그 외의 고유명사 등이 많이 등장한다. 그래서 BERT tokenization 결과를 보면 한 글자 씩 분리되는 경우가 빈번했다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;페지해라 가세연. 페지가 답이다 아님말고식 증거도없이 유재석 언급하노 &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;['▁페', '지', '해', '라', '▁', '가', '세', '연', '.', '▁페', '지가', '▁답', '이다', '▁아', '님', '말', '고', '식', '▁증거', '도', '없이', '▁유재석', '▁언급', '하', '노']&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;god 박준형이 이 기사를 싫어합니다. &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;['▁', 'go', 'd', '▁박', '준', '형', '이', '▁이', '▁기사', '를', '▁싫어', '합니다', '.']&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;koBERT 학습 데이터에 자주 등장했던 연예인 이름은 원본 그대로 보존되는 반면, 그렇지 못한 연예인은 이름이 쪼개진다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;조개갖고 개ㅈㄹ하는 태콩이나 개촐싹대는조샌징들이나 ㅈㄴ웃김ㅋㅋㅋ &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;['▁O', 'O', 'O', '▁조', '개', '갖', '고', '▁개', 'ᄌᄅ', '하는', '▁태', '콩', '이나', '▁개', '촐', '싹', '대', '는', '조', '샌', '징', '들이', '나', '▁', 'ᄌᄂ', '웃', '김', 'ᄏ', 'ᄏ', 'ᄏ']&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ㅅㅂ 더럽게 메갈어로 제목뽑는거 봐라 &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;['▁', 'ᄉᄇ', '▁더', '럽', '게', '▁메', '갈', '어', '로', '▁제', '목', '뽑', '는', '거', '▁봐', '라']&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;“ㅈㄴ”, “ㅈㄹ”, “ㅅㅂ” 같은 단어가 tokenization에서는 쪼개지지 않는다.&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;어려웠던 작업이었고, 완벽했다고는 할 수 없지만 좋은 시작점이 될 수 있는 프로젝트였다고는 생각한다. 이번에 해결할 수 없었던 여러 한계점들을 극복하는 다른 좋은 결과들이 많이 나올 수 있길 :)&lt;/p&gt;
+
+&lt;p&gt;이제 진짜 끝!&lt;/p&gt;
+
+&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;https://github.com/kocohub/korean-hate-speech &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;https://arxiv.org/abs/2005.12503 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 28 May 2020 21:00:00 +0900</pubDate>
+        <link>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</link>
+        <guid isPermaLink="true">https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</guid>
+        
+        
+        <category>machine-learning</category>
+        
+        <category>nlp</category>
+        
+        <category>korean</category>
+        
+        <category>hate-speech</category>
+        
+        <category>머신러닝</category>
+        
+        <category>자연어처리</category>
+        
+        <category>한국어</category>
+        
+        <category>혐오발언</category>
+        
+      </item>
     
       <item>
         <title>Attention in NLP</title>
@@ -3881,46 +4049,6 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
         <category>뉴스댓글</category>
         
         <category>news-comments</category>
-        
-      </item>
-    
-      <item>
-        <title>나, 다시 쓰는 자기소개서</title>
-        <description>&lt;p&gt;매달 여는 연울림 모임이지만 특히나 지난 달에 했던 가치 워크샵은 내게 많은 고민을 남겨준 시간이었다. 
-200여 개의 가치들 중, 내가 중요하게 여기는 가치를 선택하는 과정 속에서 종착점이 생각보다 명확하다는 인상을 받았는데, 그 지점을 향해 나는 제대로 가고 있는 것인지에 대한 의문이 생겼기 때문이었다.&lt;/p&gt;
-
-&lt;p&gt;내가 골랐던 가치는 &lt;strong&gt;공헌&lt;/strong&gt;, &lt;strong&gt;능력&lt;/strong&gt;, &lt;strong&gt;리더십&lt;/strong&gt;, &lt;strong&gt;이타주의&lt;/strong&gt;, &lt;strong&gt;지혜&lt;/strong&gt;였고, &lt;strong&gt;지혜로우면서도 능력있는 사회적 문제를 해결하는 기업가&lt;/strong&gt;로 요약되었다. 
-반면, 내가 지금 발 딛고 있는 현재는 데이터 분석가이자 모임 기획자로 간략하게 소개해 볼 수 있었다. 
-이 자리에서 어떻게 사회적 기업가로 나아갈 수 있을지, 왜 현재의 그 일을 하고 있고, 내가 풀고 싶은 사회적 문제와 어떻게 연관되는지 등을 다시 한 번 현재의 나에게 물어야 할 때가 왔다는 생각이 들었다.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;그래서 간략하게 나를 소개해보는 문장을 적어보았다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;저는 파파고라는 인공지능 번역 서비스를 함께 만들어나가고 있는 머신러닝 엔지니어입니다. &lt;br /&gt;
-대학에 입학했을 때의 전공은 화학생물공학으로 현재 하고 있는 일과 큰 관련이 없는 전공이었습니다. &lt;br /&gt;
-사람들은 저마다의 가치와 추구하는 바가 있고, 이를 최대한으로 발현할 수 있는 사회를 만들고 싶습니다. &lt;br /&gt;
-‘날리다’라는, 더 많은 사람들이 자기이해를 할 수 있는 모임을 기획하는 단체에서 ‘연울림’이라는 모임을 기획하고 운영하고 있습니다. &lt;br /&gt;
-제 삶의 마지막 단계에서는 소모적인 경쟁이 없고, 다양한 장점을 인정하는 시스템을 만들고 싶다는 꿈이 있습니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;한 문장, 한 문장이 서로 크게 연관이 되어 보이지는 않는 피상적인 형태의 자기소개서가 되었다. 
-하지만 아직 발견되지 못했을 뿐, 제각각의 문장을 관통하는 무언가가 있을 것이라는 생각이 들었다. 
-그 답은 스스로에게 던져진 질문에 답하는 과정에서 찾을 수 있겠지. 
-‘나’라는 사람을 설명해주는 &lt;a href=&quot;https://inmoonlight.github.io/%EC%9E%90%EA%B8%B0%EC%9D%B4%ED%95%B4/%EB%82%A0%EB%A6%AC%EB%8B%A4/2019/01/20/%EB%8B%B5%EC%9D%80-%EC%96%B8%EC%A0%9C%EB%82%98-%EB%82%98%EC%97%90%EA%B2%8C-%EC%9E%88%EB%8B%A4.html&quot;&gt;답은 언제나 나에게 있&lt;/a&gt;으니까.&lt;/p&gt;
-
-&lt;div class=&quot;breaker&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;언제나 그렇듯, 좋은 질문은 좋은 답을 이끄는 방향키다. 
-당신은 어떤 사람인가?&lt;/p&gt;
-</description>
-        <pubDate>Sat, 20 Jul 2019 20:26:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction</guid>
-        
-        
-        <category>연울림</category>
         
       </item>
     

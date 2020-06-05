@@ -4,8 +4,7 @@ layout: post
 date: 2020-01-27 21:00
 image: /assets/images/attention_camera.jpg
 categories: [ machine-learning, nlp, attention, 머신러닝, 자연어처리 ]
-featured: true
-hidden: true
+featured: false
 ---
 
 > “You can't cram the meaning of a whole %&!$# sentence into a single $&!#* vector!" <br>
