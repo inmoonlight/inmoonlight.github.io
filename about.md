@@ -21,31 +21,30 @@ comments: false
 
 <div class="breaker"></div>
 
+#### Publications
+
+- *Jihyung Moon*\*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[arXiv]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech)
+- *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[arXiv]](https://arxiv.org/abs/2004.13937)
+- [Oral] 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회 [[DBpia]](http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07613720)
+- *Jihyung Moon*, Hyochang Yang, Sungzoon Cho. **Finding ReMO (Related Memory Object): A Simple Neural Architecture for Text based Reasoning**. Feb 2018. arXiv [[arXiv]](https://arxiv.org/abs/1801.08459) [[github]](https://github.com/inmoonlight/RMN)
+
+<div class="breaker"></div>
+
+### Talks
+
+- **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[Slide]](https://www.slideshare.net/JiHyungMoon1/snu-center-for-east-asian-studies-colloquium-how-does-papago-learn-language)
+- **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. June 2020. [소셜코딩](https://www.socialcoding.kr/). [[Slide]](https://www.slideshare.net/JiHyungMoon1/socialcoding2020-online-news-comments-analysis-revealing-public-opinion-manipulators)
+- **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. Oct 2019. [데이터야놀자](https://datayanolja.github.io/2019-datayanolja/index.html). [[Slide]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)
+
+<div class="breaker"></div>
+
 #### Projects
 
 - [NOV 2019 ~ MAY 2020] **Korean Hate Speech Detection 을 위한 코퍼스 구축**
-- [OCT 2019] [**데이터야놀자2019**](https://datayanolja.github.io/2019-datayanolja/index.html) **발표** [[slide]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255)
 - [MAR 2019 ~ AUG 2019] **Naver News Comments Analysis** 
 - [MAR 2019 ~ NOV 2019] **연울림** [[instagram]](https://www.instagram.com/yeonullim/)
 - [NOV 2018 ~ NOV 2019] **날리다 (Nalida) : 나를 알리다** [[homepage]](http://www.nalida.info/) [[brunch]](https://brunch.co.kr/@nalida) [[facebook]](https://www.facebook.com/nalida2/) [[instagram]](https://www.instagram.com/nalida_official/) 
 - [NOV 2018] **PyTorchTutorial for Beginners** [[github]](https://github.com/inmoonlight/PyTorchTutorial)
-- [OCT 2018 ~ OCT 2019] **잇다 명예 멘토** [[page]](https://www.itdaa.net/mentors/29123)
+- [OCT 2018 ~ OCT 2019] **잇다 멘토링** [[page]](https://www.itdaa.net/mentors/29123)
 - [JUL 2017] **Tensorflow Implementation of Relation Network (RN)** [[github]](https://github.com/inmoonlight/Relation-Network)
 - [JAN 2017 ~ FEB 2017] **구글 여성 소프트웨어 캠프 (Develop with Google) 1기** 
-
-<div class="breaker"></div>
-
-#### Honors and Awards
-
-- [JUN 2018] **NAVER 뉴스 댓글 어뷰징 HACKDAY WINNER** (Patent Pending)
-- [JUL 2017] **Reddit/ML Best Top 14** [[reddit]](https://www.reddit.com/r/MachineLearning/comments/6nskph/d_tensorflow_implementation_of_relation_network/)
-
-<div class="breaker"></div>
-
-#### Publications
-
-- *Jihyung Moon*\*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[pdf]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech)
-- *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[pdf]](https://arxiv.org/abs/2004.13937)
-- *문지형*, 김재명. **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. Oct 2019. 데이터야놀자 [[Slide]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)
-- [Oral] 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회 [[DBpia]](http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07613720)
-- *Jihyung Moon*, Hyochang Yang, Sungzoon Cho. **Finding ReMO (Related Memory Object): A Simple Neural Architecture for Text based Reasoning**. Feb 2018. arXiv [[pdf]](https://arxiv.org/pdf/1801.08459.pdf) [[github]](https://github.com/inmoonlight/RMN)
