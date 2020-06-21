@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://inmoonlight.github.io/2020/06/20/How-multilingual-is-multilingual-BERT</loc>
+    </url>
+    
+    <url>
         <loc>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</loc>
     </url>
     
@@ -387,6 +391,22 @@
     
     <url>
         <loc>https://inmoonlight.github.io/tag/%ED%98%90%EC%98%A4%EB%B0%9C%EC%96%B8/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://inmoonlight.github.io/tag/multilingual/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://inmoonlight.github.io/tag/bert/</loc>
     </url>
     
     
