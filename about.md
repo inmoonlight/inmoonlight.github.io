@@ -32,7 +32,7 @@ comments: false
 
 ### Talks
 
-- **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[Slide]](https://www.slideshare.net/JiHyungMoon1/snu-center-for-east-asian-studies-colloquium-how-does-papago-learn-language)
+- **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[Slide]](https://www.slideshare.net/secret/GPoMGZ0Nxc47ib)
 - **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. June 2020. [소셜코딩](https://www.socialcoding.kr/). [[Slide]](https://www.slideshare.net/JiHyungMoon1/socialcoding2020-online-news-comments-analysis-revealing-public-opinion-manipulators)
 - **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. Oct 2019. [데이터야놀자](https://datayanolja.github.io/2019-datayanolja/index.html). [[Slide]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)
 
