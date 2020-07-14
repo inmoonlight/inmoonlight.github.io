@@ -1,6 +1,8 @@
 ---
 title: "How multilingual is Multilingual BERT?"
 layout: post
+toc: true
+toc_sticky: true
 date: 2020-06-20 17:00
 image: /assets/images/mbert.png
 categories: [ machine-learning, nlp, multilingual, BERT, 머신러닝, 자연어처리 ]

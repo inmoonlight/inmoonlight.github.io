@@ -3,10 +3,10 @@
   <channel>
     <title></title>
     <description>개인적이지만 사소하지 않은 이야기를 담고 싶습니다</description>
-    <link>https://inmoonlight.github.io/</link>
-    <atom:link href="https://inmoonlight.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Jun 2020 14:00:42 +0900</pubDate>
-    <lastBuildDate>Mon, 22 Jun 2020 14:00:42 +0900</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 29 Jun 2020 07:41:46 +0900</pubDate>
+    <lastBuildDate>Mon, 29 Jun 2020 07:41:46 +0900</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -373,8 +373,8 @@ Madrid I-ORG
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 20 Jun 2020 17:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/06/20/How-multilingual-is-multilingual-BERT</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/06/20/How-multilingual-is-multilingual-BERT</guid>
+        <link>http://localhost:4000/2020/06/20/How-multilingual-is-multilingual-BERT</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/06/20/How-multilingual-is-multilingual-BERT</guid>
         
         
         <category>machine-learning</category>
@@ -537,8 +537,8 @@ Madrid I-ORG
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 28 May 2020 21:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</guid>
+        <link>http://localhost:4000/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset</guid>
         
         
         <category>machine-learning</category>
@@ -674,8 +674,8 @@ Dot-Product의 dimension이 클 때 학습이 잘 되지 않는 단점을 극복
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 27 Jan 2020 21:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/01/27/Attention-in-NLP</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/27/Attention-in-NLP</guid>
+        <link>http://localhost:4000/2020/01/27/Attention-in-NLP</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/27/Attention-in-NLP</guid>
         
         
         <category>machine-learning</category>
@@ -882,8 +882,8 @@ Transformer의 self-attention 연산에서 빛을 발하는 특징이다.&lt;/p&
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 26 Jan 2020 17:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/01/26/Positional-Encoding</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/26/Positional-Encoding</guid>
+        <link>http://localhost:4000/2020/01/26/Positional-Encoding</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/26/Positional-Encoding</guid>
         
         
         <category>machine-learning</category>
@@ -1051,8 +1051,8 @@ Transformer의 self-attention 연산에서 빛을 발하는 특징이다.&lt;/p&
 수고했다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 07 Jan 2020 22:00:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</guid>
+        <link>http://localhost:4000/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/07/The-past-of-the-light-by-Eun-hee-kyung</guid>
         
         
         <category>book</category>
@@ -1522,8 +1522,8 @@ John was very impressive.
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 22 Dec 2019 22:22:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/12/22/GLUE-benchmark</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/12/22/GLUE-benchmark</guid>
+        <link>http://localhost:4000/2019/12/22/GLUE-benchmark</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/22/GLUE-benchmark</guid>
         
         
         <category>machine-learning</category>
@@ -2263,8 +2263,8 @@ CH_1
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 07 Nov 2019 00:07:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings</guid>
+        <link>http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/11/07/Basics-of-Quantum-Computings</guid>
         
         
         <category>quantum-computer</category>
@@ -3014,8 +3014,8 @@ upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비�
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 23 Sep 2019 17:25:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)</guid>
+        <link>http://localhost:4000/2019/09/23/Naver-News-Comments-Analysis-(3)</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/09/23/Naver-News-Comments-Analysis-(3)</guid>
         
         
         <category>데이터분석</category>
@@ -3145,8 +3145,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 09 Aug 2019 22:26:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/08/09/Travel-to-Norway-fjord-brown-cheese</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/08/09/Travel-to-Norway-fjord-brown-cheese</guid>
+        <link>http://localhost:4000/2019/08/09/Travel-to-Norway-fjord-brown-cheese</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/09/Travel-to-Norway-fjord-brown-cheese</guid>
         
         
         <category>노르웨이</category>
@@ -4179,8 +4179,8 @@ ferry 투어와는 다르게 RIB(Rigid Inflated Boat) 투어는 야생의 투어
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 03 Aug 2019 17:59:00 +0900</pubDate>
-        <link>https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2)</link>
-        <guid isPermaLink="true">https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2)</guid>
+        <link>http://localhost:4000/2019/08/03/Naver-News-Comments-Analysis-(2)</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/03/Naver-News-Comments-Analysis-(2)</guid>
         
         
         <category>데이터분석</category>
