@@ -110,8 +110,8 @@ sitemap:
 
 # rss feed auto generator
 feed:
-  type: rss2
-  path: rss2.xml
+  type: atom
+  path: feed.xml
   limit: 20
 
 # hexo-katex
