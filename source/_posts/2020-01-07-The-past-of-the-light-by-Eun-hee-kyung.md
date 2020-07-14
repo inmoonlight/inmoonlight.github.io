@@ -7,7 +7,8 @@ tags:
 - book
 - essay
 categories: 
-- Essay
+- Review
+- Book
 toc: true
 widgets:
    - type: toc
