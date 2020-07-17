@@ -16,8 +16,8 @@ timezone: 'Asia/Seoul'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://inmoonlight.github.io/
 root: /
-# permalink: :year/:month/:day/:title/
-permalink: /:category/:title/
+permalink: :year/:month/:day/:title/
+# permalink: /:category/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
