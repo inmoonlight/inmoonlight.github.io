@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 ## TL;DR

@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 올초(3월)부터 같은 팀의 재명님과 **네이버 뉴스 댓글** 데이터로 사이드 프로젝트를 시작했다. 직접 크롤링하신 데이터였는데, 그 양이 방대해서 "이 정도 데이터가 있으면, 뭔갈 해볼 수 있겠지!" 라는 가벼운 마음으로 사이드 프로젝트 제안을 덥석 받아물었다. 그리고 여느 사이드 프로젝트가 그렇듯 그 과정은 결코 생각만큼 가볍지는 않았더랬다... 

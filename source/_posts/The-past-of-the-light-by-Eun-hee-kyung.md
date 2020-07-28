@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 새해를 맞이하자마자 작년의 목표와 기대에는 없던 일이 일어났다. 오랜만에 뵌 분께 은희경 작가님의 "빛의 과거"라는 책을 선물받은 것이다. 그 동안 읽었던 텍스트라고는 오직 논문이었기에 선물받자마자 들었던 생각은 "아, 내가 과연 책을 읽을 수 있을까?" 였다. 

@@ -11,11 +11,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 삶을 살아나간다는 것은 모두에게 주어진 같은 24시간을, 나의 선택들로 채워나가는 것이다.

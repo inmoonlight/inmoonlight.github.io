@@ -14,11 +14,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 "How multilingual is Multilingual BERT?"[^1] 는 ACL 2019 에 억셉된 논문으로, Telmo Pires 가 Google AI Residency 프로그램 중에 작성하였다. Unbabel 에서 Autumatic Post-Editing (APE) 쪽 연구를 진행했었던 연구자였고, 그래서 multilingual BERT에 대해 분석한 논문을 쓴 것이 아닐까?

@@ -11,11 +11,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 최근에 있었던 구글의 양자 우월성 (Quantum Supremacy) 달성은 전세계적으로 큰 화제였다. 물 들어올 때 노 저으라고 하지 않았던가, 이 때가 아니면 또 언제 양자컴퓨터에 대해 공부할까 싶어서 텍스트와 동영상을 넘나들며 관련 지식을 습득해보았다.

@@ -11,11 +11,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 어렸을 때의 나는 무언가 새롭게 ‘시작’하는 것을 좋아했다. 무언가를 빨리 배우는 편이었고, 새롭게 어떤 환경이나 개념에 적응하는데에 드는 시간이 적게 들었기 때문에 ‘시작’을 즐길 수 있었기 때문이었던 것 같다. ‘시작’이 주는 그 몰입감과 성취감은 권태로움에서 나를 꺼내주는 좋은 처방전이었다.

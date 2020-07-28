@@ -11,11 +11,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 [잇다](https://www.itdaa.net/)라는 온라인 멘토링 플랫폼에서 멘토로 활동하면서 가장 많이 받는 질문은 *“좋아하는 일을 어떻게 찾을 수 있나요?”* 이다. 

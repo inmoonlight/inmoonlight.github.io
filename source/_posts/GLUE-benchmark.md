@@ -13,11 +13,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 General Language Understanding Evaluation benchmark, 줄여서 GLUE benchmark 라고 불리는 이 데이터셋은 NLP 분야에서 Language Model 검증을 위해 사용된다. ICLR 2019와 BlackboxNLP workshop 2018에 모두 publish 되었으며, [전자](https://openreview.net/pdf?id=rJ4km2R5t7)는 설명이 상세하고 [후자](https://www.aclweb.org/anthology/W18-5446.pdf)는 요약되어 있다. 이 글은 가장 최근(2019.2.22)에 업데이트된 [arXiv에 있는 논문](https://arxiv.org/pdf/1804.07461.pdf)을 기반으로 작성되었다. 

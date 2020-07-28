@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 Positional encoding 혹은 position encoding은 모델 구조에서 자연스럽게 sequential information을 얻지 못하는 경우에 대해 정보를 강제하는 방식이다. 보통 sequential data를 Recurrent Neural Network (RNN) 외의 다른 모델로 다루고 싶을 때 많이 사용된다. 이번 글에서는 Convolutional Neural Network (CNN), End-to-End Memory Network (MemN2N), Transformer에서 sentence embedding을 위해 사용된 positional encoding에 대해 소개하려고 한다.

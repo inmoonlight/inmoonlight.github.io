@@ -11,11 +11,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 **연울림**의 연은, **이야기할 연**이다. 이야기의 힘을 믿기에 나올 수 있었던 기획이다. 우리, [날리다: 나를 알리다](https://brunch.co.kr/@nalida) 팀은 기본적으로 모든 사람들은 본연의 색을 가지고 있다고 믿고 있다. 

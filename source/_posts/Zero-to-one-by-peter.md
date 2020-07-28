@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 제로투원. 해석하면 0에서 1. 즉, 무에서 유를 창조한다는 의미다. 책의 제목에 걸맞게 주변에 스타트업에 다니는 분들에게 자주 추천받았던 책이다.

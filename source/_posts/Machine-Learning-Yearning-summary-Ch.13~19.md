@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 목적에 맞는 Dev와 Test set을 구축했다면, 이제 모델이 얼마나 잘하고 있는지, 못한다면 그 이유는 무엇인지에 대한 분석을 할 수 있다. 그래서 이번에 다룰 주제는 **Basic Error Analysis**이다. 

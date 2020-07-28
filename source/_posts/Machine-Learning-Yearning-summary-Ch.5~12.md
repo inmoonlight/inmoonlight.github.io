@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 이번에 요약할 Chapter 5~12 의 소제목은 **Setting up development and test sets** 이고, 아래와 같은 제목으로 구성되어 있다. 

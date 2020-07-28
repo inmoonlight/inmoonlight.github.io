@@ -16,11 +16,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 약 4-5개월동안 사이드로 진행했던 혐오 댓글 프로젝트[^1]가 성공적으로 마무리되었다. 같은 문제의식을 가진 사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이 무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는 활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고 원동력이 사라지지 않고 꾸준히 일이 진행되었던 것은 모두 구성원들의 상호보완적인 역량 덕분이 아니었을까 싶다.

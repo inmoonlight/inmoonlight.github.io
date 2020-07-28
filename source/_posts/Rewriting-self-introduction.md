@@ -10,11 +10,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 매달 여는 연울림 모임이지만 특히나 지난 달에 했던 가치 워크샵은 내게 많은 고민을 남겨준 시간이었다. 200여 개의 가치들 중, 내가 중요하게 여기는 가치를 선택하는 과정 속에서 종착점이 생각보다 명확하다는 인상을 받았는데, 그 지점을 향해 나는 제대로 가고 있는 것인지에 대한 의문이 생겼기 때문이었다.

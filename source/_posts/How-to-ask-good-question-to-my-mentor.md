@@ -11,11 +11,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 [잇다](https://www.itdaa.net/) 멘토로 활동했던 3개월 남짓한 기간에 생각보다 다양한 질문을 받았다. 그 중에는 답변하고 싶게 만드는 질문이 있었고, 글이 무거운 나머지 내가 적게될 답변 하나하나가 조심스러워 결국 기간 내에 작성하지 못하게 된 질문도 있었고, 답변하기 싫은 질문도 (당연히) 있었다. 질문이 도착했음을 알리는 진동이 두려워진 적도 있었다. 좋은 질문이면 큰 어려움없이 글을 적을 수 있지만 그렇지 않으면 심적으로 부담이 많이 되기 때문이다. 
 

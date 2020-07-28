@@ -12,11 +12,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 북유럽은 오로라를 보고 싶어서 겨울에 갈 곳으로 내심 정해두고 있었는데, 그럼에도 불구하고 한 여름에 노르웨이를 행선지로 정했던 까닭은 **피오르드(Fjord)** 였다. 웅장한 자연을 보길 좋아하는 편인데다가 (오로라만 봐도 알 수 있다) 덥고 습한 여름에서, 그리고 틀에 박힌듯한 답답한 삶에서 잠시 벗어나고 싶었다.

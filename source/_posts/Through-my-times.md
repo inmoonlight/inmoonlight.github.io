@@ -9,11 +9,11 @@ categories:
 toc: true
 widgets:
    - type: toc
-     position: right
+     position: left
    - type: categories
-     position: right
+     position: left
    - type: recent_posts
-     position: right
+     position: left
 ---
 
 개인적으로, PUBLY 박소령 대표님의 인스타계정을 좋아한다. 특히 본인이 읽었던 책에 대해 소개하는 피드를 애정한다. 공감하는 문장이 비슷할 때가 많고, 그 글을 읽고 난 뒤의 생각을 엿보는 재미가 있다.
