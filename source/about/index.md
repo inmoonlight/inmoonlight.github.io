@@ -49,7 +49,7 @@ widgets:
 
 ### Publications
 
-- *Jihyung Moon* \*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[arXiv]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech)
+- *Jihyung Moon* \*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[arXiv]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech) [[slide]](https://www.slideshare.net/JiHyungMoon1/aclsocialnlp2020beepkoreancorpusofonlinenewscommentsfortoxicspeechdetection)
 - *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[arXiv]](https://arxiv.org/abs/2004.13937)
 - [Oral] 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회 [[DBpia]](http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07613720)
 - *Jihyung Moon*, Hyochang Yang, Sungzoon Cho. **Finding ReMO (Related Memory Object): A Simple Neural Architecture for Text based Reasoning**. Feb 2018. arXiv [[arXiv]](https://arxiv.org/abs/1801.08459) [[github]](https://github.com/inmoonlight/RMN)
