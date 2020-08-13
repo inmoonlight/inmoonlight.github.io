@@ -35,8 +35,8 @@ widgets:
 지금은 [NAVER](https://www.navercorp.com/ko/index.nhn) [Papago](https://papago.naver.com/) 에서 일하고 있습니다. 
 
 - 사용자의 불편함을 해결할 수 있는 모든 과정을 좋아합니다.
-- NMT의 다양한 문제를 접하고 있습니다.
-  - Robust NMT, Quality Estimation, Diverse Translation, Speech Translation 에 관심이 있습니다.
+- AI/ML 으로 주변을 보다 따뜻하게 만들어나가고 싶습니다.
+  - 기술이 사회적으로 가치있는 방향으로 쓰이길 원합니다.
 
 ---
 
@@ -72,6 +72,11 @@ widgets:
 - [OCT 2018 ~ OCT 2019] **잇다 멘토링** [[page]](https://www.itdaa.net/mentors/29123)
 - [JUL 2017] **Tensorflow Implementation of Relation Network (RN)** [[github]](https://github.com/inmoonlight/Relation-Network)
 - [JAN 2017 ~ FEB 2017] **구글 여성 소프트웨어 캠프 (Develop with Google) 1기** 
+
+### Media
+
+- [AUG 2020] **[네이버 슈퍼주니어] 머뭇거리다 말문 터지니 ‘호기로운 자랑질’**. 디지털데일리. [[news]](https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=138&aid=0002089992)
+- [JUL 2019] **열정에 기름붓기 X 잇다 X GS 칼텍스 [세상을 바꾸는 에너지] 캠페인** [[youtube]](https://youtu.be/q2YEtAkOnNY)
 
 ### Things you don't need to know
 
