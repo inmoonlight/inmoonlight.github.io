@@ -53,9 +53,11 @@ widgets:
 - *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[arXiv]](https://arxiv.org/abs/2004.13937)
 - [Oral] 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회 [[DBpia]](http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07613720)
 - *Jihyung Moon*, Hyochang Yang, Sungzoon Cho. **Finding ReMO (Related Memory Object): A Simple Neural Architecture for Text based Reasoning**. Feb 2018. arXiv [[arXiv]](https://arxiv.org/abs/1801.08459) [[github]](https://github.com/inmoonlight/RMN)
+- Thomas Erl , Wajid Khattak , Paul Buhler. **Big Data Fundamentals: Concepts, Drivers & Techniques (빅데이터 기초 개념, 동인, 기법)**. (조성준, 이혜진, 안용대, 이제혁, 전성환, *문지형*, 김도형, 정민기, 신동민 옮김). Sep 2017. 시그마프레스 [[교보문고]](https://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788968669774) [[yes24]](https://www.yes24.com/Product/Goods/45542771)
 
 ### Talks
 
+- **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon KR](https://www.pycon.kr/2020).  
 - **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. July 2020. 카카오브레인. [[slide]](https://www.slideshare.net/JiHyungMoon1/kakaobrainbeep)
 - **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[slide]](https://www.slideshare.net/secret/GPoMGZ0Nxc47ib)
 - **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. June 2020. [소셜코딩](https://www.socialcoding.kr/). [[slide]](https://www.slideshare.net/JiHyungMoon1/socialcoding2020-online-news-comments-analysis-revealing-public-opinion-manipulators)
