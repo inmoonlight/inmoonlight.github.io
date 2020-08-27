@@ -77,6 +77,7 @@ widgets:
 
 ### Media
 
+- [AUG 2020] **구글 제친 네이버 '파파고', 국제 기계 번역대회 수상**. 아이뉴스24. [[news]](https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=105&oid=031&aid=0000554054#)
 - [AUG 2020] **[네이버 슈퍼주니어] 머뭇거리다 말문 터지니 ‘호기로운 자랑질’**. 디지털데일리. [[news]](https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=138&aid=0002089992)
 - [JUL 2019] **열정에 기름붓기 X 잇다 X GS 칼텍스 [세상을 바꾸는 에너지] 캠페인** [[youtube]](https://youtu.be/q2YEtAkOnNY)
 
