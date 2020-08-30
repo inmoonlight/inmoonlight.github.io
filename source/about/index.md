@@ -57,7 +57,7 @@ widgets:
 
 ### Talks
 
-- **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon KR](https://www.pycon.kr/2020).  
+- **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon](https://www.pycon.kr/2020). [[slide]](https://www.slideshare.net/JiHyungMoon1/pyconkr2020-beep)
 - **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. July 2020. 카카오브레인. [[slide]](https://www.slideshare.net/JiHyungMoon1/kakaobrainbeep)
 - **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[slide]](https://www.slideshare.net/secret/GPoMGZ0Nxc47ib)
 - **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. June 2020. [소셜코딩](https://www.socialcoding.kr/). [[slide]](https://www.slideshare.net/JiHyungMoon1/socialcoding2020-online-news-comments-analysis-revealing-public-opinion-manipulators)
