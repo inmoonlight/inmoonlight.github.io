@@ -30,7 +30,7 @@ widgets:
      position: left
 ---
 
-저는 **사람을 위한 모델링을 하고 싶은 Machine Learning Researcher** 입니다. 
+저는 **사람을 위한 모델링을 하고 싶은 Machine Learning Applied Research Scientist** 입니다. 
 
 지금은 [NAVER](https://www.navercorp.com/ko/index.nhn) [Papago](https://papago.naver.com/) 에서 일하고 있습니다. 
 
@@ -42,8 +42,8 @@ widgets:
 
 ### Work and Education
 
-- [DEC 2018 ~ PRESENT] ML Researcher, Papago, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
-- [FEB 2018 ~ DEC 2018] ML Researcher, Search Modeling, Search & Clova, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
+- [DEC 2018 ~ PRESENT] ML Research Scientist, Papago, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
+- [FEB 2018 ~ DEC 2018] ML Research Scientist, Search Modeling, Search & Clova, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [MAR 2016 ~ FEB 2018] M.S., [Datamining Lab](http://dm.snu.ac.kr/ko/), [Seoul National University](http://www.snu.ac.kr/index.html)
 - [MAR 2011 ~ FEB 2016] B.S., Major in Chemical and Biological Engineering and minor in Industrial Engineering, [Seoul National University](http://www.snu.ac.kr/index.html)
 
