@@ -120,8 +120,8 @@ Qbit은 언제나 다음의 조건을 만족시킨다.
 
 \\[
   \\binom{x\_0}{x\_1} \\otimes \\binom{y\_0}{y\_1} 
-= \\begin{pmatrix} x\_0  \binom{y\_0}{y\_1} \\\\
-{x\_1  \binom{y\_0}{y\_1}} \\end{pmatrix} 
+= \\begin{pmatrix} x\_0  \\binom{y\_0}{y\_1} \\\\
+x\_1  \\binom{y\_0}{y\_1} \\end{pmatrix} 
 = \\begin{pmatrix} x\_0 y\_0 \\\\ x\_0 y\_1 \\\\ x\_1 y\_0 \\\\ x\_1 y\_1 \\end{pmatrix}
 \\]
 
