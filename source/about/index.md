@@ -68,18 +68,9 @@ widgets:
 - [NOV 2019 ~ MAY 2020] **Korean Hate Speech Detection 을 위한 코퍼스 구축** [[github]](https://github.com/kocohub/korean-hate-speech)
 - [DEC 2019 ~ FEB 2020] **머신러닝 연구원 SOTA의 일상** 이모티콘 제작 [[line store]](https://store.line.me/stickershop/product/10567421?fbclid=IwAR3Swy-hOxHO_7vWgsxY7Iu8lEebbLKH74BHVXsPdR1c7NI-lqsvkTB0UW4)
 - [MAR 2019 ~ AUG 2019] **Naver News Comments Analysis** 
-- [MAR 2019 ~ NOV 2019] **연울림** [[instagram]](https://www.instagram.com/yeonullim/)
-- [NOV 2018 ~ NOV 2019] **날리다 (Nalida) : 나를 알리다** [[homepage]](http://www.nalida.info/) [[brunch]](https://brunch.co.kr/@nalida) [[facebook]](https://www.facebook.com/nalida2/) [[instagram]](https://www.instagram.com/nalida_official/) 
 - [NOV 2018] **PyTorchTutorial for Beginners** [[github]](https://github.com/inmoonlight/PyTorchTutorial)
-- [OCT 2018 ~ OCT 2019] **잇다 멘토링** [[page]](https://www.itdaa.net/mentors/29123)
 - [JUL 2017] **Tensorflow Implementation of Relation Network (RN)** [[github]](https://github.com/inmoonlight/Relation-Network)
 - [JAN 2017 ~ FEB 2017] **구글 여성 소프트웨어 캠프 (Develop with Google) 1기** 
-
-### Media
-
-- [AUG 2020] **구글 제친 네이버 '파파고', 국제 기계 번역대회 수상**. 아이뉴스24. [[news]](https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=105&oid=031&aid=0000554054#)
-- [AUG 2020] **[네이버 슈퍼주니어] 머뭇거리다 말문 터지니 ‘호기로운 자랑질’**. 디지털데일리. [[news]](https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=138&aid=0002089992)
-- [JUL 2019] **열정에 기름붓기 X 잇다 X GS 칼텍스 [세상을 바꾸는 에너지] 캠페인** [[youtube]](https://youtu.be/q2YEtAkOnNY)
 
 ### Things you don't need to know
 
