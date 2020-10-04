@@ -101,7 +101,7 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/inmoonlight/inmoonlight.github.io.git
+  repo: git@github.com:inmoonlight/inmoonlight.github.io.git
   branch: master
 
 # sitemap auto generator
