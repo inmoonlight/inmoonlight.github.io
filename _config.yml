@@ -129,7 +129,7 @@ robotstxt:
     - /
   sitemap: https://inmoonlight.github.io/sitemap.xml
 
-# 포스트에서 참고하고 있는 외부링크에 nofollw 속성을 자동으로 추가
+# 포스트에서 참고하고 있는 외부링크에 nofollw 속성을 자동으로 추가 (ref: https://mishka.kr/2019/06/11/Hexo-seo/)
 nofollow:
     enable: true
     exclude:
