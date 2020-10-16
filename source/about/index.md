@@ -50,7 +50,7 @@ widgets:
 
 ### Publications
 
-- 조원익, *문지형*. **한국어 혐오 표현 코퍼스 구축 방법론 연구:온라인 악성 댓글에 나타나는 특성을 중심으로 (A Study on the Construction of Korean Hate Speech Corpus:Based on the Attributes of Online Toxic Comments)**. HCLT 2020
+- 조원익, *문지형*. **한국어 혐오 표현 코퍼스 구축 방법론 연구:온라인 악성 댓글에 나타나는 특성을 중심으로 (A Study on the Construction of Korean Hate Speech Corpus:Based on the Attributes of Online Toxic Comments)**. HCLT 2020 [[slide]](https://www.slideshare.net/WonIkCho/2010-hclt-hate-speech-238890804)
 - Yujin Baek\*, Zae Myung Kim\*, *Jihyung Moon*, Hyunjoong Kim, Eunjeong L. Park. **PATQUEST: Papago Translation Quality Estimation**. [Proceedings of the Fifth Conference on Machine Translation](http://www.statmt.org/wmt20/quality-estimation-task.html) (WMT20) 
 - *Jihyung Moon* \*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[arXiv]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech) [[slide]](https://www.slideshare.net/JiHyungMoon1/aclsocialnlp2020beepkoreancorpusofonlinenewscommentsfortoxicspeechdetection)
 - *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[arXiv]](https://arxiv.org/abs/2004.13937)
