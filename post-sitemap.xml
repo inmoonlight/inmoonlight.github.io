@@ -96,7 +96,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset/</loc>
+        <loc>https://inmoonlight.github.io/2018/12/23/Skycastle/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +112,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2018/12/23/Skycastle/</loc>
+        <loc>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -144,14 +144,6 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/01/20/I-always-had-an-answer/</loc>
-        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/2018/11/24/How-to-find-my-job/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -160,7 +152,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/05/15/Joyful-slump/</loc>
+        <loc>https://inmoonlight.github.io/2019/01/20/I-always-had-an-answer/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -176,6 +168,14 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/2019/05/15/Joyful-slump/</loc>
+        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/2018/12/25/Machine-Learning-Yearning-summary-Ch.1~4/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,7 +184,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings/</loc>
+        <loc>https://inmoonlight.github.io/2020/08/29/Exploring-the-Limits-of-Transfer-Learning-with-a-Unified-Text-to-Text-Transformer/</loc>
         <lastmod>2020-10-04T01:32:15.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -192,7 +192,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2020/08/29/Exploring-the-Limits-of-Transfer-Learning-with-a-Unified-Text-to-Text-Transformer/</loc>
+        <loc>https://inmoonlight.github.io/2019/11/07/Basics-of-Quantum-Computings/</loc>
         <lastmod>2020-10-04T01:32:15.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
