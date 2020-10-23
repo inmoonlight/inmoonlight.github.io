@@ -30,19 +30,18 @@ widgets:
      position: left
 ---
 
-저는 **사람을 위한 모델링을 하고 싶은 Machine Learning Research Engineer** 입니다. 
+저는 **사람들의 삶에 긍정적인 변화를 주는 연구와 제품 개발을 하고 싶은 Machine Learning Research Engineer** 입니다.
 
-지금은 [UpstageAI]() 에서 일하고 있습니다. 
+지금은 [UpstageAI](upstage.ai) 에서 일하고 있습니다. 
 
-- 사용자의 불편함을 해결할 수 있는 모든 과정을 좋아합니다.
-- AI/ML 으로 주변을 보다 따뜻하게 만들어나가고 싶습니다.
-  - 기술이 사회적으로 가치있는 방향으로 쓰이길 원합니다.
+- 사람들의 불편함을 해결할 수 있는 모든 과정을 좋아합니다.
+- 기술이 사회적으로 가치있는 방향으로 쓰이길 원합니다.
 
 ---
 
 ### Work and Education
 
-- [OCT 2020 ~ PRESENT] ML Research Engineer / Founder, UpstageAI
+- [OCT 2020 ~ PRESENT] ML Research Engineer / Co-founder, [UpstageAI](upstage.ai)
 - [DEC 2018 ~ OCT 2020] ML Research Engineer, [Papago](papago.naver.com), [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [FEB 2018 ~ DEC 2018] ML Research Engineer, Search Modeling, Search & Clova, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [MAR 2016 ~ FEB 2018] M.S., [Datamining Lab](http://dm.snu.ac.kr/ko/), [Seoul National University](http://www.snu.ac.kr/index.html)
