@@ -131,7 +131,7 @@ Main Question: 무엇이 `M-BERT`의 zero-shot cross-lingual transferability를 
 
 ### `M-BERT` 의 cross-lingual transferability 는 vocab overlap 때문일까? → NO
 - vocab overlap: fine-tuning dataset (train) 의 word piece 와 evaluation dataset (test) 의 word piece 간의 overlap
-  $$overlap = \frac{| E_{train} ∩ E_{eval} |}{| E_{train} ∪ E_{eval}|}$$
+  \\[overlap = \frac\{| E_\{train\} ∩ E_\{eval\} |\}\{| E_\{train\} ∪ E_\{eval\}|\}\\]
 - 검증 방식:
   - NER task 중 16개의 언어에 대한 in-house 데이터셋으로 가능한 언어쌍 (16 * 15 = 240 개) 에 대해 overlap을 구하고, trasfer score (F1) 를 report 
   - _**(결과) `M-BERT`는 vocab overlap 과 무관하게 generally 성능이 좋다. vocab overlap 이 0인 언어쌍에 대해서도 최소 40%의 F1 score 를 보인다. 반면 EN-BERT 는 vocab overlap 에 굉장히 많이 영향을 받는다.**_
