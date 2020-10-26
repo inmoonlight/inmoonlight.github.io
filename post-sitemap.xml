@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/2020/06/20/How-multilingual-is-multilingual-BERT/</loc>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/2020/01/27/Attention-in-NLP/</loc>
         <lastmod>2020-10-04T05:36:58.672Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -80,22 +88,6 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2020/01/26/Positional-Encoding/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -104,7 +96,23 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)/</loc>
+        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction/</loc>
+        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/2020/01/26/Positional-Encoding/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -128,7 +136,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2020/06/20/How-multilingual-is-multilingual-BERT/</loc>
+        <loc>https://inmoonlight.github.io/2018/11/24/How-to-find-my-job/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -152,7 +160,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2018/11/24/How-to-find-my-job/</loc>
+        <loc>https://inmoonlight.github.io/2018/12/25/Machine-Learning-Yearning-summary-Ch.1~4/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -169,14 +177,6 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2019/01/01/Machine-Learning-Yearning-summary-Ch.13~19/</loc>
-        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2018/12/25/Machine-Learning-Yearning-summary-Ch.1~4/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

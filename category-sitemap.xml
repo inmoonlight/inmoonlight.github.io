@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/categories/Review/Paper/</loc>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/categories/Review/</loc>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/categories/ML/NLP/</loc>
         <lastmod>2020-10-04T05:36:58.672Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -36,22 +50,8 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/categories/Review/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/categories/ML/Data-Analysis/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/Review/Paper/</loc>
-        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

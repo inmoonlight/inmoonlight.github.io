@@ -3,15 +3,36 @@
 
 
     <url>
+        <loc>https://inmoonlight.github.io/tags/BERT/</loc>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/review/</loc>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/paper/</loc>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/tags/NLP/</loc>
-        <lastmod>2020-10-04T05:36:58.672Z</lastmod>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/ML/</loc>
-        <lastmod>2020-10-04T05:36:58.672Z</lastmod>
+        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -52,13 +73,6 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/review/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/tags/hate-speech/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,20 +103,6 @@
     <url>
         <loc>https://inmoonlight.github.io/tags/dataset/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/BERT/</loc>
-        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/paper/</loc>
-        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
