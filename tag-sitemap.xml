@@ -3,64 +3,106 @@
 
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/BERT/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <loc>https://inmoonlight.github.io/tags/hatespeech/</loc>
+        <lastmod>2020-11-05T16:09:11.601Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/review/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <loc>https://inmoonlight.github.io/tags/social-good/</loc>
+        <lastmod>2020-11-05T16:09:11.601Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/paper/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/NLP/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/ML/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/norway/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/travel/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
+        <loc>https://inmoonlight.github.io/tags/dataset/</loc>
+        <lastmod>2020-11-05T16:09:11.601Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/book/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
+        <lastmod>2020-11-05T16:08:51.518Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/ML/</loc>
+        <lastmod>2020-11-05T16:08:51.518Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/essay/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
+        <lastmod>2020-11-05T16:08:36.088Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/BERT/</loc>
+        <lastmod>2020-11-05T16:08:02.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/paper/</loc>
+        <lastmod>2020-11-05T16:08:02.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/NLP/</loc>
+        <lastmod>2020-11-05T16:08:02.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/norway/</loc>
+        <lastmod>2020-11-05T16:07:30.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/travel/</loc>
+        <lastmod>2020-11-05T16:07:30.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/Google/</loc>
+        <lastmod>2020-11-05T16:07:19.187Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/LM/</loc>
+        <lastmod>2020-11-05T16:07:19.187Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/quantum-computing/</loc>
+        <lastmod>2020-11-05T16:02:00.208Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/quantum/</loc>
+        <lastmod>2020-11-05T16:02:00.208Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -80,13 +122,6 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/social-good/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/tags/news-comments/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -96,41 +131,6 @@
     <url>
         <loc>https://inmoonlight.github.io/tags/data-analysis/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/dataset/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/Google/</loc>
-        <lastmod>2020-10-04T01:32:15.260Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/LM/</loc>
-        <lastmod>2020-10-04T01:32:15.260Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/quantum-computing/</loc>
-        <lastmod>2020-10-04T01:32:15.260Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/quantum/</loc>
-        <lastmod>2020-10-04T01:32:15.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

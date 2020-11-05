@@ -8,15 +8,36 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/categories/Review/Paper/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <loc>https://inmoonlight.github.io/categories/ML/Paper/</loc>
+        <lastmod>2020-11-05T16:09:11.601Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/categories/Review/</loc>
-        <lastmod>2020-10-26T13:05:26.908Z</lastmod>
+        <loc>https://inmoonlight.github.io/categories/ML/</loc>
+        <lastmod>2020-11-05T16:09:11.601Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/categories/Book/</loc>
+        <lastmod>2020-11-05T16:08:51.518Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/categories/Essay/</loc>
+        <lastmod>2020-11-05T16:07:30.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/categories/ML/Quantum-Computing/</loc>
+        <lastmod>2020-11-05T16:02:00.208Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -29,36 +50,8 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/categories/ML/</loc>
-        <lastmod>2020-10-04T05:36:58.672Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/Review/Book/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/Essay/</loc>
-        <lastmod>2020-10-04T01:32:15.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/categories/ML/Data-Analysis/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/ML/Quantum-Computing/</loc>
-        <lastmod>2020-10-04T01:32:15.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
