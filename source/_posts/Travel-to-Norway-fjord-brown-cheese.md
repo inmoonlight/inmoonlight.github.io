@@ -4,7 +4,6 @@ layout: post
 date: 2019-08-09 22:26
 thumbnail: /assets/images/naeroyfjord.jpeg
 tags:
-- review
 - travel
 - norway
 categories: 

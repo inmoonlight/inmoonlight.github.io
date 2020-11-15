@@ -4,10 +4,8 @@ layout: post
 date: 2018-12-25 17:17
 tags:
 - ML
-- review
 - book
 categories: 
-- Review
 - Book
 toc: true
 widgets:

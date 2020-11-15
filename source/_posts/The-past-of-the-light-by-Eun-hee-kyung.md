@@ -3,11 +3,9 @@ title: "빛의 과거"
 layout: post
 date: 2020-01-07 22:00
 tags:
-- review
 - book
 - essay
 categories: 
-- Review
 - Book
 toc: true
 widgets:

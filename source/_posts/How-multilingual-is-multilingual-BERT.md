@@ -6,10 +6,8 @@ tags:
 - ML
 - NLP
 - paper
-- review
 - BERT
 categories: 
-- Review
 - Paper
 toc: true
 widgets:

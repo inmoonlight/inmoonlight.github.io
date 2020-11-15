@@ -3,11 +3,9 @@ title: "Zero to One (제로투원)"
 layout: post
 date: 2020-07-20 23:00
 tags:
-- review
 - book
 - essay
 categories: 
-- Review
 - Book
 toc: true
 widgets:
