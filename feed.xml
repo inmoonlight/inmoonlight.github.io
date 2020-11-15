@@ -18,8 +18,8 @@
   
   <entry>
     <title>Social Bias in NLP Models</title>
-    <link href="https://inmoonlight.github.io/2020/11/14/Language-is-power-A-critical-survey-of-bias-in-NLP/"/>
-    <id>https://inmoonlight.github.io/2020/11/14/Language-is-power-A-critical-survey-of-bias-in-NLP/</id>
+    <link href="https://inmoonlight.github.io/2020/11/14/Social-bias-in-NLP-models/"/>
+    <id>https://inmoonlight.github.io/2020/11/14/Social-bias-in-NLP-models/</id>
     <published>2020-11-14T02:00:00.000Z</published>
     <updated>2020-11-15T10:37:16.966Z</updated>
     
@@ -162,9 +162,9 @@
     
       <category term="dataset" scheme="https://inmoonlight.github.io/tags/dataset/"/>
     
-      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
-    
       <category term="news comments" scheme="https://inmoonlight.github.io/tags/news-comments/"/>
+    
+      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
     
       <category term="hate speech" scheme="https://inmoonlight.github.io/tags/hate-speech/"/>
     
@@ -333,11 +333,11 @@
       <category term="Data Analysis" scheme="https://inmoonlight.github.io/categories/ML/Data-Analysis/"/>
     
     
-      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
-    
       <category term="data analysis" scheme="https://inmoonlight.github.io/tags/data-analysis/"/>
     
       <category term="news comments" scheme="https://inmoonlight.github.io/tags/news-comments/"/>
+    
+      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
     
   </entry>
   
@@ -394,11 +394,11 @@
       <category term="Data Analysis" scheme="https://inmoonlight.github.io/categories/ML/Data-Analysis/"/>
     
     
-      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
-    
       <category term="data analysis" scheme="https://inmoonlight.github.io/tags/data-analysis/"/>
     
       <category term="news comments" scheme="https://inmoonlight.github.io/tags/news-comments/"/>
+    
+      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
     
   </entry>
   
@@ -424,11 +424,11 @@
       <category term="Data Analysis" scheme="https://inmoonlight.github.io/categories/ML/Data-Analysis/"/>
     
     
-      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
-    
       <category term="data analysis" scheme="https://inmoonlight.github.io/tags/data-analysis/"/>
     
       <category term="news comments" scheme="https://inmoonlight.github.io/tags/news-comments/"/>
+    
+      <category term="social good" scheme="https://inmoonlight.github.io/tags/social-good/"/>
     
   </entry>
   
