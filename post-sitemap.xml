@@ -9,7 +9,7 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2020/11/14/Language-is-power-A-critical-survey-of-bias-in-NLP/</loc>
-        <lastmod>2020-11-14T06:32:02.852Z</lastmod>
+        <lastmod>2020-11-15T10:37:16.966Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -120,6 +120,14 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2)/</loc>
+        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/2020/01/26/Positional-Encoding/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -128,7 +136,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)/</loc>
+        <loc>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -136,7 +144,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/08/03/Naver-News-Comments-Analysis-(2)/</loc>
+        <loc>https://inmoonlight.github.io/2019/09/23/Naver-News-Comments-Analysis-(3)/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -160,8 +168,8 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
+        <loc>https://inmoonlight.github.io/2019/12/22/GLUE-benchmark/</loc>
+        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -193,14 +201,6 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2019/01/20/I-always-had-an-answer/</loc>
-        <lastmod>2020-10-04T01:32:15.261Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2019/12/22/GLUE-benchmark/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

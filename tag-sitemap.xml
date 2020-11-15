@@ -4,21 +4,21 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/bias/</loc>
-        <lastmod>2020-11-14T06:32:02.852Z</lastmod>
+        <lastmod>2020-11-15T10:37:16.966Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/social-good/</loc>
-        <lastmod>2020-11-14T06:32:02.852Z</lastmod>
+        <lastmod>2020-11-15T10:37:16.966Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/NLP/</loc>
-        <lastmod>2020-11-14T06:32:02.852Z</lastmod>
+        <lastmod>2020-11-15T10:37:16.966Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -115,13 +115,6 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/dataset/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/tags/news-comments/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -130,6 +123,13 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/data-analysis/</loc>
+        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/dataset/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
