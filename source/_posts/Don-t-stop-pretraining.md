@@ -44,7 +44,7 @@ widgets:
 <img src="/assets/images/dapt-vocab-overlap.png?style=centerme" width=40%>
 <br>
 
-위의 이미지는 Vocab overlap 을 통한 domain의 similarity 를 구한 heatmap이다. 빈번한 10K 의 vocab 중 얼마나 겹치는지를 나타내고 있으며 결과는 직관과 일치하는 것으로 보인다. PT corpus는 news, reviews와 가장 유사하며 cs와 가장 거리가 멀다. 또 reviews와 cs의 거리가 가장 멀고, news와 reviews는 논문에 비해 상대적으로 더 유사하다.
+위의 이미지는 Vocab overlap 을 통한 domain의 similarity 를 구한 heatmap이다. 빈번한 10K 의 vocab 중 얼마나 겹치는지를 나타내고 있으며 결과는 직관과 일치하는 것으로 보인다. PT corpus는 news, reviews와 가장 유사하며 cs와 가장 거리가 멀다. 또 reviews와 cs의 거리가 가장 멀고, news와 reviews는 cs에 비해 상대적으로 더 유사하다.
 
 
 ## DAPT Results
