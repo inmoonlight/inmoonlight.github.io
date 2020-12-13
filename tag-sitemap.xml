@@ -3,22 +3,29 @@
 
 
     <url>
+        <loc>https://inmoonlight.github.io/tags/evaluation/</loc>
+        <lastmod>2020-12-13T10:03:37.700Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/tags/paper/</loc>
-        <lastmod>2020-11-30T07:37:42.207Z</lastmod>
+        <lastmod>2020-12-13T10:03:37.700Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/NLP/</loc>
-        <lastmod>2020-11-30T07:37:42.207Z</lastmod>
+        <lastmod>2020-12-13T10:03:37.700Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/ML/</loc>
-        <lastmod>2020-11-30T07:37:42.207Z</lastmod>
+        <lastmod>2020-12-13T10:03:37.700Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
