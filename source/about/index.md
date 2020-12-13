@@ -59,6 +59,7 @@ widgets:
 
 ### Talks
 
+- **서비스 관점에서의 AI 모델 개발**. Nov 2020. [멋쟁이 사자처럼](https://likelion.net/).
 - **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon](https://www.pycon.kr/2020). [[slide]](https://www.slideshare.net/JiHyungMoon1/pyconkr2020-beep-238646571)
 - **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. July 2020. 카카오브레인. [[slide]](https://www.slideshare.net/JiHyungMoon1/kakaobrainbeep)
 - **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[slide]](https://www.slideshare.net/secret/GPoMGZ0Nxc47ib)
