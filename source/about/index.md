@@ -57,6 +57,10 @@ widgets:
 - *Jihyung Moon*, Hyochang Yang, Sungzoon Cho. **Finding ReMO (Related Memory Object): A Simple Neural Architecture for Text based Reasoning**. Feb 2018. arXiv [[arXiv]](https://arxiv.org/abs/1801.08459) [[github]](https://github.com/inmoonlight/RMN)
 - Thomas Erl , Wajid Khattak , Paul Buhler. **Big Data Fundamentals: Concepts, Drivers & Techniques (빅데이터 기초 개념, 동인, 기법)**. (조성준, 이혜진, 안용대, 이제혁, 전성환, *문지형*, 김도형, 정민기, 신동민 옮김). Sep 2017. 시그마프레스 [[교보문고]](https://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788968669774) [[yes24]](https://www.yes24.com/Product/Goods/45542771)
 
+### Patents
+
+- 김태욱, *문지형*, 최인식, 박효균. **활동 데이터 분석을 통해 비정상 사용자 그룹을 탐지하는 방법 및 시스템 (METHOD AND SYSTEM FOR DETECTING ABUSER USING LOG DATA ANALYSIS)**, KR 1022091000000, filed 5 Sep 2018, issued 22 Jan 2021. [[kipris]](https://doi.org/10.8080/1020180105710)
+
 ### Talks
 
 - **서비스 관점에서의 AI 모델 개발**. Nov 2020. [멋쟁이 사자처럼](https://likelion.net/).
