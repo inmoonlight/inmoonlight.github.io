@@ -160,6 +160,14 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset/</loc>
+        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/2020/01/26/Positional-Encoding/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -169,14 +177,6 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2019/07/20/Rewriting-self-introduction/</loc>
-        <lastmod>2020-10-04T01:32:15.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2020/05/28/Retrospect-of-Constructing-Korean-HateSpeech-Dataset/</loc>
         <lastmod>2020-10-04T01:32:15.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -216,7 +216,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/01/20/I-always-had-an-answer/</loc>
+        <loc>https://inmoonlight.github.io/2019/05/15/Joyful-slump/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -224,7 +224,7 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2019/05/15/Joyful-slump/</loc>
+        <loc>https://inmoonlight.github.io/2019/01/20/I-always-had-an-answer/</loc>
         <lastmod>2020-10-04T01:32:15.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
