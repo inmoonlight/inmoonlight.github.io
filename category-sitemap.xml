@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/categories/ML/</loc>
+        <lastmod>2021-02-04T08:46:16.010Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/categories/Essay/</loc>
         <lastmod>2021-01-12T04:57:42.546Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -23,13 +30,6 @@
 
     <url>
         <loc>https://inmoonlight.github.io/categories/ML/NLP/</loc>
-        <lastmod>2020-11-15T10:37:16.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/ML/</loc>
         <lastmod>2020-11-15T10:37:16.966Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
