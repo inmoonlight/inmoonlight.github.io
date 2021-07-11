@@ -20,7 +20,7 @@ widgets:
 
 <!--more-->
 
-## TL;DR
+## Summary
 
 rank | method | time | `iterrows` 대비 속도
 -- | -- | -- | --
@@ -47,7 +47,7 @@ def cut_text(text, max_len: int = 100):
 실험할 함수는 크게 `iterrows`, `loc`/`iloc`, `at`/`iat`, `itertuples`,  그리고 속도 면에서는 장점이 있으나 약간의 단점이 있는 `values`, 그리고 이번 task 에 overfitting 된 `apply` + `to_dict` 가 있다. 하나하나 살펴보도록 하자!
 
 
-## `iterrows`
+## iterrows
 많이 사용되는 함수이지만 가장 성능이 좋지 않다.
 ```python
 %%timeit
@@ -65,7 +65,7 @@ for i, row in data.iterrows():
 
 **62.7 ms** ± 729 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 
-## `loc` / `iloc`
+## loc / iloc
 
 `iterrows` 다음으로 많이 사용되는 방식이다. `iterrows`에 비해 2.5배 정도 빠른 속도를 보인다.
 
@@ -122,7 +122,7 @@ for idx in data.index:
 **99.4 ms** ± 904 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 
 
-## `at` / `iat`
+## at / iat
 
 `loc` / `iloc` 과 유사하지만, 특정 column과 row에 해당하는 값을 받고 싶을 때 사용한다. `at` 함수에 대한 상세한 설명은 [pandas 공식 문서](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.at.html)에서 확인할 수 있다. `iterrows`에 비해 4배 정도 빠른 속도를 보인다.
 
@@ -143,7 +143,7 @@ for idx in data.index:
 
 
 
-## `itertuples`
+## itertuples
 
 `iterrows`와 유사하지만, Series가 return되는 `iterrows`와는 다르게 NamedTuple이 return 된다. column에 대응되는 값에 접근하기도 쉽고, 속도도 8배 이상 빠르다.
 
@@ -165,7 +165,7 @@ for row in data.itertuples():
 
 
 
-## `values`
+## values
 
 여기서부터는 번외 느낌인데, values는 속도가 가장 빠르다는 장점이 있지만 column에 대응되는 값을 불러올 때 불편한 점이 있다. 이 점을 감안해서 써도 무관하다면 가장 좋은 선택이 될 것 같다.
 ```python
@@ -186,7 +186,7 @@ for value in data.values:
 
 
 
-## `apply` + `to_dict`
+## apply + to_dict
 
 `for` 문 안에서 처리할 내용이 복잡하지 않은 이번 태스크같은 경우에 쓰기 적합한 방식이다. 새로운 dataframe 혹은 새로운 column을 생성해야 해서 메모리 측면에서 오는 단점은 있지만, 코드가 짧고 깔끔하다는 장점이 있다. 
 
