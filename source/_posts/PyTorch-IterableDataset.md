@@ -6,6 +6,7 @@ tags:
 - pytorch
 categories: 
 - ML
+- PyTorch
 toc: true
 widgets:
    - type: toc
