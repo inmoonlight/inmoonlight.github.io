@@ -1,6 +1,6 @@
 ---
 layout: about
-title: About
+title: Hello,  안녕하세요  👋
 comment: false
 widgets:
    - type: profile
@@ -30,18 +30,18 @@ widgets:
      position: left
 ---
 
-저는 **사람들의 삶에 긍정적인 변화를 주는 연구와 제품 개발을 하고 싶은 Machine Learning Research Engineer** 입니다.
+**I'm Jihyung Moon, an NLP research engineer willing to do research and develop products that have a great impact on human life** ✨
 
-지금은 [UpstageAI](upstage.ai) 에서 일하고 있습니다. 
+My current interests are
 
-- 사람들의 불편함을 해결할 수 있는 모든 과정을 좋아합니다.
-- 기술이 사회적으로 가치있는 방향으로 쓰이길 원합니다.
+- Project Managing, Problem Solving, Leadership, Communication
+- NLP Research, MLOps, Clean code
 
 ---
 
 ### Work and Education
 
-- [OCT 2020 ~ PRESENT] ML Research Engineer / Co-founder, [UpstageAI](upstage.ai)
+- [OCT 2020 ~ PRESENT] ML Research Engineer / Co-founder, [Upstage](upstage.ai)
 - [DEC 2018 ~ OCT 2020] ML Research Engineer, [Papago](papago.naver.com), [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [FEB 2018 ~ DEC 2018] ML Research Engineer, Search Modeling, Search & Clova, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [MAR 2016 ~ FEB 2018] M.S., [Datamining Lab](http://dm.snu.ac.kr/ko/), [Seoul National University](http://www.snu.ac.kr/index.html)
@@ -49,8 +49,9 @@ widgets:
 
 ### Publications
 
+- Sungjoon Park\*, *Jihyung Moon* \*, Sungdong Kim\*, Won Ik Cho\*, Jiyoon Han, Jangwon Park, Chisung Song, Junseong Kim, Yongsook Song, Taehwan Oh, Joohong Lee, Juhyun Oh, Sungwon Lyu, Younghoon Jeong, Inkwon Lee, Sangwoo Seo, Dongjun Lee, Hyunwoo Kim, Myeonghwa Lee, Seongbo Jang, Seungwon Do, Sunkyoung Kim, Kyungtae Lim, Jongwon Lee, Kyumin Park, Jamin Shin, Seonghyun Kim, Lucy Park, Alice Oh, Jung-Woo Ha, Kyunghyun Cho. **KLUE: Korean Language Understanding Evaluation**. May 2021 [[arXiv]](https://arxiv.org/pdf/2105.09680.pdf)
 - 조원익, *문지형*. **한국어 혐오 표현 코퍼스 구축 방법론 연구:온라인 악성 댓글에 나타나는 특성을 중심으로 (A Study on the Construction of Korean Hate Speech Corpus:Based on the Attributes of Online Toxic Comments)**. HCLT 2020 [[slide]](https://www.slideshare.net/WonIkCho/2010-hclt-hate-speech-238890804)
-- Yujin Baek\*, Zae Myung Kim\*, *Jihyung Moon*, Hyunjoong Kim, Eunjeong L. Park. **PATQUEST: Papago Translation Quality Estimation**. [Proceedings of the Fifth Conference on Machine Translation](http://www.statmt.org/wmt20/quality-estimation-task.html) (WMT20) 
+- Yujin Baek\*, Zae Myung Kim\*, *Jihyung Moon*, Hyunjoong Kim, Eunjeong L. Park. **PATQUEST: Papago Translation Quality Estimation**. Proceedings of the Fifth Conference on Machine Translation (WMT20) [[paper]](http://www.statmt.org/wmt20/quality-estimation-task.html) 
 - *Jihyung Moon* \*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[arXiv]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech) [[slide]](https://www.slideshare.net/JiHyungMoon1/aclsocialnlp2020beepkoreancorpusofonlinenewscommentsfortoxicspeechdetection)
 - *Jihyung Moon*, Hyunchang Cho, Eunjeong L. Park. **Revisiting Round-Trip Translation for Quality Estimation**. EAMT 2020 [[arXiv]](https://arxiv.org/abs/2004.13937)
 - 김남희, *문지형*, 이완. **상대적 클릭률과 질의 특성에 기반한 검색 품질 평가 모델 (Search Engine Evaluation Model using Relative CTR and Query based attention)**. Dec 2018. 한국정보과학회 [[DBpia]](http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07613720)
@@ -63,6 +64,7 @@ widgets:
 
 ### Talks
 
+- **[AI와 저작권법] 내가 만든 AI 모델은 합법일까, 불법일까?**. Feb 2021. [Boostcamp AI Tech](https://boostcamp.connect.or.kr/program_ai.html).
 - **서비스 관점에서의 AI 모델 개발**. Nov 2020. [멋쟁이 사자처럼](https://likelion.net/).
 - **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon](https://www.pycon.kr/2020). [[slide]](https://www.slideshare.net/JiHyungMoon1/pyconkr2020-beep-238646571)
 - **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. July 2020. 카카오브레인. [[slide]](https://www.slideshare.net/JiHyungMoon1/kakaobrainbeep)
@@ -81,7 +83,5 @@ widgets:
 
 ### Things you don't need to know
 
-- **커피**를 좋아합니다. 특히, 직접 내린 드립 커피와 더치 커피를 좋아합니다.
-- 한국의 **교육**에 관심이 많습니다. 하고 싶은 일을 찾아가는 과정과 그 일을 하는 과정 속에서 그동안 받았던 교육이 얼마나 비효율적이었는지를 체감하였고, 이 비효율을 어떻게 해야 해결할 수 있을지 고민합니다.
-- 사람들의 **장점**을 잘 발견하고, 다양한 장점을 가진 사람들과 함께 작업할 때 행복합니다.
-- 사용자들에게 기존에 접할 수 없었던 **새로운 경험을 제공**해주고 싶어합니다.
+- Cafephile, especially drip and dutch coffee ☕️
+- Fan of figure skating ⛸
