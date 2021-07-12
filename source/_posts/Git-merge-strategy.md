@@ -1,7 +1,7 @@
 ---
-title: "Git Merge Strategies"
+title: "Git의 다양한 머지 전략 비교 - 우리 팀은 어떤 전략을 도입해야 할까?"
 layout: post
-date: 2021-07-12 01:03
+date: 2021-07-11 01:03
 tags:
 - git
 categories: 
