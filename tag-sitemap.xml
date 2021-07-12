@@ -3,15 +3,22 @@
 
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/pytorch/</loc>
-        <lastmod>2021-03-03T02:49:19.660Z</lastmod>
+        <loc>https://inmoonlight.github.io/tags/git/</loc>
+        <lastmod>2021-07-12T06:21:44.360Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/pandas/</loc>
-        <lastmod>2021-02-04T08:50:46.958Z</lastmod>
+        <lastmod>2021-07-11T16:07:40.802Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/pytorch/</loc>
+        <lastmod>2021-07-11T14:34:01.825Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
