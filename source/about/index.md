@@ -64,9 +64,11 @@ My current interests are
 
 ### Talks
 
+- **KLUE and XTREME**. Sep 2021. XTREME Talks (Google Internal Seminar Series).
+- **KLUE: Korean Language Understanding Evaluation**. Sep 2021. [BigScience Episode #2](https://bigscience.huggingface.co/). [[youtube]](https://www.youtube.com/watch?v=w4DYkRHceqc)
 - **[AI와 저작권법] 내가 만든 AI 모델은 합법일까, 불법일까?**. Feb 2021. [Boostcamp AI Tech](https://boostcamp.connect.or.kr/program_ai.html).
 - **서비스 관점에서의 AI 모델 개발**. Nov 2020. [멋쟁이 사자처럼](https://likelion.net/).
-- **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon](https://www.pycon.kr/2020). [[slide]](https://www.slideshare.net/JiHyungMoon1/pyconkr2020-beep-238646571)
+- **이 선 넘으면 침범이야, BEEP!**. Sep 2020. [PyCon](https://www.pycon.kr/2020). [[slide]](https://www.slideshare.net/JiHyungMoon1/pyconkr2020-beep-238646571) [[youtube]](https://www.youtube.com/watch?v=P0fyKb3U9yo)
 - **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. July 2020. 카카오브레인. [[slide]](https://www.slideshare.net/JiHyungMoon1/kakaobrainbeep)
 - **파파고가 언어를 배우는 방법**. June 2020. 인문학도를 위한 언어과학 콜로키움, [서울대학교 동아문화연구소](https://humanities.snu.ac.kr/research/Institute-of-Humanities?seqidx=2). [[slide]](https://www.slideshare.net/secret/GPoMGZ0Nxc47ib)
 - **온라인 뉴스 댓글 생태계를 흐리는 어뷰저 분석기**. June 2020. [소셜코딩](https://www.socialcoding.kr/). [[slide]](https://www.slideshare.net/JiHyungMoon1/socialcoding2020-online-news-comments-analysis-revealing-public-opinion-manipulators)
