@@ -45,6 +45,8 @@
     "markdown-it-katex": "^2.0.3",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
+    "markdown-it-toc-and-anchor": "^4.2.0",
+    "node-sass": "npm:sass@^1.47.0",
     "pandoc": "^0.2.0",
     "prod": "^1.0.1",
     "uslug": "^1.0.4"
