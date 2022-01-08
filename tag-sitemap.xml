@@ -4,14 +4,21 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/quantum-computing/</loc>
-        <lastmod>2022-01-08T10:40:41.996Z</lastmod>
+        <lastmod>2022-01-08T11:25:18.109Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/quantum/</loc>
-        <lastmod>2022-01-08T10:40:41.996Z</lastmod>
+        <lastmod>2022-01-08T11:25:18.109Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/git/</loc>
+        <lastmod>2022-01-08T10:53:28.131Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -26,13 +33,6 @@
     <url>
         <loc>https://inmoonlight.github.io/tags/essay/</loc>
         <lastmod>2021-12-18T15:25:01.955Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/bias/</loc>
-        <lastmod>2021-12-18T15:25:01.954Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -53,6 +53,13 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/evaluation/</loc>
+        <lastmod>2021-12-18T15:25:01.954Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/bias/</loc>
         <lastmod>2021-12-18T15:25:01.954Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -137,13 +144,6 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/BERT/</loc>
-        <lastmod>2021-12-18T15:25:01.952Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/git/</loc>
         <lastmod>2021-12-18T15:25:01.952Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
