@@ -41,7 +41,7 @@ My current interests are
 
 ### Work and Education
 
-- [OCT 2020 ~ PRESENT] ML Research Engineer, [Upstage](upstage.ai)
+- [OCT 2020 ~ DEC 2021] ML Research Engineer, [Upstage](upstage.ai)
 - [DEC 2018 ~ OCT 2020] ML Research Engineer, [Papago](papago.naver.com), [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [FEB 2018 ~ DEC 2018] ML Research Engineer, Search Modeling, Search & Clova, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 - [MAR 2016 ~ FEB 2018] M.S., [Datamining Lab](http://dm.snu.ac.kr/ko/), [Seoul National University](http://www.snu.ac.kr/index.html)
