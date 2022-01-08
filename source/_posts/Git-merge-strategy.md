@@ -17,12 +17,12 @@ widgets:
    - type: recent_posts
      position: left
 ---
-Git은 한 브랜치에서 작업한 내용을 Main 브랜치에 병합(Merge)할 수 있는 다양한 방법들을 제공한다. 
-이러한 방법들을 **Merge 전략**이라고 부르는데, 다양한 방법들 중에서도 이번 글에서는 가장 많이 사용되는 방법인 1) Merge Commit, 2) Squash and Merge, 3) Rebase and Merge에 대해 소개하려고 한다.
+Git은 한 브랜치에서 작업한 내용을 Main 브랜치에 병합(Merge)할 수 있는 다양한 방법들을 제공한다. 이러한 방법들을 **Merge 전략**이라고 부르는데, 다양한 방법들 중에서도 이번 글에서는 가장 많이 사용되는 방법인 1) Merge Commit, 2) Squash and Merge, 3) Rebase and Merge에 대해 소개하려고 한다.
 
 <!--more-->
 
 <img src="/assets/images/git-merge-strategy-base.png?style=centerme" alt="현재 브랜치와 commit 상태" width=53%>
+
 
 위의 그림과 같은 상태의 commit이 생성되었다고 가정하자. `feat/multiply`라는 브랜치가 있고, `feat/sum`이라는 브랜치가 있다. 각 commit 내의 숫자는 commit의 global 순서를 나타낸다. 
 
