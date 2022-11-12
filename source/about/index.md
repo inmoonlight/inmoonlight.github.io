@@ -12,15 +12,15 @@ widgets:
           Github:
               icon: fab fa-github
               url: "https://github.com/inmoonlight"
-          Facebook:
-              icon: fab fa-facebook
-              url: "https://www.facebook.com/jihyung.moon.9"
           Twitter:
               icon: fab fa-twitter
               url: "https://twitter.com/jihyung_moon"
           LinkedIn:
               icon: fab fa-linkedin
               url: "https://www.linkedin.com/in/mjihyung"
+          Facebook:
+              icon: fab fa-facebook
+              url: "https://www.facebook.com/jihyung.moon.9"
           RSS:
               icon: fas fa-rss
               url: /feed.xml
@@ -34,8 +34,8 @@ widgets:
 
 My current interests are
 
--   How to work collaboratively with AI research engineers, software engineers, designers, and users
--   Effective and efficient AI product development cycle
+-   Building a great product
+-   Effective and efficient AI product development
 -   Leading at scale
 
 ---
@@ -51,6 +51,7 @@ My current interests are
 
 ### Publications
 
+-   Younghoon Jeong, Juhyun Oh, Jaimeen Ahn, Jongwon Lee, _Jihyung Moon_, Sungjoon Park, Alice Oh. **KOLD: Korean Offensive Language Dataset**. EMNLP 2022 [[arXiv]](https://arxiv.org/abs/2205.11315)
 -   Sungjoon Park\*, _Jihyung Moon_ \*, Sungdong Kim\*, Won Ik Cho\*, Jiyoon Han, Jangwon Park, Chisung Song, Junseong Kim, Yongsook Song, Taehwan Oh, Joohong Lee, Juhyun Oh, Sungwon Lyu, Younghoon Jeong, Inkwon Lee, Sangwoo Seo, Dongjun Lee, Hyunwoo Kim, Myeonghwa Lee, Seongbo Jang, Seungwon Do, Sunkyoung Kim, Kyungtae Lim, Jongwon Lee, Kyumin Park, Jamin Shin, Seonghyun Kim, Lucy Park, Alice Oh, Jung-Woo Ha, Kyunghyun Cho. **KLUE: Korean Language Understanding Evaluation**. NeurIPS 2021 Datasets and Benchmarks Track [[arXiv]](https://arxiv.org/pdf/2105.09680.pdf) [[github]](https://github.com/KLUE-benchmark/KLUE)
 -   Yujin Baek\*, Zae Myung Kim\*, _Jihyung Moon_, Hyunjoong Kim, Eunjeong L. Park. **PATQUEST: Papago Translation Quality Estimation**. Proceedings of the Fifth Conference on Machine Translation (WMT20) [[paper]](http://www.statmt.org/wmt20/quality-estimation-task.html)
 -   _Jihyung Moon_ \*, Won Ik Cho\*, Junbum Lee. **BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection**. SocialNLP@ACL 2020 [[arXiv]](https://arxiv.org/abs/2005.12503) [[github]](https://github.com/kocohub/korean-hate-speech) [[slide]](https://www.slideshare.net/JiHyungMoon1/aclsocialnlp2020beepkoreancorpusofonlinenewscommentsfortoxicspeechdetection)
@@ -70,7 +71,7 @@ My current interests are
 
 ### Academic Services
 
--   Reviewer for [EMNLP 2021](https://2021.emnlp.org/)
+-   Reviewer for [EMNLP 2021](https://2021.emnlp.org/), [EMNLP 2022](https://2022.emnlp.org/)
 
 ### Patents
 
