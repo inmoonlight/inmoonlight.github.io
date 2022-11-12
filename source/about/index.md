@@ -12,12 +12,12 @@ widgets:
           Github:
               icon: fab fa-github
               url: "https://github.com/inmoonlight"
-          Twitter:
-              icon: fab fa-twitter
-              url: "https://twitter.com/jihyung_moon"
           LinkedIn:
               icon: fab fa-linkedin
               url: "https://www.linkedin.com/in/mjihyung"
+          Twitter:
+              icon: fab fa-twitter
+              url: "https://twitter.com/jihyung_moon"
           Facebook:
               icon: fab fa-facebook
               url: "https://www.facebook.com/jihyung.moon.9"
@@ -30,7 +30,7 @@ widgets:
       position: left
 ---
 
-**I'm Jihyung Moon, focusing on developing AI products that deliver business value as well as have a great impact on human life** ✨
+**I'm Jihyung Moon, CTO / co-founder of SoftlyAI whose mission is to help communities to be more inclusive and engaging.** ✨
 
 My current interests are
 
