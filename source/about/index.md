@@ -5,7 +5,7 @@ comment: false
 widgets:
     - type: profile
       position: left
-      avatar: /img/softlyai_profile_square.jpeg
+      avatar: /img/softlyai_profile_2023_square_bottom.jpeg
       avatar_rounded: true
       follow_link: "https://github.com/inmoonlight"
       social_links:
@@ -30,11 +30,11 @@ widgets:
       position: left
 ---
 
-**I'm Jihyung Moon, CTO / co-founder of SoftlyAI whose mission is to help communities to be more inclusive and engaging.** ✨
+**I'm Jihyung Moon, a co-founder / CTO of SoftlyAI**
 
 My current interests are
 
--   Building a great product
+-   Building a great AI product
 -   Effective and efficient AI product development
 -   Leading at scale
 
