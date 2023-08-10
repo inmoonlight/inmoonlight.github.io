@@ -60,7 +60,7 @@ My current interests are
 
 ### Talks
 
--   AI and Marginarlized Language. July 2023. ICML Panel Discussion.
+-   **AI and Marginarlized Language**. July 2023. ICML Panel Discussion.
 -   **KLUE and XTREME**. Sep 2021. XTREME Talks (Google Internal Seminar Series).
 -   **KLUE: Korean Language Understanding Evaluation**. Sep 2021. [BigScience Episode #2](https://bigscience.huggingface.co/). [[youtube]](https://www.youtube.com/watch?v=w4DYkRHceqc)
 -   **[AI와 저작권법] 내가 만든 AI 모델은 합법일까, 불법일까?**. Feb 2021. [Boostcamp AI Tech](https://boostcamp.connect.or.kr/program_ai.html).
