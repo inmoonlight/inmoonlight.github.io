@@ -51,7 +51,7 @@ My current interests are
 
 ### Publications
 
--   **Analyzing Norm Violations in Real-Time Live-Streaming Chat**. ACL 2023 [[paper]](https://arxiv.org/abs/2305.10731)
+-   **Analyzing Norm Violations in Real-Time Live-Streaming Chat**. EMNLP 2023 [[paper]](https://arxiv.org/abs/2305.10731)
     -   _Jihyung Moon_\*, Dong-Ho Lee\*, Hyundong J. Cho, Woojeong Jin, Chan Young Park, Minwoo Kim, Jay Pujara and Sungjoon Park
 -   **KOLD: Korean Offensive Language Dataset**. EMNLP 2022 [[paper]](https://arxiv.org/abs/2205.11315)
     -   Younghoon Jeong, Juhyun Oh, Jaimeen Ahn, Jongwon Lee, _Jihyung Moon_, Sungjoon Park, and Alice Oh
