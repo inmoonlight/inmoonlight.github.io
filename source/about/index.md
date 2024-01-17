@@ -81,7 +81,7 @@ My current interests are
 
 ### Academic Services
 
--   Reviewer for [EMNLP 2021](https://2021.emnlp.org/), [EMNLP 2022](https://2022.emnlp.org/), and [ACL 2023](https://2023.aclweb.org/)
+-   Reviewer for [EMNLP 2021](https://2021.emnlp.org/), [EMNLP 2022](https://2022.emnlp.org/), [ACL 2023](https://2023.aclweb.org/), and more
 
 ### Patents
 
@@ -96,6 +96,4 @@ My current interests are
 
 ### Things you don't need to know
 
--   Cafephile, especially drip and dutch coffee ☕️
--   Fan of figure skating ⛸
 -   Emoticon creator, debuted with ["Daily life of SOTA, an ML Research Engineer"](https://store.line.me/stickershop/product/10567421?fbclid=IwAR3Swy-hOxHO_7vWgsxY7Iu8lEebbLKH74BHVXsPdR1c7NI-lqsvkTB0UW4)
