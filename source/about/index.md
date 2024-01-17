@@ -5,7 +5,7 @@ comment: false
 widgets:
     - type: profile
       position: left
-      avatar: /img/jihyung_kj.jpg
+      avatar: /img/jihyung_espresso.jpg
       avatar_rounded: true
       follow_link: "https://github.com/inmoonlight"
       social_links:
@@ -30,13 +30,16 @@ widgets:
       position: left
 ---
 
-**I'm Jihyung Moon, a co-founder / CTO of SoftlyAI**
+**I'm Jihyung Moon, Co-founder & CTO at SoftlyAI**
+
+Our team build AI junior employees so that people can focus on bigger problems.<br>
+💹 For investors: [AILookUp](https://ai-lookup.softly.ai) | 🧑‍💻 For SaaS makers: [AI Receptionist API](https://softly.ai/ai-chat)
 
 My current interests are
 
 -   Building a great AI product
 -   Effective and efficient AI product development
--   Leading at scale
+-   Scale
 
 ---
 
