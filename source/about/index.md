@@ -5,7 +5,7 @@ comment: false
 widgets:
     - type: profile
       position: left
-      avatar: /img/jihyung_espresso.jpg
+      avatar: /img/jihyung-espresso.jpg
       avatar_rounded: true
       follow_link: "https://github.com/inmoonlight"
       social_links:
