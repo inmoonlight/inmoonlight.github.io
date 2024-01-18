@@ -24,6 +24,13 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/tags/bias/</loc>
+        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/tags/norway/</loc>
         <lastmod>2023-11-02T02:50:49.148Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -32,13 +39,6 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/travel/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/bias/</loc>
         <lastmod>2023-11-02T02:50:49.148Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
