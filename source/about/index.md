@@ -32,7 +32,7 @@ widgets:
 
 **I'm Jihyung Moon, Co-founder & CTO at SoftlyAI**
 
-Our team build AI junior employees so that people can focus on bigger problems.<br>
+We build AI junior employees so that people can focus on bigger problems.<br>
 💹 For investors: [AILookUp](https://ai-lookup.softly.ai) | 🧑‍💻 For SaaS makers: [AI Receptionist API](https://softly.ai/ai-chat)
 
 My current interests are
@@ -45,7 +45,7 @@ My current interests are
 
 ### Work and Education
 
--   [JAN 2022 ~ ] CTO / Co-founder, [SoftlyAI](https://softly.ai/)
+-   [JAN 2022 ~ ] Co-founder & CTO, [SoftlyAI](https://softly.ai/)
 -   [OCT 2020 ~ DEC 2021] NLP Research Engineer, [Upstage](https://upstage.ai/)
 -   [DEC 2018 ~ OCT 2020] NLP Research Engineer, [Papago](https://papago.naver.com/), [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
 -   [FEB 2018 ~ DEC 2018] ML Research Engineer, Search Modeling, Search & Clova, [NAVER Corporation](https://www.navercorp.com/en/index.nhn)
