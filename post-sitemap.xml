@@ -8,24 +8,8 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2024/01/13/lessons-learned-in-my-first-2-years-as-a-startup-founder/</loc>
-        <lastmod>2024-01-21T16:33:23.622Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2019/09/23/naver-news-comments-analysis-(3)/</loc>
-        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2021/02/04/pandas-dataframe-iterations/</loc>
-        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
+        <loc>https://inmoonlight.github.io/2021/03/03/pytorch-view-transpose-reshape/</loc>
+        <lastmod>2024-01-21T17:00:03.129Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,31 +17,23 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2021/02/21/pytorch-IterableDataset/</loc>
-        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
+        <lastmod>2024-01-21T16:59:56.997Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2021/03/03/pytorch-view-transpose-reshape/</loc>
-        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
+        <loc>https://inmoonlight.github.io/2021/02/04/pandas-dataframe-iterations/</loc>
+        <lastmod>2024-01-21T16:59:51.338Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/2020/05/28/korean-hate-speech-dataset/</loc>
-        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/2019/07/25/naver-news-comments-analysis-(1)/</loc>
-        <lastmod>2023-11-02T02:50:49.146Z</lastmod>
+        <loc>https://inmoonlight.github.io/2019/09/23/naver-news-comments-analysis-(3)/</loc>
+        <lastmod>2024-01-21T16:59:43.265Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -65,7 +41,23 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2019/08/03/naver-news-comments-analysis-(2)/</loc>
-        <lastmod>2023-11-02T02:50:49.146Z</lastmod>
+        <lastmod>2024-01-21T16:59:38.316Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/2019/07/25/naver-news-comments-analysis-(1)/</loc>
+        <lastmod>2024-01-21T16:59:27.756Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/2020/05/28/korean-hate-speech-dataset/</loc>
+        <lastmod>2024-01-21T16:59:00.395Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,7 +65,7 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2021/07/11/git-merge-strategy/</loc>
-        <lastmod>2023-11-02T02:50:49.145Z</lastmod>
+        <lastmod>2024-01-21T16:58:49.143Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -81,7 +73,15 @@
 
     <url>
         <loc>https://inmoonlight.github.io/2019/11/07/basics-of-quantum-computings/</loc>
-        <lastmod>2023-11-02T02:50:49.144Z</lastmod>
+        <lastmod>2024-01-21T16:57:39.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/2024/01/13/lessons-learned-in-my-first-2-years-as-a-startup-founder/</loc>
+        <lastmod>2024-01-21T16:55:41.928Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
