@@ -10,84 +10,28 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/book/</loc>
-        <lastmod>2023-11-02T02:50:49.149Z</lastmod>
+        <loc>https://inmoonlight.github.io/tags/hate-speech/</loc>
+        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/essay/</loc>
-        <lastmod>2023-11-02T02:50:49.149Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/evaluation/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/norway/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/travel/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/bias/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/social-good/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/mentoring/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/paper/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
+        <loc>https://inmoonlight.github.io/tags/dataset/</loc>
+        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/NLP/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
+        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://inmoonlight.github.io/tags/ML/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/hate-speech/</loc>
         <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -108,6 +52,13 @@
     </url>
 
     <url>
+        <loc>https://inmoonlight.github.io/tags/social-good/</loc>
+        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://inmoonlight.github.io/tags/news-comments/</loc>
         <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -122,36 +73,8 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/dataset/</loc>
-        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/BERT/</loc>
-        <lastmod>2023-11-02T02:50:49.145Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/tags/git/</loc>
         <lastmod>2023-11-02T02:50:49.145Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/Google/</loc>
-        <lastmod>2023-11-02T02:50:49.144Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/tags/LM/</loc>
-        <lastmod>2023-11-02T02:50:49.144Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

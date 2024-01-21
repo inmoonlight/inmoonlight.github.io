@@ -15,36 +15,8 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/categories/Book/</loc>
-        <lastmod>2023-11-02T02:50:49.149Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/categories/ML/NLP/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/Paper/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/ML/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://inmoonlight.github.io/categories/Essay/</loc>
-        <lastmod>2023-11-02T02:50:49.148Z</lastmod>
+        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -58,6 +30,13 @@
 
     <url>
         <loc>https://inmoonlight.github.io/categories/ML/Data-Analysis/</loc>
+        <lastmod>2023-11-02T02:50:49.147Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/categories/ML/</loc>
         <lastmod>2023-11-02T02:50:49.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
