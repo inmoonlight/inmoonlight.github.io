@@ -3,10 +3,9 @@ title: "수학으로 이해하는 양자컴퓨터의 기초"
 layout: post
 date: 2019-11-07 00:07
 tags:
-- quantum
 - quantum computing
 categories: 
-- ML
+- Tech
 - Quantum Computing
 toc: true
 widgets:

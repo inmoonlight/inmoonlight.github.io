@@ -5,8 +5,8 @@ date: 2021-07-11 01:03
 tags:
 - git
 categories: 
-- Ops
-- Git
+- Tech
+- Engineering
 language: ko
 toc: true
 widgets:

@@ -4,15 +4,10 @@ layout: post
 date: 2020-05-28 21:00
 thumbnail: /assets/images/hate-speech-background.jpg
 tags:
-- ML
 - NLP
-- dataset
-- news comments
-- social good
-- hate speech
-categories: 
+categories:
+- Tech
 - ML
-- NLP
 toc: true
 widgets:
    - type: toc

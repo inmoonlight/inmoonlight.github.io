@@ -5,8 +5,8 @@ date: 2021-02-21 23:22
 tags:
 - pytorch
 categories: 
-- ML
-- PyTorch
+- Tech
+- Engineering
 toc: true
 widgets:
    - type: toc

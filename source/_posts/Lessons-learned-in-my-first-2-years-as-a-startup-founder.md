@@ -1,7 +1,7 @@
 ---
 title: "Lessons learned in my first 2 years as a startup founder"
 layout: post
-date: 2024-01-13 21:13
+date: 2024-01-13 21:14
 tags:
 - startup
 categories: 

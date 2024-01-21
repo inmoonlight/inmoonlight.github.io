@@ -5,7 +5,8 @@ date: 2021-02-04 14:22
 tags:
 - pandas
 categories: 
-- ML
+- Tech
+- Engineering
 toc: true
 widgets:
    - type: toc

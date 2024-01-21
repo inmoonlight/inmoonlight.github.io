@@ -4,11 +4,9 @@ layout: post
 date: 2019-09-23 17:25
 tags:
 - data analysis
-- news comments
-- social good
 categories: 
+- Tech
 - ML
-- Data Analysis
 toc: true
 widgets:
    - type: toc
