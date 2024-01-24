@@ -3,160 +3,67 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'UA-131297969-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="alternate" href="/feed.xml" title="Space Moon" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/inmoonlight"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="/assets/images/hate-speech-background.jpg" alt="한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2020-05-28T12:00:00.000Z" title="2020-05-28T12:00:00.000Z">2020-05-28</time><span class="level-item"><a class="link-muted" href="/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/categories/Tech/ML/">ML</a></span><span class="level-item">18 minutes read (About 2688 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기</h1><div class="content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><!-- hexo-inject:begin --><!-- hexo-inject:end -->약 4-5개월동안 사이드로 진행했던 혐오 댓글
-프로젝트<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://github.com/kocohub/korean-hate-speech&gt;
-">[1]</span></a></sup>가 성공적으로 마무리되었다. 같은 문제의식을 가진
-사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이
-무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는
-활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고
-원동력이 사라지지 않고 꾸준히 일이 진행되었던 것은 모두 구성원들의
-상호보완적인 역량 덕분이 아니었을까 싶다.</p>
-<p>사실 이 글을 쓰게 된 계기는 논문에는 쓰지 못했던 데이터에 대한
-이야기를 하고 싶어서였다. 주어진 4장에 많은 내용을 담으려다보니 정작
-작업하면서 고려했던 세부사항이나 어려웠던 점, 지나고나니 아쉬웠던
-부분들에 대해 적진 못했기 때문이다. 아마 데이터셋을 활용하려고 생각하는
-사람들에게도 좋은 팁이 되지 않을까? <a id="more"></a></p>
+        gtag('config', 'UA-131297969-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/feed.xml" title="Space Moon" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/inmoonlight"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="/assets/images/hate-speech-background.jpg" alt="한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2020-05-28T12:00:00.000Z" title="2020-05-28T12:00:00.000Z">2020-05-28</time><span class="level-item"><a class="link-muted" href="/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/categories/Tech/ML/">ML</a></span><span class="level-item">18 minutes read (About 2688 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">한국어 악성댓글 탐지를 위한 댓글 코퍼스 구축기</h1><div class="content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>약 4-5개월동안 사이드로 진행했던 혐오 댓글 프로젝트<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://github.com/kocohub/korean-hate-speech>
+<!-- hexo-inject:begin --><!-- hexo-inject:end -->">[1]</span></a></sup>가 성공적으로 마무리되었다. 같은 문제의식을 가진 사람들과 시작해서 각자 하고싶었던 내용을 조율하고, 혐오 댓글이 무엇인가에 대해 깊게 고민해보는 과정들이 쉽진 않았지만 의미있는 활동이라는 생각이 들었다. 또한, 사이드로 진행된 프로젝트임에도 불구하고 원동력이 사라지지 않고 꾸준히 일이 진행되었던 것은 모두 구성원들의 상호보완적인 역량 덕분이 아니었을까 싶다.</p>
+<p>사실 이 글을 쓰게 된 계기는 논문에는 쓰지 못했던 데이터에 대한 이야기를 하고 싶어서였다. 주어진 4장에 많은 내용을 담으려다보니 정작 작업하면서 고려했던 세부사항이나 어려웠던 점, 지나고나니 아쉬웠던 부분들에 대해 적진 못했기 때문이다. 아마 데이터셋을 활용하려고 생각하는 사람들에게도 좋은 팁이 되지 않을까?</p>
+<a id="more"></a>
 <hr>
-<h2 id="어노테이션">어노테이션</h2>
-<h3 id="왜-편견과-혐오인가">왜 <code>편견</code>과
-<code>혐오</code>인가?</h3>
-<p><a href="https://www.notion.so/c1ecb7cc52d446cc93d928d172ef8442" rel="external nofollow noopener noreferrer" target="_blank">어노테이션
-가이드라인</a>에도 나와있듯이 우리는 크게 편견과 혐오라는 두 가지
-aspect에 대해서 label을 수집했다. 처음에는
-<code>성에 관련된 편견 및 혐오</code>와
-<code>그 외의 편견 및 혐오</code>로 나누었는데, 이보다는
-<code>편견</code>과 <code>혐오</code>로 구분하는 것이 낫다는 판단을
-했다.</p>
-<p>가이드라인 작성을 위해 댓글을 직접 태깅하다 보니 편견만 존재하는
-댓글과 혐오만 존재하는 댓글이 존재했다. 항상 혐오가 편견으로부터
-시작되지는 않았고, 편견이 있음을 부끄러워하지 않고 세상의 진리인 것처럼
-이야기하는 댓글이 보였다. 혐오가 편견으로 시작된 경우는, 무리하게 개인의
-특성을 집단의 특성으로 확장해서 그 집단에 대한 혐오를 개인에게 표출할
-때였다. 그래서 이 둘의 관계를 데이터로 파악할 수 있도록, 또 편견과
-혐오를 구분지어 생각할 수 있도록 <code>편견</code>에 관련된 label과
-<code>혐오</code>에 관련된 label을 구분짓기로 했다.</p>
-<p>언어학에 관심있는 사람들이라면 label을 바탕으로 댓글을 분석하는
-것으로도 재밌는 연구가 될 것 같다.</p>
-<h3 id="표현의-자유와-혐오의-경계">표현의 자유와 혐오의 경계</h3>
-<p>이 둘을 구분짓는 좋은 threshold를 결정하는 것은 무슨 목적으로
-활용하냐에 달려있다. 우리의 목적은 혐오 댓글의 피해자가 줄어들기를
-바라는 것이었으므로 익명인의 표현의 자유보다는 기사의 대상이 되는 사람의
-기분을 좀 더 신경쓰기로 했다. 그래서 태깅을 할 때에 당사자의 입장에서
-생각하도록 가이드했다.</p>
-<h3 id="어노테이션이-어려웠던-댓글">어노테이션이 어려웠던 댓글</h3>
+<h2 id="어노테이션"><a class="markdownIt-Anchor" href="#어노테이션"></a> 어노테이션</h2>
+<h3 id="왜-편견과-혐오인가"><a class="markdownIt-Anchor" href="#왜-편견과-혐오인가"></a> 왜 <code>편견</code>과 <code>혐오</code>인가?</h3>
+<p><a href="https://www.notion.so/c1ecb7cc52d446cc93d928d172ef8442" rel="external nofollow noopener noreferrer" target="_blank">어노테이션 가이드라인</a>에도 나와있듯이 우리는 크게 편견과 혐오라는 두 가지 aspect에 대해서 label을 수집했다.<br>
+처음에는 <code>성에 관련된 편견 및 혐오</code>와 <code>그 외의 편견 및 혐오</code>로 나누었는데, 이보다는 <code>편견</code>과 <code>혐오</code>로 구분하는 것이 낫다는 판단을 했다.</p>
+<p>가이드라인 작성을 위해 댓글을 직접 태깅하다 보니 편견만 존재하는 댓글과 혐오만 존재하는 댓글이 존재했다. 항상 혐오가 편견으로부터 시작되지는 않았고, 편견이 있음을 부끄러워하지 않고 세상의 진리인 것처럼 이야기하는 댓글이 보였다. 혐오가 편견으로 시작된 경우는, 무리하게 개인의 특성을 집단의 특성으로 확장해서 그 집단에 대한 혐오를 개인에게 표출할 때였다. 그래서 이 둘의 관계를 데이터로 파악할 수 있도록, 또 편견과 혐오를 구분지어 생각할 수 있도록 <code>편견</code>에 관련된 label과 <code>혐오</code>에 관련된 label을 구분짓기로 했다.</p>
+<p>언어학에 관심있는 사람들이라면 label을 바탕으로 댓글을 분석하는 것으로도 재밌는 연구가 될 것 같다.</p>
+<h3 id="표현의-자유와-혐오의-경계"><a class="markdownIt-Anchor" href="#표현의-자유와-혐오의-경계"></a> 표현의 자유와 혐오의 경계</h3>
+<p>이 둘을 구분짓는 좋은 threshold를 결정하는 것은 무슨 목적으로 활용하냐에 달려있다. 우리의 목적은 혐오 댓글의 피해자가 줄어들기를 바라는 것이었으므로 익명인의 표현의 자유보다는 기사의 대상이 되는 사람의 기분을 좀 더 신경쓰기로 했다. 그래서 태깅을 할 때에 당사자의 입장에서 생각하도록 가이드했다.</p>
+<h3 id="어노테이션이-어려웠던-댓글"><a class="markdownIt-Anchor" href="#어노테이션이-어려웠던-댓글"></a> 어노테이션이 어려웠던 댓글</h3>
 <blockquote>
 <p>예전에 데뷔작에서 수영복입고 수중씬 기억난다 진짜 섹씨했는데</p>
 </blockquote>
-<p>연예인이라는 직업이 가지는 특수성 때문에 판단하기 어려웠던 경우이다.
-특히 여자연예인에 대해서는 외모에 대해 품평하는 댓글이 많았는데,
-스스로가 연예인이었던 적이 없으니 감정이입을 해서 이를 모욕이라고
-봐야할지도 모르겠고, 만약 의도적으로 외모를 부각해서 유명세를 얻은
-경우라면 모욕이라고 보기가 더 어렵다고 생각했다. 결국 각자의 판단에
-맡겨서 majority voting을 했지만 정말 어려웠던 케이스였다.</p>
+<p>연예인이라는 직업이 가지는 특수성 때문에 판단하기 어려웠던 경우이다. 특히 여자연예인에 대해서는 외모에 대해 품평하는 댓글이 많았는데, 스스로가 연예인이었던 적이 없으니 감정이입을 해서 이를 모욕이라고 봐야할지도 모르겠고, 만약 의도적으로 외모를 부각해서 유명세를 얻은 경우라면 모욕이라고 보기가 더 어렵다고 생각했다. 결국 각자의 판단에 맡겨서 majority voting을 했지만 정말 어려웠던 케이스였다.</p>
 <blockquote>
 <p>신천지?</p>
 </blockquote>
-<p>"일반적으로 비난받을만한 행위로 인한 혐오는 어떻게 판단해야할까?" 를
-고민하게 만든 댓글이었다. 신천지 교도로 인해 코로나가 빠르게 퍼졌던 사건
-이후로 "신천지"는 부정적인 이미지로 굳어져 버렸는데, 이 맥락을 고려해서
-위의 댓글을 <code>혐오</code>라고 태깅하면 "신천지"라는 가치 중립적인
-단어가 <code>혐오</code>로 태깅되기에 굉장히 고민이 많았습니다.</p>
+<p>“일반적으로 비난받을만한 행위로 인한 혐오는 어떻게 판단해야할까?” 를 고민하게 만든 댓글이었다. 신천지 교도로 인해 코로나가 빠르게 퍼졌던 사건 이후로 &quot;신천지&quot;는 부정적인 이미지로 굳어져 버렸는데, 이 맥락을 고려해서 위의 댓글을 <code>혐오</code>라고 태깅하면 &quot;신천지&quot;라는 가치 중립적인 단어가 <code>혐오</code>로 태깅되기에 굉장히 고민이 많았습니다.</p>
 <blockquote>
 <p>살빠진 마닷같애</p>
 </blockquote>
-<p>위와 비슷한 케이스로 이 댓글 또한 판단하기 무척이나 어려웠다 ㅠㅠ
-<code>offensive</code>로 판단하자니 마닷은 뭐가 되냐는...</p>
-<h3 id="other-biases-라는-label"><code>Other biases</code> 라는
-label</h3>
-<p>현재는 <code>bias</code> label이 <code>gender bias</code>,
-<code>other biases</code>, <code>none</code> 의 세가지로 구성되어 있다.
-이렇게 할 수 밖에 없었던 가장 큰 이유는 예산 문제였다 ㅠㅠ 돈이 많았다면
-gender 외에도 정치, 지역, 인종 등에 대한 편견도 label을 수집할 수
-있었을텐데 하는 아쉬움이... 인당 150만원 이상은 부담하고 싶지 않아서,
-그리고 연예 도메인은 성 편견이 가장 많은 비중을 차지하고 있어서 이런
-결정을 하게 되었다.</p>
-<p>그러다보니 <code>others</code> 라는 label 은 온갖 종류의 편견이 모두
-모아져 있다. 아마도 모델이 곧장 others 를 예측하는 것은 쉽지 않을
-것이라고 생각한다. 이 task는, <a href="https://arxiv.org/abs/2005.12503" rel="external nofollow noopener noreferrer" target="_blank">논문</a>에 적혀있듯이, 2-step
-classification 문제를 푸는 방식이 낫지 않을까라고 생각한다. 먼저
-<code>gender / no-gender</code> 를 예측하고, 그 이후에
-<code>bias 유 / 무</code> 를 예측하면 <code>gender</code>,
-<code>others</code>, <code>none</code> 을 좀 더 쉽게 예측할 수 있을
-것이라고 생각한다.</p>
-<h3 id="어노테이션-작업-시-context-미제공">어노테이션 작업 시 context
-미제공</h3>
-<p>댓글에 포함된 편견 및 혐오를 더욱 정확하게 판단하기 위해서는 댓글이
-작성된 뉴스 기사에 대한 정보가 필요하다. 하지만 현실적인 이유들로
-포기했었다.</p>
+<p>위와 비슷한 케이스로 이 댓글 또한 판단하기 무척이나 어려웠다 ㅠㅠ <code>offensive</code>로 판단하자니 마닷은 뭐가 되냐는…</p>
+<h3 id="other-biases-라는-label"><a class="markdownIt-Anchor" href="#other-biases-라는-label"></a> <code>Other biases</code> 라는 label</h3>
+<p>현재는 <code>bias</code> label이 <code>gender bias</code>, <code>other biases</code>, <code>none</code> 의 세가지로 구성되어 있다. 이렇게 할 수 밖에 없었던 가장 큰 이유는 예산 문제였다 ㅠㅠ 돈이 많았다면 gender 외에도 정치, 지역, 인종 등에 대한 편견도 label을 수집할 수 있었을텐데 하는 아쉬움이… 인당 150만원 이상은 부담하고 싶지 않아서, 그리고 연예 도메인은 성 편견이 가장 많은 비중을 차지하고 있어서 이런 결정을 하게 되었다.</p>
+<p>그러다보니 <code>others</code> 라는 label 은 온갖 종류의 편견이 모두 모아져 있다. 아마도 모델이 곧장 others 를 예측하는 것은 쉽지 않을 것이라고 생각한다. 이 task는, <a href="https://arxiv.org/abs/2005.12503" rel="external nofollow noopener noreferrer" target="_blank">논문</a>에 적혀있듯이, 2-step classification 문제를 푸는 방식이 낫지 않을까라고 생각한다. 먼저 <code>gender / no-gender</code> 를 예측하고, 그 이후에 <code>bias 유 / 무</code> 를 예측하면 <code>gender</code>, <code>others</code>, <code>none</code> 을 좀 더 쉽게 예측할 수 있을 것이라고 생각한다.</p>
+<h3 id="어노테이션-작업-시-context-미제공"><a class="markdownIt-Anchor" href="#어노테이션-작업-시-context-미제공"></a> 어노테이션 작업 시 context 미제공</h3>
+<p>댓글에 포함된 편견 및 혐오를 더욱 정확하게 판단하기 위해서는 댓글이 작성된 뉴스 기사에 대한 정보가 필요하다. 하지만 현실적인 이유들로 포기했었다.</p>
 <blockquote>
-<p>"작업자가 기사를 읽어야 하는 번거로움을 감수할까?" <br> "태깅
-플랫폼에서 이 기능을 제공해줄까?" <br> "뉴스 기사의 내용에 대한 저작권은
-우리에게 없기 때문에 공개 데이터셋에 포함할 수 없고, 그럴거라면 태깅을
-컨텍스트 없이 하는게 좋지 않을까?"</p>
+<p>“작업자가 기사를 읽어야 하는 번거로움을 감수할까?” <br><br>
+“태깅 플랫폼에서 이 기능을 제공해줄까?” <br><br>
+“뉴스 기사의 내용에 대한 저작권은 우리에게 없기 때문에 공개 데이터셋에 포함할 수 없고, 그럴거라면 태깅을 컨텍스트 없이 하는게 좋지 않을까?”</p>
 </blockquote>
-<p>등의 질문들에 대해 명쾌한 답변을 내리지 못했고, 결국 댓글의 내용만
-보고 판단하는 방식을 가져갔다. 지나고나니 아쉬움이 남는 건 어쩔 수
-없는듯하다.</p>
+<p>등의 질문들에 대해 명쾌한 답변을 내리지 못했고, 결국 댓글의 내용만 보고 판단하는 방식을 가져갔다. 지나고나니 아쉬움이 남는 건 어쩔 수 없는듯하다.</p>
 <hr>
-<h2 id="testset-구성">Testset 구성</h2>
-<p>현재 testset은 함께 작업했던 저와 <a href="https://www.facebook.com/warnik.chow?__tn__=K-R&amp;eid=ARCNVgdXVouckswETyWV9lkDr_cQtrkWPysMCRo0j12ERGUOBQc35o_roiDziJvD-AI5QCjiPW9EQsqA&amp;fref=mentions&amp;__xts__%5B0%5D=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI" rel="external nofollow noopener noreferrer" target="_blank">조원익</a>,
-<a href="https://www.facebook.com/Junbum.L?__tn__=K-R&amp;eid=ARAQ7IJ8TMPDz9gEkoGREztDVOhQ35RZDphJGLftwahcbbh0jQfEyAdsaWSGsuVPrtfxpv1Twpuw3vgF&amp;fref=mentions&amp;__xts__%5B0%5D=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI" rel="external nofollow noopener noreferrer" target="_blank">이준범</a>이
-직접 작업한 라벨이 달려있다. 우리의 의도와 부합하는, 가장 어노테이션이
-잘 되었다고 보장할 수 있는 데이터셋이라고 볼 수 있다. 하지만 지나고나니
-"시간 순으로 train, validation, testset을 구성했다면 어땠을까?" 하는
-아쉬움이 남았다.</p>
-<p>댓글에는 많은 사회적 배경지식이 녹아져있다. 특히 인물의 이름이 가지고
-있는 정보가 있는데, 우리가 수집한 기간에는 승리와 정준영 등의 연예인이
-얽혀있던 단톡방 사건이 포함되어 있었다. 그래서 "승리"가 포함된 댓글은
-부정적인 맥락 속에서 판단되었다.</p>
-<p>예를 들어 "승리가 뭘 잘못했다고 난리들인지...그냥 승리 부럽고
-베알꼴린 애들이 화난거로밖에 안보임ㅎ" 라는 댓글에서 "승리"를 제거하면
-성편견이 없는 것으로 태깅되었겠지만, "승리"가 포함되었기 때문에 성편견이
-존재하는 것으로 태깅된다.</p>
-<p>Generalization을 잘 하는 모델이 진짜 잘하는 모델이라고 했을 때, 학습
-데이터에 "승리"가 없어도 위의 댓글에 달린 라벨을 잘 예측할 수 있는
-모델을 판별할 수 있게 testset을 구성했다면 더 좋았을 것 같다.</p>
+<h2 id="testset-구성"><a class="markdownIt-Anchor" href="#testset-구성"></a> Testset 구성</h2>
+<p>현재 testset은 함께 작업했던 저와 <a href="https://www.facebook.com/warnik.chow?__tn__=K-R&amp;eid=ARCNVgdXVouckswETyWV9lkDr_cQtrkWPysMCRo0j12ERGUOBQc35o_roiDziJvD-AI5QCjiPW9EQsqA&amp;fref=mentions&amp;__xts__%5B0%5D=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI" rel="external nofollow noopener noreferrer" target="_blank">조원익</a>, <a href="https://www.facebook.com/Junbum.L?__tn__=K-R&amp;eid=ARAQ7IJ8TMPDz9gEkoGREztDVOhQ35RZDphJGLftwahcbbh0jQfEyAdsaWSGsuVPrtfxpv1Twpuw3vgF&amp;fref=mentions&amp;__xts__%5B0%5D=68.ARBryv_ZUhMCc7-7G69xtrgWU5FmnqoTL_lLX8bkOVrEnrZ2TRtHphUFuujbvKft8qDDUco0ZJHr7AF9qnijRGiz1J7DMHiWCEXVK61XNr9g40o-7TImObl04dnqssnBZr1-Msp6i8aN8PFC2L9jDTvuS5DtI6w4tTkyVz4KvHHrjO-_oUPHzg6yhuxC7A8v2KWbj2wxuNs52cgI" rel="external nofollow noopener noreferrer" target="_blank">이준범</a>이 직접 작업한 라벨이 달려있다. 우리의 의도와 부합하는, 가장 어노테이션이 잘 되었다고 보장할 수 있는 데이터셋이라고 볼 수 있다. 하지만 지나고나니 “시간 순으로 train, validation, testset을 구성했다면 어땠을까?” 하는 아쉬움이 남았다.</p>
+<p>댓글에는 많은 사회적 배경지식이 녹아져있다. 특히 인물의 이름이 가지고 있는 정보가 있는데, 우리가 수집한 기간에는 승리와 정준영 등의 연예인이 얽혀있던 단톡방 사건이 포함되어 있었다. 그래서 &quot;승리&quot;가 포함된 댓글은 부정적인 맥락 속에서 판단되었다.</p>
+<p>예를 들어 “승리가 뭘 잘못했다고 난리들인지…그냥 승리 부럽고 베알꼴린 애들이 화난거로밖에 안보임ㅎ” 라는 댓글에서 &quot;승리&quot;를 제거하면 성편견이 없는 것으로 태깅되었겠지만, &quot;승리&quot;가 포함되었기 때문에 성편견이 존재하는 것으로 태깅된다.</p>
+<p>Generalization을 잘 하는 모델이 진짜 잘하는 모델이라고 했을 때, 학습 데이터에 &quot;승리&quot;가 없어도 위의 댓글에 달린 라벨을 잘 예측할 수 있는 모델을 판별할 수 있게 testset을 구성했다면 더 좋았을 것 같다.</p>
 <hr>
-<h2 id="kobert-tokenization">KoBERT tokenization</h2>
-<p><img src="/assets/images/korean-hate-speech-model-result.png?style=centerme" width="50%">
-<br></p>
-<p>baseline으로 CharCNN, BiLSTM, BERT를 사용한 모델의 결과를
-논문<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://arxiv.org/abs/2005.12503&gt;">[2]</span></a></sup>에
-첨부했다. 여러 task 모두 BERT가 가장 좋은 성능을 보였다.</p>
-<p>댓글은 맞춤법을 지키는 문장과는 거리가 멀고, 줄임말, 신조어,
-연예인명, 그리고 그 외의 고유명사 등이 많이 등장한다. 그래서 BERT
-tokenization 결과를 보면 한 글자 씩 분리되는 경우가 빈번했다.</p>
+<h2 id="kobert-tokenization"><a class="markdownIt-Anchor" href="#kobert-tokenization"></a> KoBERT tokenization</h2>
+<img src="/assets/images/korean-hate-speech-model-result.png?style=centerme" width="50%">
+<br>
+<p>baseline으로 CharCNN, BiLSTM, BERT를 사용한 모델의 결과를 논문<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://arxiv.org/abs/2005.12503>">[2]</span></a></sup>에 첨부했다. 여러 task 모두 BERT가 가장 좋은 성능을 보였다.</p>
+<p>댓글은 맞춤법을 지키는 문장과는 거리가 멀고, 줄임말, 신조어, 연예인명, 그리고 그 외의 고유명사 등이 많이 등장한다. 그래서 BERT tokenization 결과를 보면 한 글자 씩 분리되는 경우가 빈번했다.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">페지해라 가세연. 페지가 답이다 아님말고식 증거도없이 유재석 언급하노</span><br><span class="line">[&#39;▁페&#39;, &#39;지&#39;, &#39;해&#39;, &#39;라&#39;, &#39;▁&#39;, &#39;가&#39;, &#39;세&#39;, &#39;연&#39;, &#39;.&#39;, &#39;▁페&#39;, &#39;지가&#39;, &#39;▁답&#39;, &#39;이다&#39;, &#39;▁아&#39;, &#39;님&#39;, &#39;말&#39;, &#39;고&#39;, &#39;식&#39;, &#39;▁증거&#39;, &#39;도&#39;, &#39;없이&#39;, &#39;▁유재석&#39;, &#39;▁언급&#39;, &#39;하&#39;, &#39;노&#39;]</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">god 박준형이 이 기사를 싫어합니다.</span><br><span class="line">&#96;[&#39;▁&#39;, &#39;go&#39;, &#39;d&#39;, &#39;▁박&#39;, &#39;준&#39;, &#39;형&#39;, &#39;이&#39;, &#39;▁이&#39;, &#39;▁기사&#39;, &#39;를&#39;, &#39;▁싫어&#39;, &#39;합니다&#39;, &#39;.&#39;]</span><br></pre></td></tr></table></figure>
-<p>koBERT 학습 데이터에 자주 등장했던 연예인 이름은 원본 그대로 보존되는
-반면, 그렇지 못한 연예인은 이름이 쪼개진다.</p>
+<p>koBERT 학습 데이터에 자주 등장했던 연예인 이름은 원본 그대로 보존되는 반면, 그렇지 못한 연예인은 이름이 쪼개진다.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">조개갖고 개ㅈㄹ하는 태콩이나 개촐싹대는조샌징들이나 ㅈㄴ웃김ㅋㅋㅋ </span><br><span class="line">[&#39;▁O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;▁조&#39;, &#39;개&#39;, &#39;갖&#39;, &#39;고&#39;, &#39;▁개&#39;, &#39;ᄌᄅ&#39;, &#39;하는&#39;, &#39;▁태&#39;, &#39;콩&#39;, &#39;이나&#39;, &#39;▁개&#39;, &#39;촐&#39;, &#39;싹&#39;, &#39;대&#39;, &#39;는&#39;, &#39;조&#39;, &#39;샌&#39;, &#39;징&#39;, &#39;들이&#39;, &#39;나&#39;, &#39;▁&#39;, &#39;ᄌᄂ&#39;, &#39;웃&#39;, &#39;김&#39;, &#39;ᄏ&#39;, &#39;ᄏ&#39;, &#39;ᄏ&#39;]</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ㅅㅂ 더럽게 메갈어로 제목뽑는거 봐라</span><br><span class="line">[&#39;▁&#39;, &#39;ᄉᄇ&#39;, &#39;▁더&#39;, &#39;럽&#39;, &#39;게&#39;, &#39;▁메&#39;, &#39;갈&#39;, &#39;어&#39;, &#39;로&#39;, &#39;▁제&#39;, &#39;목&#39;, &#39;뽑&#39;, &#39;는&#39;, &#39;거&#39;, &#39;▁봐&#39;, &#39;라&#39;]</span><br></pre></td></tr></table></figure>
-<p>"ㅈㄴ", "ㅈㄹ", "ㅅㅂ" 같은 단어가 tokenization에서는 쪼개지지
-않는다.</p>
+<p>“ㅈㄴ”, “ㅈㄹ”, “ㅅㅂ” 같은 단어가 tokenization에서는 쪼개지지 않는다.</p>
 <hr>
-<p>어려웠던 작업이었고, 완벽했다고는 할 수 없지만 좋은 시작점이 될 수
-있는 프로젝트였다고는 생각한다. 이번에 해결할 수 없었던 여러 한계점들을
-극복하는 다른 좋은 결과들이 많이 나올 수 있길 :)</p>
+<p>어려웠던 작업이었고, 완벽했다고는 할 수 없지만 좋은 시작점이 될 수 있는 프로젝트였다고는 생각한다. 이번에 해결할 수 없었던 여러 한계점들을 극복하는 다른 좋은 결과들이 많이 나올 수 있길 😃</p>
 <p>이제 진짜 끝!</p>
-<h2 id="references">References</h2>
-<div id="footnotes">
-<hr>
-<div id="footnotelist">
-<ol style="list-style: none; padding-left: 0; margin-left: 40px">
-<li id="fn:1">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/kocohub/korean-hate-speech" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/kocohub/korean-hate-speech</a><a href="#fnref:1" rev="footnote">
-↩︎</a></span>
-</li>
-<li id="fn:2">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://arxiv.org/abs/2005.12503" rel="external nofollow noopener noreferrer" target="_blank">https://arxiv.org/abs/2005.12503</a><a href="#fnref:2" rev="footnote">
-↩︎</a></span>
-</li>
-</ol>
-</div>
-</div>
-</div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/NLP/">NLP</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Pandas Dataframe의 다양한 iteration 방법 비교</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/11/07/quantum-computings/"><span class="level-item">수학으로 이해하는 양자컴퓨터의 기초</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/kocohub/korean-hate-speech" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/kocohub/korean-hate-speech</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://arxiv.org/abs/2005.12503" rel="external nofollow noopener noreferrer" target="_blank">https://arxiv.org/abs/2005.12503</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div></div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/NLP/">NLP</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Pandas Dataframe의 다양한 iteration 방법 비교</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/11/07/basics-of-quantum-computings/"><span class="level-item">수학으로 이해하는 양자컴퓨터의 기초</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
             this.page.url = 'https://inmoonlight.github.io/2020/05/28/korean-hate-speech-dataset/';
             this.page.identifier = '2020/05/28/korean-hate-speech-dataset/';
         };
@@ -165,10 +72,7 @@ tokenization 결과를 보면 한 글자 씩 분리되는 경우가 빈번했다
             s.src = '//' + 'inmoonlight' + '.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
-        })();</script></div></div></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="is-flex" href="#어노테이션"><span class="mr-2">1</span><span>어노테이션</span></a><ul class="menu-list"><li><a class="is-flex" href="#왜-편견과-혐오인가"><span class="mr-2">1.1</span><span>왜 편견과
-혐오인가?</span></a></li><li><a class="is-flex" href="#표현의-자유와-혐오의-경계"><span class="mr-2">1.2</span><span>표현의 자유와 혐오의 경계</span></a></li><li><a class="is-flex" href="#어노테이션이-어려웠던-댓글"><span class="mr-2">1.3</span><span>어노테이션이 어려웠던 댓글</span></a></li><li><a class="is-flex" href="#other-biases-라는-label"><span class="mr-2">1.4</span><span>Other biases 라는
-label</span></a></li><li><a class="is-flex" href="#어노테이션-작업-시-context-미제공"><span class="mr-2">1.5</span><span>어노테이션 작업 시 context
-미제공</span></a></li></ul></li><li><a class="is-flex" href="#testset-구성"><span class="mr-2">2</span><span>Testset 구성</span></a></li><li><a class="is-flex" href="#kobert-tokenization"><span class="mr-2">3</span><span>KoBERT tokenization</span></a></li><li><a class="is-flex" href="#references"><span class="mr-2">4</span><span>References</span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Startup/"><span class="level-start"><span class="level-item">Startup</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Tech/Engineering/"><span class="level-start"><span class="level-item">Engineering</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/ML/"><span class="level-start"><span class="level-item">ML</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/Quantum-Computing/"><span class="level-start"><span class="level-item">Quantum Computing</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time datetime="2024-01-13T12:14:00.000Z">2024-01-13</time></p><p class="title is-6"><a class="link-muted" href="/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder/">Lessons learned in my first 2 years as a startup founder</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Startup/">Startup</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-07-10T16:03:00.000Z">2021-07-11</time></p><p class="title is-6"><a class="link-muted" href="/2021/07/11/git-merge-strategies/">Git의 다양한 머지 전략 비교 - 우리 팀은 어떤 전략을 도입해야 할까?</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-03-02T19:22:00.000Z">2021-03-03</time></p><p class="title is-6"><a class="link-muted" href="/2021/03/03/pytorch-view-reshape-transpose/">PyTorch의 view, transpose, reshape 함수의 차이점 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-21T14:22:00.000Z">2021-02-21</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/21/pytorch-dataset/">PyTorch의 IterableDataset을 사용해서 데이터 불러오기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-04T05:22:00.000Z">2021-02-04</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods/">Pandas Dataframe의 다양한 iteration 방법 비교</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a><p class="size-small"><span>&copy; 2024 Jihyung Moon</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+        })();</script></div></div></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="is-flex" href="#어노테이션"><span class="mr-2">1</span><span> 어노테이션</span></a><ul class="menu-list"><li><a class="is-flex" href="#왜-편견과-혐오인가"><span class="mr-2">1.1</span><span> 왜 편견과 혐오인가?</span></a></li><li><a class="is-flex" href="#표현의-자유와-혐오의-경계"><span class="mr-2">1.2</span><span> 표현의 자유와 혐오의 경계</span></a></li><li><a class="is-flex" href="#어노테이션이-어려웠던-댓글"><span class="mr-2">1.3</span><span> 어노테이션이 어려웠던 댓글</span></a></li><li><a class="is-flex" href="#other-biases-라는-label"><span class="mr-2">1.4</span><span> Other biases 라는 label</span></a></li><li><a class="is-flex" href="#어노테이션-작업-시-context-미제공"><span class="mr-2">1.5</span><span> 어노테이션 작업 시 context 미제공</span></a></li></ul></li><li><a class="is-flex" href="#testset-구성"><span class="mr-2">2</span><span> Testset 구성</span></a></li><li><a class="is-flex" href="#kobert-tokenization"><span class="mr-2">3</span><span> KoBERT tokenization</span></a></li><li><a class="is-flex" href="#references"><span class="mr-2">4</span><span> References</span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Startup/"><span class="level-start"><span class="level-item">Startup</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Tech/Engineering/"><span class="level-start"><span class="level-item">Engineering</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/ML/"><span class="level-start"><span class="level-item">ML</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/Quantum-Computing/"><span class="level-start"><span class="level-item">Quantum Computing</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time datetime="2024-01-13T12:14:00.000Z">2024-01-13</time></p><p class="title is-6"><a class="link-muted" href="/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder/">Lessons learned in my first 2 years as a startup founder</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Startup/">Startup</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-07-10T16:03:00.000Z">2021-07-11</time></p><p class="title is-6"><a class="link-muted" href="/2021/07/11/git-merge-strategies/">Git의 다양한 머지 전략 비교 - 우리 팀은 어떤 전략을 도입해야 할까?</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-03-02T19:22:00.000Z">2021-03-03</time></p><p class="title is-6"><a class="link-muted" href="/2021/03/03/pytorch-view-reshape-transpose/">PyTorch의 view, transpose, reshape 함수의 차이점 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-21T14:22:00.000Z">2021-02-21</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/21/pytorch-iterabledataset/">PyTorch의 IterableDataset을 사용해서 데이터 불러오기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-04T05:22:00.000Z">2021-02-04</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods/">Pandas Dataframe의 다양한 iteration 방법 비교</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a><p class="size-small"><span>&copy; 2024 Jihyung Moon</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             site: {
                 url: 'https://inmoonlight.github.io',
                 external_link: {"enable":true,"exclude":[]}

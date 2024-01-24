@@ -31,13 +31,6 @@
     </url>
 
     <url>
-        <loc>https://inmoonlight.github.io/tags/quantum-computing/</loc>
-        <lastmod>2024-01-21T20:42:30.584Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://inmoonlight.github.io/tags/startup/</loc>
         <lastmod>2024-01-21T20:42:30.584Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +39,13 @@
 
     <url>
         <loc>https://inmoonlight.github.io/tags/git/</loc>
+        <lastmod>2024-01-21T20:42:30.584Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inmoonlight.github.io/tags/quantum-computing/</loc>
         <lastmod>2024-01-21T20:42:30.584Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
