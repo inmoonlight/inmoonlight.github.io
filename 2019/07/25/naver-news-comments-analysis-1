@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Naver News Comment Analysis (1) - Space Moon</title><meta description="올초(3월)부터 같은 팀의 재명님과 네이버 뉴스 댓글 데이터로 사이드 프로젝트를 시작했다. 직접 크롤링하신 데이터였는데, 그 양이 방대해서 &amp;quot;이 정도 데이터가 있으면, 뭔갈 해볼 수 있겠지!&amp;quot; 라는 가벼운 마음으로 사이드 프로젝트 제안을 덥석 받아물었다. 그리고 여느 사이드 프로젝트가 그렇듯 그 과정은 결코 생각만큼 가볍지는 않았더랬다... 마침 작년 사내"><meta property="og:type" content="blog"><meta property="og:title" content="Naver News Comment Analysis (1)"><meta property="og:url" content="https://www.thespacemoon.com/2019/07/25/naver-news-comments-analysis-1"><meta property="og:site_name" content="Space Moon"><meta property="og:description" content="올초(3월)부터 같은 팀의 재명님과 네이버 뉴스 댓글 데이터로 사이드 프로젝트를 시작했다. 직접 크롤링하신 데이터였는데, 그 양이 방대해서 &amp;quot;이 정도 데이터가 있으면, 뭔갈 해볼 수 있겠지!&amp;quot; 라는 가벼운 마음으로 사이드 프로젝트 제안을 덥석 받아물었다. 그리고 여느 사이드 프로젝트가 그렇듯 그 과정은 결코 생각만큼 가볍지는 않았더랬다... 마침 작년 사내"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/naver_news_ranking.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_cmnt_all_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_cmnt_sections_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_cmnt_politics_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_cmnt_society_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_only_like.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_all.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_all_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_politics_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_economy_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_society_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_life_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_it_year.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/news_emoji_world_year.png?style=centerme"><meta property="article:published_time" content="2019-07-25T13:23:00.000Z"><meta property="article:modified_time" content="2024-01-24T15:31:09.843Z"><meta property="article:author" content="Jihyung Moon"><meta property="article:tag" content="data analysis"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/assets/images/naver_news_ranking.png?style=centerme"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.thespacemoon.com/2019/07/25/naver-news-comments-analysis-1"},"headline":"Space Moon","image":[],"datePublished":"2019-07-25T13:23:00.000Z","dateModified":"2024-01-24T15:31:09.843Z","author":{"@type":"Person","name":"Jihyung Moon"},"description":"올초(3월)부터 같은 팀의 재명님과 네이버 뉴스 댓글 데이터로 사이드 프로젝트를 시작했다. 직접 크롤링하신 데이터였는데, 그 양이 방대해서 &quot;이 정도 데이터가 있으면, 뭔갈 해볼 수 있겠지!&quot; 라는 가벼운 마음으로 사이드 프로젝트 제안을 덥석 받아물었다. 그리고 여느 사이드 프로젝트가 그렇듯 그 과정은 결코 생각만큼 가볍지는 않았더랬다... 마침 작년 사내"}</script><link rel="canonical" href="https://www.thespacemoon.com/2019/07/25/naver-news-comments-analysis-1"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-131297969-1" async></script><script><!-- hexo-inject:begin --><!-- hexo-inject:end -->window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-131297969-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="alternate" href="/feed.xml" title="Space Moon" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/inmoonlight"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2019-07-25T13:23:00.000Z" title="2019-07-25T13:23:00.000Z">2019-07-25</time><span class="level-item"><a class="link-muted" href="/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/categories/Tech/ML/">ML</a></span><span class="level-item">12 minutes read (About 1735 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Naver News Comment Analysis (1)</h1><div class="content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>올초(3월)부터 같은 팀의 재명님과 <strong>네이버 뉴스 댓글</strong>
+<!-- hexo-inject:begin --><!-- hexo-inject:end -->데이터로 사이드 프로젝트를 시작했다. 직접 크롤링하신 데이터였는데, 그
+양이 방대해서 "이 정도 데이터가 있으면, 뭔갈 해볼 수 있겠지!" 라는
+가벼운 마음으로 사이드 프로젝트 제안을 덥석 받아물었다. 그리고 여느
+사이드 프로젝트가 그렇듯 그 과정은 결코 생각만큼 가볍지는
+않았더랬다...</p>
+<p>마침 작년 사내 Hackday에서 Abuser Detection 분석으로 좋은 성과를
+얻었던터라 어뷰저 분석을 해보고 싶었고, 그 결과로 나름 재밌는 것들이
+발견되었다. 하지만 좋은 발표 자리(이를테면 파이콘이라든지,,,)에 등록할
+시기를 놓쳐서 논문을 arXiv에 올려두듯이 블로그에 댓글 분석한 내용을
+공유하고자 한다. <a id="more"></a></p>
+<p>내용은 크게 <strong>뉴스 댓글 수집</strong>과 <strong>뉴스 댓글
+분석</strong> 파트로 나뉘며, 전자는 재명님이 후자는 내가 주로 담당해서
+정리하였다. 이번 글은 <strong>뉴스 댓글 분석</strong> 1편이다.</p>
+<h2 id="data">Data</h2>
+<h3 id="수집-기간">수집 기간</h3>
+<p>2006.04.26 ~ 2018.05.25 (수집 시점: 2018.10)</p>
+<h3 id="수집-내용">수집 내용</h3>
+<p>네이버 뉴스의 6개 분야별(정치, 경제, 사회, 생활/문화, 세계, IT/과학)
+<strong>가장 많이 본 뉴스</strong> 30건</p>
+<p><img src="/assets/images/naver_news_ranking.png?style=centerme" width="85%" alt="네이버 뉴스 > 랭킹뉴스 화면 예시">
+<br></p>
+<p>같은 기사이지만 2-3일 동안 랭킹뉴스에 오를 수 있으므로 중복 기사를
+제거해주었다. * 중복 제거 전 기사 #: 751,751 (약 75만) * 중복 제거 후
+기사 #: 643,226 (약 64만)</p>
+<h3 id="분석에-사용한-필드">분석에 사용한 필드</h3>
+<ul>
+<li>기사: 기사 id, 기사 제목, 기사 입력 시각, 기사 내용, 언론사, 기사
+감정</li>
+<li>댓글: 댓글 작성 기사id, 작성자 hashed id, 댓글 작성 시각, 댓글 내용,
+공감수, 비공감수</li>
+</ul>
+<h2 id="basic-statistics">Basic Statistics</h2>
+<p>중복 제거된 기사에 대해, 기사 작성 시점을 기준으로 한 달 단위로
+기사에 달린 코멘트를 집계해서 그래프를 그리면 다음과 같다.</p>
+<p><img src="/assets/images/news_cmnt_all_year.png?style=centerme" width="90%">
+<br></p>
+<p>네이버 뉴스 개편
+history<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://namu.wiki/w/네이버_뉴스&gt;
+">[1]</span></a></sup> 와 엮어서 이 그래프를 해석하면 재밌어진다.</p>
+<h3 id="년">2009년</h3>
+<ul>
+<li>2009년 개편 때는 메인 페이지 뉴스 박스 편집권을 신문사에 넘겼고,
+기사를 클릭하면 바로 신문사 링크로 연결되게 바뀌었다. 이로 인해 네이버
+뉴스의 트래픽이 감소하게 되었고 예전과 비교해서 리플 개수나 조회수가
+<strong>상당히 줄어들었다</strong>.</li>
+</ul>
+<h3 id="년-1">2010년</h3>
+<ul>
+<li>2010년대 초반에 뉴스 스탠드가 도입되면서 메인화면 뉴스 편집권을
+포기하게 된다. 기사를 클릭하면 기본적으로 네이버 페이지가 아닌 언론사
+사이트로 연결된다.</li>
+<li><strong>모바일로 댓글을 달 수 없었다</strong>. 또한 댓글 형태가 댓글
+제목을 클릭해야만 내용을 볼 수 있는 형태라서 결과적으로는 당시 뉴스 댓글
+란은 지금보다 훨씬 폐쇄적인 모양새였다.</li>
+</ul>
+<h3 id="년-2">2012년</h3>
+<ul>
+<li>검색과 지식인의 인기를 바탕으로 <strong>네이버가 2012년 1일 방문자
+1800만 명을 기록할 정도로 성장</strong>하는 동안, 네티즌의 뉴스 읽기
+방식도 달라졌다. 종이신문을 읽거나 신문방송의 홈페이지를 찾아가는 대신,
+네이버나 다음 등 포털의 뉴스캐스트를 통해 여러 언론사 기사를 한꺼번에
+읽는 사람들이 크게 늘어난 것이다. 이 때문에 뉴스 편집 기능을 수행하는
+포털을 언론사로 봐야 할 것이냐 아니냐 하는 논쟁이 언론관련 심의기구
+등에서 벌어지고 있기도
+하다.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://www.wikitree.co.kr/main/news_view.php?id=71675&gt;
+">[2]</span></a></sup></li>
+<li>2012년 중반부터 <strong>모바일로도 댓글을 달 수 있</strong>게
+되었다.</li>
+<li>네이버 아이디로 로그인하지 않아도 트위터나 페이스북 등의 <strong>SNS
+계정으로 댓글을 달 수 있</strong>게 되었다. 이 때문에 네이버 영화 평점
+조작처럼 추천수 조작하기도 쉬워졌다. 네이버, 미투데이, 트위터, 페이스북,
+다음으로 한 번씩만 로그인해도 공감 및 비공감 5개를 줄 수 있다.</li>
+</ul>
+<h3 id="년-3">2016년</h3>
+<ul>
+<li><strong>10월, JTBC에서 최순실의 태블릿 pc를 발견하였고 최순실 게이트
+사건의 포문이 열리기 시작했다.</strong> (<del><em>트래픽 측면에서 네이버
+뉴스는 최순실에게 감사하는 마음이 없지 않아 있을
+것이다...</em></del>)</li>
+<li>그리고 동시에, <strong>드루킹의 댓글 조작 사건</strong>도
+시작<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://www.mk.co.kr/news/society/view/2018/05/294952/&gt;
+">[3]</span></a></sup>되었다.
+<ul>
+<li>2018년 5월 말, 특검법이 통과된 이후에 댓글이 줄었다는
+기사<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://web.archive.org/web/20180619040311/http://www.munhwa.com/news/view.html?no=2018061101070103011001&gt;
+">[4]</span></a></sup> 가 보도되었다. 2018년 6월 이후의 댓글이 있었다면
+그간 댓글부대의 위력이 어느 정도였는지 가늠해볼 수 있었을 것이다.</li>
+</ul></li>
+</ul>
+<p>결론적으로 2016년 후반부 이후 폭발적인 댓글 수의 증가는 정치 및 사회
+영역의 엄청난 트래픽 덕분이었을 것이다. 가설 검증 차원에서 섹션 별로
+나누어 같은 방식으로 댓글을 집계해 보았다.
+<img src="/assets/images/news_cmnt_sections_year.png?style=centerme" width="90%" alt="섹션 별 기사 댓글 (누적 그래프)">
+<img src="/assets/images/news_cmnt_politics_year.png?style=centerme" width="90%" alt="타 섹션과 비교한 정치 기사 댓글 그래프">
+<img src="/assets/images/news_cmnt_society_year.png?style=centerme" width="90%" alt="타 섹션과 비교한 사회 기사 댓글 그래프"></p>
+<h2 id="news-sentiment-analysis">News Sentiment Analysis</h2>
+<p>네이버 뉴스는 기사에 <strong>"좋아요"</strong> 를 시작으로
+<strong>"훈훈해요"</strong>, <strong>"슬퍼요"</strong>,
+<strong>"화나요"</strong>, <strong>"후속기사 원해요"</strong> 의 label을
+달 수 있게 만들었다. - "좋아요": 2014년 초 시작 - "훈훈해요", "슬퍼요",
+"화나요", "후속기사 원해요": 2017년 초 시작</p>
+<p><img src="/assets/images/news_emoji_only_like.png?style=centerme" width="75%" alt="2016.10.20 기사. " 좋아요"만 굉장히 많다.">
+<img src="/assets/images/news_emoji_all.png?style=centerme" width="75%" alt="2017.10.20 기사. 다섯 가지 감정 모두 표를 받(긴)했다.">
+<br></p>
+<p>"좋아요" 만 있을 때와 다섯 가지의 감정이 있을 때의 추이가 또
+재밌다.</p>
+<p><img src="/assets/images/news_emoji_all_year.png?style=centerme" width="80%">
+<br></p>
+<p>"좋아요" 외의 다른 감정이 허가된 순간 이후로 "화나요" 가 급격히
+증가한다.</p>
+<h3 id="정치">정치</h3>
+<p><img src="/assets/images/news_emoji_politics_year.png?style=centerme" width="80%">
+<br></p>
+<ul>
+<li>참고: 사드배치 (2017.03), 문재인 당선
+(2017.05)<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://ko.wikipedia.org/wiki/2017년_대한민국&gt;
+">[5]</span></a></sup>, 평창 동계 올림픽 (2018.02), 이명박 수감
+(2018.03)<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://ko.wikipedia.org/wiki/2018년_대한민국&gt;">[6]</span></a></sup></li>
+</ul>
+<h3 id="경제">경제</h3>
+<p><img src="/assets/images/news_emoji_economy_year.png?style=centerme" width="80%"></p>
+<h3 id="사회">사회</h3>
+<p><img src="/assets/images/news_emoji_society_year.png?style=centerme" width="80%"></p>
+<h3 id="문화">문화</h3>
+<p><img src="/assets/images/news_emoji_life_year.png?style=centerme" width="80%">
+<br></p>
+<ul>
+<li>2018년 2월에는 무슨 일이.. (추운 날씨, 성추행 등의 사건 때문으로
+추측됨)</li>
+</ul>
+<h3 id="it">IT</h3>
+<p><img src="/assets/images/news_emoji_it_year.png?style=centerme" width="80%"></p>
+<h3 id="세계">세계</h3>
+<p><img src="/assets/images/news_emoji_world_year.png?style=centerme" width="80%"></p>
+<h2 id="conclusions">Conclusions</h2>
+<p>여기까지는 기초적인 데이터 탐색 작업이었다. 간단히 시간 순으로 댓글
+수를 집계하기만 해도 재미있는 분석 결과를 얻을 수 있었다. (가령,
+박근혜-최순실 게이트가 얼마나 큰 이슈였는지, 뉴스는 대부분 우리를 열받게
+하는 내용이라든지 등)</p>
+<p>이 다음 분석은, <em>의심</em>하기만 했던 댓글 어뷰저 집단이 실제로
+존재하는지에 대해 다룰 예정이다. 마침 댓글 수집 기간과 드루킹의 댓글
+조작 기간이 맞물려 있어서 분석해 볼 수 있는 데이터가 손에 쥐어졌다.
+최대한 선입견없이 담백한 분석을 해보려고 노력했다. 정말인지 아닌지 다음
+글에서 확인해보자.</p>
+<h2 id="references">References</h2>
+<div id="footnotes">
+<hr>
+<div id="footnotelist">
+<ol style="list-style: none; padding-left: 0; margin-left: 40px">
+<li id="fn:1">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://namu.wiki/w/%EB%84%A4%EC%9D%B4%EB%B2%84_%EB%89%B4%EC%8A%A4" rel="external nofollow noopener noreferrer" target="_blank">https://namu.wiki/w/네이버_뉴스</a><a href="#fnref:1" rev="footnote">
+↩︎</a></span>
+</li>
+<li id="fn:2">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.wikitree.co.kr/main/news_view.php?id=71675" rel="external nofollow noopener noreferrer" target="_blank">https://www.wikitree.co.kr/main/news_view.php?id=71675</a><a href="#fnref:2" rev="footnote">
+↩︎</a></span>
+</li>
+<li id="fn:3">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.mk.co.kr/news/society/view/2018/05/294952/" rel="external nofollow noopener noreferrer" target="_blank">https://www.mk.co.kr/news/society/view/2018/05/294952/</a><a href="#fnref:3" rev="footnote">
+↩︎</a></span>
+</li>
+<li id="fn:4">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://web.archive.org/web/20180619040311/http://www.munhwa.com/news/view.html?no=2018061101070103011001" rel="external nofollow noopener noreferrer" target="_blank">https://web.archive.org/web/20180619040311/http://www.munhwa.com/news/view.html?no=2018061101070103011001</a><a href="#fnref:4" rev="footnote">
+↩︎</a></span>
+</li>
+<li id="fn:5">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://ko.wikipedia.org/wiki/2017%EB%85%84_%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD" rel="external nofollow noopener noreferrer" target="_blank">https://ko.wikipedia.org/wiki/2017년_대한민국</a><a href="#fnref:5" rev="footnote">
+↩︎</a></span>
+</li>
+<li id="fn:6">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://ko.wikipedia.org/wiki/2018%EB%85%84_%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD" rel="external nofollow noopener noreferrer" target="_blank">https://ko.wikipedia.org/wiki/2018년_대한민국</a><a href="#fnref:6" rev="footnote">
+↩︎</a></span>
+</li>
+</ol>
+</div>
+</div>
+</div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/data-analysis/">data analysis</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/08/03/naver-news-comments-analysis-2"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Naver News Comment Analysis (2)</span></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://www.thespacemoon.com/2019/07/25/naver-news-comments-analysis-1';
+            this.page.identifier = '/2019/07/25/naver-news-comments-analysis-1';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'inmoonlight' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="is-flex" href="#data"><span class="mr-2">1</span><span>Data</span></a><ul class="menu-list"><li><a class="is-flex" href="#수집-기간"><span class="mr-2">1.1</span><span>수집 기간</span></a></li><li><a class="is-flex" href="#수집-내용"><span class="mr-2">1.2</span><span>수집 내용</span></a></li><li><a class="is-flex" href="#분석에-사용한-필드"><span class="mr-2">1.3</span><span>분석에 사용한 필드</span></a></li></ul></li><li><a class="is-flex" href="#basic-statistics"><span class="mr-2">2</span><span>Basic Statistics</span></a><ul class="menu-list"><li><a class="is-flex" href="#년"><span class="mr-2">2.1</span><span>2009년</span></a></li><li><a class="is-flex" href="#년-1"><span class="mr-2">2.2</span><span>2010년</span></a></li><li><a class="is-flex" href="#년-2"><span class="mr-2">2.3</span><span>2012년</span></a></li><li><a class="is-flex" href="#년-3"><span class="mr-2">2.4</span><span>2016년</span></a></li></ul></li><li><a class="is-flex" href="#news-sentiment-analysis"><span class="mr-2">3</span><span>News Sentiment Analysis</span></a><ul class="menu-list"><li><a class="is-flex" href="#정치"><span class="mr-2">3.1</span><span>정치</span></a></li><li><a class="is-flex" href="#경제"><span class="mr-2">3.2</span><span>경제</span></a></li><li><a class="is-flex" href="#사회"><span class="mr-2">3.3</span><span>사회</span></a></li><li><a class="is-flex" href="#문화"><span class="mr-2">3.4</span><span>문화</span></a></li><li><a class="is-flex" href="#it"><span class="mr-2">3.5</span><span>IT</span></a></li><li><a class="is-flex" href="#세계"><span class="mr-2">3.6</span><span>세계</span></a></li></ul></li><li><a class="is-flex" href="#conclusions"><span class="mr-2">4</span><span>Conclusions</span></a></li><li><a class="is-flex" href="#references"><span class="mr-2">5</span><span>References</span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Startup/"><span class="level-start"><span class="level-item">Startup</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Tech/Engineering/"><span class="level-start"><span class="level-item">Engineering</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/ML/"><span class="level-start"><span class="level-item">ML</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/Quantum-Computing/"><span class="level-start"><span class="level-item">Quantum Computing</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time datetime="2024-01-13T12:14:00.000Z">2024-01-13</time></p><p class="title is-6"><a class="link-muted" href="/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder">Lessons learned in my first 2 years as a startup founder</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Startup/">Startup</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-07-10T16:03:00.000Z">2021-07-11</time></p><p class="title is-6"><a class="link-muted" href="/2021/07/11/git-merge-strategies">Git의 다양한 머지 전략 비교 - 우리 팀은 어떤 전략을 도입해야 할까?</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-03-02T19:22:00.000Z">2021-03-03</time></p><p class="title is-6"><a class="link-muted" href="/2021/03/03/pytorch-view-reshape-transpose">PyTorch의 view, transpose, reshape 함수의 차이점 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-21T14:22:00.000Z">2021-02-21</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/21/pytorch-iterabledataset">PyTorch의 IterableDataset을 사용해서 데이터 불러오기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-04T05:22:00.000Z">2021-02-04</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods">Pandas Dataframe의 다양한 iteration 방법 비교</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a><p class="size-small"><span>&copy; 2024 Jihyung Moon</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://www.thespacemoon.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body></html>

@@ -2,14 +2,14 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://inmoonlight.github.io</loc>
+        <loc>https://www.thespacemoon.com</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>https://inmoonlight.github.io/about/</loc>
-        <lastmod>2024-01-21T20:42:30.586Z</lastmod>
+        <loc>https://www.thespacemoon.com/about/</loc>
+        <lastmod>2024-01-24T15:31:09.844Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
