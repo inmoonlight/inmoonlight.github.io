@@ -14,14 +14,14 @@ timezone: 'Asia/Seoul'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://inmoonlight.github.io/
+url: https://www.thespacemoon.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: /:year/:month/:day/:title
 # permalink: /:category/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -127,7 +127,7 @@ robotstxt:
   useragent: "*"
   allow:
     - /
-  sitemap: https://inmoonlight.github.io/sitemap.xml
+  sitemap: http://www.thespacemoon.com/sitemap.xml
 
 # 포스트에서 참고하고 있는 외부링크에 nofollw 속성을 자동으로 추가 (ref: https://mishka.kr/2019/06/11/Hexo-seo/)
 nofollow:
