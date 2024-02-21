@@ -4,49 +4,49 @@
 
     <url>
         <loc>https://www.thespacemoon.com/tags/pytorch/</loc>
-        <lastmod>2024-01-24T15:45:44.771Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.749Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.thespacemoon.com/tags/pandas/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.748Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.thespacemoon.com/tags/data-analysis/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.thespacemoon.com/tags/startup/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.thespacemoon.com/tags/NLP/</loc>
-        <lastmod>2024-01-24T15:45:44.769Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.746Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.thespacemoon.com/tags/git/</loc>
-        <lastmod>2024-01-24T15:45:44.769Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.746Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.thespacemoon.com/tags/NLP/</loc>
+        <lastmod>2024-01-25T16:32:31.746Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.thespacemoon.com/tags/quantum-computing/</loc>
-        <lastmod>2024-01-24T15:45:44.769Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.745Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

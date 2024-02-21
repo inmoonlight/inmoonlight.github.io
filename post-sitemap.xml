@@ -9,31 +9,7 @@
 
     <url>
         <loc>https://www.thespacemoon.com/2021/03/03/pytorch-view-reshape-transpose/</loc>
-        <lastmod>2024-01-24T15:45:44.771Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.thespacemoon.com/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.thespacemoon.com/2019/07/25/naver-news-comments-analysis-1/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.749Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,7 +17,7 @@
 
     <url>
         <loc>https://www.thespacemoon.com/2021/02/04/pandas-dataframe-iteration-methods/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.748Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +25,15 @@
 
     <url>
         <loc>https://www.thespacemoon.com/2021/02/21/pytorch-iterabledataset/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.748Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.thespacemoon.com/2019/07/25/naver-news-comments-analysis-1/</loc>
+        <lastmod>2024-01-25T16:32:31.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,23 +41,15 @@
 
     <url>
         <loc>https://www.thespacemoon.com/2019/08/03/naver-news-comments-analysis-2/</loc>
-        <lastmod>2024-01-24T15:45:44.770Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://www.thespacemoon.com/2019/11/07/basics-of-quantum-computings/</loc>
-        <lastmod>2024-01-24T15:45:44.769Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.thespacemoon.com/2021/07/11/git-merge-strategies/</loc>
-        <lastmod>2024-01-24T15:45:44.769Z</lastmod>
+        <loc>https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/</loc>
+        <lastmod>2024-01-25T16:32:31.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -81,7 +57,31 @@
 
     <url>
         <loc>https://www.thespacemoon.com/2020/05/28/korean-hate-speech-dataset/</loc>
-        <lastmod>2024-01-24T15:45:44.769Z</lastmod>
+        <lastmod>2024-01-25T16:32:31.746Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.thespacemoon.com/2021/07/11/git-merge-strategies/</loc>
+        <lastmod>2024-01-25T16:32:31.746Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.thespacemoon.com/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder/</loc>
+        <lastmod>2024-01-25T16:32:31.746Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.thespacemoon.com/2019/11/07/basics-of-quantum-computings/</loc>
+        <lastmod>2024-01-25T16:32:31.745Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
