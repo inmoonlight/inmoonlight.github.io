@@ -39,17 +39,17 @@ We see AI as more than a tool—it's a partner in progress. Our mission is to re
 
 ### Publications
 
-- [Analyzing Norm Violations in Real-Time Live-Streaming Chat](https://arxiv.org/abs/2305.10731). **EMNLP** 2023 <br>
+- [Analyzing Norm Violations in Real-Time Live-Streaming Chat](https://arxiv.org/abs/2305.10731). **EMNLP** 2023
   <u>Jihyung Moon</u>\*, Dong-Ho Lee\*, Hyundong J. Cho, Woojeong Jin, Chan Young Park, Minwoo Kim, Jay Pujara and Sungjoon Park
-- [KOLD: Korean Offensive Language Dataset](https://arxiv.org/abs/2205.11315). **EMNLP** 2022 <br>
+- [KOLD: Korean Offensive Language Dataset](https://arxiv.org/abs/2205.11315). **EMNLP** 2022
   Younghoon Jeong, Juhyun Oh, Jaimeen Ahn, Jongwon Lee, <u>Jihyung Moon</u>, Sungjoon Park, and Alice Oh
-- [KLUE: Korean Language Understanding Evaluation](https://arxiv.org/abs/2105.09680). **NeurIPS** 2021 Datasets and Benchmarks Track [[github]](https://github.com/KLUE-benchmark/KLUE)<br>
+- [KLUE: Korean Language Understanding Evaluation](https://arxiv.org/abs/2105.09680). **NeurIPS** 2021 Datasets and Benchmarks Track [[github]](https://github.com/KLUE-benchmark/KLUE)
   Sungjoon Park\*, <u>Jihyung Moon</u>\*, Sungdong Kim\*, Won Ik Cho\*, Jiyoon Han, Jangwon Park, Chisung Song, Junseong Kim, Yongsook Song, Taehwan Oh, Joohong Lee, Juhyun Oh, Sungwon Lyu, Younghoon Jeong, Inkwon Lee, Sangwoo Seo, Dongjun Lee, Hyunwoo Kim, Myeonghwa Lee, Seongbo Jang, Seungwon Do, Sunkyoung Kim, Kyungtae Lim, Jongwon Lee, Kyumin Park, Jamin Shin, Seonghyun Kim, Lucy Park, Alice Oh, Jung-Woo Ha, and Kyunghyun Cho
-- [PATQUEST: Papago Translation Quality Estimation](http://www.statmt.org/wmt20/quality-estimation-task.html). **WMT** 2020<br>
+- [PATQUEST: Papago Translation Quality Estimation](http://www.statmt.org/wmt20/quality-estimation-task.html). **WMT** 2020
   Yujin Baek\*, Zae Myung Kim\*, <u>Jihyung Moon</u>, Hyunjoong Kim, and Eunjeong L. Park
-- [BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection](https://arxiv.org/abs/2005.12503). **ACL** 2020 [[github]](https://github.com/kocohub/korean-hate-speech) <br>
+- [BEEP! Korean Corpus of Online News Comments for Toxic Speech Detection](https://arxiv.org/abs/2005.12503). **ACL** 2020 [[github]](https://github.com/kocohub/korean-hate-speech)
   <u>Jihyung Moon</u>\*, Won Ik Cho\*, and Junbum Lee
-- [Revisiting Round-Trip Translation for Quality Estimation](https://arxiv.org/abs/2004.13937). **EAMT** 2020 <br>
+- [Revisiting Round-Trip Translation for Quality Estimation](https://arxiv.org/abs/2004.13937). **EAMT** 2020
   <u>Jihyung Moon</u>, Hyunchang Cho, and Eunjeong L. Park
 
 ### Talks
@@ -82,7 +82,7 @@ We see AI as more than a tool—it's a partner in progress. Our mission is to re
 
 ### Patents
 
-- [활동 데이터 분석을 통해 비정상 사용자 그룹을 탐지하는 방법 및 시스템 (METHOD AND SYSTEM FOR DETECTING ABUSER USING LOG DATA ANALYSIS)](https://doi.org/10.8080/1020180105710), KR 1022091000000, filed 5 Sep 2018, issued 22 Jan 2021 <br>
+- [활동 데이터 분석을 통해 비정상 사용자 그룹을 탐지하는 방법 및 시스템 (METHOD AND SYSTEM FOR DETECTING ABUSER USING LOG DATA ANALYSIS)](https://doi.org/10.8080/1020180105710), KR 1022091000000, filed 5 Sep 2018, issued 22 Jan 2021
   김태욱, <u>문지형</u>, 최인식, 박효균
 
 ### Things you don't need to know
