@@ -1,173 +1,84 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Naver News Comment Analysis (3) - Space Moon</title><meta description="TL;DR 어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까? 네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치적"><meta property="og:type" content="blog"><meta property="og:title" content="Naver News Comment Analysis (3)"><meta property="og:url" content="https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/"><meta property="og:site_name" content="Space Moon"><meta property="og:description" content="TL;DR 어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까? 네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치적"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/twitter.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/sgg_limit.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/ggratio_limit.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/replyCount_limit.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/reddit_sorting.png?style=centerme"><meta property="article:published_time" content="2019-09-23T08:25:00.000Z"><meta property="article:modified_time" content="2024-01-25T16:32:31.747Z"><meta property="article:author" content="Jihyung Moon"><meta property="article:tag" content="data analysis"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/assets/images/twitter.png?style=centerme"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/"},"headline":"Space Moon","image":[],"datePublished":"2019-09-23T08:25:00.000Z","dateModified":"2024-01-25T16:32:31.747Z","author":{"@type":"Person","name":"Jihyung Moon"},"description":"TL;DR 어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까? 네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치적"}</script><link rel="canonical" href="https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-131297969-1" async></script><script><!-- hexo-inject:begin --><!-- hexo-inject:end -->window.dataLayer = window.dataLayer || [];
+<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Naver News Comment Analysis (3) - Space Moon</title><meta description="TL;DR 어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까? 네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치"><meta property="og:type" content="blog"><meta property="og:title" content="Naver News Comment Analysis (3)"><meta property="og:url" content="https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/"><meta property="og:site_name" content="Space Moon"><meta property="og:description" content="TL;DR 어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까? 네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/twitter.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/sgg_limit.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/ggratio_limit.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/replyCount_limit.png?style=centerme"><meta property="og:image" content="https://www.thespacemoon.com/assets/images/reddit_sorting.png?style=centerme"><meta property="article:published_time" content="2019-09-23T08:25:00.000Z"><meta property="article:modified_time" content="2024-01-25T16:32:31.747Z"><meta property="article:author" content="Jihyung Moon"><meta property="article:tag" content="data analysis"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/assets/images/twitter.png?style=centerme"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/"},"headline":"Space Moon","image":[],"datePublished":"2019-09-23T08:25:00.000Z","dateModified":"2024-01-25T16:32:31.747Z","author":{"@type":"Person","name":"Jihyung Moon"},"description":"TL;DR 어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까? 네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치"}</script><link rel="canonical" href="https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-131297969-1" async></script><script><!-- hexo-inject:begin --><!-- hexo-inject:end -->window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
         gtag('config', 'UA-131297969-1');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="alternate" href="/feed.xml" title="Space Moon" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/inmoonlight"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2019-09-23T08:25:00.000Z" title="2019-09-23T08:25:00.000Z">2019-09-23</time><span class="level-item"><a class="link-muted" href="/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/categories/Tech/ML/">ML</a></span><span class="level-item">an hour read (About 6752 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Naver News Comment Analysis (3)</h1><div class="content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="tldr">TL;DR</h2>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><p>어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은
-불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은
-내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까?</p>
-<p>네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을
-상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연
-정치적 의견의 장에서 공감이 많은 의견만이 우리가 듣고 보아야 할
-의견일까? 특히나 어뷰징이 있는 상황에서 공감수가 많은 의견은 더욱
-획일화된 주장을 펼칠 수 밖에 없으며 대중은 편향된 의견만 접하게 되어
-무의식적으로 다양한 사고에 대한 가능성을 차단받는다.</p>
-<p>그래서 이번 글에서는 다양한 의견이 상위에 랭크될 수 있는 sorting
-algorithm들을 제안한다. reddit과 yelp 등에서 사용하고 있는 알고리즘을
-비롯하여, 논쟁적인 댓글이 상위에 위치할 수 있는 알고리즘, 그리고
-비공감이 많은 댓글에 더 높은 점수를 부여하는 알고리즘 3가지를 소개한다.
-<a id="more"></a></p>
-<h2 id="introduction">Introduction</h2>
-<p>모두가 다 알고 있는 사실이지만, 어뷰저는 존재한다. 드루킹과 
-에서 나온 결론으로도 뒷받침될 수 있지만 트위터에
-<code>m.news.naver.com/comment</code> 라고 검색하기만 해도 아래와 같이
-댓글 조작의 흔적을 쉽게 발견할 수 있다.</p>
-<p><img src="/assets/images/twitter.png?style=centerme" width="60%" alt="https://twitter.com/search?q=m.news.naver.com%2Fcomment&src=recent_search_click">
-<br></p>
-<p>이렇듯 쉽게 어뷰저의 존재를 찾을 수 있음에도 네이버가 어뷰저를 잡지
-않는 이유는 그 일이 생각처럼 쉬운 일이 아니기 때문이다.</p>
-<p>n초 안에 여러번 공감과 비공감을 지속적으로 받은 댓글은 어뷰징의
-결과로 의심한다. 그 댓글을 지워야 할까? 만약 댓글을 쓴 유저가 어뷰저가
-아니었다면 문제가 될 수 있다.</p>
-<p>사후 분석을 통해 어뷰저로 의심되는 댓글의 내용을 지우는 방법은
-어떨까? 뉴스라는 매체의 특성 상 시간이 지난 기사는 사람들이 관심있게
-보지 않는다. 그러므로 이 방법은 어뷰저를 막는다고 볼 수 없다.</p>
-<p>분석을 통해 어뷰저라고 강하게 의심되는 유저를 차단한다고 하더라도
-새로운 패턴으로 어뷰징을 하는 유저들이 생겨날 것이다. 어뷰저의 기준을
-세우는 것은 어려운 반면 새로운 방식으로 어뷰징을 하는 것은 좀 더 쉽기
-때문에 이렇게 물고 물리는 싸움은 어뷰저에게 유리하다.</p>
-<p>그렇다면 어뷰저를 차단하는 것에만 집중하지 말고, 어뷰징은 내버려두되
-그 효과를 완화시키는 방법은 어떨까? <strong>지금 네이버 뉴스 댓글 랭킹
-방식은 그것이 미치는 영향력에 비해 너무 간단하고 단편적이다.</strong>
-구글의 검색 랭킹이 신뢰도를 가지고 있는 이유는 상위에 랭크된 글이
-'조작'을 통해 만들어지지 않았다는 점 때문일 것이다. 그 이유는 정보가
-되는 글에 대한 정보량, 품질 기준이 보다 엄격하고 단편적인 면으로만
-순위를 매기지 않기 때문이다. 만약 구글 랭킹이 웹문서의 클릭수로만 되어
-있었다면 어땠을까? 많은 기업들이 본인의 홈페이지를 상위에 랭크시키기
-위해 많은 조작이 일어났을 것이다.</p>
-<p>그래서 이번 글에서는 그렇게 간단하다고는 볼 수 없는 다른 랭킹
-algorithm에 대해 소개해보려고 한다. 현재 네이버 뉴스 댓글 랭킹 방식 중
-순공감순, 공감비율순, 답글순의 한계점을 살펴보고 reddit과 yelp에서
-신뢰도있게 쓰이는 best 랭킹과 새로운 관점의 controversial 랭킹
-algorithm을 소개한다.</p>
-<h2 id="naver-news-comment-sorting-system">Naver News Comment Sorting
-System</h2>
-<h3 id="sorting-algorithms">Sorting Algorithms</h3>
-<p>2019년 9월 기준, 총 5개의 정렬방으로 서비스되고 있다. 드루킹 논란
-이후 댓글 제공 여부와 정렬방식을 언론사가 선택하는 방식으로
-바뀌었다.</p>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/inmoonlight"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" datetime="2019-09-23T08:25:00.000Z" title="2019-09-23T08:25:00.000Z">2019-09-23</time><span class="level-item"><a class="link-muted" href="/categories/Tech/">Tech</a><span> / </span><a class="link-muted" href="/categories/Tech/ML/">ML</a></span><span class="level-item">an hour read (About 6752 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Naver News Comment Analysis (3)</h1><div class="content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="tldr"><a class="markdownIt-Anchor" href="#tldr"></a> TL;DR</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><p>어뷰저는 존재한다. 하지만 그들을 완전히 통제하고 제거하는 것은 불가능하다. 그렇다면 어뷰저를 막는 것에 집중하지 말고, 어뷰징은 내버려두되 그 효과를 랭킹 시스템을 바꾸어 완화시키는 방법은 어떨까?</p>
+<p>네이버 뉴스 플랫폼에서는 순공감과 공감비율을 통해 공감이 많은 의견을 상위에 랭크시키고 있다. 각각의 알고리즘이 가진 결함도 문제지만, 과연 정치적 의견의 장에서 공감이 많은 의견만이 우리가 듣고 보아야 할 의견일까? 특히나 어뷰징이 있는 상황에서 공감수가 많은 의견은 더욱 획일화된 주장을 펼칠 수 밖에 없으며 대중은 편향된 의견만 접하게 되어 무의식적으로 다양한 사고에 대한 가능성을 차단받는다.</p>
+<p>그래서 이번 글에서는 다양한 의견이 상위에 랭크될 수 있는 sorting algorithm들을 제안한다. reddit과 yelp 등에서 사용하고 있는 알고리즘을 비롯하여, 논쟁적인 댓글이 상위에 위치할 수 있는 알고리즘, 그리고 비공감이 많은 댓글에 더 높은 점수를 부여하는 알고리즘 3가지를 소개한다.</p>
+<a id="more"></a>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>모두가 다 알고 있는 사실이지만, 어뷰저는 존재한다. 드루킹과  에서 나온 결론으로도 뒷받침될 수 있지만 트위터에 <code>m.news.naver.com/comment</code> 라고 검색하기만 해도 아래와 같이 댓글 조작의 흔적을 쉽게 발견할 수 있다.</p>
+<img src="/assets/images/twitter.png?style=centerme" width="60%" alt="https://twitter.com/search?q=m.news.naver.com%2Fcomment&src=recent_search_click">
+<br>
+<p>이렇듯 쉽게 어뷰저의 존재를 찾을 수 있음에도 네이버가 어뷰저를 잡지 않는 이유는 그 일이 생각처럼 쉬운 일이 아니기 때문이다.</p>
+<p>n초 안에 여러번 공감과 비공감을 지속적으로 받은 댓글은 어뷰징의 결과로 의심한다. 그 댓글을 지워야 할까? 만약 댓글을 쓴 유저가 어뷰저가 아니었다면 문제가 될 수 있다.</p>
+<p>사후 분석을 통해 어뷰저로 의심되는 댓글의 내용을 지우는 방법은 어떨까? 뉴스라는 매체의 특성 상 시간이 지난 기사는 사람들이 관심있게 보지 않는다. 그러므로 이 방법은 어뷰저를 막는다고 볼 수 없다.</p>
+<p>분석을 통해 어뷰저라고 강하게 의심되는 유저를 차단한다고 하더라도 새로운 패턴으로 어뷰징을 하는 유저들이 생겨날 것이다. 어뷰저의 기준을 세우는 것은 어려운 반면 새로운 방식으로 어뷰징을 하는 것은 좀 더 쉽기 때문에 이렇게 물고 물리는 싸움은 어뷰저에게 유리하다.</p>
+<p>그렇다면 어뷰저를 차단하는 것에만 집중하지 말고, 어뷰징은 내버려두되 그 효과를 완화시키는 방법은 어떨까? <strong>지금 네이버 뉴스 댓글 랭킹 방식은 그것이 미치는 영향력에 비해 너무 간단하고 단편적이다.</strong> 구글의 검색 랭킹이 신뢰도를 가지고 있는 이유는 상위에 랭크된 글이 '조작’을 통해 만들어지지 않았다는 점 때문일 것이다. 그 이유는 정보가 되는 글에 대한 정보량, 품질 기준이 보다 엄격하고 단편적인 면으로만 순위를 매기지 않기 때문이다. 만약 구글 랭킹이 웹문서의 클릭수로만 되어 있었다면 어땠을까? 많은 기업들이 본인의 홈페이지를 상위에 랭크시키기 위해 많은 조작이 일어났을 것이다.</p>
+<p>그래서 이번 글에서는 그렇게 간단하다고는 볼 수 없는 다른 랭킹 algorithm에 대해 소개해보려고 한다. 현재 네이버 뉴스 댓글 랭킹 방식 중 순공감순, 공감비율순, 답글순의 한계점을 살펴보고 reddit과 yelp에서 신뢰도있게 쓰이는 best 랭킹과 새로운 관점의 controversial 랭킹 algorithm을 소개한다.</p>
+<h2 id="naver-news-comment-sorting-system"><a class="markdownIt-Anchor" href="#naver-news-comment-sorting-system"></a> Naver News Comment Sorting System</h2>
+<h3 id="sorting-algorithms"><a class="markdownIt-Anchor" href="#sorting-algorithms"></a> Sorting Algorithms</h3>
+<p>2019년 9월 기준, 총 5개의 정렬방으로 서비스되고 있다. 드루킹 논란 이후 댓글 제공 여부와 정렬방식을 언론사가 선택하는 방식으로 바뀌었다.</p>
 <ul>
-<li><strong>순공감순</strong>: 공감 -
-비공감<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="2017년 11월 30일부터 호감순에서 순공감순으로 변경되면서 다시 2016년 이전의 호감순처럼 호감도를 “공감-비공감”으로 계산하게 되었다.
+<li><strong>순공감순</strong>: 공감 - 비공감<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="2017년 11월 30일부터 호감순에서 순공감순으로 변경되면서 다시 2016년 이전의 호감순처럼 호감도를 “공감-비공감”으로 계산하게 되었다.
 ">[1]</span></a></sup></li>
 <li><strong>공감비율순:</strong> 공감 / (공감 + 비공감)</li>
 <li><strong>답글순</strong></li>
 <li><strong>최신순</strong></li>
 <li><strong>과거순</strong></li>
 </ul>
-<p>이 중, 댓글에 대한 사용자의 인터랙션(공감, 비공감, 답글)으로 순위를
-매기는 순공감순, 공감비율순, 답글순에 대한 문제점을 하나씩 짚어보고자
-한다.</p>
-<h3 id="limitations">Limitations</h3>
-<h4 id="순공감순">순공감순</h4>
-<p>순공감순은 우리의 직관과 벗어나는 랭킹이라는 점에서 한계가 있다.
-우리는 절대적인 공감 수치보다, 공감비율로 댓글의 신뢰도를 평가한다.</p>
-<p>아래의 사례는 네이버 뉴스
-댓글<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="홍준표 “나경원, 아들 이중국적 여부 밝혀라…1억 피부과 연상”, 네이버 뉴스
-">[2]</span></a></sup>의 실제 예시이다. 첫번째 댓글은 순공감 344개(= 455
-- 111) 로, 300개(= 316 - 16)의 순공감을 지니는 두번째 댓글보다 더 높은
-순위에 자리한다. 하지만 각각의 댓글의 공감비율은 80.4%(= 455 / (455 +
-11)) 로, 두번째 댓글의 공감비율인 95.2% (= 316 / (316 + 16)) 보다
-작다.</p>
-<p><img src="/assets/images/sgg_limit.png?style=centerme" width="70%" alt="paid****: 순공감 344, 공감비율 80.4% | adam****: 순공감 300, 공감비율 95.2%">
-<br></p>
-<h4 id="공감비율순">공감비율순</h4>
-<p>앞서 설명한 것처럼 공감비율순이 좀 더 우리의 직관과 유사한 척도이다.
-하지만 공감비율순은 전체 공감, 비공감 수가 적을 때 문제가 된다.</p>
-<p>소수의 사람들에게만 노출된 댓글은 공감과 비공감의 개수가 모두 적어
-100% 라는 공감비율이 쉽게 만들어지는 반면, 여러 명에게 노출된 댓글은
-하나의 비공감만 달리더라도 그보다 낮은 공감비율을 지니게 되는 문제가
-발생한다.</p>
-<p>아래의 네이버 뉴스 댓글
-예시<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="재판에 넘겨진 조국 부인 정경심 교수…검찰 &#39;소환 임박&#39;, 네이버 뉴스
-">[3]</span></a></sup>에서 공감수가 20, 비공감수가 0인 댓글이 비공감을
-전혀 받지 않아 공감비율 100%가 되어 더 많은 사람들이 읽고 공감을 표한
-공감수 1021, 비공감수 58인 댓글보다 더 상단에 위치한다.</p>
-<p><img src="/assets/images/ggratio_limit.png?style=centerme" width="70%" alt="euic****, qkrs**** 공감비율 100% 공감+비공감수 20 | hang**** 공감비율 94.6% 공감+비공감수 1,079">
-<br></p>
-<h4 id="답글순">답글순</h4>
-<p>여러 개의 답글이 달리는 댓글은 주로 일찍 남겨진 댓글 중에
-인신공격이나 뉴스 외 주제에 대한 댓글인 경우가 많다. 댓글 공간에서는
-명확한 내용으로 구성된 댓글에 대해서는 대댓글 보다도 공감 혹은
-비공감으로 본인의 주장을 표시하는 것이 일반적이다. 그러나 감정적으로
-쓰여진 댓글은 그 댓글에 자극을 받은 다른 사용자의 답글로 이어지고 되므로
-답글 개수를 기준으로 댓글을 정렬하면 뉴스 내용과는 무관한 자극적인
-댓글들이 우선적으로 노출된다.</p>
-<p>또한 일찍 쓰여진 댓글일수록 더 많은 사람들에게 노출될 가능성이
-있으므로 대부분 뉴스 작성 시점과 가까운 댓글이 상위에 랭크된다.</p>
-<p>랭킹 algorithm으로 보기에는 정렬 기준이 controllable하지 않으며
-댓글의 유익한 속성이 높게 평가되어 정렬되는 랭킹이라고 볼 수 없다.</p>
-<p>아래의 네이버 뉴스 댓글
-예시<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="대학교수 이어 의사 4400명도 “조국 퇴진, 조국 딸 퇴교” 시국선언문 서명, 네이버 뉴스
-">[4]</span></a></sup>를 보면 vote 수가 많지 않아도, 공감수가 전혀 없고
-비공감만 받더라도 top 10에 위치할 수 있다.</p>
-<p><img src="/assets/images/replyCount_limit.png?style=centerme" width="70%"></p>
-<h2 id="reddit-comment-sorting-algorithms">Reddit Comment Sorting
-Algorithms</h2>
-<p>댓글이 활발하게 생성되는 플랫폼은 비단 네이버 뉴스 뿐만은 아니다.
-네이버 쇼핑, 네이버 호텔, 망고 플레이트, reddit, stackoverflow, yelp,
-amazon 등의 다양한 플랫폼에서 수집되며 플랫폼에서는 다시 이 데이터를
-가공하여 사용자에게 유익한 정보를 제공한다.</p>
-<p>그 중에서도 reddit의 랭킹 시스템이 앞서 비판했던 순공감순,
-공감비율순의 한계를 극복한 sorting algorithm을 제공하고 있기에 자세히
-살펴보려고 한다. reddit의 랭킹 방식에는 best, top, new, controversial,
-old, q&amp;a가 있다. top이 순공감순, new가 최신순, old가 과거순이다.</p>
-<p><img src="/assets/images/reddit_sorting.png?style=centerme" width="20%" alt="reddit의 sorting algorithms"></p>
-<h3 id="best">Best</h3>
-<p>Best ranking<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system&gt;
-">[5]</span></a></sup><sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;http://www.evanmiller.org/how-not-to-sort-by-average-rating.html&gt;
-">[6]</span></a></sup> 은 Wilson
-score<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval&gt;
-">[7]</span></a></sup>로 정렬한 것으로, 공감비율순의 단점으로
-언급되었던, 전체 vote수가 적은 상황을 smoothing시켜준 algorithm이다.
-reddit뿐 아니라 yelp에서도 사용한다고
-한다<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://blog.yelp.com/2011/02/the-most-romantic-city-on-yelp-is&gt;
+<p>이 중, 댓글에 대한 사용자의 인터랙션(공감, 비공감, 답글)으로 순위를 매기는 순공감순, 공감비율순, 답글순에 대한 문제점을 하나씩 짚어보고자 한다.</p>
+<h3 id="limitations"><a class="markdownIt-Anchor" href="#limitations"></a> Limitations</h3>
+<h4 id="순공감순"><a class="markdownIt-Anchor" href="#순공감순"></a> 순공감순</h4>
+<p>순공감순은 우리의 직관과 벗어나는 랭킹이라는 점에서 한계가 있다. 우리는 절대적인 공감 수치보다, 공감비율로 댓글의 신뢰도를 평가한다.</p>
+<p>아래의 사례는 네이버 뉴스 댓글<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="홍준표 “나경원, 아들 이중국적 여부 밝혀라…1억 피부과 연상”, 네이버 뉴스
+">[2]</span></a></sup>의 실제 예시이다. 첫번째 댓글은 순공감 344개(= 455 - 111) 로, 300개(= 316 - 16)의 순공감을 지니는 두번째 댓글보다 더 높은 순위에 자리한다. 하지만 각각의 댓글의 공감비율은 80.4%(= 455 / (455 + 11)) 로, 두번째 댓글의 공감비율인 95.2% (= 316 / (316 + 16)) 보다 작다.</p>
+<img src="/assets/images/sgg_limit.png?style=centerme" width="70%" alt="paid****: 순공감 344, 공감비율 80.4% | adam****: 순공감 300, 공감비율 95.2%">
+<br>
+<h4 id="공감비율순"><a class="markdownIt-Anchor" href="#공감비율순"></a> 공감비율순</h4>
+<p>앞서 설명한 것처럼 공감비율순이 좀 더 우리의 직관과 유사한 척도이다. 하지만 공감비율순은 전체 공감, 비공감 수가 적을 때 문제가 된다.</p>
+<p>소수의 사람들에게만 노출된 댓글은 공감과 비공감의 개수가 모두 적어 100% 라는 공감비율이 쉽게 만들어지는 반면, 여러 명에게 노출된 댓글은 하나의 비공감만 달리더라도 그보다 낮은 공감비율을 지니게 되는 문제가 발생한다.</p>
+<p>아래의 네이버 뉴스 댓글 예시<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="재판에 넘겨진 조국 부인 정경심 교수…검찰 '소환 임박', 네이버 뉴스
+">[3]</span></a></sup>에서 공감수가 20, 비공감수가 0인 댓글이 비공감을 전혀 받지 않아 공감비율 100%가 되어 더 많은 사람들이 읽고 공감을 표한 공감수 1021, 비공감수 58인 댓글보다 더 상단에 위치한다.</p>
+<img src="/assets/images/ggratio_limit.png?style=centerme" width="70%" alt="euic****, qkrs**** 공감비율 100% 공감+비공감수 20 | hang**** 공감비율 94.6% 공감+비공감수 1,079">
+<br>
+<h4 id="답글순"><a class="markdownIt-Anchor" href="#답글순"></a> 답글순</h4>
+<p>여러 개의 답글이 달리는 댓글은 주로 일찍 남겨진 댓글 중에 인신공격이나 뉴스 외 주제에 대한 댓글인 경우가 많다. 댓글 공간에서는 명확한 내용으로 구성된 댓글에 대해서는 대댓글 보다도 공감 혹은 비공감으로 본인의 주장을 표시하는 것이 일반적이다. 그러나 감정적으로 쓰여진 댓글은 그 댓글에 자극을 받은 다른 사용자의 답글로 이어지고 되므로 답글 개수를 기준으로 댓글을 정렬하면 뉴스 내용과는 무관한 자극적인 댓글들이 우선적으로 노출된다.</p>
+<p>또한 일찍 쓰여진 댓글일수록 더 많은 사람들에게 노출될 가능성이 있으므로 대부분 뉴스 작성 시점과 가까운 댓글이 상위에 랭크된다.</p>
+<p>랭킹 algorithm으로 보기에는 정렬 기준이 controllable하지 않으며 댓글의 유익한 속성이 높게 평가되어 정렬되는 랭킹이라고 볼 수 없다.</p>
+<p>아래의 네이버 뉴스 댓글 예시<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="대학교수 이어 의사 4400명도 “조국 퇴진, 조국 딸 퇴교” 시국선언문 서명, 네이버 뉴스
+">[4]</span></a></sup>를 보면 vote 수가 많지 않아도, 공감수가 전혀 없고 비공감만 받더라도 top 10에 위치할 수 있다.</p>
+<img src="/assets/images/replyCount_limit.png?style=centerme" width="70%">
+<h2 id="reddit-comment-sorting-algorithms"><a class="markdownIt-Anchor" href="#reddit-comment-sorting-algorithms"></a> Reddit Comment Sorting Algorithms</h2>
+<p>댓글이 활발하게 생성되는 플랫폼은 비단 네이버 뉴스 뿐만은 아니다. 네이버 쇼핑, 네이버 호텔, 망고 플레이트,  reddit, stackoverflow, yelp, amazon 등의 다양한 플랫폼에서 수집되며 플랫폼에서는 다시 이 데이터를 가공하여 사용자에게 유익한 정보를 제공한다.</p>
+<p>그 중에서도 reddit의 랭킹 시스템이 앞서 비판했던 순공감순, 공감비율순의 한계를 극복한 sorting algorithm을 제공하고 있기에 자세히 살펴보려고 한다. reddit의 랭킹 방식에는 best, top, new, controversial, old, q&amp;a가 있다. top이 순공감순, new가 최신순, old가 과거순이다.</p>
+<img src="/assets/images/reddit_sorting.png?style=centerme" width="20%" alt="reddit의 sorting algorithms">
+<h3 id="best"><a class="markdownIt-Anchor" href="#best"></a> Best</h3>
+<p>Best ranking<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system>
+">[5]</span></a></sup><sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<http://www.evanmiller.org/how-not-to-sort-by-average-rating.html>
+">[6]</span></a></sup> 은 Wilson score<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval>
+">[7]</span></a></sup>로 정렬한 것으로, 공감비율순의 단점으로 언급되었던, 전체 vote수가 적은 상황을 smoothing시켜준 algorithm이다. reddit뿐 아니라 yelp에서도 사용한다고 한다<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://blog.yelp.com/2011/02/the-most-romantic-city-on-yelp-is>
 ">[8]</span></a></sup>.</p>
-<p>Wilson score는 주어진 positive와 negative vote가 binomial
-distribution을 따른다고 가정했을 때, positive 발생 확률을 95% 신뢰구간의
-최소값으로 추정한 값이다.</p>
-<p>동전 뒤집기 상황에서 앞면을 positive, 뒷면을 negative라고 하자. n번
-던진 후 앞면이 나올 확률(\(p\))을 추정할 때 n이 충분히 큰 경우 central
-limit theorem에 의해 \(p\)는 normal distribution을 따른다. 따라서 95%의
-신뢰도로 \(p\)를 추정하여 \(p\)의 최소값, 최대값을 구할 수 있고 이 때
-최소값이 Wilson score가 된다. 자세한 수식은 <a href="#appendix-a-wilson-score">Appendix A</a>에 정리해두었다.</p>
-<p>\[ w^- = max(0, \frac{2n\hat{p} + z^2 - z\sqrt{z^2 +
-4n\hat{p}(1-\hat{p})}}{2(n+z^2)})=\text{wilson score} \]</p>
+<p>Wilson score는 주어진 positive와 negative vote가 binomial distribution을 따른다고 가정했을 때, positive 발생 확률을 95% 신뢰구간의 최소값으로 추정한 값이다.</p>
+<p>동전 뒤집기 상황에서 앞면을 positive, 뒷면을 negative라고 하자. n번 던진 후 앞면이 나올 확률(\(p\))을 추정할 때 n이 충분히 큰 경우 central limit theorem에 의해 \(p\)는 normal distribution을 따른다. 따라서 95%의 신뢰도로 \(p\)를  추정하여 \(p\)의 최소값, 최대값을 구할 수 있고 이 때 최소값이 Wilson score가 된다. 자세한 수식은 <a href="#appendix-a-wilson-score">Appendix A</a>에 정리해두었다.</p>
+<p>\[<br>
+w^- = max(0, \frac{2n\hat{p} + z^2 - z\sqrt{z^2 + 4n\hat{p}(1-\hat{p})}}{2(n+z^2)})=\text{wilson score}<br>
+\]</p>
 <p>위의 식을 함수로 구현하면 다음과 같다.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># ref: http://www.evanmiller.org/how-not-to-sort-by-average-rating.html</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best</span><span class="params">(up, down)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        z = <span class="number">1.96</span>  <span class="comment"># 95% confidence level</span></span><br><span class="line">        n = up + down</span><br><span class="line">        p_up = up / n</span><br><span class="line">        p_down = <span class="number">1</span> - p_up</span><br><span class="line">        denominator = <span class="number">2</span> * (n + z**<span class="number">2</span>)</span><br><span class="line">        numerator = <span class="number">2</span> * n * p_up + z**<span class="number">2</span> - z * np.sqrt(z**<span class="number">2</span> + <span class="number">4</span> * n * p_up * p_down)</span><br><span class="line">        lower = numerator / denominator</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        lower = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> max(<span class="number">0</span>, lower)</span><br></pre></td></tr></table></figure>
-<p>아래의 예시는 네이버 뉴스 댓글에 Best ranking algorithm을 적용해본
-결과이다. 공감비율순 정렬이었다면 "<em>원칙대로만 하시면 됩니다 역사에
-부끄럽지 않게 잘 해 주세요</em>"는 1000개 이상의 vote를 가진 "<em>법대로
-해라 법은 만인 앞에 평등하다</em>"는 댓글을 제치고 상위에 랭크되었을
-것이다. 하지만 Best 정렬방식에서는 vote 수가 적은 경우 약간의 penalty를
-받기 때문에 하위에 랭크되었다.</p>
+<p>아래의 예시는 네이버 뉴스 댓글에 Best ranking algorithm을 적용해본 결과이다.<br>
+공감비율순 정렬이었다면 &quot;<em>원칙대로만 하시면 됩니다 역사에 부끄럽지 않게 잘 해 주세요</em>&quot;는 1000개 이상의 vote를 가진 &quot;<em>법대로 해라 법은 만인 앞에 평등하다</em>&quot;는 댓글을 제치고 상위에 랭크되었을 것이다.<br>
+하지만 Best 정렬방식에서는 vote 수가 적은 경우 약간의 penalty를 받기 때문에 하위에 랭크되었다.</p>
 <ul>
-<li>MB '정치보복' 반발에 문무일 총장 "법적 절차대로
-하겠다"<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="MB &#39;정치보복&#39; 반발에 문무일 총장 “법적 절차대로 하겠다”, 네이버 뉴스
+<li>MB ‘정치보복’ 반발에 문무일 총장 “법적 절차대로 하겠다”<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="MB '정치보복' 반발에 문무일 총장 “법적 절차대로 하겠다”, 네이버 뉴스
 ">[9]</span></a></sup></li>
 </ul>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 59%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 14%">
-</colgroup>
+<table>
 <thead>
-<tr class="header">
+<tr>
 <th>comments</th>
 <th>공감수</th>
 <th>비공감수</th>
@@ -176,71 +87,70 @@ limit theorem에 의해 \(p\)는 normal distribution을 따른다. 따라서 95%
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>법대로 해라 법은 만인 앞에 평등하다</td>
 <td>1091</td>
 <td>55</td>
 <td>0.938</td>
 <td>0.952006980803</td>
 </tr>
-<tr class="even">
+<tr>
 <td>법대로 하면 사형인데 !!</td>
 <td>562</td>
 <td>39</td>
 <td>0.936</td>
 <td>0.935108153078</td>
 </tr>
-<tr class="odd">
-<td>제발 법대로만 해주세요. 그래도 나라를 지옥으로 만든 죄는 물을 법도
-없다. 이 악마야!!!</td>
+<tr>
+<td>제발 법대로만 해주세요. 그래도 나라를 지옥으로 만든 죄는 물을 법도 없다. 이 악마야!!!</td>
 <td>252</td>
 <td>14</td>
 <td>0.933</td>
 <td>0.947368421053</td>
 </tr>
-<tr class="even">
+<tr>
 <td>지금까지 반발하고 나서 살아남은 넘을 못봤다.</td>
 <td>565</td>
 <td>38</td>
 <td>0.933</td>
 <td>0.936981757877</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>혓바닥몇번 낼름거릴까나했더니 찔렸나보네ㅎㅎ</td>
 <td>595</td>
 <td>37</td>
 <td>0.932</td>
 <td>0.941455696203</td>
 </tr>
-<tr class="even">
-<td>본인이 구린짓을 했으니까 먼저 발광하는거겠지..</td>
+<tr>
+<td>본인이 구린짓을 했으니까 먼저 발광하는거겠지…</td>
 <td>686</td>
 <td>43</td>
 <td>0.931</td>
 <td>0.941015089163</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>법대로 하는 것보다 더 정의로운 절차는 세상에 없다</td>
 <td>4146</td>
 <td>317</td>
 <td>0.926</td>
 <td>0.928971543805</td>
 </tr>
-<tr class="even">
+<tr>
 <td>당연히 법대로 하셔야죠</td>
 <td>296</td>
 <td>14</td>
 <td>0.921</td>
 <td>0.954838709677</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>원칙대로만 하시면 됩니다 역사에 부끄럽지 않게 잘 해 주세요</td>
 <td>302</td>
 <td>13</td>
 <td>0.921</td>
 <td>0.95873015873</td>
 </tr>
-<tr class="even">
+<tr>
 <td>법대로 합시다</td>
 <td>919</td>
 <td>51</td>
@@ -249,109 +159,83 @@ limit theorem에 의해 \(p\)는 normal distribution을 따른다. 따라서 95%
 </tr>
 </tbody>
 </table>
-<p>기본적으로 공감수가 많은 댓글을 상위에 랭크시키는 알고리즘이기 때문에
-어뷰징 작업으로 공감수가 부풀려진 댓글이 top 10 밖으로 밀려나지는
-못한다. 하지만 vote수가 적더라도 경향성을 파악해 댓글을 정렬시키기
-때문에 단순한 순공감이나 공감비율순으로는 하위권에 있던 댓글이 상위권에
-위치할 기회를 증가시켰다.</p>
-<p>어뷰저 입장에서는 쉽게 계산할 수 있는 정렬방식이 아니기 때문에 조작이
-어려워질 것이다. 어뷰징을 할 때 고의로 공감과 비공감을 섞어서 해당
-댓글을 상위에 랭크시키는데, Best 정렬이라면 "적당"한 비율을 맞추기
-까다로워질 것이다.</p>
-<h3 id="controversial">Controversial</h3>
-<p>controversial<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="&lt;https://www.reddit.com/r/NoStupidQuestions/comments/3xmlh8/what_does_something_being_labeled_controversial/?sort=confidence&gt;
-">[10]</span></a></sup>은 이름 그대로, 공감과 비공감이 팽팽하게 맞서는
-댓글을 상위에 위치시키려는 알고리즘이다. 단순히 팽팽하기만 하면 공감과
-비공감이 1:1인 상황과 10:10인 상황이 같다고 생각할 수 있기에 vote수도
-sorting algorithm에 포함시켜서 10:10이 1:1인 상황보다 더 controversial할
-수 있도록 만들어졌다.</p>
-<p>아래의 식에서 upvote는 공감을, downvote는 비공감을 의미한다. upvote와
-downvote의 차이가 같아서 분모가 같아진 경우에는 그 크기가 큰 쪽이 높고,
-vote의 크기가 같은 경우에는 차이가 작은 쪽이 높다.</p>
-<p>\[ \text{controversial} = \frac{match \times log(match + 1)}{| upvote
-- downvote | + 1},\text{ where }match=min(upvote, downvote) \]</p>
+<p>기본적으로 공감수가 많은 댓글을 상위에 랭크시키는 알고리즘이기 때문에 어뷰징 작업으로 공감수가 부풀려진 댓글이 top 10 밖으로 밀려나지는 못한다. 하지만 vote수가 적더라도 경향성을 파악해 댓글을 정렬시키기 때문에 단순한 순공감이나 공감비율순으로는 하위권에 있던 댓글이 상위권에 위치할 기회를 증가시켰다.</p>
+<p>어뷰저 입장에서는 쉽게 계산할 수 있는 정렬방식이 아니기 때문에 조작이 어려워질 것이다. 어뷰징을 할 때 고의로 공감과 비공감을 섞어서 해당 댓글을 상위에 랭크시키는데, Best 정렬이라면 &quot;적당&quot;한 비율을 맞추기 까다로워질 것이다.</p>
+<h3 id="controversial"><a class="markdownIt-Anchor" href="#controversial"></a> Controversial</h3>
+<p>controversial<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://www.reddit.com/r/NoStupidQuestions/comments/3xmlh8/what_does_something_being_labeled_controversial/?sort=confidence>
+">[10]</span></a></sup>은 이름 그대로, 공감과 비공감이 팽팽하게 맞서는 댓글을 상위에 위치시키려는 알고리즘이다. 단순히 팽팽하기만 하면 공감과 비공감이 1:1인 상황과 10:10인 상황이 같다고 생각할 수 있기에 vote수도 sorting algorithm에 포함시켜서 10:10이 1:1인 상황보다 더 controversial할 수 있도록 만들어졌다.</p>
+<p>아래의 식에서 upvote는 공감을, downvote는 비공감을 의미한다. upvote와 downvote의 차이가 같아서 분모가 같아진 경우에는 그 크기가 큰 쪽이 높고, vote의 크기가 같은 경우에는 차이가 작은 쪽이 높다.</p>
+<p>\[<br>
+\text{controversial} = \frac{match \times log(match + 1)}{| upvote - downvote | + 1},\text{ where }match=min(upvote, downvote)<br>
+\]</p>
 <p>python으로 구현한 식이다.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">controversial</span><span class="params">(upvote, downvote)</span>:</span></span><br><span class="line">    match = min(upvote, downvote)</span><br><span class="line">    top = match * math.log(match + <span class="number">1</span>)</span><br><span class="line">    bottom = abs(upvote - downvote) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> float(top) / bottom</span><br></pre></td></tr></table></figure>
 <p>좀 더 직관적인 이해를 돕기 위해 가공한 아래의 예시를 보자.</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>upvote</th>
 <th>downvote</th>
 <th>controversial score</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1001</td>
 <td>1000</td>
 <td>3454.38</td>
 </tr>
-<tr class="even">
+<tr>
 <td>999</td>
 <td>1000</td>
 <td>3450.42</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>100</td>
 <td>100</td>
 <td>461.52</td>
 </tr>
-<tr class="even">
+<tr>
 <td>101</td>
 <td>100</td>
 <td>230.76</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>1000</td>
 <td>700</td>
 <td>15.24</td>
 </tr>
-<tr class="even">
+<tr>
 <td>130</td>
 <td>100</td>
 <td>14.89</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>100</td>
 <td>130</td>
 <td>14.89</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>1</td>
 <td>0.69</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>2</td>
 <td>0.35</td>
 </tr>
 </tbody>
 </table>
-<p>upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비율
-내에서는 vote 수가 큰 댓글이 더 위에 놓이게 된다.</p>
-<p>controversial algorithm을 네이버 뉴스 댓글에 적용해보았다. 예상대로
-공감과 비공감 수치가 비슷하면서도 vote수가 많은 댓글이 가장 먼저 보인다.
-vote수가 작은 이유는 이미 순공감 노출로 인해 vote를 받을 기회를 박탈당한
-댓글들이기 때문이다.</p>
-<p>수치와는 무관하게 top 10 댓글의 내용은 얼마나 controversial하게
-구성되어 있는지 정성적으로 평가해보았다. 보도자료에 대한 찬성은 <span style="color:blue">푸른색</span>, 반대는 <span style="color:red">붉은색</span> , 애매한 문장은 표기하지 않았다.
-controversial하다면 뉴스 기사의 주제에 대해 찬성과 반대가 골고루
-섞여있어야 할 것이다.</p>
+<p>upvote, downvote의 비율이 비슷한 댓글 순서로 정렬되고, 그 비율 내에서는 vote 수가 큰 댓글이 더 위에 놓이게 된다.</p>
+<p>controversial algorithm을 네이버 뉴스 댓글에 적용해보았다. 예상대로 공감과 비공감 수치가 비슷하면서도 vote수가 많은 댓글이 가장 먼저 보인다. vote수가 작은 이유는 이미 순공감 노출로 인해 vote를 받을 기회를 박탈당한 댓글들이기 때문이다.</p>
+<p>수치와는 무관하게 top 10 댓글의 내용은 얼마나 controversial하게 구성되어 있는지 정성적으로 평가해보았다. 보도자료에 대한 찬성은 <span style="color:blue">푸른색</span>, 반대는 <span style="color:red">붉은색</span> , 애매한 문장은 표기하지 않았다. controversial하다면 뉴스 기사의 주제에 대해 찬성과 반대가 골고루 섞여있어야 할 것이다.</p>
 <ul>
-<li>아베 "한미군사훈련 예정대로"…文대통령 "내정문제 거론
-곤란"(종합)<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스">[11]</span></a></sup></li>
+<li>아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합)<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스">[11]</span></a></sup></li>
 </ul>
 <table>
-<colgroup>
-<col style="width: 9%">
-<col style="width: 67%">
-<col style="width: 9%">
-<col style="width: 12%">
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>userId</th>
 <th>comments</th>
 <th>공감수</th>
@@ -359,119 +243,92 @@ controversial하다면 뉴스 기사의 주제에 대해 찬성과 반대가 골
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>user 1</td>
-<td>대통령 각하, ‘사드 문제’ 갖고 거품무는 중국에도 내정 간섭이라고 거침
-없이 말씀해주세요</td>
+<td>대통령 각하, ‘사드 문제’ 갖고 거품무는 중국에도 내정 간섭이라고 거침 없이 말씀해주세요</td>
 <td>26</td>
 <td>26</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 2</td>
-<td><span style="color:red">이제는 한미일군사훈련을 해야
-한다.</span></td>
+<td><span style="color:red">이제는 한미일군사훈련을 해야 한다.</span></td>
 <td>81</td>
 <td>85</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 3</td>
-<td><span style="color:red">근데 왜 중국한테는 대놓고 내정간섭 받는거죠,
-대통령님? 치욕스러웠던 조선시대가 그리운건가요?</span></td>
+<td><span style="color:red">근데 왜 중국한테는 대놓고 내정간섭 받는거죠, 대통령님? 치욕스러웠던 조선시대가 그리운건가요?</span></td>
 <td>22</td>
 <td>22</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 4</td>
-<td><span style="color:red">봐라 ㅋㅋㅋ 연기하지?철수 얘기나온다 백퍼
-ㅋㅋㅋㅋ 베트남꼴 나는거야 ㅋㅋㅋ 정신 좀 차리자</span></td>
+<td><span style="color:red">봐라 ㅋㅋㅋ \n한미연합훈련 연기하지?\n미군 철수 얘기나온다 백퍼 ㅋㅋㅋㅋ \n미군철수하면 베트남꼴 나는거야 ㅋㅋㅋ \n개돼지들아 정신 좀 차리자</span></td>
 <td>33</td>
 <td>31</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 5</td>
-<td><span style="color:red">아베만도못한 문통; </span></td>
+<td><span style="color:red">아베만도못한 문통;                                  </span></td>
 <td>11</td>
 <td>11</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 6</td>
-<td><span style="color:red">문재인 아가라 닥쳐라. 사드도 내정문제인데
-중국한테는 끽소리 못 하던 색히가 어디서 주둥아리 씨부리노. </span></td>
+<td><span style="color:red">문재인 아가라 닥쳐라. 사드도 내정문제인데 중국한테는 끽소리 못 하던 색히가 어디서 주둥아리 씨부리노.  </span></td>
 <td>10</td>
 <td>10</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 7</td>
-<td><span style="color:red">ㅋㅋㅋㅋㅋㅋ 곧 양념단와서 또 평화올림픽
-울부짖겠네. </span></td>
+<td><span style="color:red">ㅋㅋㅋㅋㅋㅋ 곧 양념단와서 또 평화올림픽 울부짖겠네.         </span></td>
 <td>66</td>
 <td>57</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 8</td>
-<td><span style="color:red">미국이 한국을 버려야 할 듯.없네.
-</span></td>
+<td><span style="color:red">미국이 한국을 버려야 할 듯.\n답이 없네.  </span></td>
 <td>15</td>
 <td>14</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 9</td>
-<td><span style="color:red">미국을 대변하는거다.국익을 최우선으로
-하는거지싫지만 아베가 똑똑하지않는냐.살자. </span></td>
+<td><span style="color:red">미국을 대변하는거다.\n아베는 국익을 최우선으로 하는거지\n일본은 싫지만 아베가 똑똑하지않는냐.\n생각좀하고 살자.  </span></td>
 <td>8</td>
 <td>8</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 10</td>
-<td><span style="color:red">얼마나 답답하면 저런말을 할지 생각
-안해보셨나요?? 북에서 원하는 대로 흘러가네요. 앞으로 한미군사훈련
-연기뿐만 아니라 축소되고 없어지고 난리나겠네</span></td>
+<td><span style="color:red">얼마나 답답하면 저런말을 할지 생각 안해보셨나요?? 북에서 원하는 대로 흘러가네요. 앞으로 한미군사훈련 연기뿐만 아니라 축소되고 없어지고 난리나겠네</span></td>
 <td>8</td>
 <td>8</td>
 </tr>
 </tbody>
 </table>
-<p>분명 공감수와 비공감수는 controversial하지만 대부분이 당시의 여론과
-반대대는 내용으로 치우쳐있다. 정성적으로 controversial한 댓글은 공감:
-비공감이 1:1이 아닌 좀더 공감 비율이 높은 비율을 가진다는 사실을
-유추해볼 수 있다.</p>
-<p>공감비율과 비슷하게 controversial도 vote수가 많은 경우에 불리해진다.
-controversial의 분모는 upvote와 downvote의 차이값인데, vote수가 많을수록
-한두개차이를 유지하기가 어려워진다. 공감 66, 비공감 57을 가진 댓글이
-공감 10, 비공감 10보다 아래에 놓인다.</p>
-<h2 id="new-sorting-algorithms">New Sorting Algorithms</h2>
-<p>reddit ranking algorithm 중에서 controversial의 문제점을 해결한
-새로운 controversial algorithm과 비공감이 많은 의견도 노출하는 best anti
-정렬방식을 제안하고자 한다.</p>
-<h3 id="new-controversial">New controversial</h3>
-<p>앞서 지적했듯이 controversial은 공감: 비공감의 비율 재조정과 vote
-수가 많은 경우 분모값의 기준을 완화시켜야하는 이슈가 있다.</p>
+<p>분명 공감수와 비공감수는 controversial하지만 대부분이 당시의 여론과 반대대는 내용으로 치우쳐있다. 정성적으로 controversial한 댓글은 공감: 비공감이 1:1이 아닌 좀더 공감 비율이 높은 비율을 가진다는 사실을 유추해볼 수 있다.</p>
+<p>공감비율과 비슷하게 controversial도 vote수가 많은 경우에 불리해진다. controversial의 분모는 upvote와 downvote의 차이값인데, vote수가 많을수록 한두개차이를 유지하기가 어려워진다. 공감 66, 비공감 57을 가진 댓글이 공감 10, 비공감 10보다 아래에 놓인다.</p>
+<h2 id="new-sorting-algorithms"><a class="markdownIt-Anchor" href="#new-sorting-algorithms"></a> New Sorting Algorithms</h2>
+<p>reddit ranking algorithm 중에서 controversial의 문제점을 해결한 새로운 controversial algorithm과 비공감이 많은 의견도 노출하는 best anti 정렬방식을 제안하고자 한다.</p>
+<h3 id="new-controversial"><a class="markdownIt-Anchor" href="#new-controversial"></a> New controversial</h3>
+<p>앞서 지적했듯이 controversial은 공감: 비공감의 비율 재조정과 vote 수가 많은 경우 분모값의 기준을 완화시켜야하는 이슈가 있다.</p>
 <ul>
-<li><p><strong>공감 : 비공감</strong> 정성적으로 확인해보았을 때 공감:
-비공감 = 6.5 : 3.5 정도에서 기사 내용에 대한 찬성과 반대의 댓글이 골고루
-등장하였다. 때문에 new controversial에서 upvote와 downvote의 값을
-조정해주어야 한다.</p></li>
-<li><p><strong>vote수가 많은 경우</strong> 이 문제는 공감비율순과
-비슷했다. upvote와 downvote의 절대치에 의존하기보다 wilson score로
-도출된 값을 upvote와 downvote로 대체하면 vote수가 많고 적음을
-고려하면서도 0과 1 사이의 값을 가지게 되어 upvote와 downvote의 차이에
-대한 효과가 완화된다.</p></li>
+<li>
+<p><strong>공감 : 비공감</strong><br>
+정성적으로 확인해보았을 때 공감: 비공감 = 6.5 : 3.5 정도에서 기사 내용에 대한 찬성과 반대의 댓글이 골고루 등장하였다. 때문에 new controversial에서 upvote와 downvote의 값을 조정해주어야 한다.</p>
+</li>
+<li>
+<p><strong>vote수가 많은 경우</strong><br>
+이 문제는 공감비율순과 비슷했다. upvote와 downvote의 절대치에 의존하기보다 wilson score로 도출된 값을 upvote와 downvote로 대체하면 vote수가 많고 적음을 고려하면서도 0과 1 사이의 값을 가지게 되어 upvote와 downvote의 차이에 대한 효과가 완화된다.</p>
+</li>
 </ul>
 <p>변경된 내용을 정리하면 다음과 같다.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">controversial</span><span class="params">(upvote, downvote)</span>:</span></span><br><span class="line">    p_up = best(upvote, downvote) * <span class="number">3.5</span></span><br><span class="line">    p_down = best(downvote, upvote) * <span class="number">6.5</span></span><br><span class="line">    match = min(p_up, p_down)</span><br><span class="line">    top = match * math.log(match + <span class="number">1</span>)</span><br><span class="line">    bottom = abs(p_up - p_down) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> float(top) / bottom</span><br></pre></td></tr></table></figure>
 <ul>
-<li>아베 "한미군사훈련 예정대로"…文대통령 "내정문제 거론 곤란"(종합)
-<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스">[11]</span></a></sup></li>
+<li>아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합) <sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스">[11]</span></a></sup></li>
 </ul>
 <table>
-<colgroup>
-<col style="width: 19%">
-<col style="width: 38%">
-<col style="width: 19%">
-<col style="width: 23%">
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>userId</th>
 <th>comments</th>
 <th>공감수</th>
@@ -479,115 +336,85 @@ controversial의 분모는 upvote와 downvote의 차이값인데, vote수가 많
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>user 11</td>
-<td><span style="color:red">아베한테 대하듯 똑같이 김정은하고 북한,
-중국한테도 당당하게 나와라! </span></td>
+<td><span style="color:red">아베한테 대하듯 똑같이 김정은하고 북한, 중국한테도 당당하게 나와라!                               </span></td>
 <td>16</td>
 <td>11</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 12</td>
-<td><span style="color:red">개~~새끼 아베 한테는 그렇게 당당하면서
-김정은한테는 왜 그렇게 꼬리를 내린다냐? 핵이 무섭긴 무서운가
-보다</span></td>
+<td><span style="color:red">개~~새끼 아베 한테는 그렇게 당당하면서 김정은한테는 왜 그렇게 꼬리를 내린다냐? 핵이 무섭긴 무서운가 보다</span></td>
 <td>11</td>
 <td>7</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 13</td>
-<td><span style="color:blue">한미 동맹도 좋다 그러나 우리 나라 스스로
-강한 나라가 되어야 한다. 문대통형 수고 많으십니다 !!</span></td>
+<td><span style="color:blue">한미 동맹도 좋다 그러나 우리 나라 스스로 강한 나라가 되어야 한다. 문대통형 수고 많으십니다 !!</span></td>
 <td>9</td>
 <td>6</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 14</td>
-<td><span style="color:blue">아베에게 일침을 놔주신문 대통령님 지지
-합니다.나대지 마시오</span></td>
+<td><span style="color:blue">아베에게 일침을 놔주신\n 문 대통령님 지지 합니다.\n아베 나대지 마시오</span></td>
 <td>9</td>
 <td>6</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 15</td>
-<td><span style="color:blue">쪽바리 추종자들 많네!! 특히 벌레
-틀딱들~~</span></td>
+<td><span style="color:blue">쪽바리 추종자들 많네!! 특히 벌레 틀딱들~~</span></td>
 <td>8</td>
 <td>5</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 16</td>
-<td><span style="color:blue">반대로 우리나라가 일본보고 자위대
-훈련하는거 보고 참견하면 일본이 가많이 있겠냐?벌레들아! 비판을 하려면
-국내 내정에 간섭하는 아베를 비판해야지 아베를 두둔하냐? 이
-스레기들아...</span></td>
+<td><span style="color:blue">반대로 우리나라가 일본보고 자위대 훈련하는거 보고 참견하면 일본이 가많이 있겠냐?\n이 벌레들아! 비판을 하려면 국내 내정에 간섭하는 아베를 비판해야지 아베를 두둔하냐? 이 스레기들아…</span></td>
 <td>8</td>
 <td>5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 17</td>
-<td><span style="color:red">아베가 옳은말했네 지금이라고 김정은 참수
-한미연합훈련을 시작하라 빨갱이한테 이 나라를 줄 수 없다 </span></td>
+<td><span style="color:red">아베가 옳은말했네 지금이라고 김정은 참수 한미연합훈련을 시작하라 빨갱이한테 이 나라를 줄 수 없다 </span></td>
 <td>6</td>
 <td>4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 18</td>
-<td><span style="color:red">대한민국은 다시 한번 망해봐야
-정신차리지..안된다.</span></td>
+<td><span style="color:red">대한민국은 다시 한번 망해봐야 정신차리지…\n말로는 안된다.</span></td>
 <td>6</td>
 <td>4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 19</td>
-<td><span style="color:blue">일본이 우방이란애들 멍청한거 아니냐
-일본애들도 그렇게 생각안하는데 왜 니혼자 망상해
-찐따새끼인가ㅋㅋㅋㅋㅋㅋ</span></td>
+<td><span style="color:blue">일본이 우방이란애들 멍청한거 아니냐 일본애들도 그렇게 생각안하는데 왜 니혼자 망상해 찐따새끼인가ㅋㅋㅋㅋㅋㅋ</span></td>
 <td>6</td>
 <td>4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 20</td>
-<td><span style="color:red">문재인씨 당신의 국적은 어디입니까? 다스
-실소유주를 밝히는 것보다 훨씬 더 중요한 문제입니다. </span></td>
+<td><span style="color:red">문재인씨 당신의 국적은 어디입니까? 다스 실소유주를 밝히는 것보다 훨씬 더 중요한 문제입니다. </span></td>
 <td>6</td>
 <td>4</td>
 </tr>
 </tbody>
 </table>
-<p>공감 비율을 조금 높여주었을 때 기사 내용에 찬성하는 댓글과 반대하는
-댓글이 top 10에 골고루 섞이게 되었다. 또 wilson score로 변환한 상태에서
-비율을 조정해주게되어 vote수가 높은 경우에 up과 down의 차이에 덜
-민감해질 수 있었다.</p>
-<h3 id="best-anti">Best-Anti</h3>
-<p>꼭 공감수가 많은 것만 괜찮은 의견이라고 볼 수 있을까? 비공감수가 많은
-의견 또한 반대 진영의 입장을 대변하는 좋은 의견이라고도 볼 수 있지
-않을까?</p>
-<p>네이버 뉴스 댓글은 대부분 당시의 여론에 따라 분위기가 흘러간다.
-순공감순이든 공감비율순이든 한가지 주장을 다른 방식으로 표현하고 있는
-댓글들이 top 10이 된다. 이를 보는 대중은 한쪽의 영향만 받게 되어 생각이
-더욱 치우쳐진다.</p>
-<p>정치적 다양성을 수용하는 것은 의견의 객관성을 유지하는데에 도움이
-된다. 그런 의미에서 당시 여론과 반대되는 내용의 댓글 또한 보여주는 것은
-댓글에 영향을 받을 다른 사용자를 위해서도, 플랫폼의 중립성을 담보하기
-위해서도 중요하다고 생각한다.</p>
+<p>공감 비율을 조금 높여주었을 때 기사 내용에 찬성하는 댓글과 반대하는 댓글이 top 10에 골고루 섞이게 되었다. 또 wilson score로 변환한 상태에서 비율을 조정해주게되어 vote수가 높은 경우에 up과 down의 차이에 덜 민감해질 수 있었다.</p>
+<h3 id="best-anti"><a class="markdownIt-Anchor" href="#best-anti"></a> Best-Anti</h3>
+<p>꼭 공감수가 많은 것만 괜찮은 의견이라고 볼 수 있을까? 비공감수가 많은 의견 또한 반대 진영의 입장을 대변하는 좋은 의견이라고도 볼 수 있지 않을까?</p>
+<p>네이버 뉴스 댓글은 대부분 당시의 여론에 따라 분위기가 흘러간다. 순공감순이든 공감비율순이든 한가지 주장을 다른 방식으로 표현하고 있는 댓글들이 top 10이 된다. 이를 보는 대중은 한쪽의 영향만 받게 되어 생각이 더욱 치우쳐진다.</p>
+<p>정치적 다양성을 수용하는 것은 의견의 객관성을 유지하는데에 도움이 된다. 그런 의미에서 당시 여론과 반대되는 내용의 댓글 또한 보여주는 것은 댓글에 영향을 받을 다른 사용자를 위해서도, 플랫폼의 중립성을 담보하기 위해서도 중요하다고 생각한다.</p>
 <p>Best-Anti는 negative vote에 대한 Wilson score를 구한 것이다.</p>
-<p>\[ w_{neg}^- = max(0, \frac{2n(1-\hat{p}) + z^2 - z\sqrt{z^2 +
-4n\hat{p}(1-\hat{p})}}{2(n+z^2)}) \]</p>
-<p>python 구현식은 다음과 같다. <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_anti</span><span class="params">(up, down)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        z = <span class="number">1.96</span>  <span class="comment"># 95% confidence level</span></span><br><span class="line">        n = up + down</span><br><span class="line">        p_up = up / n</span><br><span class="line">        p_down = <span class="number">1</span> - p_up</span><br><span class="line">        denominator = <span class="number">2</span> * (n + z**<span class="number">2</span>)</span><br><span class="line">        numerator = <span class="number">2</span> * n * p_down + z**<span class="number">2</span> - z * np.sqrt(z**<span class="number">2</span> + <span class="number">4</span> * n * p_up * p_down)</span><br><span class="line">        lower = numerator / denominator</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        lower = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> max(<span class="number">0</span>, lower)</span><br></pre></td></tr></table></figure></p>
+<p>\[<br>
+w_{neg}^- = max(0, \frac{2n(1-\hat{p}) + z^2 - z\sqrt{z^2 + 4n\hat{p}(1-\hat{p})}}{2(n+z^2)})<br>
+\]</p>
+<p>python 구현식은 다음과 같다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_anti</span><span class="params">(up, down)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        z = <span class="number">1.96</span>  <span class="comment"># 95% confidence level</span></span><br><span class="line">        n = up + down</span><br><span class="line">        p_up = up / n</span><br><span class="line">        p_down = <span class="number">1</span> - p_up</span><br><span class="line">        denominator = <span class="number">2</span> * (n + z**<span class="number">2</span>)</span><br><span class="line">        numerator = <span class="number">2</span> * n * p_down + z**<span class="number">2</span> - z * np.sqrt(z**<span class="number">2</span> + <span class="number">4</span> * n * p_up * p_down)</span><br><span class="line">        lower = numerator / denominator</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        lower = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> max(<span class="number">0</span>, lower)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>아베 "한미군사훈련 예정대로"…文대통령 "내정문제 거론
-곤란"(종합)<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스">[11]</span></a></sup></li>
+<li>아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합)<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스">[11]</span></a></sup></li>
 </ul>
 <table>
-<colgroup>
-<col style="width: 15%">
-<col style="width: 50%">
-<col style="width: 15%">
-<col style="width: 18%">
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>userId</th>
 <th>comments</th>
 <th>공감수</th>
@@ -595,181 +422,100 @@ controversial의 분모는 upvote와 downvote의 차이값인데, vote수가 많
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>user 21</td>
 <td>평화협정후 미군철수 바랍니다</td>
 <td>0</td>
 <td>5</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 22</td>
-<td>홍발정씨..트럼프도 좌파 빨갱이죠??</td>
+<td>홍발정씨…트럼프도 좌파 빨갱이죠??</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 23</td>
-<td>늙다리 미치광이는 빠져 줄래!자주통일좀 하자!</td>
+<td>늙다리 미치광이는 빠져 줄래!\n우리끼리 자주통일좀 하자!</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 24</td>
-<td>자국당은 사형감 많던데... 미국철수 애기했다고 파면? 자국당 5월에는
-문정인으로 놀고먹겠군~!</td>
+<td>자국당은 사형감 많던데… 미국철수 애기했다고 파면? 자국당 5월에는 문정인으로 놀고먹겠군~!</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 25</td>
-<td>봐라. 지도자 하나가 이렇게나 세상을 바꿀 수 있다. 물론 촛불 들고,
-직접민주주의를 구현한 국민 또한 위대하지. 지방선거 때 투표 잘 하자.</td>
+<td>봐라. 지도자 하나가 이렇게나 세상을 바꿀 수 있다. 물론 촛불 들고, 직접민주주의를 구현한 국민 또한 위대하지. 지방선거 때 투표 잘 하자.</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 26</td>
-<td>아직도. 미국이 인계철선이라믿고 50년대 사고방식이 존재하는구나
-군사력 세계10위안에들고 1-1붙어도 안지니 너무 미군철수로 여론전말고
-참신한거없어요 ? 자한당분들?</td>
+<td>아직도. 미국이 인계철선이라믿고 50년대 사고방식이 존재하는구나 군사력 세계10위안에들고 1-1붙어도 안지니 너무 미군철수로 여론전말고 참신한거없어요 ? 자한당분들?</td>
 <td>1</td>
 <td>6</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 27</td>
-<td>극우 자한당은 미국도 빨갱이란다 제비가 왔다고 봄은 아니람서
-ㅋㅋㅋ</td>
+<td>극우 자한당은 미국도 빨갱이란다 제비가 왔다고 봄은 아니람서 ㅋㅋㅋ</td>
 <td>0</td>
 <td>3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 28</td>
 <td>원샷-빅딜!</td>
 <td>0</td>
 <td>3</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>user 29</td>
-<td>자한당분들께서 트럼프도 좌파래요..</td>
+<td>자한당분들께서 트럼프도 좌파래요…</td>
 <td>0</td>
 <td>3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>user 30</td>
-<td>잊지마세요 지금도 북한은 세계 최악의 인권유린 국가입니다 이시간에도
-북한 주민들은 김정은한테 총살당하거나 아오지탄광으로 끌려가고 있습니다
-북한 여성들은 김정은의 성노예가 되고 있구요 대한한공 조현민의 갑질
-화가나죠 미투운동으로 드러난 권력자들의 성폭력 정말 싫습니다 그런데
-이것보다 수백배는 더심한 갑질과 성폭력을 일삼는게 북한 김정은입니다</td>
+<td>잊지마세요 지금도 북한은 세계 최악의 인권유린 국가입니다 이시간에도 북한 주민들은 김정은한테 총살당하거나 아오지탄광으로 끌려가고 있습니다 북한 여성들은 김정은의 성노예가 되고 있구요 대한한공 조현민의 갑질 화가나죠 미투운동으로 드러난 권력자들의 성폭력 정말 싫습니다 그런데 이것보다 수백배는 더심한 갑질과 성폭력을 일삼는게 북한 김정은입니다</td>
 <td>0</td>
 <td>3</td>
 </tr>
 </tbody>
 </table>
-<h2 id="conclusions">Conclusions</h2>
-<p>현재의 네이버 뉴스 댓글 정렬방식은 공감수가 높은 댓글을 위주로
-보여주고 있고, 기준 또한 쉽다. 조작에 들어가는 비용 대비 얻을 수 있는
-효과가 큰 상황에서 조작으로 인해 이익을 볼 집단은 당연히 어뷰징을 할 수
-밖에 없다. 그리고 이미 조직적인 세력이 되어버린 어뷰저들은 완벽히 차단할
-수 없다. 때문에 어뷰징을 해결할 수 있는 가장 좋은 방법은 현재의 정렬
-방식의 단점을 극복하면서 자연스럽게 기준이 복잡해지게 만드는 것과
-사람들이 조작된 의견에 크게 흔들리지 않을 수 있도록 다양한 의견을
-보여주는 것이다.</p>
-<p>현재의 네이버 정렬 방식 중 순공감순과 공감비율순이 가지는 한계는
-reddit에서 사용하고 있는 best 정렬방식으로 해결된다. 공감수에 가중치를
-둔 정렬방식 외에 공감수와 비공감수가 비슷한 댓글에 가중치를 두는 방식,
-비공감수에 가중치를 두는 방식을 제안하였다.</p>
-<p>한 쪽의 의견만 듣는 것은 언제나 편향된 결과를 야기한다고 생각한다. 한
-쪽이 명백히 잘못한 것처럼 보도될 때, 그 반대의 의견에도 귀를 기울일 수
-있는 플랫폼이 되길 바란다.</p>
-<h2 id="future-works">Future works</h2>
-<p>지금까지는 댓글의 contents보다는 댓글에 부과된 공감, 비공감의
-interaction 데이터로 문제점과 해결방식을 제안했다. controversial로
-의견의 다양성을 추구했지만 text를 보지 않았기 때문에 의견의 다양성을
-간접적으로 보장하기엔 불안정할 수 있다.</p>
-<p>쇼핑 리뷰에서 가격, 내구성, 디자인 등 다양한 측면을 보여주듯이 정치적
-의견도 기사에서 언급된 중요한 단어들에 대한 사람들의 반응을 보는 방식도
-생각해보면 좋을 것 같다.</p>
-<h2 id="appendix-a-wilson-score">Appendix A: Wilson score</h2>
-<p>사실 본문에서 기술한 내용은 일반적인 Normal approximation
-interval이다.</p>
-<p>\[ p = \hat{p} \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</p>
-<p>여기서 \(\)은 Bernoulli process의 성공확률을 의미한다.</p>
-<p>Wilson score는 confidence interval을 \(\)가 아닌 \(p\)로 추정한 score
-interval의 최소값이다.</p>
-<p>\[ p = \hat{p} \pm z\sqrt{\frac{p(1-p)}{n}} \]</p>
+<h2 id="conclusions"><a class="markdownIt-Anchor" href="#conclusions"></a> Conclusions</h2>
+<p>현재의 네이버 뉴스 댓글 정렬방식은 공감수가 높은 댓글을 위주로 보여주고 있고, 기준 또한 쉽다. 조작에 들어가는 비용 대비 얻을 수 있는 효과가 큰 상황에서 조작으로 인해 이익을 볼 집단은 당연히 어뷰징을 할 수 밖에 없다. 그리고 이미 조직적인 세력이 되어버린 어뷰저들은 완벽히 차단할 수 없다. 때문에 어뷰징을 해결할 수 있는 가장 좋은 방법은 현재의 정렬 방식의 단점을 극복하면서 자연스럽게 기준이 복잡해지게 만드는 것과 사람들이 조작된 의견에 크게 흔들리지 않을 수 있도록 다양한 의견을 보여주는 것이다.</p>
+<p>현재의 네이버 정렬 방식 중 순공감순과 공감비율순이 가지는 한계는 reddit에서 사용하고 있는 best 정렬방식으로 해결된다. 공감수에 가중치를 둔 정렬방식 외에 공감수와 비공감수가 비슷한 댓글에 가중치를 두는 방식, 비공감수에 가중치를 두는 방식을 제안하였다.</p>
+<p>한 쪽의 의견만 듣는 것은 언제나 편향된 결과를 야기한다고 생각한다. 한 쪽이 명백히 잘못한 것처럼 보도될 때, 그 반대의 의견에도 귀를 기울일 수 있는 플랫폼이 되길 바란다.</p>
+<h2 id="future-works"><a class="markdownIt-Anchor" href="#future-works"></a> Future works</h2>
+<p>지금까지는 댓글의 contents보다는 댓글에 부과된 공감, 비공감의 interaction 데이터로 문제점과 해결방식을 제안했다. controversial로 의견의 다양성을 추구했지만 text를 보지 않았기 때문에 의견의 다양성을 간접적으로 보장하기엔 불안정할 수 있다.</p>
+<p>쇼핑 리뷰에서 가격, 내구성, 디자인 등 다양한 측면을 보여주듯이 정치적 의견도 기사에서 언급된 중요한 단어들에 대한 사람들의 반응을 보는 방식도 생각해보면 좋을 것 같다.</p>
+<h2 id="appendix-a-wilson-score"><a class="markdownIt-Anchor" href="#appendix-a-wilson-score"></a> Appendix A: Wilson score</h2>
+<p>사실 본문에서 기술한 내용은 일반적인 Normal approximation interval이다.</p>
+<p>\[<br>
+p = \hat{p} \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}<br>
+\]</p>
+<p>여기서 \(\hat{p}\)은 Bernoulli process의 성공확률을 의미한다.</p>
+<p>Wilson score는 confidence interval을 \(\hat{p}\)가 아닌 \(p\)로 추정한 score interval의 최소값이다.</p>
+<p>\[<br>
+p = \hat{p} \pm z\sqrt{\frac{p(1-p)}{n}}<br>
+\]</p>
 <p>\(p\)에 대해 정리하여 \(p\)에 대한 2차방정식을 만든다.</p>
-<p>\[ (1 + \frac{z^2}{n}) p^2 - (2\hat{p} + \frac{z^2}{n})p + \hat{p}^2
-= 0 \]</p>
+<p>\[<br>
+(1 + \frac{z^2}{n}) p^2 - (2\hat{p} + \frac{z^2}{n})p + \hat{p}^2 = 0<br>
+\]</p>
 <p>근의 공식을 사용해 \(p\)를 구한다.</p>
-<p>\[ p = \frac{2n\hat{p} + z^2 \pm z\sqrt{z^2 +
-4n\hat{p}(1-\hat{p})}}{2(n+z^2)} \]</p>
-<p>Wilson score는 \(p\)의 lower bound이므로 - 에 대해 정리하면 다음과
-같다.</p>
-<p>\[ w^- = max(0, \frac{2n\hat{p} + z^2 - z\sqrt{z^2 +
-4n\hat{p}(1-\hat{p})}}{2(n+z^2)}) = \text{wilson score} \]</p>
-<p>95%의 신뢰도로 고정하는 경우 z에 1.96을 대입할 수 있다. 그리고 이
-경우 본문의 python 함수에서 구현한 <code>best</code>가 된다.</p>
-<h2 id="references">References</h2>
-<div id="footnotes">
-<hr>
-<div id="footnotelist">
-<ol style="list-style: none; padding-left: 0; margin-left: 40px">
-<li id="fn:1">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">2017년
-11월 30일부터 호감순에서 순공감순으로 변경되면서 다시 2016년 이전의
-호감순처럼 호감도를 “공감-비공감”으로 계산하게
-되었다.<a href="#fnref:1" rev="footnote"> ↩︎</a></span>
-</li>
-<li id="fn:2">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">홍준표
-“나경원, 아들 이중국적 여부 밝혀라…1억 피부과 연상”, 네이버
-뉴스<a href="#fnref:2" rev="footnote"> ↩︎</a></span>
-</li>
-<li id="fn:3">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">재판에
-넘겨진 조국 부인 정경심 교수…검찰 '소환 임박', 네이버
-뉴스<a href="#fnref:3" rev="footnote"> ↩︎</a></span>
-</li>
-<li id="fn:4">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">대학교수
-이어 의사 4400명도 “조국 퇴진, 조국 딸 퇴교” 시국선언문 서명, 네이버
-뉴스<a href="#fnref:4" rev="footnote"> ↩︎</a></span>
-</li>
-<li id="fn:5">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system" rel="external nofollow noopener noreferrer" target="_blank">https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system</a><a href="#fnref:5" rev="footnote">
-↩︎</a></span>
-</li>
-<li id="fn:6">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.evanmiller.org/how-not-to-sort-by-average-rating.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.evanmiller.org/how-not-to-sort-by-average-rating.html</a><a href="#fnref:6" rev="footnote">
-↩︎</a></span>
-</li>
-<li id="fn:7">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval" rel="external nofollow noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval</a><a href="#fnref:7" rev="footnote">
-↩︎</a></span>
-</li>
-<li id="fn:8">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.yelp.com/2011/02/the-most-romantic-city-on-yelp-is" rel="external nofollow noopener noreferrer" target="_blank">https://blog.yelp.com/2011/02/the-most-romantic-city-on-yelp-is</a><a href="#fnref:8" rev="footnote">
-↩︎</a></span>
-</li>
-<li id="fn:9">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">MB
-'정치보복' 반발에 문무일 총장 “법적 절차대로 하겠다”, 네이버
-뉴스<a href="#fnref:9" rev="footnote"> ↩︎</a></span>
-</li>
-<li id="fn:10">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.reddit.com/r/NoStupidQuestions/comments/3xmlh8/what_does_something_being_labeled_controversial/?sort=confidence" rel="external nofollow noopener noreferrer" target="_blank">https://www.reddit.com/r/NoStupidQuestions/comments/3xmlh8/what_does_something_being_labeled_controversial/?sort=confidence</a><a href="#fnref:10" rev="footnote">
-↩︎</a></span>
-</li>
-<li id="fn:11">
-<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">아베
-“한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버
-뉴스<a href="#fnref:11" rev="footnote"> ↩︎</a></span>
-</li>
-</ol>
-</div>
-</div>
-</div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/data-analysis/">data analysis</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/11/07/basics-of-quantum-computings/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">수학으로 이해하는 양자컴퓨터의 기초</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/08/03/naver-news-comments-analysis-2/"><span class="level-item">Naver News Comment Analysis (2)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+<p>\[<br>
+p = \frac{2n\hat{p} + z^2 \pm z\sqrt{z^2 + 4n\hat{p}(1-\hat{p})}}{2(n+z^2)}<br>
+\]</p>
+<p>Wilson score는 \(p\)의 lower bound이므로 - 에 대해 정리하면 다음과 같다.</p>
+<p>\[<br>
+w^- = max(0, \frac{2n\hat{p} + z^2 - z\sqrt{z^2 + 4n\hat{p}(1-\hat{p})}}{2(n+z^2)}) = \text{wilson score}<br>
+\]</p>
+<p>95%의 신뢰도로 고정하는 경우 z에 1.96을 대입할 수 있다. 그리고 이 경우 본문의 python 함수에서 구현한 <code>best</code>가 된다.</p>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">2017년 11월 30일부터 호감순에서 순공감순으로 변경되면서 다시 2016년 이전의 호감순처럼 호감도를 “공감-비공감”으로 계산하게 되었다.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">홍준표 “나경원, 아들 이중국적 여부 밝혀라…1억 피부과 연상”, 네이버 뉴스<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">재판에 넘겨진 조국 부인 정경심 교수…검찰 '소환 임박', 네이버 뉴스<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">대학교수 이어 의사 4400명도 “조국 퇴진, 조국 딸 퇴교” 시국선언문 서명, 네이버 뉴스<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system" rel="external nofollow noopener noreferrer" target="_blank">https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.evanmiller.org/how-not-to-sort-by-average-rating.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.evanmiller.org/how-not-to-sort-by-average-rating.html</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval" rel="external nofollow noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval</a><a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.yelp.com/2011/02/the-most-romantic-city-on-yelp-is" rel="external nofollow noopener noreferrer" target="_blank">https://blog.yelp.com/2011/02/the-most-romantic-city-on-yelp-is</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">MB '정치보복' 반발에 문무일 총장 “법적 절차대로 하겠다”, 네이버 뉴스<a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.reddit.com/r/NoStupidQuestions/comments/3xmlh8/what_does_something_being_labeled_controversial/?sort=confidence" rel="external nofollow noopener noreferrer" target="_blank">https://www.reddit.com/r/NoStupidQuestions/comments/3xmlh8/what_does_something_being_labeled_controversial/?sort=confidence</a><a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">아베 “한미군사훈련 예정대로”…文대통령 “내정문제 거론 곤란”(종합), 네이버 뉴스<a href="#fnref:11" rev="footnote"> ↩</a></span></li></ol></div></div></div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/data-analysis/">data analysis</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/11/07/basics-of-quantum-computings/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">수학으로 이해하는 양자컴퓨터의 기초</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/08/03/naver-news-comments-analysis-2/"><span class="level-item">Naver News Comment Analysis (2)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
             this.page.url = 'https://www.thespacemoon.com/2019/09/23/naver-news-Comments-Analysis-3/';
             this.page.identifier = '/2019/09/23/naver-news-Comments-Analysis-3/';
         };
@@ -778,9 +524,7 @@ interval의 최소값이다.</p>
             s.src = '//' + 'inmoonlight' + '.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
-        })();</script></div></div></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="is-flex" href="#tldr"><span class="mr-2">1</span><span>TL;DR</span></a></li><li><a class="is-flex" href="#introduction"><span class="mr-2">2</span><span>Introduction</span></a></li><li><a class="is-flex" href="#naver-news-comment-sorting-system"><span class="mr-2">3</span><span>Naver News Comment Sorting
-System</span></a><ul class="menu-list"><li><a class="is-flex" href="#sorting-algorithms"><span class="mr-2">3.1</span><span>Sorting Algorithms</span></a></li><li><a class="is-flex" href="#limitations"><span class="mr-2">3.2</span><span>Limitations</span></a><ul class="menu-list"><li><a class="is-flex" href="#순공감순"><span class="mr-2">3.2.1</span><span>순공감순</span></a></li><li><a class="is-flex" href="#공감비율순"><span class="mr-2">3.2.2</span><span>공감비율순</span></a></li><li><a class="is-flex" href="#답글순"><span class="mr-2">3.2.3</span><span>답글순</span></a></li></ul></li></ul></li><li><a class="is-flex" href="#reddit-comment-sorting-algorithms"><span class="mr-2">4</span><span>Reddit Comment Sorting
-Algorithms</span></a><ul class="menu-list"><li><a class="is-flex" href="#best"><span class="mr-2">4.1</span><span>Best</span></a></li><li><a class="is-flex" href="#controversial"><span class="mr-2">4.2</span><span>Controversial</span></a></li></ul></li><li><a class="is-flex" href="#new-sorting-algorithms"><span class="mr-2">5</span><span>New Sorting Algorithms</span></a><ul class="menu-list"><li><a class="is-flex" href="#new-controversial"><span class="mr-2">5.1</span><span>New controversial</span></a></li><li><a class="is-flex" href="#best-anti"><span class="mr-2">5.2</span><span>Best-Anti</span></a></li></ul></li><li><a class="is-flex" href="#conclusions"><span class="mr-2">6</span><span>Conclusions</span></a></li><li><a class="is-flex" href="#future-works"><span class="mr-2">7</span><span>Future works</span></a></li><li><a class="is-flex" href="#appendix-a-wilson-score"><span class="mr-2">8</span><span>Appendix A: Wilson score</span></a></li><li><a class="is-flex" href="#references"><span class="mr-2">9</span><span>References</span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Startup/"><span class="level-start"><span class="level-item">Startup</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Tech/Engineering/"><span class="level-start"><span class="level-item">Engineering</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/ML/"><span class="level-start"><span class="level-item">ML</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/Quantum-Computing/"><span class="level-start"><span class="level-item">Quantum Computing</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time datetime="2024-01-13T12:14:00.000Z">2024-01-13</time></p><p class="title is-6"><a class="link-muted" href="/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder/">Lessons learned in my first 2 years as a startup founder</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Startup/">Startup</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-07-10T16:03:00.000Z">2021-07-11</time></p><p class="title is-6"><a class="link-muted" href="/2021/07/11/git-merge-strategies/">Git의 다양한 머지 전략 비교 - 우리 팀은 어떤 전략을 도입해야 할까?</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-03-02T19:22:00.000Z">2021-03-03</time></p><p class="title is-6"><a class="link-muted" href="/2021/03/03/pytorch-view-reshape-transpose/">PyTorch의 view, transpose, reshape 함수의 차이점 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-21T14:22:00.000Z">2021-02-21</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/21/pytorch-iterabledataset/">PyTorch의 IterableDataset을 사용해서 데이터 불러오기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-04T05:22:00.000Z">2021-02-04</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods/">Pandas Dataframe의 다양한 iteration 방법 비교</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a><p class="size-small"><span>&copy; 2024 Jihyung Moon</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+        })();</script></div></div></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="is-flex" href="#tldr"><span class="mr-2">1</span><span> TL;DR</span></a></li><li><a class="is-flex" href="#introduction"><span class="mr-2">2</span><span> Introduction</span></a></li><li><a class="is-flex" href="#naver-news-comment-sorting-system"><span class="mr-2">3</span><span> Naver News Comment Sorting System</span></a><ul class="menu-list"><li><a class="is-flex" href="#sorting-algorithms"><span class="mr-2">3.1</span><span> Sorting Algorithms</span></a></li><li><a class="is-flex" href="#limitations"><span class="mr-2">3.2</span><span> Limitations</span></a><ul class="menu-list"><li><a class="is-flex" href="#순공감순"><span class="mr-2">3.2.1</span><span> 순공감순</span></a></li><li><a class="is-flex" href="#공감비율순"><span class="mr-2">3.2.2</span><span> 공감비율순</span></a></li><li><a class="is-flex" href="#답글순"><span class="mr-2">3.2.3</span><span> 답글순</span></a></li></ul></li></ul></li><li><a class="is-flex" href="#reddit-comment-sorting-algorithms"><span class="mr-2">4</span><span> Reddit Comment Sorting Algorithms</span></a><ul class="menu-list"><li><a class="is-flex" href="#best"><span class="mr-2">4.1</span><span> Best</span></a></li><li><a class="is-flex" href="#controversial"><span class="mr-2">4.2</span><span> Controversial</span></a></li></ul></li><li><a class="is-flex" href="#new-sorting-algorithms"><span class="mr-2">5</span><span> New Sorting Algorithms</span></a><ul class="menu-list"><li><a class="is-flex" href="#new-controversial"><span class="mr-2">5.1</span><span> New controversial</span></a></li><li><a class="is-flex" href="#best-anti"><span class="mr-2">5.2</span><span> Best-Anti</span></a></li></ul></li><li><a class="is-flex" href="#conclusions"><span class="mr-2">6</span><span> Conclusions</span></a></li><li><a class="is-flex" href="#future-works"><span class="mr-2">7</span><span> Future works</span></a></li><li><a class="is-flex" href="#appendix-a-wilson-score"><span class="mr-2">8</span><span> Appendix A: Wilson score</span></a></li><li><a class="is-flex" href="#references"><span class="mr-2">9</span><span> References</span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Startup/"><span class="level-start"><span class="level-item">Startup</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Tech/Engineering/"><span class="level-start"><span class="level-item">Engineering</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/ML/"><span class="level-start"><span class="level-item">ML</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Tech/Quantum-Computing/"><span class="level-start"><span class="level-item">Quantum Computing</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time datetime="2024-01-13T12:14:00.000Z">2024-01-13</time></p><p class="title is-6"><a class="link-muted" href="/2024/01/13/lessons-learned-in-the-first-2-years-as-a-startup-founder/">Lessons learned in my first 2 years as a startup founder</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Startup/">Startup</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-07-10T16:03:00.000Z">2021-07-11</time></p><p class="title is-6"><a class="link-muted" href="/2021/07/11/git-merge-strategies/">Git의 다양한 머지 전략 비교 - 우리 팀은 어떤 전략을 도입해야 할까?</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-03-02T19:22:00.000Z">2021-03-03</time></p><p class="title is-6"><a class="link-muted" href="/2021/03/03/pytorch-view-reshape-transpose/">PyTorch의 view, transpose, reshape 함수의 차이점 이해하기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-21T14:22:00.000Z">2021-02-21</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/21/pytorch-iterabledataset/">PyTorch의 IterableDataset을 사용해서 데이터 불러오기</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article><article class="media"><div class="media-content size-small"><p><time datetime="2021-02-04T05:22:00.000Z">2021-02-04</time></p><p class="title is-6"><a class="link-muted" href="/2021/02/04/pandas-dataframe-iteration-methods/">Pandas Dataframe의 다양한 iteration 방법 비교</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Tech/">Tech</a> / <a class="link-muted" href="/categories/Tech/Engineering/">Engineering</a></p></div></article></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/space_moon.png" alt="Space Moon" height="28"></a><p class="size-small"><span>&copy; 2025 Jihyung Moon</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             site: {
                 url: 'https://www.thespacemoon.com',
                 external_link: {"enable":true,"exclude":[]}
