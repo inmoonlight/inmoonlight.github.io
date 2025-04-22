@@ -84,7 +84,7 @@ x_1  \binom{y_0}{y_1} \end{pmatrix}
 0\\ 0\\0\\0 \\ 1 \\ 0 \\ 0 \\ 0
 \end{pmatrix}
 \]</p>
-<p>이와 같이 tensor product의 결과로 표현된 벡터는 product state라고 한다. 여기서 우리는 \(n\)개 qbit의 product state 크기가 \(2^n\) 이라는 것을 알 수 있다.<br>
+<p>이와 같이 tensor product의 결과로 표현된 벡터는 product state라고 한다. 여기서 우리는 \(n\)개 qbit의 product state 크기가 \(2^n\) 이라는 것을 알 수 있다.
 만약<br>
 \(
 \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} \otimes \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} =
@@ -146,8 +146,8 @@ C = \begin{pmatrix}
 \end{pmatrix}
 \]</p>
 <img src="/assets/images/CNOT_examples.png?style=centerme" width="60%" alt="2-qbits에 적용한 CNOT 예시">
-<p><a href="#bit-operations">2.4</a>와 <a href="#cnot-one-of-the-2-bit-operations">2.5</a>에서 operation들을 matrix화 한 것에 주목하자.<br>
-확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.<br>
+<p><a href="#bit-operations">2.4</a>와 <a href="#cnot-one-of-the-2-bit-operations">2.5</a>에서 operation들을 matrix화 한 것에 주목하자.
+확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.
 아래의 예시에서 우리가 확신할 수 있는 정보는 qbit이 0과 1로 관측될 확률이 반대가 되었다는 것이다.</p>
 <p>\[
 \begin{pmatrix}
@@ -159,15 +159,15 @@ C = \begin{pmatrix}
 \frac{\sqrt{3}}{2} \\ \frac{1}{2}
 \end{pmatrix}
 \]</p>
-<p>항상 0 혹은 1로 관측되는 \(\mid0\rangle\)이나 \(\mid1\rangle\)을 쓰면 matrix 연산을 고집하지 않아도 되지만 이런 qbit만 사용할거라면 고전컴퓨터를 쓰면 그만이다.<br>
+<p>항상 0 혹은 1로 관측되는 \(\mid0\rangle\)이나 \(\mid1\rangle\)을 쓰면 matrix 연산을 고집하지 않아도 되지만 이런 qbit만 사용할거라면 고전컴퓨터를 쓰면 그만이다.
 굳이 0K 가까이 되는 험악한 조건을 유지해가며 계산할 필요가 없다.</p>
-<p>그래서 matrix 연산은 양자 컴퓨팅에서 굉장히 중요하다. 여기에는 한가지 추가조건이 있는데, 반드시 연산에 사용되는 matrix는 <strong>reversible</strong>해야한다는 것이다.<br>
+<p>그래서 matrix 연산은 양자 컴퓨팅에서 굉장히 중요하다. 여기에는 한가지 추가조건이 있는데, 반드시 연산에 사용되는 matrix는 <strong>reversible</strong>해야한다는 것이다.
 따라서 앞서 본 1-bit 연산 중 Constant-1과 Constant-0를 계산하기 위해서는 단순 matrix를 곱하는 것 외의 다른 방법이 필요하다.</p>
 <h2 id="the-deutsch-jozsa-problem"><a class="markdownIt-Anchor" href="#the-deutsch-jozsa-problem"></a> The Deutsch-Jozsa problem</h2>
 <p>이 문제<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="<https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm#Problem_statement>
 ">[1]</span></a></sup>는 양자컴퓨터가 고전컴퓨터에 비해 계산적인 이점을 가지는 아주 간단한 (<s><em>동시에 쓸데없는</em></s>) 문제다.</p>
 <blockquote>
-<p>1-bit를 입력받아서 1-bit를 내뱉는 어떤 함수가 있다고 하자.<br>
+<p>1-bit를 입력받아서 1-bit를 내뱉는 어떤 함수가 있다고 하자.
 만약 이 함수가 Constant(Contant-0, Constant-1)인지, 아니면 Variable(Identity, Negation)인지 알기 위해서는 최소 몇 번의 query를 날려야 할까?</p>
 </blockquote>
 <h3 id="classical-computer"><a class="markdownIt-Anchor" href="#classical-computer"></a> Classical computer</h3>
@@ -226,40 +226,40 @@ H\mid1\rangle = \begin{pmatrix}
 \]</p>
 <h4 id="x-gate"><a class="markdownIt-Anchor" href="#x-gate"></a> X gate</h4>
 <p>X gate는 qbit의 위 아래를 바꿔준다.</p>
-<p>\[<br>
-X =<br>
-\begin{pmatrix}<br>
-0 &amp; 1 \\<br>
-1 &amp; 0<br>
-\end{pmatrix}<br>
+<p>\[
+X =
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}
 \]</p>
-<p>\[<br>
-\begin{pmatrix}<br>
-0 &amp; 1 \\<br>
-1 &amp; 0<br>
-\end{pmatrix}<br>
-\begin{pmatrix}<br>
-0 \\ 1<br>
-\end{pmatrix}<br>
-= \begin{pmatrix}<br>
-1 \\ 0<br>
-\end{pmatrix}<br>
+<p>\[
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix}
+= \begin{pmatrix}
+1 \\ 0
+\end{pmatrix}
 \]</p>
-<p>\[<br>
-\begin{pmatrix}<br>
-0 &amp; 1 \\<br>
-1 &amp; 0<br>
-\end{pmatrix}<br>
-\begin{pmatrix}<br>
-\frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-= \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
+<p>\[
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+\frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix}
+= \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix}
 \]</p>
 <p>H gate와 X gate 연산을 이해하기 쉽게 표현하면 아래의 그림이 된다. 붉은색이 X gate, 노란색이 H gate 연산의 방향이다.</p>
 <img src="/assets/images/gates-visualization.png?style=centerme" width="80%">
-<p>\(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\)에 X - H - X - H - X gate를 씌운 결과는 그림으로 보면 더 쉽게 이해된다.<br>
+<p>\(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\)에 X - H - X - H - X gate를 씌운 결과는 그림으로 보면 더 쉽게 이해된다.
 \(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\)에서 출발해 각 gate가 연산되는 방향으로 화살표를 움직이면 마지막에 도달하는 곳이 결과값이 된다.</p>
 <img src="/assets/images/quantum_logic_operation_example.png?style=centerme" width="80%">
 <h4 id="non-reversible-matrix"><a class="markdownIt-Anchor" href="#non-reversible-matrix"></a> non-reversible matrix</h4>
@@ -291,88 +291,88 @@ X =<br>
 <img src="/assets/images/quantum_bb_const_1.png?style=centerme" width="80%" alt="BB가 Constant-1인 경우 Input'과 Output'">
 <h4 id="case-3-bb가-identity-이었을-경우"><a class="markdownIt-Anchor" href="#case-3-bb가-identity-이었을-경우"></a> case 3) BB가 Identity 이었을 경우</h4>
 <p>Identity는 CNOT gate를 통해 연산된다. 앞에서 CNOT 연산은<br>
-\(<br>
-\begin{pmatrix}<br>
-1 &amp; 0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 1 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 &amp; 1 \\<br>
-0 &amp; 0 &amp; 1 &amp; 0 \\<br>
-\end{pmatrix}<br>
-\)<br>
-을 곱하는 것과 같다고 설명했다.<br>
+\(
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix}
+\)
+을 곱하는 것과 같다고 설명했다.
 Preprocessing을 거친 Input과 Output은<br>
-\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-\)<br>
+\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{pmatrix}
+\)
 이므로 CNOT연산은 아래와 같이 표현할 수 있다.</p>
-<p>\[<br>
-C \begin{pmatrix}<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{-1}{\sqrt{2}}<br>
-\end{pmatrix} \otimes<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-\end{pmatrix} = C \begin{pmatrix}<br>
-\frac{1}{2} \\<br>
-\frac{-1}{2} \\<br>
-\frac{-1}{2} \\<br>
-\frac{1}{2}<br>
-\end{pmatrix} = \frac{1}{2} \begin{pmatrix}<br>
-1 &amp; 0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 1 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 &amp; 1 \\<br>
-0 &amp; 0 &amp; 1 &amp; 0 \\<br>
-\end{pmatrix} \begin{pmatrix}<br>
-1 \\<br>
--1 \\<br>
--1 \\<br>
-1<br>
-\end{pmatrix} = \frac{1}{2} \begin{pmatrix}<br>
-1 \\<br>
--1 \\<br>
-1 \\<br>
--1<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix} \otimes<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
+<p>\[
+C \begin{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{pmatrix} \otimes
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{pmatrix}
+\end{pmatrix} = C \begin{pmatrix}
+\frac{1}{2} \\
+\frac{-1}{2} \\
+\frac{-1}{2} \\
+\frac{1}{2}
+\end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix} \begin{pmatrix}
+1 \\
+-1 \\
+-1 \\
+1
+\end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+1 \\
+-1 \\
+1 \\
+-1
+\end{pmatrix} = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix} \otimes
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{pmatrix}
 \]</p>
-<p>즉 Input은<br>
-\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-\)<br>
-에서<br>
-\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix}\)<br>
-로 바뀌고 Output은 그대로<br>
-\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-\)<br>
-이 된다.<br>
+<p>즉 Input은
+\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{pmatrix}
+\)
+에서
+\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}\)
+로 바뀌고 Output은 그대로
+\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{pmatrix}
+\)
+이 된다.
 이 상태에서 H gate가 각각 적용되어 최종 결과는 \(\mid 01 \rangle\)이 된다.</p>
 <img src="/assets/images/identity.png?style=centerme" width="55%" alt="Identity">
 <img src="/assets/images/quantum_bb_identity.png?style=centerme" width="80%" alt="BB가 Identity인 경우 Input'과 Output'">
 <h4 id="case-4-bb가-negation-이었을-경우"><a class="markdownIt-Anchor" href="#case-4-bb가-negation-이었을-경우"></a> case 4) BB가 Negation 이었을 경우</h4>
-<p>Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산이다.<br>
+<p>Negation은 Indentity의 결과 중 Output에만 X gate가 추가되는 연산이다.
 따라서 아래 그림처럼 연산이 이루어지고 Identity와 마찬가지로 최종 결과는 \(\mid 01 \rangle\)이 된다.</p>
 <img src="/assets/images/negation.png?style=centerme" width="55%" alt="Negation">
 <img src="/assets/images/quantum_bb_negation.png?style=centerme" width="80%" alt="BB가 Negation인 경우 Input'과 Output'">
@@ -380,78 +380,78 @@ C \begin{pmatrix}<br>
 <h2 id="entanglement"><a class="markdownIt-Anchor" href="#entanglement"></a> Entanglement</h2>
 <p>Entanglement는 지금까지의 흐름에서는 동떨어진 이야기지만 양자컴퓨터에서 항상 소개되는 내용이기 때문에 추가하였다.</p>
 <p>앞서 qbit과 product state의 성질을 수학적으로 나타낸 것처럼 entanglement도 수학적인 성질로 표현할 수 있다.</p>
-<p>\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-0 \\<br>
-0 \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-\)<br>
-는 entangle된 qbit인데, 그 모양새가 product state와 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.<br>
-위에서 설명했듯이 product state는 개별적인 qbit으로 factorize된다. 하지만 entanlged qbit은 개별적인 qbit으로 factorize 되지 않는다.<br>
+<p>\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\)
+는 entangle된 qbit인데, 그 모양새가 product state와 닮아있다. 하지만 product state와는 중요한 성질에서 차이를 보인다.
+위에서 설명했듯이 product state는 개별적인 qbit으로 factorize된다. 하지만 entanlged qbit은 개별적인 qbit으로 factorize 되지 않는다.
 (If the product state of two qbits <strong>cannot be factored</strong>, they are said to be <strong>entanlged</strong>.)<br>
 이 때문에 entangled qbit은 차원이 늘어난 하나의 qbit으로 볼 수 있으며 일부를 관측했을 때 나머지 일부의 상태가 유추된다.</p>
-<p>\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-0 \\<br>
-0 \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
-\)<br>
-이 entangle 되었음을 증명하는 것은 간단하다.<br>
-\(<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-0 \\<br>
-0 \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-a \\<br>
-b<br>
-\end{pmatrix} \otimes \begin{pmatrix}<br>
-c \\<br>
-d<br>
-\end{pmatrix}<br>
-\)<br>
+<p>\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\)
+이 entangle 되었음을 증명하는 것은 간단하다.
+\(
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+a \\
+b
+\end{pmatrix} \otimes \begin{pmatrix}
+c \\
+d
+\end{pmatrix}
+\)
 를 만족하는 \(a\), \(b\), \(c\), \(d\)는 존재하지 않기 때문에 이는 entanlge되어 있는 qbit이다.</p>
 <p>Entanlged qbit은 CNOT과 H gate를 통해 쉽게 생성할 수 있다.</p>
 <img src="/assets/images/entanlge.png?style=centerme" width="50%" alt="Entangled qbit">
-<p>\[<br>
-CH_1<br>
-\begin{pmatrix}<br>
-\begin{pmatrix}<br>
-1 \\<br>
-0<br>
-\end{pmatrix} \otimes \begin{pmatrix}<br>
-1 \\<br>
-0<br>
-\end{pmatrix}<br>
-\end{pmatrix} = C \begin{pmatrix}<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix} \otimes \begin{pmatrix}<br>
-1 \\ 0<br>
-\end{pmatrix}<br>
-\end{pmatrix} =<br>
-\begin{pmatrix}<br>
-1 &amp; 0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 1 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 &amp; 1 \\<br>
-0 &amp; 0 &amp; 1 &amp; 0 \\<br>
-\end{pmatrix} \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-0 \\<br>
-\frac{1}{\sqrt{2}} \\<br>
-0<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-0 \\<br>
-0 \\<br>
-\frac{1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
+<p>\[
+CH_1
+\begin{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}
+\end{pmatrix} = C \begin{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\ 0
+\end{pmatrix}
+\end{pmatrix} =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix} \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+\frac{1}{\sqrt{2}} \\
+0
+\end{pmatrix} = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}
 \]</p>
 <p>만약 이후에 이런 게이트의 조합을 본다면 곧바로 ‘entanlge 되었군!’ 이라고 생각하면 된다 😃</p>
 <h2 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h2>
