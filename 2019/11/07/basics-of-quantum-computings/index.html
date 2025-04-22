@@ -12,8 +12,8 @@
 <li>superposition이란 동시에 0과 1의 상태를 띠는 성질로, 병렬연산이 가능해져서 고전컴퓨터에 비해 계산 속도의 이점이 생긴다.</li>
 </ul>
 <p>텍스트만 보면 “아 그렇구나.” 싶은 내용들이다. 이해가 된 것일까 싶었지만 스스로에게 세 질문을 던졌을 때 답하지 못하는 것을 보며 제대로 이해하지 못했음을 인지했다. <br></p>
-<p>    <strong>Q1.</strong> n개의 bit로도 \(2^n\)을 표현할 수 있는거 아닌가? 3개의 bit가 000, 001, 010, 011, 100, 101, 110, 111 이렇게 8개의 상태를 표현할 수 있으니까. <br><br>
-    <strong>Q2.</strong> 양자 세계는 불확정성 원리에 지배받는다고 하는데, 대체 양자컴퓨터로 어떻게 연산하고 있는 것이며, 이 성질이 어떻게 계산 비용을 감소시킬 수 있는걸까? <br><br>
+<p>    <strong>Q1.</strong> n개의 bit로도 \(2^n\)을 표현할 수 있는거 아닌가? 3개의 bit가 000, 001, 010, 011, 100, 101, 110, 111 이렇게 8개의 상태를 표현할 수 있으니까. <br>
+    <strong>Q2.</strong> 양자 세계는 불확정성 원리에 지배받는다고 하는데, 대체 양자컴퓨터로 어떻게 연산하고 있는 것이며, 이 성질이 어떻게 계산 비용을 감소시킬 수 있는걸까? <br>
     <strong>Q3.</strong> Entanglement는 qbit들이 어떻게 된 상태인거지?</p>
 <p>이 질문들에 제대로 답하기 위해서는 수학이 필요하다는 생각이 들었다. 4차원 이상의 공간을 제대로 시각화하지 못하듯이 양자 세계를 자연어로 표현한다는 것 자체가 말이 되지 않는 것 같았기 때문이다. 그래서 수학으로 설명된 자료를 찾으려고 부던히 애를 썼고, 끝내 “내 수준에 맞는” (= 이 글을 읽을 모두가 다 이해할 수 있는) 수학으로 설명된 자료를 찾았다.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F_Riqjdh2oM?style=centerme" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -53,9 +53,9 @@ where \(\alpha\) and \(\beta\) are complex numbers must be constrained by the eq
 <h3 id="superposition"><a class="markdownIt-Anchor" href="#superposition"></a> Superposition</h3>
 <p>양자컴퓨터의 qbit을 설명할 때 빠지지 않는 성질이다. &quot;동시에 0과 1을 가진다.&quot;는 문장으로 자주 설명되지만 이보다는 슈뢰딩거의 고양이 느낌이 물씬 나는 “When we measure a qbit, it collapses to an actual value of 0 or 1.” 이라는 문장이 더 좋은 설명인 것 같다.</p>
 <p>위에서 qbit이라고 언급했던 벡터 하나를 예시로 들어보자.</p>
-<p>\[\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}}<br>
+<p>\[\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
 \end{pmatrix}\]</p>
 <p>이 qbit은 \(0\) 혹은 \(1\)로 collapse될 확률이 \(\frac{1}{2}\) ( \(= || \frac{1}{\sqrt{2}} || ^2\)) 이다.</p>
 <p>감사하게도 <a href="https://quantum-computing.ibm.com/" rel="external nofollow noopener noreferrer" target="_blank">IBM은 자사의 양자컴퓨터를 사용할 수 있는 API</a>를 만들어 놓았다. 여기서 이 qbit을 만들고 1024번 관측해보면 0과 1이 50%씩 나오는 것을 확인할 수 있다.</p>
@@ -68,96 +68,96 @@ where \(\alpha\) and \(\beta\) are complex numbers must be constrained by the eq
 <h3 id="tensor-product"><a class="markdownIt-Anchor" href="#tensor-product"></a> Tensor product</h3>
 <p>여러 개의 qbit을 나타내기 위해 Tensor product 개념이 필요하다.<br>
 수학적으로 엄밀한 표현은 아니지만, n개의 qbit 연산을 표현하기 위해서는 아래의 표기 방식을 따르는 것이 좋다.</p>
-<p>\[<br>
-\binom{x_0}{x_1} \otimes \binom{y_0}{y_1}<br>
-= \begin{pmatrix} x_0  \binom{y_0}{y_1} \\<br>
-x_1  \binom{y_0}{y_1} \end{pmatrix}<br>
-= \begin{pmatrix} x_0 y_0 \\ x_0 y_1 \\ x_1 y_0 \\ x_1 y_1 \end{pmatrix}<br>
+<p>\[
+\binom{x_0}{x_1} \otimes \binom{y_0}{y_1}
+= \begin{pmatrix} x_0  \binom{y_0}{y_1} \\
+x_1  \binom{y_0}{y_1} \end{pmatrix}
+= \begin{pmatrix} x_0 y_0 \\ x_0 y_1 \\ x_1 y_0 \\ x_1 y_1 \end{pmatrix}
 \]</p>
 <p>이를 응용하면 2개, 3개의 qbit도 벡터처럼 표현할 수 있다.</p>
-<p>\[<br>
-|01\rangle = \binom{1}{0} \otimes \binom{0}{1} = \begin{pmatrix}<br>
-0 \\ 1 \\ 0 \\ 0<br>
-\end{pmatrix}<br>
-\hspace{10pt}<br>
-|100\rangle = \binom{0}{1} \otimes \binom{1}{0} \otimes \binom{1}{0} = \begin{pmatrix}<br>
-0\\ 0\\0\\0 \\ 1 \\ 0 \\ 0 \\ 0<br>
-\end{pmatrix}<br>
+<p>\[
+|01\rangle = \binom{1}{0} \otimes \binom{0}{1} = \begin{pmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}
+\hspace{10pt}
+|100\rangle = \binom{0}{1} \otimes \binom{1}{0} \otimes \binom{1}{0} = \begin{pmatrix}
+0\\ 0\\0\\0 \\ 1 \\ 0 \\ 0 \\ 0
+\end{pmatrix}
 \]</p>
 <p>이와 같이 tensor product의 결과로 표현된 벡터는 product state라고 한다. 여기서 우리는 \(n\)개 qbit의 product state 크기가 \(2^n\) 이라는 것을 알 수 있다.<br>
 만약<br>
-\(<br>
-\binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} \otimes \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} =<br>
-\begin{pmatrix}<br>
-\frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2}<br>
-\end{pmatrix}<br>
-\)<br>
+\(
+\binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} \otimes \binom{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}} =
+\begin{pmatrix}
+\frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2}
+\end{pmatrix}
+\)
 의 multiple qbits 이 있다면 \(\mid 00\rangle\), \(\mid 01\rangle\), \(\mid 10\rangle\), \(\mid 11\rangle\)으로 collapse될 확률이 모두 \(\frac{1}{4}\)이므로 동시에 4개의 state를 표현할 수 있게 된다. 즉, qbit이 bit와는 다르게 \(2^n\)개의 state를 표현할 수 있다고 한 것은 <em>동시에</em> 가질 수 있는 최대 state 관점에서 비교한 것이다. bit는 절대로 동시에 2개 이상의 state를 가질 수 없으므로 한 번에 계산할 수 있는 정보는 1개 뿐이다.</p>
 <p>또한 product state는, 뒤의 entanglement와 구분되는 중요한 성질로, <strong>독립적인 state들로 factorize가 가능</strong>하다는 점이 있다.</p>
 <p>Multiple qbits의 product state 또한 single qbit과 같은 성질을 만족시킨다.</p>
-<p>\[<br>
-\binom{a}{b} \otimes \binom{c}{d} =<br>
-\begin{pmatrix}<br>
-ac \\ ad \\ bc \\ bd<br>
-\end{pmatrix}<br>
+<p>\[
+\binom{a}{b} \otimes \binom{c}{d} =
+\begin{pmatrix}
+ac \\ ad \\ bc \\ bd
+\end{pmatrix}
 \]</p>
-<p>\[<br>
-\text{where, } ||ac||^2 + ||ad||^2 + ||bc||^2 + ||bd||^2 = 1<br>
+<p>\[
+\text{where, } ||ac||^2 + ||ad||^2 + ||bc||^2 + ||bd||^2 = 1
 \]</p>
 <h3 id="1-bit-operations"><a class="markdownIt-Anchor" href="#1-bit-operations"></a> 1-bit operations</h3>
 <p>1-bit에서 가능한 연산은 Identity, Negation, Constant-0, Constant-1의 총 4가지가 있다.</p>
 <img src="/assets/images/1bit_operations.png?style=centerme" width="40%" alt="1-bit 연산의 4 종류">
 <p>각각의 연산은 matrix로 표현할 수 있다.</p>
-<p>\[<br>
-\text{Identity} = \begin{pmatrix}<br>
-1 &amp; 0 \\<br>
-0 &amp; 1<br>
-\end{pmatrix}<br>
-\]<br>
-\[<br>
-\text{Negation} = \begin{pmatrix}<br>
-0 &amp; 1 \\<br>
-1 &amp; 0<br>
-\end{pmatrix}<br>
-\]<br>
-\[<br>
-\text{Contant-0} = \begin{pmatrix}<br>
-1 &amp; 1 \\<br>
-0 &amp; 0<br>
-\end{pmatrix}<br>
-\]<br>
-\[<br>
-\text{Contant-1} = \begin{pmatrix}<br>
-0 &amp; 0 \\<br>
-1 &amp; 1<br>
-\end{pmatrix}<br>
+<p>\[
+\text{Identity} = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+\]
+\[
+\text{Negation} = \begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}
+\]
+\[
+\text{Contant-0} = \begin{pmatrix}
+1 &amp; 1 \\
+0 &amp; 0
+\end{pmatrix}
+\]
+\[
+\text{Contant-1} = \begin{pmatrix}
+0 &amp; 0 \\
+1 &amp; 1
+\end{pmatrix}
 \]</p>
 <img src="/assets/images/1bit_matrix.png?style=centerme" width="70%" alt="1-bit 연산의 matrix 표현">
 <h3 id="cnot-one-of-the-2-bit-operations"><a class="markdownIt-Anchor" href="#cnot-one-of-the-2-bit-operations"></a> CNOT (one of the 2-bit operations)</h3>
 <p>CNOT 연산은 control bit와 target bit로 구성된 2-bit가 있을 때 control bit가 0이면 target bit를 바꾸지 않고, control bit가 1일 때 target bit를 바꾸는 연산이다.</p>
 <img src="/assets/images/CNOT_operation.png?style=centerme" width="25%" alt="CNOT">
 <p>마찬가지로 이 연산도 matrix로 표현할 수 있다.</p>
-<p>\[<br>
-C = \begin{pmatrix}<br>
-1 &amp; 0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 1 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 &amp; 1 \\<br>
-0 &amp; 0 &amp; 1 &amp; 0 \\<br>
-\end{pmatrix}<br>
+<p>\[
+C = \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix}
 \]</p>
 <img src="/assets/images/CNOT_examples.png?style=centerme" width="60%" alt="2-qbits에 적용한 CNOT 예시">
 <p><a href="#bit-operations">2.4</a>와 <a href="#cnot-one-of-the-2-bit-operations">2.5</a>에서 operation들을 matrix화 한 것에 주목하자.<br>
 확률이 지배하는 양자 세계에서 deterministic한 연산을 하기 위해서는 matrix를 관측하지 않은 qbit에 곱하는 것이 유일한 방법이기 때문이다.<br>
 아래의 예시에서 우리가 확신할 수 있는 정보는 qbit이 0과 1로 관측될 확률이 반대가 되었다는 것이다.</p>
-<p>\[<br>
-\begin{pmatrix}<br>
-0 &amp; 1 \\<br>
-1 &amp; 0<br>
-\end{pmatrix} \begin{pmatrix}<br>
-\frac{1}{2} \\ \frac{\sqrt{3}}{2}<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-\frac{\sqrt{3}}{2} \\ \frac{1}{2}<br>
-\end{pmatrix}<br>
+<p>\[
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix} \begin{pmatrix}
+\frac{1}{2} \\ \frac{\sqrt{3}}{2}
+\end{pmatrix} = \begin{pmatrix}
+\frac{\sqrt{3}}{2} \\ \frac{1}{2}
+\end{pmatrix}
 \]</p>
 <p>항상 0 혹은 1로 관측되는 \(\mid0\rangle\)이나 \(\mid1\rangle\)을 쓰면 matrix 연산을 고집하지 않아도 되지만 이런 qbit만 사용할거라면 고전컴퓨터를 쓰면 그만이다.<br>
 굳이 0K 가까이 되는 험악한 조건을 유지해가며 계산할 필요가 없다.</p>
@@ -176,53 +176,53 @@ C = \begin{pmatrix}<br>
 <p>예상했듯이 정답은 한 번이다. 왜인지 알기위해서는 추가적인 개념이 필요하다.</p>
 <h4 id="hadamard-gate"><a class="markdownIt-Anchor" href="#hadamard-gate"></a> Hadamard gate</h4>
 <p>앞서 언급된 적 있는 H gate이다.</p>
-<p>\[<br>
-H = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
+<p>\[
+H = \begin{pmatrix}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix}
 \]</p>
 <p>Hadamard gate는 0- 혹은 1-qbit을 받아서 0과 1을 같은 확률로 가지는 qbit으로 바꿔준다.</p>
-<p>\[<br>
-H\mid0\rangle = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix} \begin{pmatrix}<br>
-1 \\ 0<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
+<p>\[
+H\mid0\rangle = \begin{pmatrix}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+1 \\ 0
+\end{pmatrix} = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix}
 \]</p>
-<p>\[<br>
-H\mid1\rangle = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix} \begin{pmatrix}<br>
-0 \\ 1<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix}<br>
+<p>\[
+H\mid1\rangle = \begin{pmatrix}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+0 \\ 1
+\end{pmatrix} = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix}
 \]</p>
 <p>Hadamard gate는 또 다른 중요한 성질이 있다. 0과 1을 같은 확률로 가지는 qbit을 다시 0- 과 1-qbit으로 돌려보낸다는 것이다.</p>
-<p>\[<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix} \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-1 \\ 0<br>
-\end{pmatrix}<br>
+<p>\[
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+1 \\ 0
+\end{pmatrix}
 \]</p>
-<p>\[<br>
-\begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\<br>
-\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix} \begin{pmatrix}<br>
-\frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}<br>
-\end{pmatrix} = \begin{pmatrix}<br>
-0 \\ 1<br>
-\end{pmatrix}<br>
+<p>\[
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{pmatrix} \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 1
+\end{pmatrix}
 \]</p>
 <h4 id="x-gate"><a class="markdownIt-Anchor" href="#x-gate"></a> X gate</h4>
 <p>X gate는 qbit의 위 아래를 바꿔준다.</p>
